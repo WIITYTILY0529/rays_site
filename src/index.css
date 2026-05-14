@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+  --rays-navy: #092C5C;
+  --rays-light-blue: #8FBCE6;
+  --rays-gold: #F5D130;
+  --accent: #092C5C;
+
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-color: #f9fafb;
+  color: #1f2937;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Touch-friendly tap targets */
+button,
+[role="tab"],
+a {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  :root {
+    font-size: 14px;
+  }
+}
