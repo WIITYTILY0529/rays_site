@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import type { HitterStats, PitcherStats, Player } from '../services/types';
-import { sortHittersByWOBA, sortPitchersByERA } from '../utils/sorting';
+import type { MiLBHitterStats, MiLBPitcherStats, Player } from '../services/types';
 import {
   getTeamRoster,
   getPlayerGameLog,
@@ -13,12 +12,11 @@ import {
 const SEASON = 2026;
 const PITCHER_POSITIONS = new Set(['P', 'SP', 'RP', 'CL']);
 
-const AFFILIATE_NAMES = [
-  'Durham Bulls',
-  'Montgomery Biscuits',
-  'Bowling Green Hot Rods',
-  'Charleston RiverDogs',
-];
+// Quality gates for "All" tab only
+const ALL_TAB_MIN_PA = 10;
+const ALL_TAB_MIN_IP = 2;
+
+type AffiliateKey = 'All' | 'AAA' | 'AA' | 'High A' | 'A';
 
 /**
  * Filter game log entries to only those within the trailing window.
@@ -33,20 +31,19 @@ function filterGameLogByWindow(gameLog: any[], windowDays: number): any[] {
 }
 
 /**
- * Calculate hitter stats from game log entries within the window.
+ * Calculate MiLB hitter stats from game log entries.
  */
-function calculateHitterStatsFromLog(
+function calculateMiLBHitterStats(
   player: Player,
-  entries: any[]
-): HitterStats | null {
+  entries: any[],
+  level: string
+): MiLBHitterStats | null {
   if (entries.length === 0) return null;
 
   let totalPA = 0;
   let totalAB = 0;
   let totalH = 0;
   let totalHR = 0;
-  let totalRBI = 0;
-  let totalSB = 0;
   let totalBB = 0;
   let totalHBP = 0;
   let totalSF = 0;
@@ -59,8 +56,6 @@ function calculateHitterStatsFromLog(
     totalAB += stat.atBats ?? 0;
     totalH += stat.hits ?? 0;
     totalHR += stat.homeRuns ?? 0;
-    totalRBI += stat.rbi ?? 0;
-    totalSB += stat.stolenBases ?? 0;
     totalBB += stat.baseOnBalls ?? 0;
     totalHBP += stat.hitByPitch ?? 0;
     totalSF += stat.sacFlies ?? 0;
@@ -76,44 +71,35 @@ function calculateHitterStatsFromLog(
     ? (0.69 * totalBB + 0.72 * totalHBP + 0.89 * singles + 1.27 * totalDoubles + 1.62 * totalTriples + 2.10 * totalHR) / denominator
     : 0;
 
-  const obp = denominator > 0 ? (totalH + totalBB + totalHBP) / denominator : 0;
-  const slg = totalAB > 0 ? (singles + 2 * totalDoubles + 3 * totalTriples + 4 * totalHR) / totalAB : 0;
-  const ops = obp + slg;
-
-  const leagueWOBA = 0.320;
-  const wRCPlus = leagueWOBA > 0 ? Math.round((wOBA / leagueWOBA) * 100) : 100;
+  const avg = totalAB > 0 ? totalH / totalAB : 0;
 
   return {
     playerId: player.id,
     name: player.fullName,
     position: player.position,
+    level,
     pa: totalPA,
     wOBA: parseFloat(wOBA.toFixed(3)),
-    wRCPlus,
-    ops: parseFloat(ops.toFixed(3)),
+    avg: parseFloat(avg.toFixed(3)),
     hr: totalHR,
-    hits: totalH,
-    rbi: totalRBI,
-    sb: totalSB,
   };
 }
 
 /**
- * Calculate pitcher stats from game log entries within the window.
+ * Calculate MiLB pitcher stats from game log entries.
  */
-function calculatePitcherStatsFromLog(
+function calculateMiLBPitcherStats(
   player: Player,
-  entries: any[]
-): PitcherStats | null {
+  entries: any[],
+  level: string
+): MiLBPitcherStats | null {
   if (entries.length === 0) return null;
 
   let totalIP = 0;
   let totalER = 0;
   let totalK = 0;
-  let totalW = 0;
   let totalBB = 0;
-  let totalHR = 0;
-  let totalHBP = 0;
+  let totalH = 0;
 
   for (const entry of entries) {
     const stat = entry.stat ?? {};
@@ -125,93 +111,117 @@ function calculatePitcherStatsFromLog(
 
     totalER += stat.earnedRuns ?? 0;
     totalK += stat.strikeOuts ?? 0;
-    totalW += stat.wins ?? 0;
     totalBB += stat.baseOnBalls ?? 0;
-    totalHR += stat.homeRuns ?? 0;
-    totalHBP += stat.hitByPitch ?? 0;
+    totalH += stat.hits ?? 0;
   }
 
   if (totalIP === 0) return null;
 
   const era = (totalER / totalIP) * 9;
-  const fip = ((13 * totalHR + 3 * (totalBB + totalHBP) - 2 * totalK) / totalIP) + 3.10;
+  const whip = (totalBB + totalH) / totalIP;
 
   return {
     playerId: player.id,
     name: player.fullName,
     position: player.position,
+    level,
     ip: parseFloat(totalIP.toFixed(1)),
-    fip: parseFloat(fip.toFixed(2)),
     era: parseFloat(era.toFixed(2)),
-    wins: totalW,
+    whip: parseFloat(whip.toFixed(2)),
     strikeouts: totalK,
   };
 }
 
+/**
+ * Fetch stats for a single affiliate level.
+ */
+async function fetchAffiliateStats(
+  levelKey: string,
+  windowDays: number
+): Promise<{ hitters: MiLBHitterStats[]; pitchers: MiLBPitcherStats[] }> {
+  const affiliate = RAYS_AFFILIATES[levelKey];
+  if (!affiliate) return { hitters: [], pitchers: [] };
+
+  const { teamId, sportId, level } = affiliate;
+  const roster = await getTeamRoster(teamId, SEASON);
+
+  if (roster.length === 0) return { hitters: [], pitchers: [] };
+
+  const positionPlayers = roster.filter((p) => !PITCHER_POSITIONS.has(p.position));
+  const pitcherRoster = roster.filter((p) => PITCHER_POSITIONS.has(p.position));
+
+  // Fetch hitter game logs
+  const hitterResults = await batchFetch(
+    positionPlayers,
+    async (player: Player) => {
+      const gameLog = await getPlayerGameLog(player.id, 'hitting', SEASON, sportId);
+      const windowEntries = filterGameLogByWindow(gameLog, windowDays);
+      return calculateMiLBHitterStats(player, windowEntries, level);
+    },
+    6
+  );
+
+  const hitters: MiLBHitterStats[] = hitterResults
+    .map((r) => r.result)
+    .filter((s): s is MiLBHitterStats => s !== null);
+
+  // Fetch pitcher game logs
+  const pitcherResults = await batchFetch(
+    pitcherRoster,
+    async (player: Player) => {
+      const gameLog = await getPlayerGameLog(player.id, 'pitching', SEASON, sportId);
+      const windowEntries = filterGameLogByWindow(gameLog, windowDays);
+      return calculateMiLBPitcherStats(player, windowEntries, level);
+    },
+    6
+  );
+
+  const pitchers: MiLBPitcherStats[] = pitcherResults
+    .map((r) => r.result)
+    .filter((s): s is MiLBPitcherStats => s !== null);
+
+  return { hitters, pitchers };
+}
+
 export interface UseHotColdMiLBResult {
-  hitters: HitterStats[];
-  pitchers: PitcherStats[];
-  affiliates: string[];
+  hotHitters: MiLBHitterStats[];
+  coldHitters: MiLBHitterStats[];
+  hotPitchers: MiLBPitcherStats[];
+  coldPitchers: MiLBPitcherStats[];
   isLoading: boolean;
   isError: boolean;
   error: Error | null;
   refetch: () => void;
 }
 
-export function useHotColdMiLB(affiliate: string, window: 7 | 14 = 14): UseHotColdMiLBResult {
+export function useHotColdMiLB(affiliate: AffiliateKey, window: 7 | 14 = 14): UseHotColdMiLBResult {
   const { data, isLoading, isError, error, refetch } = useQuery<{
-    hitters: HitterStats[];
-    pitchers: PitcherStats[];
+    hitters: MiLBHitterStats[];
+    pitchers: MiLBPitcherStats[];
   }>({
     queryKey: ['hotColdMiLB', affiliate, window],
     queryFn: async () => {
-      const teamId = RAYS_AFFILIATES[affiliate];
-      if (!teamId) {
-        return { hitters: [], pitchers: [] };
+      let allHitters: MiLBHitterStats[] = [];
+      let allPitchers: MiLBPitcherStats[] = [];
+
+      if (affiliate === 'All') {
+        // Fetch all 4 affiliates
+        const levels: string[] = ['AAA', 'AA', 'High A', 'A'];
+        for (const level of levels) {
+          const { hitters, pitchers } = await fetchAffiliateStats(level, window);
+          allHitters = allHitters.concat(hitters);
+          allPitchers = allPitchers.concat(pitchers);
+        }
+        // Apply quality gates for "All" tab
+        allHitters = allHitters.filter((h) => h.pa >= ALL_TAB_MIN_PA);
+        allPitchers = allPitchers.filter((p) => p.ip >= ALL_TAB_MIN_IP);
+      } else {
+        const { hitters, pitchers } = await fetchAffiliateStats(affiliate, window);
+        allHitters = hitters;
+        allPitchers = pitchers;
       }
 
-      // Get affiliate roster
-      const roster = await getTeamRoster(teamId, SEASON);
-
-      if (roster.length === 0) {
-        return { hitters: [], pitchers: [] };
-      }
-
-      // Split roster into position players and pitchers
-      const positionPlayers = roster.filter((p) => !PITCHER_POSITIONS.has(p.position));
-      const pitcherRoster = roster.filter((p) => PITCHER_POSITIONS.has(p.position));
-
-      // Fetch hitter game logs in batches
-      const hitterResults = await batchFetch(
-        positionPlayers,
-        async (player: Player) => {
-          const gameLog = await getPlayerGameLog(player.id, 'hitting', SEASON);
-          const windowEntries = filterGameLogByWindow(gameLog, window);
-          return calculateHitterStatsFromLog(player, windowEntries);
-        },
-        6
-      );
-
-      const hitters: HitterStats[] = hitterResults
-        .map((r) => r.result)
-        .filter((s): s is HitterStats => s !== null);
-
-      // Fetch pitcher game logs in batches
-      const pitcherResults = await batchFetch(
-        pitcherRoster,
-        async (player: Player) => {
-          const gameLog = await getPlayerGameLog(player.id, 'pitching', SEASON);
-          const windowEntries = filterGameLogByWindow(gameLog, window);
-          return calculatePitcherStatsFromLog(player, windowEntries);
-        },
-        6
-      );
-
-      const pitchers: PitcherStats[] = pitcherResults
-        .map((r) => r.result)
-        .filter((s): s is PitcherStats => s !== null);
-
-      return { hitters, pitchers };
+      return { hitters: allHitters, pitchers: allPitchers };
     },
     staleTime: 10 * 60 * 1000, // 10 minutes
   });
@@ -219,14 +229,25 @@ export function useHotColdMiLB(affiliate: string, window: 7 | 14 = 14): UseHotCo
   const hitters = data?.hitters ?? [];
   const pitchers = data?.pitchers ?? [];
 
-  // Sort hitters by wOBA descending, pitchers by ERA ascending
-  const sortedHitters = sortHittersByWOBA(hitters);
-  const sortedPitchers = sortPitchersByERA(pitchers);
+  // Sort hitters by wOBA descending for hot, ascending for cold
+  const sortedByWOBADesc = [...hitters].sort((a, b) => b.wOBA - a.wOBA);
+  const sortedByWOBAAsc = [...hitters].sort((a, b) => a.wOBA - b.wOBA);
+
+  // Sort pitchers by ERA ascending for hot, descending for cold
+  const sortedByERAAsc = [...pitchers].sort((a, b) => a.era - b.era);
+  const sortedByERADesc = [...pitchers].sort((a, b) => b.era - a.era);
+
+  // Take top 5 for each section
+  const hotHitters = sortedByWOBADesc.slice(0, 5);
+  const coldHitters = sortedByWOBAAsc.slice(0, 5);
+  const hotPitchers = sortedByERAAsc.slice(0, 5);
+  const coldPitchers = sortedByERADesc.slice(0, 5);
 
   return {
-    hitters: sortedHitters,
-    pitchers: sortedPitchers,
-    affiliates: AFFILIATE_NAMES,
+    hotHitters,
+    coldHitters,
+    hotPitchers,
+    coldPitchers,
     isLoading,
     isError,
     error: error ?? null,

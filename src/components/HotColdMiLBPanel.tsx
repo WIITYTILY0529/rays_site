@@ -1,45 +1,161 @@
 import { useState } from 'react';
 import { useHotColdMiLB } from '../hooks/useHotColdMiLB';
-import { TabGroup } from './common/TabGroup';
 import { LoadingSpinner } from './common/LoadingSpinner';
 import { ErrorMessage } from './common/ErrorMessage';
-import type { HitterStats, PitcherStats } from '../services/types';
+import type { MiLBHitterStats, MiLBPitcherStats } from '../services/types';
 
-const DEFAULT_AFFILIATE = 'Durham Bulls';
+type AffiliateKey = 'All' | 'AAA' | 'AA' | 'High A' | 'A';
 
-function HitterRow({ hitter }: { hitter: HitterStats }) {
+const AFFILIATE_TABS: AffiliateKey[] = ['All', 'AAA', 'AA', 'High A', 'A'];
+const WINDOW_TABS: { label: string; value: 7 | 14 }[] = [
+  { label: 'Last 7 days', value: 7 },
+  { label: 'Last 14 days', value: 14 },
+];
+
+function HitterTable({ hitters, showLevel }: { hitters: MiLBHitterStats[]; showLevel: boolean }) {
   return (
-    <li className="flex items-center justify-between rounded px-3 py-2 hover:bg-gray-50">
-      <div className="flex items-center gap-2">
-        <span className="text-sm font-medium text-gray-800">{hitter.name}</span>
-        <span className="text-xs text-gray-500">{hitter.position}</span>
-      </div>
-      <span className="text-sm font-semibold text-gray-700">{hitter.wOBA.toFixed(3)}</span>
-    </li>
+    <table className="w-full text-sm">
+      <thead>
+        <tr className="text-xs uppercase text-gray-500">
+          <th className="pb-1 text-left font-medium">Player</th>
+          {showLevel && <th className="pb-1 text-left font-medium">Lvl</th>}
+          <th className="pb-1 text-right font-medium">PA</th>
+          <th className="pb-1 text-right font-medium">wOBA</th>
+          <th className="pb-1 text-right font-medium">AVG</th>
+          <th className="pb-1 text-right font-medium">HR</th>
+        </tr>
+      </thead>
+      <tbody>
+        {hitters.length > 0 ? (
+          hitters.map((h) => (
+            <tr key={h.playerId} className="border-t border-gray-100 hover:bg-gray-50">
+              <td className="py-1.5">
+                <a
+                  href={`https://www.milb.com/player/${h.playerId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  {h.name}
+                </a>
+                <span className="ml-1 text-xs text-gray-400">{h.position}</span>
+              </td>
+              {showLevel && <td className="py-1.5 text-gray-500">{h.level}</td>}
+              <td className="py-1.5 text-right text-gray-400">{h.pa}</td>
+              <td className="py-1.5 text-right font-medium">{h.wOBA.toFixed(3)}</td>
+              <td className="py-1.5 text-right text-gray-400">{h.avg.toFixed(3)}</td>
+              <td className="py-1.5 text-right text-gray-400">{h.hr}</td>
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td colSpan={showLevel ? 6 : 5} className="py-3 text-center text-gray-400">
+              No data available
+            </td>
+          </tr>
+        )}
+      </tbody>
+    </table>
   );
 }
 
-function PitcherRow({ pitcher }: { pitcher: PitcherStats }) {
+function PitcherTable({ pitchers, showLevel }: { pitchers: MiLBPitcherStats[]; showLevel: boolean }) {
   return (
-    <li className="flex items-center justify-between rounded px-3 py-2 hover:bg-gray-50">
-      <div className="flex items-center gap-2">
-        <span className="text-sm font-medium text-gray-800">{pitcher.name}</span>
-        <span className="text-xs text-gray-500">{pitcher.position}</span>
-      </div>
-      <span className="text-sm font-semibold text-gray-700">{pitcher.era.toFixed(2)}</span>
-    </li>
+    <table className="w-full text-sm">
+      <thead>
+        <tr className="text-xs uppercase text-gray-500">
+          <th className="pb-1 text-left font-medium">Pitcher</th>
+          {showLevel && <th className="pb-1 text-left font-medium">Lvl</th>}
+          <th className="pb-1 text-right font-medium">IP</th>
+          <th className="pb-1 text-right font-medium">ERA</th>
+          <th className="pb-1 text-right font-medium">WHIP</th>
+          <th className="pb-1 text-right font-medium">K</th>
+        </tr>
+      </thead>
+      <tbody>
+        {pitchers.length > 0 ? (
+          pitchers.map((p) => (
+            <tr key={p.playerId} className="border-t border-gray-100 hover:bg-gray-50">
+              <td className="py-1.5">
+                <a
+                  href={`https://www.milb.com/player/${p.playerId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  {p.name}
+                </a>
+                <span className="ml-1 text-xs text-gray-400">{p.position}</span>
+              </td>
+              {showLevel && <td className="py-1.5 text-gray-500">{p.level}</td>}
+              <td className="py-1.5 text-right text-gray-400">{p.ip.toFixed(1)}</td>
+              <td className="py-1.5 text-right font-medium">{p.era.toFixed(2)}</td>
+              <td className="py-1.5 text-right text-gray-400">{p.whip.toFixed(2)}</td>
+              <td className="py-1.5 text-right text-gray-400">{p.strikeouts}</td>
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td colSpan={showLevel ? 6 : 5} className="py-3 text-center text-gray-400">
+              No data available
+            </td>
+          </tr>
+        )}
+      </tbody>
+    </table>
   );
 }
 
 export function HotColdMiLBPanel() {
-  const [activeAffiliate, setActiveAffiliate] = useState(DEFAULT_AFFILIATE);
-  const { hitters, pitchers, affiliates, isLoading, isError, error, refetch } =
-    useHotColdMiLB(activeAffiliate);
+  const [activeAffiliate, setActiveAffiliate] = useState<AffiliateKey>('All');
+  const [activeWindow, setActiveWindow] = useState<7 | 14>(7);
+
+  const { hotHitters, coldHitters, hotPitchers, coldPitchers, isLoading, isError, error, refetch } =
+    useHotColdMiLB(activeAffiliate, activeWindow);
+
+  const showLevel = activeAffiliate === 'All';
 
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-      <h2 className="mb-4 text-lg font-semibold text-gray-800">마이너리그 선수 성적</h2>
-      <TabGroup tabs={affiliates} activeTab={activeAffiliate} onTabChange={setActiveAffiliate} />
+      <h2 className="mb-4 text-lg font-semibold text-gray-800">MiLB Hot / Cold</h2>
+
+      {/* Affiliate tabs */}
+      <div role="tablist" className="flex border-b border-gray-200">
+        {AFFILIATE_TABS.map((tab) => (
+          <button
+            key={tab}
+            role="tab"
+            aria-selected={tab === activeAffiliate}
+            onClick={() => setActiveAffiliate(tab)}
+            className={`px-4 py-2 text-sm font-medium transition-colors focus:outline-none ${
+              tab === activeAffiliate
+                ? 'border-b-2 border-[var(--accent)] text-[var(--accent)]'
+                : 'text-gray-500 hover:text-gray-700'
+            }`}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
+
+      {/* Window tabs */}
+      <div role="tablist" className="mt-2 flex gap-2">
+        {WINDOW_TABS.map((tab) => (
+          <button
+            key={tab.value}
+            role="tab"
+            aria-selected={tab.value === activeWindow}
+            onClick={() => setActiveWindow(tab.value)}
+            className={`rounded-full px-3 py-1 text-xs font-medium transition-colors focus:outline-none ${
+              tab.value === activeWindow
+                ? 'bg-gray-800 text-white'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
 
       <div className="mt-4">
         {isLoading && (
@@ -50,7 +166,7 @@ export function HotColdMiLBPanel() {
 
         {isError && (
           <ErrorMessage
-            message={error?.message ?? '데이터를 불러오는 중 오류가 발생했습니다.'}
+            message={error?.message ?? 'Failed to load minor league data.'}
             onRetry={() => refetch()}
             showRetry={true}
           />
@@ -58,36 +174,36 @@ export function HotColdMiLBPanel() {
 
         {!isLoading && !isError && (
           <div className="grid gap-6 md:grid-cols-2">
-            {/* 타자 - wOBA 내림차순 */}
+            {/* Hot Hitters */}
             <div>
-              <h3 className="mb-2 text-sm font-semibold text-gray-700">
-                타자 <span className="text-xs font-normal text-gray-500">(wOBA 내림차순)</span>
+              <h3 className="mb-2 text-sm font-semibold text-green-700">
+                🔥 Hottest Hitters
               </h3>
-              <ul className="space-y-1">
-                {hitters.length > 0 ? (
-                  hitters.map((hitter) => (
-                    <HitterRow key={hitter.playerId} hitter={hitter} />
-                  ))
-                ) : (
-                  <li className="px-3 py-2 text-sm text-gray-400">데이터 없음</li>
-                )}
-              </ul>
+              <HitterTable hitters={hotHitters} showLevel={showLevel} />
             </div>
 
-            {/* 투수 - ERA 오름차순 */}
+            {/* Cold Hitters */}
             <div>
-              <h3 className="mb-2 text-sm font-semibold text-gray-700">
-                투수 <span className="text-xs font-normal text-gray-500">(ERA 오름차순)</span>
+              <h3 className="mb-2 text-sm font-semibold text-blue-700">
+                🧊 Coldest Hitters
               </h3>
-              <ul className="space-y-1">
-                {pitchers.length > 0 ? (
-                  pitchers.map((pitcher) => (
-                    <PitcherRow key={pitcher.playerId} pitcher={pitcher} />
-                  ))
-                ) : (
-                  <li className="px-3 py-2 text-sm text-gray-400">데이터 없음</li>
-                )}
-              </ul>
+              <HitterTable hitters={coldHitters} showLevel={showLevel} />
+            </div>
+
+            {/* Hot Pitchers */}
+            <div>
+              <h3 className="mb-2 text-sm font-semibold text-green-700">
+                🔥 Hottest Pitchers
+              </h3>
+              <PitcherTable pitchers={hotPitchers} showLevel={showLevel} />
+            </div>
+
+            {/* Cold Pitchers */}
+            <div>
+              <h3 className="mb-2 text-sm font-semibold text-blue-700">
+                🧊 Coldest Pitchers
+              </h3>
+              <PitcherTable pitchers={coldPitchers} showLevel={showLevel} />
             </div>
           </div>
         )}

@@ -5,12 +5,12 @@ const MLB_BASE_URL = 'https://statsapi.mlb.com/api/v1';
 export const RAYS_TEAM_ID = 139;
 export const AL_EAST_DIVISION_ID = 201;
 
-// Minor league affiliate team IDs
-export const RAYS_AFFILIATES: Record<string, number> = {
-  'Durham Bulls': 235,
-  'Montgomery Biscuits': 421,
-  'Bowling Green Hot Rods': 3712,
-  'Charleston RiverDogs': 233,
+// Minor league affiliate info (teamId, sportId, level)
+export const RAYS_AFFILIATES: Record<string, { teamId: number; sportId: number; level: string }> = {
+  'AAA': { teamId: 234, sportId: 11, level: 'AAA' },
+  'AA': { teamId: 421, sportId: 12, level: 'AA' },
+  'High A': { teamId: 2498, sportId: 13, level: 'High A' },
+  'A': { teamId: 233, sportId: 14, level: 'A' },
 };
 
 const TIMEOUT_MS = 10000;
@@ -169,13 +169,18 @@ export async function getPlayerStats(
 /**
  * Get player game log for a specific stat group and season.
  * Endpoint: /people/{playerId}/stats?stats=gameLog&group={group}&season={season}
+ * For MiLB players, sportId is required to get results.
  */
 export async function getPlayerGameLog(
   playerId: number,
   group: 'hitting' | 'pitching',
-  season: number
+  season: number,
+  sportId?: number
 ): Promise<any[]> {
-  const url = `${MLB_BASE_URL}/people/${playerId}/stats?stats=gameLog&group=${group}&season=${season}`;
+  let url = `${MLB_BASE_URL}/people/${playerId}/stats?stats=gameLog&group=${group}&season=${season}`;
+  if (sportId) {
+    url += `&sportId=${sportId}`;
+  }
   const response = await fetchWithTimeout(url);
   const data = await response.json();
 

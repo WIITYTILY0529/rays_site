@@ -133,6 +133,30 @@ export interface ErrorMessageProps {
   showRetry: boolean;
 }
 
+// MiLB 타자 통계 (jays.baby style)
+export interface MiLBHitterStats {
+  playerId: number;
+  name: string;
+  position: string;
+  level: string; // 'AAA', 'AA', 'High A', 'A'
+  pa: number;
+  wOBA: number;
+  avg: number;
+  hr: number;
+}
+
+// MiLB 투수 통계 (jays.baby style)
+export interface MiLBPitcherStats {
+  playerId: number;
+  name: string;
+  position: string;
+  level: string; // 'AAA', 'AA', 'High A', 'A'
+  ip: number;
+  era: number;
+  whip: number;
+  strikeouts: number;
+}
+
 // Quality Gate 상수
 export const QUALITY_GATES: Record<number, QualityGate> = {
   7: { window: 7, minPA: 10, minIP: 2 },
