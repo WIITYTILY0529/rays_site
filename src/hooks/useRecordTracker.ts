@@ -93,14 +93,23 @@ export function useRecordTracker() {
 
       const gamesPlayed2026 = season2026Games.length;
 
-      // Current 2026 record
-      const currentRecord2026 = gamesPlayed2026 > 0
-        ? { wins: season2026Games[gamesPlayed2026 - 1].cumulativeWins, losses: season2026Games[gamesPlayed2026 - 1].cumulativeLosses }
-        : { wins: 0, losses: 0 };
+      // Current 2026 record from standings API (more accurate, includes in-progress games)
+      const teamStanding = standings2026.find(
+        (t) => t.teamName.toLowerCase().includes(team.name.toLowerCase().split(' ').pop() ?? '')
+      );
+      const currentRecord2026 = teamStanding
+        ? { wins: teamStanding.wins, losses: teamStanding.losses }
+        : gamesPlayed2026 > 0
+          ? { wins: season2026Games[gamesPlayed2026 - 1].cumulativeWins, losses: season2026Games[gamesPlayed2026 - 1].cumulativeLosses }
+          : { wins: 0, losses: 0 };
+
+      // Use standings-based games played for comparison (more accurate)
+      const standingsGamesPlayed = currentRecord2026.wins + currentRecord2026.losses;
+      const effectiveGamesPlayed = standingsGamesPlayed > 0 ? standingsGamesPlayed : gamesPlayed2026;
 
       // 2025 record at same game count
-      const record2025AtSamePoint = gamesPlayed2026 > 0 && season2025Games.length >= gamesPlayed2026
-        ? { wins: season2025Games[gamesPlayed2026 - 1].cumulativeWins, losses: season2025Games[gamesPlayed2026 - 1].cumulativeLosses }
+      const record2025AtSamePoint = effectiveGamesPlayed > 0 && season2025Games.length >= effectiveGamesPlayed
+        ? { wins: season2025Games[effectiveGamesPlayed - 1].cumulativeWins, losses: season2025Games[effectiveGamesPlayed - 1].cumulativeLosses }
         : { wins: 0, losses: 0 };
 
       // Home/Away splits for 2026
@@ -126,7 +135,7 @@ export function useRecordTracker() {
         homeRecord2026,
         awayRecord2026,
         pythagRecord2026,
-        gamesPlayed2026,
+        gamesPlayed2026: effectiveGamesPlayed,
         divisionStandings: standings2026,
       };
     },
