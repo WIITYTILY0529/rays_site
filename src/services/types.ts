@@ -157,6 +157,37 @@ export interface MiLBPitcherStats {
   strikeouts: number;
 }
 
+// MiLB Notable Players - Season Hitter Stats
+export interface MiLBSeasonHitter {
+  playerId: number;
+  name: string;
+  position: string;
+  level: string;
+  G: number;
+  PA: number;
+  HR: number;
+  SB: number;
+  BB: number;
+  K: number;
+  OBP: number;
+  SLG: number;
+  BABIP: number;
+}
+
+// MiLB Notable Players - Season Pitcher Stats
+export interface MiLBSeasonPitcher {
+  playerId: number;
+  name: string;
+  position: string;
+  level: string;
+  G: number;
+  GS: number;
+  IP: number;
+  ERA: number;
+  K9: number;
+  BB9: number;
+}
+
 // Quality Gate 상수
 export const QUALITY_GATES: Record<number, QualityGate> = {
   7: { window: 7, minPA: 10, minIP: 2 },

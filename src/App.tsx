@@ -4,7 +4,7 @@ import { TEAMS } from './services/teamConfig';
 import { PlayoffOddsPanel } from './components/PlayoffOddsPanel';
 import { RecordTracker } from './components/RecordTracker';
 import { SeasonStatsPanel } from './components/SeasonStatsPanel';
-import { HotColdMiLBPanel } from './components/HotColdMiLBPanel';
+import { MiLBNotablePanel } from './components/MiLBNotablePanel';
 import { PacePanel } from './components/PacePanel';
 import { SchedulePanel } from './components/SchedulePanel';
 import { ScoutingPanel } from './components/ScoutingPanel';
@@ -126,10 +126,10 @@ function App() {
             </PanelErrorBoundary>
           </div>
 
-          {/* Row 3: Hot/Cold MiLB - full width */}
+          {/* Row 3: MiLB Notable Players - full width */}
           <div className="md:col-span-2">
             <PanelErrorBoundary fallbackLabel="마이너리그 선수 성적">
-              <HotColdMiLBPanel />
+              <MiLBNotablePanel />
             </PanelErrorBoundary>
           </div>
 

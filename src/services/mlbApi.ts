@@ -144,13 +144,18 @@ export async function getStandings(leagueId: number, season: number, divisionId?
 /**
  * Get player season stats for a specific stat group.
  * Endpoint: /people/{playerId}/stats?stats=season&group={group}&season={season}
+ * For MiLB players, sportId is required to get results.
  */
 export async function getPlayerStats(
   playerId: number,
   group: 'hitting' | 'pitching',
-  season: number
+  season: number,
+  sportId?: number
 ): Promise<any | null> {
-  const url = `${MLB_BASE_URL}/people/${playerId}/stats?stats=season&group=${group}&season=${season}`;
+  let url = `${MLB_BASE_URL}/people/${playerId}/stats?stats=season&group=${group}&season=${season}`;
+  if (sportId) {
+    url += `&sportId=${sportId}`;
+  }
   const response = await fetchWithTimeout(url);
   const data = await response.json();
 

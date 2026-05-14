@@ -137,7 +137,7 @@ function SeasonHittersTable({ hitters }: { hitters: FangraphsHitter[] }) {
               <td className="px-2 py-1.5 text-right tabular-nums">{fmtPct(h.bbPct)}</td>
               <td className="px-2 py-1.5 text-right tabular-nums">{fmtPct(h.kPct)}</td>
               <td className="px-2 py-1.5 text-right tabular-nums">{fmtBabip(h.BABIP)}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{fmtBabip(h.barrelPct)}</td>
+              <td className="px-2 py-1.5 text-right tabular-nums">{fmtPct(h.barrelPct)}</td>
               <td className="px-2 py-1.5 text-right tabular-nums">{fmtInt(h.wRCPlus)}</td>
               <td className="px-2 py-1.5 text-right tabular-nums">{fmtWar(h.WAR)}</td>
             </tr>
