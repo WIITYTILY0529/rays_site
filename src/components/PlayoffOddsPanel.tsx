@@ -101,8 +101,15 @@ export function PlayoffOddsPanel() {
                 width={40}
               />
               <Tooltip
-                formatter={(value: number) => [`${value}%`, '플레이오프']}
-                labelFormatter={(label: string) => label}
+                content={({ active, payload, label }) => {
+                  if (!active || !payload || payload.length === 0) return null;
+                  return (
+                    <div className="rounded border border-gray-200 bg-white px-3 py-2 text-xs shadow-sm">
+                      <p className="font-medium text-gray-700">{label}</p>
+                      <p className="text-gray-600">{payload[0]?.value}% 플레이오프</p>
+                    </div>
+                  );
+                }}
               />
               <Line
                 type="monotone"
