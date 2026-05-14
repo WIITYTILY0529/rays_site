@@ -2,36 +2,153 @@ import { useQuery } from '@tanstack/react-query';
 import type { HitterStats, PitcherStats } from '../services/types';
 import { sortHittersByWOBA, sortPitchersByFIP } from '../utils/sorting';
 import { filterColdHitters, filterColdPitchers, ensureMutualExclusion } from '../utils/filtering';
+import {
+  getTeamRoster,
+  getPlayerGameLog,
+  batchFetch,
+  getToday,
+  addDays,
+  RAYS_TEAM_ID,
+} from '../services/mlbApi';
+import type { Player } from '../services/types';
 
-// Mock data with realistic Tampa Bay Rays player names
-function generateMockHitters(window: 7 | 14): HitterStats[] {
-  const baseHitters: HitterStats[] = [
-    { playerId: 1, name: 'Yandy Díaz', position: '1B', pa: window === 7 ? 28 : 52, wOBA: 0.420, wRCPlus: 165, ops: 0.950, hr: 3, hits: 12, rbi: 8, sb: 0 },
-    { playerId: 2, name: 'Josh Lowe', position: 'LF', pa: window === 7 ? 30 : 55, wOBA: 0.385, wRCPlus: 145, ops: 0.890, hr: 2, hits: 10, rbi: 6, sb: 3 },
-    { playerId: 3, name: 'Randy Arozarena', position: 'RF', pa: window === 7 ? 26 : 48, wOBA: 0.365, wRCPlus: 135, ops: 0.860, hr: 4, hits: 9, rbi: 10, sb: 2 },
-    { playerId: 4, name: 'Brandon Lowe', position: '2B', pa: window === 7 ? 25 : 50, wOBA: 0.340, wRCPlus: 125, ops: 0.820, hr: 2, hits: 8, rbi: 5, sb: 1 },
-    { playerId: 5, name: 'Isaac Paredes', position: '3B', pa: window === 7 ? 27 : 51, wOBA: 0.330, wRCPlus: 120, ops: 0.800, hr: 1, hits: 7, rbi: 4, sb: 0 },
-    { playerId: 6, name: 'Harold Ramírez', position: 'DH', pa: window === 7 ? 24 : 46, wOBA: 0.310, wRCPlus: 110, ops: 0.760, hr: 1, hits: 8, rbi: 3, sb: 0 },
-    { playerId: 7, name: 'José Siri', position: 'CF', pa: window === 7 ? 22 : 44, wOBA: 0.275, wRCPlus: 85, ops: 0.680, hr: 1, hits: 5, rbi: 2, sb: 4 },
-    { playerId: 8, name: 'Taylor Walls', position: 'SS', pa: window === 7 ? 20 : 42, wOBA: 0.260, wRCPlus: 75, ops: 0.620, hr: 0, hits: 4, rbi: 1, sb: 1 },
-    { playerId: 9, name: 'René Pinto', position: 'C', pa: window === 7 ? 18 : 38, wOBA: 0.245, wRCPlus: 68, ops: 0.590, hr: 0, hits: 3, rbi: 2, sb: 0 },
-    { playerId: 10, name: 'Curtis Mead', position: 'DH', pa: window === 7 ? 21 : 40, wOBA: 0.230, wRCPlus: 60, ops: 0.560, hr: 0, hits: 3, rbi: 1, sb: 0 },
-  ];
-  return baseHitters;
+const SEASON = 2026;
+
+// Position players (non-pitchers)
+const PITCHER_POSITIONS = new Set(['P', 'SP', 'RP', 'CL']);
+
+/**
+ * Filter game log entries to only those within the trailing window.
+ */
+function filterGameLogByWindow(gameLog: any[], windowDays: number): any[] {
+  const today = getToday();
+  const windowStart = addDays(today, -windowDays);
+  return gameLog.filter((entry: any) => {
+    const gameDate = entry.date ?? '';
+    return gameDate >= windowStart && gameDate <= today;
+  });
 }
 
-function generateMockPitchers(window: 7 | 14): PitcherStats[] {
-  const basePitchers: PitcherStats[] = [
-    { playerId: 101, name: 'Shane McClanahan', position: 'SP', ip: window === 7 ? 12 : 24, fip: 2.65, era: 2.80, wins: 2, strikeouts: 18 },
-    { playerId: 102, name: 'Tyler Glasnow', position: 'SP', ip: window === 7 ? 13 : 26, fip: 2.90, era: 3.10, wins: 1, strikeouts: 20 },
-    { playerId: 103, name: 'Zach Eflin', position: 'SP', ip: window === 7 ? 11 : 22, fip: 3.15, era: 3.30, wins: 1, strikeouts: 14 },
-    { playerId: 104, name: 'Pete Fairbanks', position: 'RP', ip: window === 7 ? 5 : 10, fip: 3.40, era: 3.20, wins: 0, strikeouts: 8 },
-    { playerId: 105, name: 'Jason Adam', position: 'RP', ip: window === 7 ? 6 : 12, fip: 3.60, era: 3.50, wins: 1, strikeouts: 9 },
-    { playerId: 106, name: 'Drew Rasmussen', position: 'SP', ip: window === 7 ? 10 : 20, fip: 3.90, era: 4.10, wins: 0, strikeouts: 12 },
-    { playerId: 107, name: 'Taj Bradley', position: 'SP', ip: window === 7 ? 9 : 18, fip: 4.50, era: 4.80, wins: 0, strikeouts: 10 },
-    { playerId: 108, name: 'Colin Poche', position: 'RP', ip: window === 7 ? 4 : 8, fip: 5.20, era: 5.50, wins: 0, strikeouts: 5 },
-  ];
-  return basePitchers;
+/**
+ * Calculate hitter stats from game log entries within the window.
+ */
+function calculateHitterStatsFromLog(
+  player: Player,
+  entries: any[]
+): HitterStats | null {
+  if (entries.length === 0) return null;
+
+  let totalPA = 0;
+  let totalAB = 0;
+  let totalH = 0;
+  let totalHR = 0;
+  let totalRBI = 0;
+  let totalSB = 0;
+  let totalBB = 0;
+  let totalHBP = 0;
+  let totalSF = 0;
+  let totalDoubles = 0;
+  let totalTriples = 0;
+
+  for (const entry of entries) {
+    const stat = entry.stat ?? {};
+    totalPA += stat.plateAppearances ?? 0;
+    totalAB += stat.atBats ?? 0;
+    totalH += stat.hits ?? 0;
+    totalHR += stat.homeRuns ?? 0;
+    totalRBI += stat.rbi ?? 0;
+    totalSB += stat.stolenBases ?? 0;
+    totalBB += stat.baseOnBalls ?? 0;
+    totalHBP += stat.hitByPitch ?? 0;
+    totalSF += stat.sacFlies ?? 0;
+    totalDoubles += stat.doubles ?? 0;
+    totalTriples += stat.triples ?? 0;
+  }
+
+  if (totalPA === 0) return null;
+
+  // Calculate wOBA: (0.69*BB + 0.72*HBP + 0.89*1B + 1.27*2B + 1.62*3B + 2.10*HR) / (AB + BB + SF + HBP)
+  const singles = totalH - totalDoubles - totalTriples - totalHR;
+  const denominator = totalAB + totalBB + totalSF + totalHBP;
+  const wOBA = denominator > 0
+    ? (0.69 * totalBB + 0.72 * totalHBP + 0.89 * singles + 1.27 * totalDoubles + 1.62 * totalTriples + 2.10 * totalHR) / denominator
+    : 0;
+
+  // Calculate OPS components
+  const obp = denominator > 0 ? (totalH + totalBB + totalHBP) / denominator : 0;
+  const slg = totalAB > 0 ? (singles + 2 * totalDoubles + 3 * totalTriples + 4 * totalHR) / totalAB : 0;
+  const ops = obp + slg;
+
+  // Approximate wRC+ (100 is league average, scale wOBA relative to ~.320 league avg)
+  const leagueWOBA = 0.320;
+  const wRCPlus = leagueWOBA > 0 ? Math.round((wOBA / leagueWOBA) * 100) : 100;
+
+  return {
+    playerId: player.id,
+    name: player.fullName,
+    position: player.position,
+    pa: totalPA,
+    wOBA: parseFloat(wOBA.toFixed(3)),
+    wRCPlus,
+    ops: parseFloat(ops.toFixed(3)),
+    hr: totalHR,
+    hits: totalH,
+    rbi: totalRBI,
+    sb: totalSB,
+  };
+}
+
+/**
+ * Calculate pitcher stats from game log entries within the window.
+ */
+function calculatePitcherStatsFromLog(
+  player: Player,
+  entries: any[]
+): PitcherStats | null {
+  if (entries.length === 0) return null;
+
+  let totalIP = 0;
+  let totalER = 0;
+  let totalK = 0;
+  let totalW = 0;
+  let totalBB = 0;
+  let totalHR = 0;
+  let totalHBP = 0;
+
+  for (const entry of entries) {
+    const stat = entry.stat ?? {};
+    // Innings pitched comes as string like "6.1" meaning 6 and 1/3
+    const ipStr = stat.inningsPitched ?? '0';
+    const ipParts = ipStr.split('.');
+    const fullInnings = parseInt(ipParts[0] ?? '0', 10);
+    const partialInnings = parseInt(ipParts[1] ?? '0', 10);
+    totalIP += fullInnings + partialInnings / 3;
+
+    totalER += stat.earnedRuns ?? 0;
+    totalK += stat.strikeOuts ?? 0;
+    totalW += stat.wins ?? 0;
+    totalBB += stat.baseOnBalls ?? 0;
+    totalHR += stat.homeRuns ?? 0;
+    totalHBP += stat.hitByPitch ?? 0;
+  }
+
+  if (totalIP === 0) return null;
+
+  const era = (totalER / totalIP) * 9;
+
+  // FIP = ((13*HR + 3*(BB+HBP) - 2*K) / IP) + 3.10 (constant)
+  const fip = ((13 * totalHR + 3 * (totalBB + totalHBP) - 2 * totalK) / totalIP) + 3.10;
+
+  return {
+    playerId: player.id,
+    name: player.fullName,
+    position: player.position,
+    ip: parseFloat(totalIP.toFixed(1)),
+    fip: parseFloat(fip.toFixed(2)),
+    era: parseFloat(era.toFixed(2)),
+    wins: totalW,
+    strikeouts: totalK,
+  };
 }
 
 export interface UseHotColdMLBResult {
@@ -52,21 +169,59 @@ export function useHotColdMLB(window: 7 | 14): UseHotColdMLBResult {
   }>({
     queryKey: ['hotColdMLB', window],
     queryFn: async () => {
-      // For now, returns mock data since game log data requires multiple API calls
-      return {
-        hitters: generateMockHitters(window),
-        pitchers: generateMockPitchers(window),
-      };
+      // Get Rays roster
+      const roster = await getTeamRoster(RAYS_TEAM_ID, SEASON);
+
+      if (roster.length === 0) {
+        return { hitters: [], pitchers: [] };
+      }
+
+      // Split roster into position players and pitchers
+      const positionPlayers = roster.filter((p) => !PITCHER_POSITIONS.has(p.position));
+      const pitchers = roster.filter((p) => PITCHER_POSITIONS.has(p.position));
+
+      // Fetch hitter game logs in batches
+      const hitterResults = await batchFetch(
+        positionPlayers,
+        async (player: Player) => {
+          const gameLog = await getPlayerGameLog(player.id, 'hitting', SEASON);
+          const windowEntries = filterGameLogByWindow(gameLog, window);
+          return calculateHitterStatsFromLog(player, windowEntries);
+        },
+        8
+      );
+
+      const hitters: HitterStats[] = hitterResults
+        .map((r) => r.result)
+        .filter((s): s is HitterStats => s !== null);
+
+      // Fetch pitcher game logs in batches
+      const pitcherResults = await batchFetch(
+        pitchers,
+        async (player: Player) => {
+          const gameLog = await getPlayerGameLog(player.id, 'pitching', SEASON);
+          const windowEntries = filterGameLogByWindow(gameLog, window);
+          return calculatePitcherStatsFromLog(player, windowEntries);
+        },
+        8
+      );
+
+      const pitcherStats: PitcherStats[] = pitcherResults
+        .map((r) => r.result)
+        .filter((s): s is PitcherStats => s !== null);
+
+      return { hitters, pitchers: pitcherStats };
     },
+    staleTime: 10 * 60 * 1000, // 10 minutes
   });
 
   const hitters = data?.hitters ?? [];
-  const pitchers = data?.pitchers ?? [];
+  const pitchersList = data?.pitchers ?? [];
 
   // Sort hitters by wOBA descending (hot = top of list)
   const sortedHitters = sortHittersByWOBA(hitters);
   // Sort pitchers by FIP ascending (hot = top of list)
-  const sortedPitchers = sortPitchersByFIP(pitchers);
+  const sortedPitchers = sortPitchersByFIP(pitchersList);
 
   // Filter cold lists
   const coldHittersList = filterColdHitters(sortedHitters);

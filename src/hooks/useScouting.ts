@@ -1,56 +1,188 @@
 import { useQuery } from '@tanstack/react-query';
-import type { HitterStats, PitcherStats, ScoutingPlayerCard, SparklineDataPoint } from '../services/types';
+import type { HitterStats, PitcherStats, ScoutingPlayerCard, SparklineDataPoint, Player } from '../services/types';
 import { sortHittersByWOBA, sortPitchersByFIP } from '../utils/sorting';
 import { applyQualityGate } from '../utils/filtering';
+import {
+  getTeamRoster,
+  getTeamSchedule,
+  getPlayerGameLog,
+  batchFetch,
+  getToday,
+  addDays,
+  RAYS_TEAM_ID,
+} from '../services/mlbApi';
 
-// Generate sparkline data for 30-day view
-function generateSparklineData(baseValue: number, variance: number): SparklineDataPoint[] {
-  const points: SparklineDataPoint[] = [];
-  for (let i = 0; i < 10; i++) {
-    const date = `2026-06-${String(i + 1).padStart(2, '0')}`;
-    const value = baseValue + (Math.sin(i * 0.8) * variance);
-    points.push({ date, value: parseFloat(value.toFixed(2)) });
+const SEASON = 2026;
+const PITCHER_POSITIONS = new Set(['P', 'SP', 'RP', 'CL']);
+
+/**
+ * Filter game log entries to only those within the trailing window.
+ */
+function filterGameLogByWindow(gameLog: any[], windowDays: number): any[] {
+  const today = getToday();
+  const windowStart = addDays(today, -windowDays);
+  return gameLog.filter((entry: any) => {
+    const gameDate = entry.date ?? '';
+    return gameDate >= windowStart && gameDate <= today;
+  });
+}
+
+/**
+ * Calculate hitter stats from game log entries.
+ */
+function calculateHitterStatsFromLog(
+  player: Player,
+  entries: any[]
+): HitterStats | null {
+  if (entries.length === 0) return null;
+
+  let totalPA = 0;
+  let totalAB = 0;
+  let totalH = 0;
+  let totalHR = 0;
+  let totalRBI = 0;
+  let totalSB = 0;
+  let totalBB = 0;
+  let totalHBP = 0;
+  let totalSF = 0;
+  let totalDoubles = 0;
+  let totalTriples = 0;
+
+  for (const entry of entries) {
+    const stat = entry.stat ?? {};
+    totalPA += stat.plateAppearances ?? 0;
+    totalAB += stat.atBats ?? 0;
+    totalH += stat.hits ?? 0;
+    totalHR += stat.homeRuns ?? 0;
+    totalRBI += stat.rbi ?? 0;
+    totalSB += stat.stolenBases ?? 0;
+    totalBB += stat.baseOnBalls ?? 0;
+    totalHBP += stat.hitByPitch ?? 0;
+    totalSF += stat.sacFlies ?? 0;
+    totalDoubles += stat.doubles ?? 0;
+    totalTriples += stat.triples ?? 0;
   }
-  return points;
+
+  if (totalPA === 0) return null;
+
+  const singles = totalH - totalDoubles - totalTriples - totalHR;
+  const denominator = totalAB + totalBB + totalSF + totalHBP;
+  const wOBA = denominator > 0
+    ? (0.69 * totalBB + 0.72 * totalHBP + 0.89 * singles + 1.27 * totalDoubles + 1.62 * totalTriples + 2.10 * totalHR) / denominator
+    : 0;
+
+  const obp = denominator > 0 ? (totalH + totalBB + totalHBP) / denominator : 0;
+  const slg = totalAB > 0 ? (singles + 2 * totalDoubles + 3 * totalTriples + 4 * totalHR) / totalAB : 0;
+  const ops = obp + slg;
+
+  const leagueWOBA = 0.320;
+  const wRCPlus = leagueWOBA > 0 ? Math.round((wOBA / leagueWOBA) * 100) : 100;
+
+  return {
+    playerId: player.id,
+    name: player.fullName,
+    position: player.position,
+    pa: totalPA,
+    wOBA: parseFloat(wOBA.toFixed(3)),
+    wRCPlus,
+    ops: parseFloat(ops.toFixed(3)),
+    hr: totalHR,
+    hits: totalH,
+    rbi: totalRBI,
+    sb: totalSB,
+  };
 }
 
-// Mock opponent 40-man roster hitters
-function generateMockOpponentHitters(window: 7 | 14 | 30): HitterStats[] {
-  const paMultiplier = window === 7 ? 1 : window === 14 ? 2 : 4;
-  return [
-    { playerId: 201, name: 'Aaron Judge', position: 'RF', pa: 12 * paMultiplier, wOBA: 0.450, wRCPlus: 185, ops: 1.020, hr: 5, hits: 14, rbi: 12, sb: 1 },
-    { playerId: 202, name: 'Juan Soto', position: 'LF', pa: 11 * paMultiplier, wOBA: 0.410, wRCPlus: 165, ops: 0.960, hr: 3, hits: 12, rbi: 8, sb: 0 },
-    { playerId: 203, name: 'Anthony Volpe', position: 'SS', pa: 10 * paMultiplier, wOBA: 0.350, wRCPlus: 125, ops: 0.820, hr: 2, hits: 9, rbi: 5, sb: 3 },
-    { playerId: 204, name: 'Gleyber Torres', position: '2B', pa: 9 * paMultiplier, wOBA: 0.320, wRCPlus: 110, ops: 0.780, hr: 1, hits: 8, rbi: 4, sb: 1 },
-    { playerId: 205, name: 'Austin Wells', position: 'C', pa: 8 * paMultiplier, wOBA: 0.310, wRCPlus: 105, ops: 0.750, hr: 2, hits: 7, rbi: 5, sb: 0 },
-    { playerId: 206, name: 'Jazz Chisholm Jr.', position: '3B', pa: 10 * paMultiplier, wOBA: 0.295, wRCPlus: 95, ops: 0.720, hr: 1, hits: 6, rbi: 3, sb: 4 },
-    { playerId: 207, name: 'Alex Verdugo', position: 'DH', pa: 7 * paMultiplier, wOBA: 0.270, wRCPlus: 80, ops: 0.660, hr: 0, hits: 5, rbi: 2, sb: 0 },
-    { playerId: 208, name: 'Ben Rice', position: '1B', pa: 6 * paMultiplier, wOBA: 0.250, wRCPlus: 70, ops: 0.620, hr: 1, hits: 4, rbi: 2, sb: 0 },
-    { playerId: 209, name: 'Trent Grisham', position: 'CF', pa: 5 * paMultiplier, wOBA: 0.230, wRCPlus: 60, ops: 0.580, hr: 0, hits: 3, rbi: 1, sb: 2 },
-  ];
+/**
+ * Calculate pitcher stats from game log entries.
+ */
+function calculatePitcherStatsFromLog(
+  player: Player,
+  entries: any[]
+): PitcherStats | null {
+  if (entries.length === 0) return null;
+
+  let totalIP = 0;
+  let totalER = 0;
+  let totalK = 0;
+  let totalW = 0;
+  let totalBB = 0;
+  let totalHR = 0;
+  let totalHBP = 0;
+
+  for (const entry of entries) {
+    const stat = entry.stat ?? {};
+    const ipStr = stat.inningsPitched ?? '0';
+    const ipParts = ipStr.split('.');
+    const fullInnings = parseInt(ipParts[0] ?? '0', 10);
+    const partialInnings = parseInt(ipParts[1] ?? '0', 10);
+    totalIP += fullInnings + partialInnings / 3;
+
+    totalER += stat.earnedRuns ?? 0;
+    totalK += stat.strikeOuts ?? 0;
+    totalW += stat.wins ?? 0;
+    totalBB += stat.baseOnBalls ?? 0;
+    totalHR += stat.homeRuns ?? 0;
+    totalHBP += stat.hitByPitch ?? 0;
+  }
+
+  if (totalIP === 0) return null;
+
+  const era = (totalER / totalIP) * 9;
+  const fip = ((13 * totalHR + 3 * (totalBB + totalHBP) - 2 * totalK) / totalIP) + 3.10;
+
+  return {
+    playerId: player.id,
+    name: player.fullName,
+    position: player.position,
+    ip: parseFloat(totalIP.toFixed(1)),
+    fip: parseFloat(fip.toFixed(2)),
+    era: parseFloat(era.toFixed(2)),
+    wins: totalW,
+    strikeouts: totalK,
+  };
 }
 
-// Mock opponent 40-man roster pitchers
-function generateMockOpponentPitchers(window: 7 | 14 | 30): PitcherStats[] {
-  const ipMultiplier = window === 7 ? 1 : window === 14 ? 2 : 4;
-  return [
-    { playerId: 301, name: 'Gerrit Cole', position: 'SP', ip: 6 * ipMultiplier, fip: 2.80, era: 2.95, wins: 2, strikeouts: 12 },
-    { playerId: 302, name: 'Carlos Rodón', position: 'SP', ip: 5 * ipMultiplier, fip: 3.20, era: 3.40, wins: 1, strikeouts: 10 },
-    { playerId: 303, name: 'Marcus Stroman', position: 'SP', ip: 5 * ipMultiplier, fip: 3.60, era: 3.80, wins: 1, strikeouts: 7 },
-    { playerId: 304, name: 'Clay Holmes', position: 'RP', ip: 3 * ipMultiplier, fip: 3.90, era: 3.50, wins: 0, strikeouts: 6 },
-    { playerId: 305, name: 'Luke Weaver', position: 'RP', ip: 2 * ipMultiplier, fip: 4.20, era: 4.50, wins: 0, strikeouts: 5 },
-    { playerId: 306, name: 'Tim Hill', position: 'RP', ip: 2 * ipMultiplier, fip: 4.80, era: 5.10, wins: 0, strikeouts: 3 },
-    { playerId: 307, name: 'Clarke Schmidt', position: 'SP', ip: 4 * ipMultiplier, fip: 3.45, era: 3.60, wins: 1, strikeouts: 8 },
-  ];
+/**
+ * Generate sparkline data from game log entries (daily wRC+ or ERA over time).
+ */
+function generateSparklineFromGameLog(entries: any[], isHitter: boolean): SparklineDataPoint[] {
+  if (entries.length === 0) return [];
+
+  // Take up to 10 most recent entries for sparkline
+  const recent = entries.slice(-10);
+  return recent.map((entry: any) => {
+    const stat = entry.stat ?? {};
+    const date = entry.date ?? '';
+    let value: number;
+
+    if (isHitter) {
+      // Use OPS as sparkline value for hitters
+      value = parseFloat(stat.ops ?? '0');
+    } else {
+      // Use ERA as sparkline value for pitchers
+      value = parseFloat(stat.era ?? '0');
+    }
+
+    return { date, value: parseFloat(value.toFixed(2)) };
+  });
 }
 
-// Determine which pitchers are probable starters for the upcoming series
-function markProbableStarters(pitchers: PitcherStats[]): Map<number, boolean> {
-  const starters = new Map<number, boolean>();
-  // Mark first 2 SPs as probable starters
-  const sps = pitchers.filter((p) => p.position === 'SP');
-  sps.slice(0, 2).forEach((p) => starters.set(p.playerId, true));
-  return starters;
+/**
+ * Determine the next opponent from the Rays schedule.
+ */
+async function getNextOpponent(): Promise<{ name: string; teamId: number } | null> {
+  const today = getToday();
+  const endDate = addDays(today, 7);
+  const schedule = await getTeamSchedule(RAYS_TEAM_ID, today, endDate);
+
+  if (schedule.length === 0) return null;
+
+  const nextGame = schedule[0];
+  return {
+    name: nextGame.opponent,
+    teamId: nextGame.opponentId,
+  };
 }
 
 export interface UseScoutingResult {
@@ -69,14 +201,131 @@ export function useScouting(window: 7 | 14 | 30, opponent: string): UseScoutingR
   const { data, isLoading, isError, error, refetch } = useQuery<{
     hitters: HitterStats[];
     pitchers: PitcherStats[];
+    scoutingCards: ScoutingPlayerCard[];
+    opponentName: string;
   }>({
     queryKey: ['scouting', opponent, window],
     queryFn: async () => {
-      return {
-        hitters: generateMockOpponentHitters(window),
-        pitchers: generateMockOpponentPitchers(window),
-      };
+      // Determine the opponent - use provided name or find next opponent
+      let opponentInfo: { name: string; teamId: number } | null = null;
+
+      if (opponent) {
+        // Try to find the opponent team ID from the schedule
+        const today = getToday();
+        const endDate = addDays(today, 14);
+        const schedule = await getTeamSchedule(RAYS_TEAM_ID, today, endDate);
+        const matchingGame = schedule.find((g: any) =>
+          g.opponent.toLowerCase().includes(opponent.toLowerCase())
+        );
+        if (matchingGame) {
+          opponentInfo = { name: matchingGame.opponent, teamId: matchingGame.opponentId };
+        }
+      }
+
+      if (!opponentInfo) {
+        opponentInfo = await getNextOpponent();
+      }
+
+      if (!opponentInfo || !opponentInfo.teamId) {
+        return { hitters: [], pitchers: [], scoutingCards: [], opponentName: opponent || 'Unknown' };
+      }
+
+      // Get opponent roster
+      const roster = await getTeamRoster(opponentInfo.teamId, SEASON);
+
+      if (roster.length === 0) {
+        return { hitters: [], pitchers: [], scoutingCards: [], opponentName: opponentInfo.name };
+      }
+
+      const positionPlayers = roster.filter((p) => !PITCHER_POSITIONS.has(p.position));
+      const pitcherRoster = roster.filter((p) => PITCHER_POSITIONS.has(p.position));
+
+      // Fetch hitter game logs
+      const hitterResults = await batchFetch(
+        positionPlayers,
+        async (player: Player) => {
+          const gameLog = await getPlayerGameLog(player.id, 'hitting', SEASON);
+          const windowEntries = filterGameLogByWindow(gameLog, window);
+          const stats = calculateHitterStatsFromLog(player, windowEntries);
+          const sparkline = window === 30 ? generateSparklineFromGameLog(gameLog.slice(-30), true) : [];
+          return { stats, sparkline };
+        },
+        6
+      );
+
+      const hitters: HitterStats[] = [];
+      const hitterSparklines = new Map<number, SparklineDataPoint[]>();
+
+      for (const { result } of hitterResults) {
+        if (result?.stats) {
+          hitters.push(result.stats);
+          if (result.sparkline.length > 0) {
+            hitterSparklines.set(result.stats.playerId, result.sparkline);
+          }
+        }
+      }
+
+      // Fetch pitcher game logs
+      const pitcherResults = await batchFetch(
+        pitcherRoster,
+        async (player: Player) => {
+          const gameLog = await getPlayerGameLog(player.id, 'pitching', SEASON);
+          const windowEntries = filterGameLogByWindow(gameLog, window);
+          const stats = calculatePitcherStatsFromLog(player, windowEntries);
+          const sparkline = window === 30 ? generateSparklineFromGameLog(gameLog.slice(-30), false) : [];
+          return { stats, sparkline };
+        },
+        6
+      );
+
+      const pitchers: PitcherStats[] = [];
+      const pitcherSparklines = new Map<number, SparklineDataPoint[]>();
+
+      for (const { result } of pitcherResults) {
+        if (result?.stats) {
+          pitchers.push(result.stats);
+          if (result.sparkline.length > 0) {
+            pitcherSparklines.set(result.stats.playerId, result.sparkline);
+          }
+        }
+      }
+
+      // Determine probable starters from schedule
+      const today = getToday();
+      const endDate = addDays(today, 4);
+      const opponentSchedule = await getTeamSchedule(opponentInfo.teamId, today, endDate);
+      const probableStarterIds = new Set(
+        opponentSchedule
+          .map((g: any) => g.probablePitcherId)
+          .filter(Boolean)
+      );
+
+      // Build scouting cards for 30-day window
+      const scoutingCards: ScoutingPlayerCard[] = [];
+      if (window === 30) {
+        for (const hitter of hitters) {
+          scoutingCards.push({
+            player: { id: hitter.playerId, fullName: hitter.name, position: hitter.position, team: opponentInfo.name },
+            stat: hitter.wRCPlus,
+            sparklineData: hitterSparklines.get(hitter.playerId) ?? [],
+            isProbableStarter: false,
+            colorClass: hitter.wRCPlus >= 100 ? 'green' : hitter.wRCPlus >= 80 ? 'neutral' : 'red',
+          });
+        }
+        for (const pitcher of pitchers) {
+          scoutingCards.push({
+            player: { id: pitcher.playerId, fullName: pitcher.name, position: pitcher.position, team: opponentInfo.name },
+            stat: pitcher.fip,
+            sparklineData: pitcherSparklines.get(pitcher.playerId) ?? [],
+            isProbableStarter: probableStarterIds.has(pitcher.playerId),
+            colorClass: pitcher.fip <= 3.50 ? 'green' : pitcher.fip <= 4.00 ? 'neutral' : 'red',
+          });
+        }
+      }
+
+      return { hitters, pitchers, scoutingCards, opponentName: opponentInfo.name };
     },
+    staleTime: 10 * 60 * 1000, // 10 minutes
   });
 
   const rawHitters = data?.hitters ?? [];
@@ -98,38 +347,12 @@ export function useScouting(window: 7 | 14 | 30, opponent: string): UseScoutingR
   const hotPitchers = sortedPitchers.filter((p) => p.fip <= 3.75);
   const coldPitchers = sortedPitchers.filter((p) => p.fip > 3.75);
 
-  // Mark probable starters
-  const probableStarters = markProbableStarters(rawPitchers);
-
-  // Generate scouting cards for 30-day view
-  const scoutingCards: ScoutingPlayerCard[] = [];
-  if (window === 30) {
-    for (const hitter of sortedHitters) {
-      scoutingCards.push({
-        player: { id: hitter.playerId, fullName: hitter.name, position: hitter.position, team: opponent },
-        stat: hitter.wRCPlus,
-        sparklineData: generateSparklineData(hitter.wRCPlus, 15),
-        isProbableStarter: false,
-        colorClass: hitter.wRCPlus >= 100 ? 'green' : hitter.wRCPlus >= 80 ? 'neutral' : 'red',
-      });
-    }
-    for (const pitcher of sortedPitchers) {
-      scoutingCards.push({
-        player: { id: pitcher.playerId, fullName: pitcher.name, position: pitcher.position, team: opponent },
-        stat: pitcher.fip,
-        sparklineData: generateSparklineData(pitcher.fip, 0.5),
-        isProbableStarter: probableStarters.get(pitcher.playerId) ?? false,
-        colorClass: pitcher.fip <= 3.50 ? 'green' : pitcher.fip <= 4.00 ? 'neutral' : 'red',
-      });
-    }
-  }
-
   return {
     hotHitters,
     coldHitters,
     hotPitchers,
     coldPitchers,
-    scoutingCards,
+    scoutingCards: data?.scoutingCards ?? [],
     isLoading,
     isError,
     error: error ?? null,
