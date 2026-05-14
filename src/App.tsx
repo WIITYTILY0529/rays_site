@@ -3,7 +3,7 @@ import { useTeam } from './context/TeamContext';
 import { TEAMS } from './services/teamConfig';
 import { PlayoffOddsPanel } from './components/PlayoffOddsPanel';
 import { RecordTracker } from './components/RecordTracker';
-import { HotColdMLBPanel } from './components/HotColdMLBPanel';
+import { SeasonStatsPanel } from './components/SeasonStatsPanel';
 import { HotColdMiLBPanel } from './components/HotColdMiLBPanel';
 import { PacePanel } from './components/PacePanel';
 import { SchedulePanel } from './components/SchedulePanel';
@@ -107,19 +107,22 @@ function App() {
       {/* Dashboard Content */}
       <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {/* Row 1: Playoff Odds + Record Tracker side by side on desktop */}
-          <PanelErrorBoundary fallbackLabel="플레이오프 확률">
-            <PlayoffOddsPanel />
-          </PanelErrorBoundary>
+          {/* Row 1: Playoff Odds - full width with graph */}
+          <div className="md:col-span-2">
+            <PanelErrorBoundary fallbackLabel="플레이오프 확률">
+              <PlayoffOddsPanel />
+            </PanelErrorBoundary>
+          </div>
 
+          {/* Row 2: Record Tracker */}
           <PanelErrorBoundary fallbackLabel="시즌 기록">
             <RecordTracker />
           </PanelErrorBoundary>
 
-          {/* Row 2: Hot/Cold MLB - full width */}
+          {/* Row 3: Season Stats MLB - full width */}
           <div className="md:col-span-2">
             <PanelErrorBoundary fallbackLabel="MLB 선수 성적">
-              <HotColdMLBPanel />
+              <SeasonStatsPanel />
             </PanelErrorBoundary>
           </div>
 

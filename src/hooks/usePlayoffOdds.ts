@@ -1,18 +1,23 @@
-import { useQuery } from '@tanstack/react-query';
-import { getPlayoffOdds } from '../services/fangraphsApi';
-import type { PlayoffOddsData } from '../services/types';
+import { useFangraphsData } from './useFangraphsData';
 import { useTeam } from '../context/TeamContext';
+import type { TeamPlayoffOdds } from '../services/fangraphsData';
 
-export function usePlayoffOdds() {
-  const { team, teamKey } = useTeam();
+export interface UsePlayoffOddsResult {
+  data: TeamPlayoffOdds | null;
+  isLoading: boolean;
+  isError: boolean;
+  error: Error | null;
+  refetch: () => void;
+}
 
-  const { data, isLoading, isError, error, refetch } = useQuery<PlayoffOddsData, Error>({
-    queryKey: ['playoffOdds', teamKey],
-    queryFn: () => getPlayoffOdds(team.abbreviation),
-  });
+export function usePlayoffOdds(): UsePlayoffOddsResult {
+  const { teamKey } = useTeam();
+  const { data: fgData, isLoading, isError, error, refetch } = useFangraphsData();
+
+  const teamOdds = fgData?.playoffOdds?.[teamKey] ?? null;
 
   return {
-    data,
+    data: teamOdds,
     isLoading,
     isError,
     error: error ?? null,

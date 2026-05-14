@@ -33,10 +33,26 @@ export interface FangraphsTeamData {
   pitchers: FangraphsPitcher[];
 }
 
+export interface PlayoffOddsEntry {
+  date: string;
+  playoff: number;
+}
+
+export interface TeamPlayoffOdds {
+  current: {
+    playoff: number;
+    division: number;
+    wildcard: number;
+    worldSeries: number;
+  };
+  history: PlayoffOddsEntry[];
+}
+
 export interface FangraphsData {
   lastUpdated: string | null;
   season: number;
   teams: Record<string, FangraphsTeamData>;
+  playoffOdds?: Record<string, TeamPlayoffOdds>;
 }
 
 export async function getFangraphsData(): Promise<FangraphsData> {

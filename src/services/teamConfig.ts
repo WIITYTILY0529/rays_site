@@ -6,6 +6,7 @@ export interface TeamConfig {
   divisionId: number;
   leagueId: number;
   fgTeamId: number;
+  fgDivision: { lg: string; div: string };
   affiliates: Record<string, { teamId: number; sportId: number; level: string }>;
 }
 
@@ -18,6 +19,7 @@ export const TEAMS: Record<string, TeamConfig> = {
     divisionId: 201,
     leagueId: 103,
     fgTeamId: 12,
+    fgDivision: { lg: 'al', div: 'e' },
     affiliates: {
       'AAA': { teamId: 234, sportId: 11, level: 'AAA' },
       'AA': { teamId: 421, sportId: 12, level: 'AA' },
@@ -33,6 +35,7 @@ export const TEAMS: Record<string, TeamConfig> = {
     divisionId: 202,
     leagueId: 103,
     fgTeamId: 6,
+    fgDivision: { lg: 'al', div: 'c' },
     affiliates: {
       'AAA': { teamId: 512, sportId: 11, level: 'AAA' },
       'AA': { teamId: 106, sportId: 12, level: 'AA' },

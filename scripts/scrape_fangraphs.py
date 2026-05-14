@@ -2,7 +2,8 @@
 Fangraphs Leaderboard Data Collection
 
 Fetches batting and pitching stats for Rays and Tigers from the Fangraphs
-public JSON API. Saves results to public/data/fangraphs-stats.json.
+public JSON API. Also collects playoff odds history.
+Saves results to public/data/fangraphs-stats.json.
 
 No Selenium needed — uses the public leaderboard API directly.
 """
@@ -11,20 +12,21 @@ import json
 import os
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta, date
 
 import requests
 
 # Constants
 SEASON = 2026
+SEASON_START = date(2026, 3, 27)
 OUTPUT_PATH = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
     "public", "data", "fangraphs-stats.json"
 )
 
 TEAMS = {
-    "TB": {"fgTeamId": 12},
-    "DET": {"fgTeamId": 6},
+    "TB": {"fgTeamId": 12, "fgDivision": {"lg": "al", "div": "e"}, "fgOddsAbbr": "TBR"},
+    "DET": {"fgTeamId": 6, "fgDivision": {"lg": "al", "div": "c"}, "fgOddsAbbr": "DET"},
 }
 
 # Fangraphs leaderboard API base
@@ -174,6 +176,96 @@ def collect_team_data(team_key: str, team_id: int) -> dict:
     return team_data
 
 
+def collect_playoff_odds(team_key: str, team_info: dict) -> dict:
+    """Collect playoff odds history for a team by sampling every 3 days."""
+    lg = team_info["fgDivision"]["lg"]
+    div = team_info["fgDivision"]["div"]
+    abbr = team_info["fgOddsAbbr"]
+
+    print(f"\n--- Playoff Odds: {team_key} (lg={lg}, div={div}, abbr={abbr}) ---")
+
+    today = date.today()
+    # Don't go past today
+    end_date = min(today, date(2026, 10, 1))
+
+    # Sample every 3 days from season start to today
+    sample_dates = []
+    current = SEASON_START
+    while current <= end_date:
+        sample_dates.append(current)
+        current += timedelta(days=3)
+    # Always include today if not already
+    if sample_dates and sample_dates[-1] != end_date:
+        sample_dates.append(end_date)
+
+    print(f"  Sampling {len(sample_dates)} dates from {SEASON_START} to {end_date}")
+
+    history = []
+    current_odds = None
+
+    for sample_date in sample_dates:
+        date_str = sample_date.strftime("%Y-%m-%d")
+        url = (
+            f"https://www.fangraphs.com/api/playoff-odds/odds"
+            f"?dateEnd={date_str}&dateDelta=&projectionMode=2&lg={lg}&div={div}"
+        )
+
+        data = fetch_json(url)
+        if data is None:
+            print(f"    WARNING: No data for {date_str}")
+            time.sleep(REQUEST_DELAY)
+            continue
+
+        # Find our team in the response
+        teams_list = data if isinstance(data, list) else data.get("teams", data.get("data", []))
+        if not isinstance(teams_list, list):
+            print(f"    WARNING: Unexpected response format for {date_str}")
+            time.sleep(REQUEST_DELAY)
+            continue
+
+        team_entry = None
+        for t in teams_list:
+            if t.get("abbName", "") == abbr or t.get("shortName", "") == abbr:
+                team_entry = t
+                break
+
+        if team_entry is None:
+            print(f"    WARNING: Team {abbr} not found in response for {date_str}")
+            time.sleep(REQUEST_DELAY)
+            continue
+
+        # Extract playoff probability
+        end_data = team_entry.get("endData", {})
+        playoff_pct = safe_float(end_data.get("poffTitle", 0))
+
+        history.append({
+            "date": date_str,
+            "playoff": round(playoff_pct, 4),
+        })
+
+        # Keep the latest as current
+        current_odds = {
+            "playoff": round(playoff_pct, 4),
+            "division": round(safe_float(end_data.get("divTitle", 0)), 4),
+            "wildcard": round(safe_float(end_data.get("wcTitle", 0)), 4),
+            "worldSeries": round(safe_float(end_data.get("wsWin", 0)), 4),
+        }
+
+        time.sleep(REQUEST_DELAY)
+
+    if current_odds is None:
+        current_odds = {"playoff": 0, "division": 0, "wildcard": 0, "worldSeries": 0}
+
+    print(f"  Collected {len(history)} data points")
+    if current_odds:
+        print(f"  Current playoff: {current_odds['playoff']*100:.1f}%")
+
+    return {
+        "current": current_odds,
+        "history": history,
+    }
+
+
 def main():
     """Main entry point."""
     print("=" * 60)
@@ -188,12 +280,19 @@ def main():
         "lastUpdated": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "season": SEASON,
         "teams": {},
+        "playoffOdds": {},
     }
 
     for team_key, team_info in TEAMS.items():
         team_id = team_info["fgTeamId"]
         team_data = collect_team_data(team_key, team_id)
         output["teams"][team_key] = team_data
+        time.sleep(REQUEST_DELAY)
+
+    # Collect playoff odds
+    for team_key, team_info in TEAMS.items():
+        odds_data = collect_playoff_odds(team_key, team_info)
+        output["playoffOdds"][team_key] = odds_data
         time.sleep(REQUEST_DELAY)
 
     # Write output
