@@ -3,10 +3,20 @@ import { LoadingSpinner } from './common/LoadingSpinner';
 import { ErrorMessage } from './common/ErrorMessage';
 import type { HitterPaceStats, PitcherPaceStats } from '../services/types';
 
+function savantUrl(playerId: number, name: string, type: 'hitting' | 'pitching'): string {
+  const slug = name.toLowerCase().replace(/[^a-z\s-]/g, '').replace(/\s+/g, '-');
+  const statType = type === 'hitting' ? 'statcast-r-hitting-mlb' : 'statcast-r-pitching-mlb';
+  return `https://baseballsavant.mlb.com/savant-player/${slug}-${playerId}?stats=${statType}`;
+}
+
 function HitterPaceRow({ pace }: { pace: HitterPaceStats }) {
   return (
     <tr className="border-b border-gray-100 last:border-0">
-      <td className="py-2 pr-3 text-sm font-medium text-gray-800">{pace.player.fullName}</td>
+      <td className="py-2 pr-3 text-sm font-medium text-gray-800">
+        <a href={savantUrl(pace.player.id, pace.player.fullName, 'hitting')} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 hover:underline">
+          {pace.player.fullName}
+        </a>
+      </td>
       <td className="px-2 py-2 text-center text-sm text-gray-600">{pace.currentStats.hr}</td>
       <td className="px-2 py-2 text-center text-sm text-gray-600">{pace.currentStats.hits}</td>
       <td className="px-2 py-2 text-center text-sm text-gray-600">{pace.currentStats.rbi}</td>
@@ -22,7 +32,11 @@ function HitterPaceRow({ pace }: { pace: HitterPaceStats }) {
 function PitcherPaceRow({ pace }: { pace: PitcherPaceStats }) {
   return (
     <tr className="border-b border-gray-100 last:border-0">
-      <td className="py-2 pr-3 text-sm font-medium text-gray-800">{pace.player.fullName}</td>
+      <td className="py-2 pr-3 text-sm font-medium text-gray-800">
+        <a href={savantUrl(pace.player.id, pace.player.fullName, 'pitching')} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 hover:underline">
+          {pace.player.fullName}
+        </a>
+      </td>
       <td className="px-2 py-2 text-center text-sm text-gray-600">{pace.currentStats.wins}</td>
       <td className="px-2 py-2 text-center text-sm text-gray-600">{pace.currentStats.strikeouts}</td>
       <td className="px-2 py-2 text-center text-sm text-gray-600">{pace.currentStats.ip}</td>

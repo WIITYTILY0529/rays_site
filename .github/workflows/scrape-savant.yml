@@ -1,0 +1,35 @@
+name: Scrape Baseball Savant
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Daily at 6 AM UTC (around midnight EST)
+  workflow_dispatch:  # Manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - uses: browser-actions/setup-chrome@v1
+
+      - name: Install Python dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Run scraper
+        run: python scripts/scrape_savant.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/savant-stats.json
+          git diff --staged --quiet || git commit -m "data: update Baseball Savant stats"
+          git push

@@ -94,7 +94,7 @@ export interface HitterPaceStats {
 // 페이스 예측 (투수)
 export interface PitcherPaceStats {
   player: Player;
-  currentStats: { wins: number; strikeouts: number; ip: number; gamesPlayed: number };
+  currentStats: { wins: number; strikeouts: number; ip: number; gamesPlayed: number; gamesStarted?: number };
   projectedStats: { wins: number; strikeouts: number; ip: number };
 }
 

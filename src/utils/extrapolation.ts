@@ -18,6 +18,7 @@ export function extrapolateToFullSeason(
 
 /**
  * Extrapolates hitter stats to a full 162-game season.
+ * Hitters: project based on games played out of 162.
  */
 export function extrapolateHitterPace(currentStats: {
   hr: number;
@@ -28,26 +29,37 @@ export function extrapolateHitterPace(currentStats: {
 }): { hr: number; hits: number; rbi: number; sb: number } {
   const { hr, hits, rbi, sb, gamesPlayed } = currentStats;
   return {
-    hr: extrapolateToFullSeason(hr, gamesPlayed),
-    hits: extrapolateToFullSeason(hits, gamesPlayed),
-    rbi: extrapolateToFullSeason(rbi, gamesPlayed),
-    sb: extrapolateToFullSeason(sb, gamesPlayed),
+    hr: extrapolateToFullSeason(hr, gamesPlayed, 162),
+    hits: extrapolateToFullSeason(hits, gamesPlayed, 162),
+    rbi: extrapolateToFullSeason(rbi, gamesPlayed, 162),
+    sb: extrapolateToFullSeason(sb, gamesPlayed, 162),
   };
 }
 
 /**
- * Extrapolates pitcher stats to a full 162-game season.
+ * Extrapolates pitcher stats to a full season.
+ * Starters: project based on games started out of ~32 starts.
+ * Relievers: project based on appearances out of ~65 games.
+ * If gamesStarted is provided and > 0, uses starter projection (32 starts).
+ * Otherwise uses reliever projection (65 games).
  */
 export function extrapolatePitcherPace(currentStats: {
   wins: number;
   strikeouts: number;
   ip: number;
   gamesPlayed: number;
+  gamesStarted?: number;
 }): { wins: number; strikeouts: number; ip: number } {
-  const { wins, strikeouts, ip, gamesPlayed } = currentStats;
+  const { wins, strikeouts, ip, gamesPlayed, gamesStarted } = currentStats;
+
+  // Determine if starter or reliever and set appropriate full-season target
+  const isStarter = (gamesStarted ?? 0) > 0;
+  const fullSeasonGames = isStarter ? 32 : 65;
+  const actualGames = gamesPlayed;
+
   return {
-    wins: extrapolateToFullSeason(wins, gamesPlayed),
-    strikeouts: extrapolateToFullSeason(strikeouts, gamesPlayed),
-    ip: extrapolateToFullSeason(ip, gamesPlayed),
+    wins: extrapolateToFullSeason(wins, actualGames, fullSeasonGames),
+    strikeouts: extrapolateToFullSeason(strikeouts, actualGames, fullSeasonGames),
+    ip: extrapolateToFullSeason(ip, actualGames, fullSeasonGames),
   };
 }

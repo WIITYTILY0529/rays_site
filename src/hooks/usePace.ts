@@ -56,6 +56,7 @@ function buildPitcherPace(player: Player, stats: any): PitcherPaceStats | null {
     strikeouts: stats.strikeOuts ?? 0,
     ip: parseFloat(ip.toFixed(1)),
     gamesPlayed,
+    gamesStarted: stats.gamesStarted ?? 0,
   };
 
   return {
