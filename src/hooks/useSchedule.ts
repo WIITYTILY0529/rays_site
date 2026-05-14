@@ -7,8 +7,8 @@ import {
   getToday,
   addDays,
   batchFetch,
-  RAYS_TEAM_ID,
 } from '../services/mlbApi';
+import { useTeam } from '../context/TeamContext';
 
 const SEASON = 2026;
 
@@ -39,14 +39,16 @@ export interface UseScheduleResult {
 }
 
 export function useSchedule(): UseScheduleResult {
+  const { team, teamKey } = useTeam();
+
   const { data, isLoading, isError, error, refetch } = useQuery<ScheduledGame[]>({
-    queryKey: ['schedule'],
+    queryKey: ['schedule', teamKey],
     queryFn: async () => {
       const today = getToday();
       const endDate = addDays(today, 14);
 
       // Fetch schedule with probable pitchers hydrated
-      const rawGames = await getTeamSchedule(RAYS_TEAM_ID, today, endDate);
+      const rawGames = await getTeamSchedule(team.id, today, endDate);
 
       if (rawGames.length === 0) {
         return [];

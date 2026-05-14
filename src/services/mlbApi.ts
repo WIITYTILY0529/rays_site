@@ -108,9 +108,9 @@ export async function getTeamSchedule(
 /**
  * Get division standings for a given league and season.
  * Endpoint: /standings?leagueId={leagueId}&season={season}
- * AL East division ID: 201
+ * Optionally filter by divisionId. If not provided, defaults to AL_EAST_DIVISION_ID.
  */
-export async function getStandings(leagueId: number, season: number): Promise<TeamStanding[]> {
+export async function getStandings(leagueId: number, season: number, divisionId?: number): Promise<TeamStanding[]> {
   const url = `${MLB_BASE_URL}/standings?leagueId=${leagueId}&season=${season}`;
   const response = await fetchWithTimeout(url);
   const data = await response.json();
@@ -119,11 +119,11 @@ export async function getStandings(leagueId: number, season: number): Promise<Te
     return [];
   }
 
+  const targetDivisionId = divisionId ?? AL_EAST_DIVISION_ID;
   const standings: TeamStanding[] = [];
 
   for (const record of data.records) {
-    // Filter for AL East division
-    if (record.division?.id !== AL_EAST_DIVISION_ID) continue;
+    if (record.division?.id !== targetDivisionId) continue;
 
     if (!record.teamRecords || !Array.isArray(record.teamRecords)) continue;
 

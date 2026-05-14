@@ -8,9 +8,9 @@ import {
   batchFetch,
   getToday,
   addDays,
-  RAYS_TEAM_ID,
 } from '../services/mlbApi';
 import type { Player } from '../services/types';
+import { useTeam } from '../context/TeamContext';
 
 const SEASON = 2026;
 
@@ -163,14 +163,16 @@ export interface UseHotColdMLBResult {
 }
 
 export function useHotColdMLB(window: 7 | 14): UseHotColdMLBResult {
+  const { team, teamKey } = useTeam();
+
   const { data, isLoading, isError, error, refetch } = useQuery<{
     hitters: HitterStats[];
     pitchers: PitcherStats[];
   }>({
-    queryKey: ['hotColdMLB', window],
+    queryKey: ['hotColdMLB', teamKey, window],
     queryFn: async () => {
-      // Get Rays roster
-      const roster = await getTeamRoster(RAYS_TEAM_ID, SEASON);
+      // Get team roster
+      const roster = await getTeamRoster(team.id, SEASON);
 
       if (roster.length === 0) {
         return { hitters: [], pitchers: [] };

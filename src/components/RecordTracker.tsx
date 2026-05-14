@@ -9,12 +9,12 @@ import {
   Legend,
 } from 'recharts';
 import { useRecordTracker } from '../hooks/useRecordTracker';
+import { useTeam } from '../context/TeamContext';
 import { LoadingSpinner } from './common/LoadingSpinner';
 import { ErrorMessage } from './common/ErrorMessage';
 import type { TeamStanding } from '../services/types';
 import type { GameResult } from '../hooks/useRecordTracker';
 
-const RAYS_NAVY = '#092C5C';
 const GRAY_2025 = '#9ca3af';
 
 function formatWinPct(wins: number, losses: number): string {
@@ -33,10 +33,10 @@ function DeltaBadge({ value }: { value: number }) {
   );
 }
 
-function StandingsPopover({ standings }: { standings: TeamStanding[] }) {
+function StandingsPopover({ standings, teamName }: { standings: TeamStanding[]; teamName: string }) {
   return (
     <div className="absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 rounded-lg border border-gray-200 bg-white p-4 shadow-lg">
-      <h3 className="mb-2 text-sm font-semibold text-gray-700">AL East Standings</h3>
+      <h3 className="mb-2 text-sm font-semibold text-gray-700">Division Standings</h3>
       <table className="w-full text-xs">
         <thead>
           <tr className="border-b border-gray-100 text-gray-500">
@@ -48,21 +48,21 @@ function StandingsPopover({ standings }: { standings: TeamStanding[] }) {
           </tr>
         </thead>
         <tbody>
-          {standings.map((team) => (
+          {standings.map((t) => (
             <tr
-              key={team.teamName}
+              key={t.teamName}
               className={`border-b border-gray-50 ${
-                team.teamName.includes('Tampa Bay') || team.teamName.includes('Rays')
+                t.teamName.toLowerCase().includes(teamName.toLowerCase().split(' ').pop() ?? '')
                   ? 'font-semibold text-blue-700'
                   : 'text-gray-700'
               }`}
             >
-              <td className="py-1 pr-3 text-left whitespace-nowrap">{team.teamName}</td>
-              <td className="py-1 px-2 text-right">{team.wins}</td>
-              <td className="py-1 px-2 text-right">{team.losses}</td>
-              <td className="py-1 px-2 text-right">{team.winPct.toFixed(3).replace(/^0/, '')}</td>
+              <td className="py-1 pr-3 text-left whitespace-nowrap">{t.teamName}</td>
+              <td className="py-1 px-2 text-right">{t.wins}</td>
+              <td className="py-1 px-2 text-right">{t.losses}</td>
+              <td className="py-1 px-2 text-right">{t.winPct.toFixed(3).replace(/^0/, '')}</td>
               <td className="py-1 pl-2 text-right">
-                {team.gamesBehind === 0 ? '—' : team.gamesBehind.toFixed(1)}
+                {t.gamesBehind === 0 ? '—' : t.gamesBehind.toFixed(1)}
               </td>
             </tr>
           ))}
@@ -171,14 +171,17 @@ function CustomTooltip({ active, payload, label }: any) {
 
 export function RecordTracker() {
   const { data, isLoading, isError, error, refetch } = useRecordTracker();
+  const { team } = useTeam();
   const [showStandings, setShowStandings] = useState(false);
   const [show2025, setShow2025] = useState(true);
   const [show2026, setShow2026] = useState(true);
 
+  const panelTitle = `${team.abbreviation}: 2025 vs 2026 Record Tracker`;
+
   if (isLoading) {
     return (
       <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-        <h2 className="mb-4 text-lg font-semibold text-gray-800">Rays: 2025 vs 2026 Record Tracker</h2>
+        <h2 className="mb-4 text-lg font-semibold text-gray-800">{panelTitle}</h2>
         <div className="flex items-center justify-center py-8">
           <LoadingSpinner />
         </div>
@@ -189,7 +192,7 @@ export function RecordTracker() {
   if (isError) {
     return (
       <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-        <h2 className="mb-4 text-lg font-semibold text-gray-800">Rays: 2025 vs 2026 Record Tracker</h2>
+        <h2 className="mb-4 text-lg font-semibold text-gray-800">{panelTitle}</h2>
         <ErrorMessage
           message={error?.message ?? 'Failed to load record tracker data.'}
           onRetry={() => refetch()}
@@ -224,13 +227,13 @@ export function RecordTracker() {
         onMouseLeave={() => setShowStandings(false)}
       >
         <h2 className="text-lg font-semibold text-gray-800">
-          Rays: 2025 vs 2026 Record Tracker
+          {panelTitle}
         </h2>
         <p className="text-xs text-gray-400 mt-0.5 cursor-default">
-          AL East standings on hover
+          Division standings on hover
         </p>
-        {showStandings && data.alEastStandings.length > 0 && (
-          <StandingsPopover standings={data.alEastStandings} />
+        {showStandings && data.divisionStandings.length > 0 && (
+          <StandingsPopover standings={data.divisionStandings} teamName={team.name} />
         )}
       </div>
 
@@ -292,7 +295,7 @@ export function RecordTracker() {
                   type="monotone"
                   dataKey="wins2026"
                   name="2026"
-                  stroke={RAYS_NAVY}
+                  stroke={team.colors.primary}
                   strokeWidth={2}
                   dot={false}
                   connectNulls={false}
@@ -322,7 +325,7 @@ export function RecordTracker() {
             onChange={(e) => setShow2026(e.target.checked)}
             className="rounded border-gray-300"
           />
-          <span className="inline-block w-3 h-0.5 rounded" style={{ backgroundColor: RAYS_NAVY }} />
+          <span className="inline-block w-3 h-0.5 rounded" style={{ backgroundColor: team.colors.primary }} />
           2026
         </label>
       </div>

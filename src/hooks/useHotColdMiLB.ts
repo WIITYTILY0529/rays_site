@@ -6,8 +6,9 @@ import {
   batchFetch,
   getToday,
   addDays,
-  RAYS_AFFILIATES,
 } from '../services/mlbApi';
+import { useTeam } from '../context/TeamContext';
+import type { TeamConfig } from '../services/teamConfig';
 
 const SEASON = 2026;
 const PITCHER_POSITIONS = new Set(['P', 'SP', 'RP', 'CL']);
@@ -137,9 +138,10 @@ function calculateMiLBPitcherStats(
  */
 async function fetchAffiliateStats(
   levelKey: string,
-  windowDays: number
+  windowDays: number,
+  affiliates: TeamConfig['affiliates']
 ): Promise<{ hitters: MiLBHitterStats[]; pitchers: MiLBPitcherStats[] }> {
-  const affiliate = RAYS_AFFILIATES[levelKey];
+  const affiliate = affiliates[levelKey];
   if (!affiliate) return { hitters: [], pitchers: [] };
 
   const { teamId, sportId, level } = affiliate;
@@ -195,11 +197,13 @@ export interface UseHotColdMiLBResult {
 }
 
 export function useHotColdMiLB(affiliate: AffiliateKey, window: 7 | 14 = 14): UseHotColdMiLBResult {
+  const { team, teamKey } = useTeam();
+
   const { data, isLoading, isError, error, refetch } = useQuery<{
     hitters: MiLBHitterStats[];
     pitchers: MiLBPitcherStats[];
   }>({
-    queryKey: ['hotColdMiLB', affiliate, window],
+    queryKey: ['hotColdMiLB', teamKey, affiliate, window],
     queryFn: async () => {
       let allHitters: MiLBHitterStats[] = [];
       let allPitchers: MiLBPitcherStats[] = [];
@@ -208,7 +212,7 @@ export function useHotColdMiLB(affiliate: AffiliateKey, window: 7 | 14 = 14): Us
         // Fetch all 4 affiliates
         const levels: string[] = ['AAA', 'AA', 'High A', 'A'];
         for (const level of levels) {
-          const { hitters, pitchers } = await fetchAffiliateStats(level, window);
+          const { hitters, pitchers } = await fetchAffiliateStats(level, window, team.affiliates);
           allHitters = allHitters.concat(hitters);
           allPitchers = allPitchers.concat(pitchers);
         }
@@ -216,7 +220,7 @@ export function useHotColdMiLB(affiliate: AffiliateKey, window: 7 | 14 = 14): Us
         allHitters = allHitters.filter((h) => h.pa >= ALL_TAB_MIN_PA);
         allPitchers = allPitchers.filter((p) => p.ip >= ALL_TAB_MIN_IP);
       } else {
-        const { hitters, pitchers } = await fetchAffiliateStats(affiliate, window);
+        const { hitters, pitchers } = await fetchAffiliateStats(affiliate, window, team.affiliates);
         allHitters = hitters;
         allPitchers = pitchers;
       }

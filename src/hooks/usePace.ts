@@ -5,8 +5,8 @@ import {
   getTeamRoster,
   getPlayerStats,
   batchFetch,
-  RAYS_TEAM_ID,
 } from '../services/mlbApi';
+import { useTeam } from '../context/TeamContext';
 
 const SEASON = 2026;
 const PITCHER_POSITIONS = new Set(['P', 'SP', 'RP', 'CL']);
@@ -76,14 +76,16 @@ export interface UsePaceResult {
 }
 
 export function usePace(): UsePaceResult {
+  const { team, teamKey } = useTeam();
+
   const { data, isLoading, isError, error, refetch } = useQuery<{
     hitterPace: HitterPaceStats[];
     pitcherPace: PitcherPaceStats[];
   }>({
-    queryKey: ['pace'],
+    queryKey: ['pace', teamKey],
     queryFn: async () => {
-      // Get Rays roster
-      const roster = await getTeamRoster(RAYS_TEAM_ID, SEASON);
+      // Get team roster
+      const roster = await getTeamRoster(team.id, SEASON);
 
       if (roster.length === 0) {
         return { hitterPace: [], pitcherPace: [] };

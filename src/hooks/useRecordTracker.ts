@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import { getStandings, getSeasonGameResults, RAYS_TEAM_ID } from '../services/mlbApi';
+import { getStandings, getSeasonGameResults } from '../services/mlbApi';
+import { useTeam } from '../context/TeamContext';
 import type { TeamStanding } from '../services/types';
 
-const AL_LEAGUE_ID = 103;
 const PYTHAG_EXPONENT = 1.83;
 
 export interface GameResult {
@@ -26,7 +26,7 @@ export interface RecordTrackerData {
   awayRecord2026: { wins: number; losses: number };
   pythagRecord2026: { expectedWins: number; expectedLosses: number; runDiff: number; luck: number };
   gamesPlayed2026: number;
-  alEastStandings: TeamStanding[];
+  divisionStandings: TeamStanding[];
 }
 
 function parseGameResults(rawGames: any[]): GameResult[] {
@@ -77,13 +77,15 @@ function calculatePythag(games: GameResult[]): { expectedWins: number; expectedL
 }
 
 export function useRecordTracker() {
+  const { team, teamKey } = useTeam();
+
   const { data, isLoading, isError, error, refetch } = useQuery<RecordTrackerData>({
-    queryKey: ['recordTracker', 'v2'],
+    queryKey: ['recordTracker', teamKey],
     queryFn: async () => {
       const [rawGames2025, rawGames2026, standings2026] = await Promise.all([
-        getSeasonGameResults(RAYS_TEAM_ID, 2025),
-        getSeasonGameResults(RAYS_TEAM_ID, 2026),
-        getStandings(AL_LEAGUE_ID, 2026),
+        getSeasonGameResults(team.id, 2025),
+        getSeasonGameResults(team.id, 2026),
+        getStandings(team.leagueId, 2026, team.divisionId),
       ]);
 
       const season2025Games = parseGameResults(rawGames2025);
@@ -125,7 +127,7 @@ export function useRecordTracker() {
         awayRecord2026,
         pythagRecord2026,
         gamesPlayed2026,
-        alEastStandings: standings2026,
+        divisionStandings: standings2026,
       };
     },
     staleTime: 5 * 60 * 1000,

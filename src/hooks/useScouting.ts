@@ -9,8 +9,8 @@ import {
   batchFetch,
   getToday,
   addDays,
-  RAYS_TEAM_ID,
 } from '../services/mlbApi';
+import { useTeam } from '../context/TeamContext';
 
 const SEASON = 2026;
 const PITCHER_POSITIONS = new Set(['P', 'SP', 'RP', 'CL']);
@@ -169,12 +169,12 @@ function generateSparklineFromGameLog(entries: any[], isHitter: boolean): Sparkl
 }
 
 /**
- * Determine the next opponent from the Rays schedule.
+ * Determine the next opponent from the team's schedule.
  */
-async function getNextOpponent(): Promise<{ name: string; teamId: number } | null> {
+async function getNextOpponent(teamId: number): Promise<{ name: string; teamId: number } | null> {
   const today = getToday();
   const endDate = addDays(today, 7);
-  const schedule = await getTeamSchedule(RAYS_TEAM_ID, today, endDate);
+  const schedule = await getTeamSchedule(teamId, today, endDate);
 
   if (schedule.length === 0) return null;
 
@@ -198,13 +198,15 @@ export interface UseScoutingResult {
 }
 
 export function useScouting(window: 7 | 14 | 30, opponent: string): UseScoutingResult {
+  const { team, teamKey } = useTeam();
+
   const { data, isLoading, isError, error, refetch } = useQuery<{
     hitters: HitterStats[];
     pitchers: PitcherStats[];
     scoutingCards: ScoutingPlayerCard[];
     opponentName: string;
   }>({
-    queryKey: ['scouting', opponent, window],
+    queryKey: ['scouting', teamKey, opponent, window],
     queryFn: async () => {
       // Determine the opponent - use provided name or find next opponent
       let opponentInfo: { name: string; teamId: number } | null = null;
@@ -213,7 +215,7 @@ export function useScouting(window: 7 | 14 | 30, opponent: string): UseScoutingR
         // Try to find the opponent team ID from the schedule
         const today = getToday();
         const endDate = addDays(today, 14);
-        const schedule = await getTeamSchedule(RAYS_TEAM_ID, today, endDate);
+        const schedule = await getTeamSchedule(team.id, today, endDate);
         const matchingGame = schedule.find((g: any) =>
           g.opponent.toLowerCase().includes(opponent.toLowerCase())
         );
@@ -223,7 +225,7 @@ export function useScouting(window: 7 | 14 | 30, opponent: string): UseScoutingR
       }
 
       if (!opponentInfo) {
-        opponentInfo = await getNextOpponent();
+        opponentInfo = await getNextOpponent(team.id);
       }
 
       if (!opponentInfo || !opponentInfo.teamId) {

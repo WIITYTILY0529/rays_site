@@ -1,4 +1,6 @@
 import { Component, type ReactNode } from 'react';
+import { useTeam } from './context/TeamContext';
+import { TEAMS } from './services/teamConfig';
 import { PlayoffOddsPanel } from './components/PlayoffOddsPanel';
 import { RecordTracker } from './components/RecordTracker';
 import { HotColdMLBPanel } from './components/HotColdMLBPanel';
@@ -45,22 +47,59 @@ class PanelErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryStat
   }
 }
 
+function TeamSelector() {
+  const { team, teamKey, setTeamKey } = useTeam();
+
+  return (
+    <select
+      value={teamKey}
+      onChange={(e) => setTeamKey(e.target.value)}
+      className="rounded-md border border-white/30 bg-white/10 px-3 py-1.5 text-sm font-medium text-white backdrop-blur-sm transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/50"
+      aria-label="Select team"
+    >
+      {Object.entries(TEAMS).map(([key, t]) => (
+        <option key={key} value={key} className="text-gray-900">
+          {t.abbreviation} — {t.name}
+        </option>
+      ))}
+    </select>
+  );
+}
+
 function App() {
+  const { team } = useTeam();
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Dashboard Header */}
-      <header className="bg-[#092C5C] text-white shadow-md">
+      <header
+        className="text-white shadow-md transition-colors duration-300"
+        style={{ backgroundColor: team.colors.primary }}
+      >
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#8FBCE6]">
-              <span className="text-lg font-bold text-[#092C5C]">TB</span>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div
+                className="flex h-10 w-10 items-center justify-center rounded-full"
+                style={{ backgroundColor: team.colors.secondary }}
+              >
+                <span
+                  className="text-lg font-bold"
+                  style={{ color: team.colors.primary }}
+                >
+                  {team.abbreviation}
+                </span>
+              </div>
+              <div>
+                <h1 className="text-xl font-bold tracking-tight sm:text-2xl">
+                  {team.name}
+                </h1>
+                <p className="text-xs sm:text-sm" style={{ color: team.colors.secondary }}>
+                  Analytics Dashboard
+                </p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-xl font-bold tracking-tight sm:text-2xl">
-                Tampa Bay Rays
-              </h1>
-              <p className="text-xs text-[#8FBCE6] sm:text-sm">Analytics Dashboard</p>
-            </div>
+            <TeamSelector />
           </div>
         </div>
       </header>
