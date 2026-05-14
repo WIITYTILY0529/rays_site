@@ -1,4 +1,4 @@
-import type { Player, ScheduledGame, TeamStanding } from './types';
+import type { Player, TeamStanding } from './types';
 
 const MLB_BASE_URL = 'https://statsapi.mlb.com/api/v1';
 
