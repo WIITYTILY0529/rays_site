@@ -245,6 +245,37 @@ export async function batchFetch<T, R>(
 }
 
 /**
+ * Get all completed regular-season game results for a team in a given season.
+ * Endpoint: /schedule?teamId={teamId}&season={season}&sportId=1&gameType=R&hydrate=linescore
+ */
+export async function getSeasonGameResults(teamId: number, season: number): Promise<any[]> {
+  const url = `${MLB_BASE_URL}/schedule?teamId=${teamId}&season=${season}&sportId=1&gameType=R&hydrate=linescore`;
+  const response = await fetchWithTimeout(url);
+  const data = await response.json();
+
+  const games: any[] = [];
+  for (const dateEntry of data.dates ?? []) {
+    for (const game of dateEntry.games ?? []) {
+      if (game.status?.detailedState !== 'Final') continue;
+
+      const isHome = game.teams?.home?.team?.id === teamId;
+      const raysTeam = isHome ? game.teams.home : game.teams.away;
+      const oppTeam = isHome ? game.teams.away : game.teams.home;
+
+      games.push({
+        date: dateEntry.date,
+        opponent: oppTeam.team?.name ?? 'Unknown',
+        isHome,
+        isWin: raysTeam.isWinner ?? false,
+        runsScored: raysTeam.score ?? 0,
+        runsAllowed: oppTeam.score ?? 0,
+      });
+    }
+  }
+  return games;
+}
+
+/**
  * Helper: format a Date to YYYY-MM-DD string.
  */
 export function formatDate(date: Date): string {
