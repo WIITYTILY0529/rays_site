@@ -90,6 +90,9 @@ export async function getTeamSchedule(
         ? game.teams?.home?.probablePitcher
         : game.teams?.away?.probablePitcher;
       const opponentId = opponent?.id ?? null;
+      const opponentProbablePitcher = isHome
+        ? game.teams?.away?.probablePitcher
+        : game.teams?.home?.probablePitcher;
 
       games.push({
         date: dateEntry.date ?? game.gameDate?.substring(0, 10) ?? '',
@@ -98,6 +101,8 @@ export async function getTeamSchedule(
         isHome,
         probablePitcherId: probablePitcher?.id ?? null,
         probablePitcherName: probablePitcher?.fullName ?? null,
+        opponentPitcherId: opponentProbablePitcher?.id ?? null,
+        opponentPitcherName: opponentProbablePitcher?.fullName ?? null,
       });
     }
   }

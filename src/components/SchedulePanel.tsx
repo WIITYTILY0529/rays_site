@@ -24,6 +24,8 @@ function GameLogCompact({ logs }: { logs: PitcherGameLog[] }) {
 
 function GameRow({ game }: { game: ScheduledGame }) {
   const homeAwayIndicator = game.isHome ? 'vs' : '@';
+  const ourPitcherName = game.probablePitcher?.name ?? 'TBD';
+  const oppPitcherName = game.opponentPitcher?.name ?? 'TBD';
 
   return (
     <div className="border-b border-gray-100 py-3 last:border-0">
@@ -35,22 +37,25 @@ function GameRow({ game }: { game: ScheduledGame }) {
               {homeAwayIndicator} {game.opponent}
             </span>
           </div>
+          <div className="mt-1 text-sm text-gray-700">
+            <span className={game.probablePitcher ? 'font-medium' : 'text-amber-600'}>
+              {ourPitcherName}
+            </span>
+            <span className="mx-1 text-gray-400">vs</span>
+            <span className={game.opponentPitcher ? 'font-medium' : 'text-amber-600'}>
+              {oppPitcherName}
+            </span>
+          </div>
           <div className="mt-1 flex items-center gap-3 text-xs text-gray-500">
             <span>ERA {game.opponentTeamERA.toFixed(2)}</span>
+            <span className="text-gray-300">|</span>
             <span>OPS {game.opponentTeamOPS.toFixed(3)}</span>
           </div>
         </div>
-        <div className="text-right">
-          <span className={`text-sm font-medium ${
-            game.probablePitcher ? 'text-gray-800' : 'text-amber-600'
-          }`}>
-            {game.probablePitcher ? game.probablePitcher.name : 'TBD'}
-          </span>
-          {game.probablePitcher && (
-            <GameLogCompact logs={game.probablePitcher.lastThreeStarts} />
-          )}
-        </div>
       </div>
+      {game.probablePitcher && game.probablePitcher.lastThreeStarts.length > 0 && (
+        <GameLogCompact logs={game.probablePitcher.lastThreeStarts} />
+      )}
     </div>
   );
 }

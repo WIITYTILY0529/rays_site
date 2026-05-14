@@ -87,8 +87,10 @@ function SortHeader({
 // Season Hitters Table
 function SeasonHittersTable({ hitters }: { hitters: FangraphsHitter[] }) {
   const [sort, setSort] = useState<SortState>({ sortKey: 'WAR', sortDir: 'desc' });
+  const [expanded, setExpanded] = useState(false);
 
   const sorted = useMemo(() => sortData(hitters, sort.sortKey, sort.sortDir), [hitters, sort]);
+  const displayData = expanded ? sorted : sorted.slice(0, 5);
 
   const handleSort = (key: string) => {
     setSort((prev) =>
@@ -99,51 +101,61 @@ function SeasonHittersTable({ hitters }: { hitters: FangraphsHitter[] }) {
   };
 
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-sm">
-        <thead className="sticky top-0 bg-white">
-          <tr className="border-b border-gray-200">
-            <th className="whitespace-nowrap px-2 py-2 text-left text-xs font-medium text-gray-600">Player</th>
-            <SortHeader label="PA" sortKey="PA" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="H" sortKey="H" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="HR" sortKey="HR" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="BB%" sortKey="bbPct" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="K%" sortKey="kPct" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="BABIP" sortKey="BABIP" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="Barrel%" sortKey="barrelPct" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="wRC+" sortKey="wRCPlus" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="fWAR" sortKey="WAR" currentSort={sort} onSort={handleSort} />
-          </tr>
-        </thead>
-        <tbody>
-          {sorted.map((h, i) => (
-            <tr
-              key={h.fgPlayerId}
-              className={`${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-blue-50 transition-colors`}
-            >
-              <td className="whitespace-nowrap px-2 py-1.5 text-left">
-                <a
-                  href={fgPlayerUrl(h.name, h.fgPlayerId)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
-                >
-                  {h.name}
-                </a>
-              </td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{h.PA}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{h.H}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{h.HR}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{fmtPct(h.bbPct)}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{fmtPct(h.kPct)}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{fmtBabip(h.BABIP)}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{fmtPct(h.barrelPct)}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{fmtInt(h.wRCPlus)}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{fmtWar(h.WAR)}</td>
+    <div>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead className="sticky top-0 bg-white">
+            <tr className="border-b border-gray-200">
+              <th className="whitespace-nowrap px-2 py-2 text-left text-xs font-medium text-gray-600">Player</th>
+              <SortHeader label="PA" sortKey="PA" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="H" sortKey="H" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="HR" sortKey="HR" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="BB%" sortKey="bbPct" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="K%" sortKey="kPct" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="BABIP" sortKey="BABIP" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="Barrel%" sortKey="barrelPct" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="wRC+" sortKey="wRCPlus" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="fWAR" sortKey="WAR" currentSort={sort} onSort={handleSort} />
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {displayData.map((h, i) => (
+              <tr
+                key={h.fgPlayerId}
+                className={`${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-blue-50 transition-colors`}
+              >
+                <td className="whitespace-nowrap px-2 py-1.5 text-left">
+                  <a
+                    href={fgPlayerUrl(h.name, h.fgPlayerId)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    {h.name}
+                  </a>
+                </td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{h.PA}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{h.H}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{h.HR}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{fmtPct(h.bbPct)}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{fmtPct(h.kPct)}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{fmtBabip(h.BABIP)}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{fmtPct(h.barrelPct)}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{fmtInt(h.wRCPlus)}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{fmtWar(h.WAR)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {sorted.length > 5 && (
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="mt-2 w-full rounded bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-100 transition-colors"
+        >
+          {expanded ? 'Show less' : `Show all (${sorted.length})`}
+        </button>
+      )}
     </div>
   );
 }
@@ -151,8 +163,10 @@ function SeasonHittersTable({ hitters }: { hitters: FangraphsHitter[] }) {
 // Season Pitchers Table
 function SeasonPitchersTable({ pitchers }: { pitchers: FangraphsPitcher[] }) {
   const [sort, setSort] = useState<SortState>({ sortKey: 'WAR', sortDir: 'desc' });
+  const [expanded, setExpanded] = useState(false);
 
   const sorted = useMemo(() => sortData(pitchers, sort.sortKey, sort.sortDir), [pitchers, sort]);
+  const displayData = expanded ? sorted : sorted.slice(0, 5);
 
   const handleSort = (key: string) => {
     setSort((prev) =>
@@ -163,53 +177,63 @@ function SeasonPitchersTable({ pitchers }: { pitchers: FangraphsPitcher[] }) {
   };
 
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-sm">
-        <thead className="sticky top-0 bg-white">
-          <tr className="border-b border-gray-200">
-            <th className="whitespace-nowrap px-2 py-2 text-left text-xs font-medium text-gray-600">Player</th>
-            <SortHeader label="G" sortKey="G" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="GS" sortKey="GS" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="IP" sortKey="IP" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="K%" sortKey="kPct" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="BB%" sortKey="bbPct" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="BABIP" sortKey="BABIP" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="FIP" sortKey="FIP" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="Stf" sortKey="pbStuff" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="Cmd" sortKey="pbCommand" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="fWAR" sortKey="WAR" currentSort={sort} onSort={handleSort} />
-          </tr>
-        </thead>
-        <tbody>
-          {sorted.map((p, i) => (
-            <tr
-              key={p.fgPlayerId}
-              className={`${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-blue-50 transition-colors`}
-            >
-              <td className="whitespace-nowrap px-2 py-1.5 text-left">
-                <a
-                  href={fgPlayerUrl(p.name, p.fgPlayerId)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
-                >
-                  {p.name}
-                </a>
-              </td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{p.G}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{p.GS}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{fmtIP(p.IP)}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{fmtPct(p.kPct)}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{fmtPct(p.bbPct)}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{fmtBabip(p.BABIP)}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{p.FIP.toFixed(2)}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{p.pbStuff.toFixed(1)}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{p.pbCommand.toFixed(1)}</td>
-              <td className="px-2 py-1.5 text-right tabular-nums">{fmtWar(p.WAR)}</td>
+    <div>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead className="sticky top-0 bg-white">
+            <tr className="border-b border-gray-200">
+              <th className="whitespace-nowrap px-2 py-2 text-left text-xs font-medium text-gray-600">Player</th>
+              <SortHeader label="G" sortKey="G" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="GS" sortKey="GS" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="IP" sortKey="IP" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="K%" sortKey="kPct" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="BB%" sortKey="bbPct" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="BABIP" sortKey="BABIP" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="FIP" sortKey="FIP" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="Stf" sortKey="pbStuff" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="Cmd" sortKey="pbCommand" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="fWAR" sortKey="WAR" currentSort={sort} onSort={handleSort} />
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {displayData.map((p, i) => (
+              <tr
+                key={p.fgPlayerId}
+                className={`${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-blue-50 transition-colors`}
+              >
+                <td className="whitespace-nowrap px-2 py-1.5 text-left">
+                  <a
+                    href={fgPlayerUrl(p.name, p.fgPlayerId)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    {p.name}
+                  </a>
+                </td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{p.G}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{p.GS}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{fmtIP(p.IP)}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{fmtPct(p.kPct)}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{fmtPct(p.bbPct)}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{fmtBabip(p.BABIP)}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{p.FIP.toFixed(2)}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{p.pbStuff.toFixed(1)}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{p.pbCommand.toFixed(1)}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{fmtWar(p.WAR)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {sorted.length > 5 && (
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="mt-2 w-full rounded bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-100 transition-colors"
+        >
+          {expanded ? 'Show less' : `Show all (${sorted.length})`}
+        </button>
+      )}
     </div>
   );
 }

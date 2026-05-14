@@ -114,6 +114,9 @@ export function useSchedule(): UseScheduleResult {
           probablePitcher: g.probablePitcherName
             ? { name: g.probablePitcherName, lastThreeStarts: pitcherLog }
             : null,
+          opponentPitcher: g.opponentPitcherName
+            ? { name: g.opponentPitcherName }
+            : null,
           opponentTeamERA: opponentStats.era,
           opponentTeamOPS: opponentStats.ops,
         };

@@ -9,6 +9,7 @@ import { MiLBNotablePanel } from './components/MiLBNotablePanel';
 import { PacePanel } from './components/PacePanel';
 import { SchedulePanel } from './components/SchedulePanel';
 import { ScoutingPanel } from './components/ScoutingPanel';
+import { CollapsiblePanel } from './components/common/CollapsiblePanel';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -111,50 +112,68 @@ function App() {
           {/* Row 1: Playoff Odds - full width with graph */}
           <div className="md:col-span-2">
             <PanelErrorBoundary fallbackLabel="Playoff Odds">
-              <PlayoffOddsPanel />
+              <CollapsiblePanel title="Playoff Odds">
+                <PlayoffOddsPanel />
+              </CollapsiblePanel>
             </PanelErrorBoundary>
           </div>
 
           {/* Row 2: Record Tracker */}
-          <PanelErrorBoundary fallbackLabel="Record Tracker">
-            <RecordTracker />
-          </PanelErrorBoundary>
+          <div className="md:col-span-2">
+            <PanelErrorBoundary fallbackLabel="Record Tracker">
+              <CollapsiblePanel title="Record Tracker">
+                <RecordTracker />
+              </CollapsiblePanel>
+            </PanelErrorBoundary>
+          </div>
 
           {/* Row 2.5: Standings - full width */}
           <div className="md:col-span-2">
             <PanelErrorBoundary fallbackLabel="Standings">
-              <StandingsPanel />
+              <CollapsiblePanel title="Standings">
+                <StandingsPanel />
+              </CollapsiblePanel>
             </PanelErrorBoundary>
           </div>
 
           {/* Row 3: Season Stats MLB - full width */}
           <div className="md:col-span-2">
             <PanelErrorBoundary fallbackLabel="MLB Stats">
-              <SeasonStatsPanel />
+              <CollapsiblePanel title="MLB Season Stats">
+                <SeasonStatsPanel />
+              </CollapsiblePanel>
             </PanelErrorBoundary>
           </div>
 
           {/* Row 3: MiLB Notable Players - full width */}
           <div className="md:col-span-2">
             <PanelErrorBoundary fallbackLabel="MiLB Stats">
-              <MiLBNotablePanel />
+              <CollapsiblePanel title="MiLB Notable Players">
+                <MiLBNotablePanel />
+              </CollapsiblePanel>
             </PanelErrorBoundary>
           </div>
 
           {/* Row 4: Pace - full width */}
           <div className="md:col-span-2">
             <PanelErrorBoundary fallbackLabel="Pace Projections">
-              <PacePanel />
+              <CollapsiblePanel title="2026 Season Pace Projections">
+                <PacePanel />
+              </CollapsiblePanel>
             </PanelErrorBoundary>
           </div>
 
           {/* Row 5: Schedule + Scouting side by side on desktop */}
           <PanelErrorBoundary fallbackLabel="Schedule">
-            <SchedulePanel />
+            <CollapsiblePanel title="Schedule &amp; Probable Pitchers">
+              <SchedulePanel />
+            </CollapsiblePanel>
           </PanelErrorBoundary>
 
           <PanelErrorBoundary fallbackLabel="Scouting">
-            <ScoutingPanel />
+            <CollapsiblePanel title="Opponent Scouting">
+              <ScoutingPanel />
+            </CollapsiblePanel>
           </PanelErrorBoundary>
         </div>
       </main>

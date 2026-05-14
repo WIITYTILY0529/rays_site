@@ -64,6 +64,7 @@ export interface ScheduledGame {
   opponent: string;
   isHome: boolean;
   probablePitcher: ProbablePitcher | null;
+  opponentPitcher: { name: string } | null;
   opponentTeamERA: number;
   opponentTeamOPS: number;
 }

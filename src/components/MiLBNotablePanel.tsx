@@ -78,6 +78,7 @@ function NotableHittersTable({
 }) {
   // Default sort by OPS descending (OBP + SLG)
   const [sort, setSort] = useState<SortState>({ sortKey: 'OPS', sortDir: 'desc' });
+  const [expanded, setExpanded] = useState(false);
 
   const sorted = useMemo(() => {
     if (sort.sortKey === 'OPS') {
@@ -90,6 +91,8 @@ function NotableHittersTable({
     return sortData(hitters, sort.sortKey, sort.sortDir);
   }, [hitters, sort]);
 
+  const displayData = expanded ? sorted : sorted.slice(0, 5);
+
   const handleSort = (key: string) => {
     setSort((prev) =>
       prev.sortKey === key
@@ -99,77 +102,87 @@ function NotableHittersTable({
   };
 
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-sm">
-        <thead className="sticky top-0 bg-white">
-          <tr className="border-b border-gray-200">
-            <th className="whitespace-nowrap px-2 py-2 text-left text-xs font-medium text-gray-600">
-              Player
-            </th>
-            {showLevel && (
+    <div>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead className="sticky top-0 bg-white">
+            <tr className="border-b border-gray-200">
               <th className="whitespace-nowrap px-2 py-2 text-left text-xs font-medium text-gray-600">
-                Lvl
+                Player
               </th>
-            )}
-            <SortHeader label="G" sortKey="G" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="PA" sortKey="PA" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="HR" sortKey="HR" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="SB" sortKey="SB" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="BB" sortKey="BB" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="K" sortKey="K" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="OBP" sortKey="OBP" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="SLG" sortKey="SLG" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="wOBA" sortKey="wOBA" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="BABIP" sortKey="BABIP" currentSort={sort} onSort={handleSort} />
-          </tr>
-        </thead>
-        <tbody>
-          {sorted.length > 0 ? (
-            sorted.map((h, i) => (
-              <tr
-                key={h.playerId}
-                className={`${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-blue-50 transition-colors`}
-              >
-                <td className="whitespace-nowrap px-2 py-1.5 text-left">
-                  <a
-                    href={`https://www.milb.com/player/${h.playerId}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline"
-                  >
-                    {h.name}
-                  </a>
-                  <span className="ml-1 text-xs text-gray-400">{h.position}</span>
-                </td>
-                {showLevel && (
-                  <td className="whitespace-nowrap px-2 py-1.5 text-left text-gray-500">
-                    {h.level}
-                  </td>
-                )}
-                <td className="px-2 py-1.5 text-right tabular-nums">{h.G}</td>
-                <td className="px-2 py-1.5 text-right tabular-nums">{h.PA}</td>
-                <td className="px-2 py-1.5 text-right tabular-nums">{h.HR}</td>
-                <td className="px-2 py-1.5 text-right tabular-nums">{h.SB}</td>
-                <td className="px-2 py-1.5 text-right tabular-nums">{h.BB}</td>
-                <td className="px-2 py-1.5 text-right tabular-nums">{h.K}</td>
-                <td className="px-2 py-1.5 text-right tabular-nums">{fmtRate(h.OBP)}</td>
-                <td className="px-2 py-1.5 text-right tabular-nums">{fmtRate(h.SLG)}</td>
-                <td className="px-2 py-1.5 text-right tabular-nums">{fmtRate(h.wOBA)}</td>
-                <td className="px-2 py-1.5 text-right tabular-nums">{fmtRate(h.BABIP)}</td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td
-                colSpan={showLevel ? 12 : 11}
-                className="py-3 text-center text-gray-400"
-              >
-                No data available
-              </td>
+              {showLevel && (
+                <th className="whitespace-nowrap px-2 py-2 text-left text-xs font-medium text-gray-600">
+                  Lvl
+                </th>
+              )}
+              <SortHeader label="G" sortKey="G" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="PA" sortKey="PA" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="HR" sortKey="HR" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="SB" sortKey="SB" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="BB" sortKey="BB" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="K" sortKey="K" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="OBP" sortKey="OBP" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="SLG" sortKey="SLG" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="wOBA" sortKey="wOBA" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="BABIP" sortKey="BABIP" currentSort={sort} onSort={handleSort} />
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {displayData.length > 0 ? (
+              displayData.map((h, i) => (
+                <tr
+                  key={h.playerId}
+                  className={`${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-blue-50 transition-colors`}
+                >
+                  <td className="whitespace-nowrap px-2 py-1.5 text-left">
+                    <a
+                      href={`https://www.milb.com/player/${h.playerId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      {h.name}
+                    </a>
+                    <span className="ml-1 text-xs text-gray-400">{h.position}</span>
+                  </td>
+                  {showLevel && (
+                    <td className="whitespace-nowrap px-2 py-1.5 text-left text-gray-500">
+                      {h.level}
+                    </td>
+                  )}
+                  <td className="px-2 py-1.5 text-right tabular-nums">{h.G}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{h.PA}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{h.HR}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{h.SB}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{h.BB}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{h.K}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{fmtRate(h.OBP)}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{fmtRate(h.SLG)}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{fmtRate(h.wOBA)}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{fmtRate(h.BABIP)}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td
+                  colSpan={showLevel ? 12 : 11}
+                  className="py-3 text-center text-gray-400"
+                >
+                  No data available
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+      {sorted.length > 5 && (
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="mt-2 w-full rounded bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-100 transition-colors"
+        >
+          {expanded ? 'Show less' : `Show all (${sorted.length})`}
+        </button>
+      )}
     </div>
   );
 }
@@ -184,8 +197,10 @@ function NotablePitchersTable({
 }) {
   // Default sort by ERA ascending
   const [sort, setSort] = useState<SortState>({ sortKey: 'ERA', sortDir: 'asc' });
+  const [expanded, setExpanded] = useState(false);
 
   const sorted = useMemo(() => sortData(pitchers, sort.sortKey, sort.sortDir), [pitchers, sort]);
+  const displayData = expanded ? sorted : sorted.slice(0, 5);
 
   const handleSort = (key: string) => {
     setSort((prev) =>
@@ -196,69 +211,79 @@ function NotablePitchersTable({
   };
 
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-sm">
-        <thead className="sticky top-0 bg-white">
-          <tr className="border-b border-gray-200">
-            <th className="whitespace-nowrap px-2 py-2 text-left text-xs font-medium text-gray-600">
-              Player
-            </th>
-            {showLevel && (
+    <div>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead className="sticky top-0 bg-white">
+            <tr className="border-b border-gray-200">
               <th className="whitespace-nowrap px-2 py-2 text-left text-xs font-medium text-gray-600">
-                Lvl
+                Player
               </th>
-            )}
-            <SortHeader label="G" sortKey="G" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="GS" sortKey="GS" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="IP" sortKey="IP" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="ERA" sortKey="ERA" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="K/9" sortKey="K9" currentSort={sort} onSort={handleSort} />
-            <SortHeader label="BB/9" sortKey="BB9" currentSort={sort} onSort={handleSort} />
-          </tr>
-        </thead>
-        <tbody>
-          {sorted.length > 0 ? (
-            sorted.map((p, i) => (
-              <tr
-                key={p.playerId}
-                className={`${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-blue-50 transition-colors`}
-              >
-                <td className="whitespace-nowrap px-2 py-1.5 text-left">
-                  <a
-                    href={`https://www.milb.com/player/${p.playerId}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline"
-                  >
-                    {p.name}
-                  </a>
-                  <span className="ml-1 text-xs text-gray-400">{p.position}</span>
-                </td>
-                {showLevel && (
-                  <td className="whitespace-nowrap px-2 py-1.5 text-left text-gray-500">
-                    {p.level}
-                  </td>
-                )}
-                <td className="px-2 py-1.5 text-right tabular-nums">{p.G}</td>
-                <td className="px-2 py-1.5 text-right tabular-nums">{p.GS}</td>
-                <td className="px-2 py-1.5 text-right tabular-nums">{fmtIP(p.IP)}</td>
-                <td className="px-2 py-1.5 text-right tabular-nums">{fmtERA(p.ERA)}</td>
-                <td className="px-2 py-1.5 text-right tabular-nums">{fmtPer9(p.K9)}</td>
-                <td className="px-2 py-1.5 text-right tabular-nums">{fmtPer9(p.BB9)}</td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td
-                colSpan={showLevel ? 8 : 7}
-                className="py-3 text-center text-gray-400"
-              >
-                No data available
-              </td>
+              {showLevel && (
+                <th className="whitespace-nowrap px-2 py-2 text-left text-xs font-medium text-gray-600">
+                  Lvl
+                </th>
+              )}
+              <SortHeader label="G" sortKey="G" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="GS" sortKey="GS" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="IP" sortKey="IP" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="ERA" sortKey="ERA" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="K/9" sortKey="K9" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="BB/9" sortKey="BB9" currentSort={sort} onSort={handleSort} />
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {displayData.length > 0 ? (
+              displayData.map((p, i) => (
+                <tr
+                  key={p.playerId}
+                  className={`${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-blue-50 transition-colors`}
+                >
+                  <td className="whitespace-nowrap px-2 py-1.5 text-left">
+                    <a
+                      href={`https://www.milb.com/player/${p.playerId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      {p.name}
+                    </a>
+                    <span className="ml-1 text-xs text-gray-400">{p.position}</span>
+                  </td>
+                  {showLevel && (
+                    <td className="whitespace-nowrap px-2 py-1.5 text-left text-gray-500">
+                      {p.level}
+                    </td>
+                  )}
+                  <td className="px-2 py-1.5 text-right tabular-nums">{p.G}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{p.GS}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{fmtIP(p.IP)}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{fmtERA(p.ERA)}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{fmtPer9(p.K9)}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{fmtPer9(p.BB9)}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td
+                  colSpan={showLevel ? 8 : 7}
+                  className="py-3 text-center text-gray-400"
+                >
+                  No data available
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+      {sorted.length > 5 && (
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="mt-2 w-full rounded bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-100 transition-colors"
+        >
+          {expanded ? 'Show less' : `Show all (${sorted.length})`}
+        </button>
+      )}
     </div>
   );
 }

@@ -1,193 +1,135 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useScouting } from '../hooks/useScouting';
 import { TabGroup } from './common/TabGroup';
 import { LoadingSpinner } from './common/LoadingSpinner';
 import { ErrorMessage } from './common/ErrorMessage';
-import { Sparkline } from './common/Sparkline';
-import type { HitterStats, PitcherStats, ScoutingPlayerCard } from '../services/types';
+import type { HitterStats, PitcherStats } from '../services/types';
 
-const WINDOW_TABS = ['7d', '14d', '30d'];
+const WINDOW_TABS = ['Season', 'Last 7 Days'];
 
 function getWindowFromTab(tab: string): 7 | 14 | 30 {
-  if (tab === '7d') return 7;
-  if (tab === '14d') return 14;
-  return 30;
+  if (tab === 'Last 7 Days') return 7;
+  return 30; // Season uses 30-day window (full available data)
 }
 
-function HitterRow({ hitter, colorClass, isProbableStarter }: { hitter: HitterStats; colorClass: 'green' | 'red'; isProbableStarter?: boolean }) {
-  return (
-    <li className={`flex items-center justify-between rounded px-3 py-2 ${
-      colorClass === 'green' ? 'bg-green-50' : 'bg-red-50'
-    }`}>
-      <div className="flex items-center gap-2">
-        <span className={`text-sm font-medium ${
-          colorClass === 'green' ? 'text-green-700' : 'text-red-700'
-        }`}>
-          {hitter.name}{isProbableStarter ? ' *' : ''}
-        </span>
-        <span className="text-xs text-gray-500">{hitter.position}</span>
-      </div>
-      <span className={`text-sm font-semibold ${
-        colorClass === 'green' ? 'text-green-600' : 'text-red-600'
-      }`}>
-        {hitter.wOBA.toFixed(3)}
-      </span>
-    </li>
+function HittersTable({ hitters, expanded, onToggle }: { hitters: HitterStats[]; expanded: boolean; onToggle: () => void }) {
+  const sorted = useMemo(
+    () => [...hitters].sort((a, b) => b.wRCPlus - a.wRCPlus),
+    [hitters]
   );
-}
-
-function PitcherRow({ pitcher, colorClass, isProbableStarter }: { pitcher: PitcherStats; colorClass: 'green' | 'red'; isProbableStarter?: boolean }) {
-  return (
-    <li className={`flex items-center justify-between rounded px-3 py-2 ${
-      colorClass === 'green' ? 'bg-green-50' : 'bg-red-50'
-    }`}>
-      <div className="flex items-center gap-2">
-        <span className={`text-sm font-medium ${
-          colorClass === 'green' ? 'text-green-700' : 'text-red-700'
-        }`}>
-          {pitcher.name}{isProbableStarter ? ' *' : ''}
-        </span>
-        <span className="text-xs text-gray-500">{pitcher.position}</span>
-      </div>
-      <span className={`text-sm font-semibold ${
-        colorClass === 'green' ? 'text-green-600' : 'text-red-600'
-      }`}>
-        {pitcher.fip.toFixed(2)}
-      </span>
-    </li>
-  );
-}
-
-function ScoutingCardRow({ card }: { card: ScoutingPlayerCard }) {
-  const isHitter = !['SP', 'RP', 'CL'].includes(card.player.position);
-  const statLabel = isHitter ? 'wRC+' : 'FIP';
-  const sparkColor = card.colorClass === 'green' ? '#16a34a' : card.colorClass === 'red' ? '#dc2626' : '#6b7280';
+  const displayData = expanded ? sorted : sorted.slice(0, 5);
 
   return (
-    <div className={`flex items-center justify-between rounded px-3 py-2 ${
-      card.colorClass === 'green' ? 'bg-green-50' : card.colorClass === 'red' ? 'bg-red-50' : 'bg-gray-50'
-    }`}>
-      <div className="flex items-center gap-2">
-        <span className={`text-sm font-medium ${
-          card.colorClass === 'green' ? 'text-green-700' : card.colorClass === 'red' ? 'text-red-700' : 'text-gray-700'
-        }`}>
-          {card.player.fullName}{card.isProbableStarter ? ' *' : ''}
-        </span>
-        <span className="text-xs text-gray-500">{card.player.position}</span>
+    <div>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead className="sticky top-0 bg-white">
+            <tr className="border-b border-gray-200">
+              <th className="whitespace-nowrap px-2 py-2 text-left text-xs font-medium text-gray-600">Player</th>
+              <th className="whitespace-nowrap px-2 py-2 text-right text-xs font-medium text-gray-600">PA</th>
+              <th className="whitespace-nowrap px-2 py-2 text-right text-xs font-medium text-gray-600">wRC+</th>
+              <th className="whitespace-nowrap px-2 py-2 text-right text-xs font-medium text-gray-600">wOBA</th>
+              <th className="whitespace-nowrap px-2 py-2 text-right text-xs font-medium text-gray-600">OPS</th>
+              <th className="whitespace-nowrap px-2 py-2 text-right text-xs font-medium text-gray-600">K%</th>
+              <th className="whitespace-nowrap px-2 py-2 text-right text-xs font-medium text-gray-600">BB%</th>
+            </tr>
+          </thead>
+          <tbody>
+            {displayData.length > 0 ? (
+              displayData.map((h, i) => (
+                <tr
+                  key={h.playerId}
+                  className={`${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-blue-50 transition-colors`}
+                >
+                  <td className="whitespace-nowrap px-2 py-1.5 text-left font-medium text-gray-800">
+                    {h.name}
+                    <span className="ml-1 text-xs text-gray-400">{h.position}</span>
+                  </td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{h.pa}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums font-semibold">{h.wRCPlus}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{h.wOBA.toFixed(3)}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{h.ops.toFixed(3)}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums text-gray-500">—</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums text-gray-500">—</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan={7} className="py-3 text-center text-gray-400">No data available</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
-      <div className="flex items-center gap-3">
-        <Sparkline data={card.sparklineData} color={sparkColor} width={80} height={24} />
-        <span className={`text-sm font-semibold ${
-          card.colorClass === 'green' ? 'text-green-600' : card.colorClass === 'red' ? 'text-red-600' : 'text-gray-600'
-        }`}>
-          {statLabel} {isHitter ? card.stat.toFixed(0) : card.stat.toFixed(2)}
-        </span>
-      </div>
+      {sorted.length > 5 && (
+        <button
+          onClick={onToggle}
+          className="mt-2 w-full rounded bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-100 transition-colors"
+        >
+          {expanded ? 'Show less' : `Show all (${sorted.length})`}
+        </button>
+      )}
     </div>
   );
 }
 
-function HotColdView({ hotHitters, coldHitters, hotPitchers, coldPitchers }: {
-  hotHitters: HitterStats[];
-  coldHitters: HitterStats[];
-  hotPitchers: PitcherStats[];
-  coldPitchers: PitcherStats[];
-}) {
-  return (
-    <div className="grid gap-6 md:grid-cols-2">
-      {/* Hot Hitters */}
-      <div>
-        <h3 className="mb-2 flex items-center gap-1 text-sm font-semibold text-green-700">
-          <span>🔥</span> Hot Hitters
-          <span className="text-xs font-normal text-gray-500">(wOBA desc)</span>
-        </h3>
-        <ul className="space-y-1">
-          {hotHitters.length > 0 ? (
-            hotHitters.map((hitter) => (
-              <HitterRow key={hitter.playerId} hitter={hitter} colorClass="green" />
-            ))
-          ) : (
-            <li className="px-3 py-2 text-sm text-gray-400">None</li>
-          )}
-        </ul>
-      </div>
-
-      {/* Cold Hitters */}
-      <div>
-        <h3 className="mb-2 flex items-center gap-1 text-sm font-semibold text-red-700">
-          <span>🥶</span> Cold Hitters
-          <span className="text-xs font-normal text-gray-500">(wOBA &lt; .290)</span>
-        </h3>
-        <ul className="space-y-1">
-          {coldHitters.length > 0 ? (
-            coldHitters.map((hitter) => (
-              <HitterRow key={hitter.playerId} hitter={hitter} colorClass="red" />
-            ))
-          ) : (
-            <li className="px-3 py-2 text-sm text-gray-400">None</li>
-          )}
-        </ul>
-      </div>
-
-      {/* Hot Pitchers */}
-      <div>
-        <h3 className="mb-2 flex items-center gap-1 text-sm font-semibold text-green-700">
-          <span>🔥</span> Hot Pitchers
-          <span className="text-xs font-normal text-gray-500">(FIP asc)</span>
-        </h3>
-        <ul className="space-y-1">
-          {hotPitchers.length > 0 ? (
-            hotPitchers.map((pitcher) => (
-              <PitcherRow key={pitcher.playerId} pitcher={pitcher} colorClass="green" />
-            ))
-          ) : (
-            <li className="px-3 py-2 text-sm text-gray-400">None</li>
-          )}
-        </ul>
-      </div>
-
-      {/* Cold Pitchers */}
-      <div>
-        <h3 className="mb-2 flex items-center gap-1 text-sm font-semibold text-red-700">
-          <span>🥶</span> Cold Pitchers
-          <span className="text-xs font-normal text-gray-500">(FIP &gt; 3.75)</span>
-        </h3>
-        <ul className="space-y-1">
-          {coldPitchers.length > 0 ? (
-            coldPitchers.map((pitcher) => (
-              <PitcherRow key={pitcher.playerId} pitcher={pitcher} colorClass="red" />
-            ))
-          ) : (
-            <li className="px-3 py-2 text-sm text-gray-400">None</li>
-          )}
-        </ul>
-      </div>
-    </div>
+function PitchersTable({ pitchers, expanded, onToggle }: { pitchers: PitcherStats[]; expanded: boolean; onToggle: () => void }) {
+  const sorted = useMemo(
+    () => [...pitchers].sort((a, b) => a.fip - b.fip),
+    [pitchers]
   );
-}
-
-function SparklineView({ scoutingCards }: { scoutingCards: ScoutingPlayerCard[] }) {
-  const hitterCards = scoutingCards.filter((c) => !['SP', 'RP', 'CL'].includes(c.player.position));
-  const pitcherCards = scoutingCards.filter((c) => ['SP', 'RP', 'CL'].includes(c.player.position));
+  const displayData = expanded ? sorted : sorted.slice(0, 5);
 
   return (
-    <div className="space-y-4">
-      <div>
-        <h3 className="mb-2 text-sm font-semibold text-gray-700">Hitters (wRC+)</h3>
-        <div className="space-y-1">
-          {hitterCards.map((card) => (
-            <ScoutingCardRow key={card.player.id} card={card} />
-          ))}
-        </div>
+    <div>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead className="sticky top-0 bg-white">
+            <tr className="border-b border-gray-200">
+              <th className="whitespace-nowrap px-2 py-2 text-left text-xs font-medium text-gray-600">Player</th>
+              <th className="whitespace-nowrap px-2 py-2 text-right text-xs font-medium text-gray-600">IP</th>
+              <th className="whitespace-nowrap px-2 py-2 text-right text-xs font-medium text-gray-600">FIP</th>
+              <th className="whitespace-nowrap px-2 py-2 text-right text-xs font-medium text-gray-600">ERA</th>
+              <th className="whitespace-nowrap px-2 py-2 text-right text-xs font-medium text-gray-600">K%</th>
+              <th className="whitespace-nowrap px-2 py-2 text-right text-xs font-medium text-gray-600">BB%</th>
+              <th className="whitespace-nowrap px-2 py-2 text-right text-xs font-medium text-gray-600">WHIP</th>
+            </tr>
+          </thead>
+          <tbody>
+            {displayData.length > 0 ? (
+              displayData.map((p, i) => (
+                <tr
+                  key={p.playerId}
+                  className={`${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-blue-50 transition-colors`}
+                >
+                  <td className="whitespace-nowrap px-2 py-1.5 text-left font-medium text-gray-800">
+                    {p.name}
+                    <span className="ml-1 text-xs text-gray-400">{p.position}</span>
+                  </td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{p.ip.toFixed(1)}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums font-semibold">{p.fip.toFixed(2)}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums">{p.era.toFixed(2)}</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums text-gray-500">—</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums text-gray-500">—</td>
+                  <td className="px-2 py-1.5 text-right tabular-nums text-gray-500">—</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan={7} className="py-3 text-center text-gray-400">No data available</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
-      <div>
-        <h3 className="mb-2 text-sm font-semibold text-gray-700">Pitchers (FIP)</h3>
-        <div className="space-y-1">
-          {pitcherCards.map((card) => (
-            <ScoutingCardRow key={card.player.id} card={card} />
-          ))}
-        </div>
-      </div>
+      {sorted.length > 5 && (
+        <button
+          onClick={onToggle}
+          className="mt-2 w-full rounded bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-100 transition-colors"
+        >
+          {expanded ? 'Show less' : `Show all (${sorted.length})`}
+        </button>
+      )}
     </div>
   );
 }
@@ -195,11 +137,17 @@ function SparklineView({ scoutingCards }: { scoutingCards: ScoutingPlayerCard[] 
 export function ScoutingPanel() {
   const [activeTab, setActiveTab] = useState(WINDOW_TABS[0]);
   const window = getWindowFromTab(activeTab);
-  // Default opponent for mock data
   const opponent = 'NYY';
 
-  const { hotHitters, coldHitters, hotPitchers, coldPitchers, scoutingCards, isLoading, isError, error, refetch } =
+  const { hotHitters, coldHitters, hotPitchers, coldPitchers, isLoading, isError, error, refetch } =
     useScouting(window, opponent);
+
+  // Combine hot + cold back into single sorted lists
+  const allHitters = useMemo(() => [...hotHitters, ...coldHitters], [hotHitters, coldHitters]);
+  const allPitchers = useMemo(() => [...hotPitchers, ...coldPitchers], [hotPitchers, coldPitchers]);
+
+  const [hittersExpanded, setHittersExpanded] = useState(false);
+  const [pitchersExpanded, setPitchersExpanded] = useState(false);
 
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
@@ -222,19 +170,24 @@ export function ScoutingPanel() {
         )}
 
         {!isLoading && !isError && (
-          <>
-            {window === 30 ? (
-              <SparklineView scoutingCards={scoutingCards} />
-            ) : (
-              <HotColdView
-                hotHitters={hotHitters}
-                coldHitters={coldHitters}
-                hotPitchers={hotPitchers}
-                coldPitchers={coldPitchers}
+          <div className="space-y-6">
+            <div>
+              <h3 className="mb-2 text-sm font-semibold text-gray-700">Hitters (sorted by wRC+)</h3>
+              <HittersTable
+                hitters={allHitters}
+                expanded={hittersExpanded}
+                onToggle={() => setHittersExpanded(!hittersExpanded)}
               />
-            )}
-            <p className="mt-3 text-xs text-gray-400">* Probable starter</p>
-          </>
+            </div>
+            <div>
+              <h3 className="mb-2 text-sm font-semibold text-gray-700">Pitchers (sorted by FIP)</h3>
+              <PitchersTable
+                pitchers={allPitchers}
+                expanded={pitchersExpanded}
+                onToggle={() => setPitchersExpanded(!pitchersExpanded)}
+              />
+            </div>
+          </div>
         )}
       </div>
     </div>
