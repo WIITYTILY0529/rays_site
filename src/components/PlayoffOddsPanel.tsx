@@ -15,7 +15,7 @@ export function PlayoffOddsPanel() {
   if (isLoading) {
     return (
       <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-        <h2 className="mb-4 text-lg font-semibold text-gray-800">플레이오프 확률</h2>
+        <h2 className="mb-4 text-lg font-semibold text-gray-800">Playoff Odds</h2>
         <div className="flex items-center justify-center py-8">
           <LoadingSpinner />
         </div>
@@ -26,9 +26,9 @@ export function PlayoffOddsPanel() {
   if (isError) {
     return (
       <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-        <h2 className="mb-4 text-lg font-semibold text-gray-800">플레이오프 확률</h2>
+        <h2 className="mb-4 text-lg font-semibold text-gray-800">Playoff Odds</h2>
         <ErrorMessage
-          message={error?.message ?? '데이터를 불러오는 중 오류가 발생했습니다.'}
+          message={error?.message ?? 'Failed to load data.'}
           onRetry={() => refetch()}
           showRetry={true}
         />
@@ -39,8 +39,8 @@ export function PlayoffOddsPanel() {
   if (!data) {
     return (
       <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-        <h2 className="mb-4 text-lg font-semibold text-gray-800">플레이오프 확률</h2>
-        <p className="py-8 text-center text-sm text-gray-500">데이터 수집 중</p>
+        <h2 className="mb-4 text-lg font-semibold text-gray-800">Playoff Odds</h2>
+        <p className="py-8 text-center text-sm text-gray-500">Data not yet available</p>
       </div>
     );
   }
@@ -55,7 +55,7 @@ export function PlayoffOddsPanel() {
 
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-      <h2 className="mb-4 text-lg font-semibold text-gray-800">플레이오프 확률</h2>
+      <h2 className="mb-4 text-lg font-semibold text-gray-800">Playoff Odds</h2>
 
       <div className="flex flex-col items-center gap-2">
         {/* Large current playoff % */}
@@ -67,15 +67,15 @@ export function PlayoffOddsPanel() {
         <div className="mt-2 flex gap-4 text-sm text-gray-600">
           <div className="text-center">
             <div className="font-semibold">{fmtPct(current.division)}</div>
-            <div className="text-xs text-gray-400">디비전</div>
+            <div className="text-xs text-gray-400">Division</div>
           </div>
           <div className="text-center">
             <div className="font-semibold">{fmtPct(current.wildcard)}</div>
-            <div className="text-xs text-gray-400">와일드카드</div>
+            <div className="text-xs text-gray-400">Wild Card</div>
           </div>
           <div className="text-center">
             <div className="font-semibold">{fmtPct(current.worldSeries)}</div>
-            <div className="text-xs text-gray-400">월드시리즈</div>
+            <div className="text-xs text-gray-400">World Series</div>
           </div>
         </div>
       </div>
@@ -106,7 +106,7 @@ export function PlayoffOddsPanel() {
                   return (
                     <div className="rounded border border-gray-200 bg-white px-3 py-2 text-xs shadow-sm">
                       <p className="font-medium text-gray-700">{label}</p>
-                      <p className="text-gray-600">{payload[0]?.value}% 플레이오프</p>
+                      <p className="text-gray-600">{payload[0]?.value}% Playoff</p>
                     </div>
                   );
                 }}

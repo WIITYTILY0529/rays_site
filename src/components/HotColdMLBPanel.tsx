@@ -5,10 +5,10 @@ import { LoadingSpinner } from './common/LoadingSpinner';
 import { ErrorMessage } from './common/ErrorMessage';
 import type { HitterStats, PitcherStats } from '../services/types';
 
-const WINDOW_TABS = ['7일', '14일'];
+const WINDOW_TABS = ['7d', '14d'];
 
 function getWindowFromTab(tab: string): 7 | 14 {
-  return tab === '7일' ? 7 : 14;
+  return tab === '7d' ? 7 : 14;
 }
 
 function HitterRow({ hitter, colorClass }: { hitter: HitterStats; colorClass: 'green' | 'red' }) {
@@ -63,7 +63,7 @@ export function HotColdMLBPanel() {
 
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-      <h2 className="mb-4 text-lg font-semibold text-gray-800">MLB 선수 성적 (Hot &amp; Cold)</h2>
+      <h2 className="mb-4 text-lg font-semibold text-gray-800">MLB Hot &amp; Cold</h2>
       <TabGroup tabs={WINDOW_TABS} activeTab={activeTab} onTabChange={setActiveTab} />
 
       <div className="mt-4">
@@ -75,7 +75,7 @@ export function HotColdMLBPanel() {
 
         {isError && (
           <ErrorMessage
-            message={error?.message ?? '데이터를 불러오는 중 오류가 발생했습니다.'}
+            message={error?.message ?? 'Failed to load data.'}
             onRetry={() => refetch()}
             showRetry={true}
           />
@@ -83,11 +83,11 @@ export function HotColdMLBPanel() {
 
         {!isLoading && !isError && (
           <div className="grid gap-6 md:grid-cols-2">
-            {/* Hot 타자 */}
+            {/* Hot Hitters */}
             <div>
               <h3 className="mb-2 flex items-center gap-1 text-sm font-semibold text-green-700">
-                <span>🔥</span> Hot 타자
-                <span className="text-xs font-normal text-gray-500">(wOBA 내림차순)</span>
+                <span>🔥</span> Hot Hitters
+                <span className="text-xs font-normal text-gray-500">(wOBA desc)</span>
               </h3>
               <ul className="space-y-1">
                 {hotHitters.map((hitter) => (
@@ -96,10 +96,10 @@ export function HotColdMLBPanel() {
               </ul>
             </div>
 
-            {/* Cold 타자 */}
+            {/* Cold Hitters */}
             <div>
               <h3 className="mb-2 flex items-center gap-1 text-sm font-semibold text-red-700">
-                <span>🥶</span> Cold 타자
+                <span>🥶</span> Cold Hitters
                 <span className="text-xs font-normal text-gray-500">(wOBA &lt; .290)</span>
               </h3>
               <ul className="space-y-1">
@@ -108,16 +108,16 @@ export function HotColdMLBPanel() {
                     <HitterRow key={hitter.playerId} hitter={hitter} colorClass="red" />
                   ))
                 ) : (
-                  <li className="px-3 py-2 text-sm text-gray-400">해당 선수 없음</li>
+                  <li className="px-3 py-2 text-sm text-gray-400">None</li>
                 )}
               </ul>
             </div>
 
-            {/* Hot 투수 */}
+            {/* Hot Pitchers */}
             <div>
               <h3 className="mb-2 flex items-center gap-1 text-sm font-semibold text-green-700">
-                <span>🔥</span> Hot 투수
-                <span className="text-xs font-normal text-gray-500">(FIP 오름차순)</span>
+                <span>🔥</span> Hot Pitchers
+                <span className="text-xs font-normal text-gray-500">(FIP asc)</span>
               </h3>
               <ul className="space-y-1">
                 {hotPitchers.map((pitcher) => (
@@ -126,10 +126,10 @@ export function HotColdMLBPanel() {
               </ul>
             </div>
 
-            {/* Cold 투수 */}
+            {/* Cold Pitchers */}
             <div>
               <h3 className="mb-2 flex items-center gap-1 text-sm font-semibold text-red-700">
-                <span>🥶</span> Cold 투수
+                <span>🥶</span> Cold Pitchers
                 <span className="text-xs font-normal text-gray-500">(FIP &gt; 3.75)</span>
               </h3>
               <ul className="space-y-1">
@@ -138,7 +138,7 @@ export function HotColdMLBPanel() {
                     <PitcherRow key={pitcher.playerId} pitcher={pitcher} colorClass="red" />
                   ))
                 ) : (
-                  <li className="px-3 py-2 text-sm text-gray-400">해당 선수 없음</li>
+                  <li className="px-3 py-2 text-sm text-gray-400">None</li>
                 )}
               </ul>
             </div>

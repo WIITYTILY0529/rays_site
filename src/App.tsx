@@ -35,10 +35,10 @@ class PanelErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryStat
       return (
         <div className="rounded-lg border border-red-200 bg-red-50 p-6">
           <h3 className="text-sm font-semibold text-red-700">
-            {this.props.fallbackLabel ?? '패널'} 로딩 오류
+            {this.props.fallbackLabel ?? 'Panel'} Loading Error
           </h3>
           <p className="mt-1 text-sm text-red-600">
-            이 섹션을 표시하는 중 오류가 발생했습니다.
+            An error occurred while loading this section.
           </p>
         </div>
       );
@@ -110,50 +110,50 @@ function App() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {/* Row 1: Playoff Odds - full width with graph */}
           <div className="md:col-span-2">
-            <PanelErrorBoundary fallbackLabel="플레이오프 확률">
+            <PanelErrorBoundary fallbackLabel="Playoff Odds">
               <PlayoffOddsPanel />
             </PanelErrorBoundary>
           </div>
 
           {/* Row 2: Record Tracker */}
-          <PanelErrorBoundary fallbackLabel="시즌 기록">
+          <PanelErrorBoundary fallbackLabel="Record Tracker">
             <RecordTracker />
           </PanelErrorBoundary>
 
           {/* Row 2.5: Standings - full width */}
           <div className="md:col-span-2">
-            <PanelErrorBoundary fallbackLabel="순위">
+            <PanelErrorBoundary fallbackLabel="Standings">
               <StandingsPanel />
             </PanelErrorBoundary>
           </div>
 
           {/* Row 3: Season Stats MLB - full width */}
           <div className="md:col-span-2">
-            <PanelErrorBoundary fallbackLabel="MLB 선수 성적">
+            <PanelErrorBoundary fallbackLabel="MLB Stats">
               <SeasonStatsPanel />
             </PanelErrorBoundary>
           </div>
 
           {/* Row 3: MiLB Notable Players - full width */}
           <div className="md:col-span-2">
-            <PanelErrorBoundary fallbackLabel="마이너리그 선수 성적">
+            <PanelErrorBoundary fallbackLabel="MiLB Stats">
               <MiLBNotablePanel />
             </PanelErrorBoundary>
           </div>
 
           {/* Row 4: Pace - full width */}
           <div className="md:col-span-2">
-            <PanelErrorBoundary fallbackLabel="페이스 예측">
+            <PanelErrorBoundary fallbackLabel="Pace Projections">
               <PacePanel />
             </PanelErrorBoundary>
           </div>
 
           {/* Row 5: Schedule + Scouting side by side on desktop */}
-          <PanelErrorBoundary fallbackLabel="일정">
+          <PanelErrorBoundary fallbackLabel="Schedule">
             <SchedulePanel />
           </PanelErrorBoundary>
 
-          <PanelErrorBoundary fallbackLabel="스카우팅">
+          <PanelErrorBoundary fallbackLabel="Scouting">
             <ScoutingPanel />
           </PanelErrorBoundary>
         </div>

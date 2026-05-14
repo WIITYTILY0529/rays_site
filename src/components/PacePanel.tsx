@@ -52,7 +52,7 @@ export function PacePanel() {
 
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-      <h2 className="mb-4 text-lg font-semibold text-gray-800">2026 시즌 페이스 예측</h2>
+      <h2 className="mb-4 text-lg font-semibold text-gray-800">2026 Season Pace Projections</h2>
 
       {isLoading && (
         <div className="flex items-center justify-center py-8">
@@ -62,7 +62,7 @@ export function PacePanel() {
 
       {isError && (
         <ErrorMessage
-          message={error?.message ?? '데이터를 불러오는 중 오류가 발생했습니다.'}
+          message={error?.message ?? 'Failed to load data.'}
           onRetry={() => refetch()}
           showRetry={true}
         />
@@ -72,12 +72,12 @@ export function PacePanel() {
         <div className="space-y-6">
           {/* Hitter Pace Table */}
           <div>
-            <h3 className="mb-2 text-sm font-semibold text-gray-700">타자 페이스</h3>
+            <h3 className="mb-2 text-sm font-semibold text-gray-700">Hitter Pace</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-left">
                 <thead>
                   <tr className="border-b border-gray-200">
-                    <th className="pb-2 pr-3 text-xs font-medium text-gray-500">선수</th>
+                    <th className="pb-2 pr-3 text-xs font-medium text-gray-500">Player</th>
                     <th className="px-2 pb-2 text-center text-xs font-medium text-gray-500">HR</th>
                     <th className="px-2 pb-2 text-center text-xs font-medium text-gray-500">H</th>
                     <th className="px-2 pb-2 text-center text-xs font-medium text-gray-500">RBI</th>
@@ -95,17 +95,17 @@ export function PacePanel() {
                 </tbody>
               </table>
             </div>
-            <p className="mt-1 text-xs text-gray-400">* 162경기 기준 예측값</p>
+            <p className="mt-1 text-xs text-gray-400">* Projected to 162 games</p>
           </div>
 
           {/* Pitcher Pace Table */}
           <div>
-            <h3 className="mb-2 text-sm font-semibold text-gray-700">투수 페이스</h3>
+            <h3 className="mb-2 text-sm font-semibold text-gray-700">Pitcher Pace</h3>
             <div className="overflow-x-auto">
               <table className="w-full text-left">
                 <thead>
                   <tr className="border-b border-gray-200">
-                    <th className="pb-2 pr-3 text-xs font-medium text-gray-500">선수</th>
+                    <th className="pb-2 pr-3 text-xs font-medium text-gray-500">Player</th>
                     <th className="px-2 pb-2 text-center text-xs font-medium text-gray-500">W</th>
                     <th className="px-2 pb-2 text-center text-xs font-medium text-gray-500">K</th>
                     <th className="px-2 pb-2 text-center text-xs font-medium text-gray-500">IP</th>
@@ -121,7 +121,7 @@ export function PacePanel() {
                 </tbody>
               </table>
             </div>
-            <p className="mt-1 text-xs text-gray-400">* 162경기 기준 예측값</p>
+            <p className="mt-1 text-xs text-gray-400">* Projected to 162 games</p>
           </div>
         </div>
       )}

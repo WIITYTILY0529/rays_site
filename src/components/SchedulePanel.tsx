@@ -60,7 +60,7 @@ export function SchedulePanel() {
 
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-      <h2 className="mb-4 text-lg font-semibold text-gray-800">일정 및 선발 투수</h2>
+      <h2 className="mb-4 text-lg font-semibold text-gray-800">Schedule &amp; Probable Pitchers</h2>
 
       {isLoading && (
         <div className="flex items-center justify-center py-8">
@@ -70,7 +70,7 @@ export function SchedulePanel() {
 
       {isError && (
         <ErrorMessage
-          message={error?.message ?? '데이터를 불러오는 중 오류가 발생했습니다.'}
+          message={error?.message ?? 'Failed to load data.'}
           onRetry={() => refetch()}
           showRetry={true}
         />

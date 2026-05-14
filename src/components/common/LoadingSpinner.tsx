@@ -12,10 +12,10 @@ export function LoadingSpinner({ size = 'md' }: LoadingSpinnerProps) {
   return (
     <div
       role="status"
-      aria-label="로딩 중"
+      aria-label="Loading"
       className={`inline-block animate-spin rounded-full border-solid border-current border-r-transparent ${sizeClasses[size]}`}
     >
-      <span className="sr-only">로딩 중...</span>
+      <span className="sr-only">Loading...</span>
     </div>
   );
 }

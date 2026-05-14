@@ -6,11 +6,11 @@ import { ErrorMessage } from './common/ErrorMessage';
 import { Sparkline } from './common/Sparkline';
 import type { HitterStats, PitcherStats, ScoutingPlayerCard } from '../services/types';
 
-const WINDOW_TABS = ['7일', '14일', '30일'];
+const WINDOW_TABS = ['7d', '14d', '30d'];
 
 function getWindowFromTab(tab: string): 7 | 14 | 30 {
-  if (tab === '7일') return 7;
-  if (tab === '14일') return 14;
+  if (tab === '7d') return 7;
+  if (tab === '14d') return 14;
   return 30;
 }
 
@@ -95,11 +95,11 @@ function HotColdView({ hotHitters, coldHitters, hotPitchers, coldPitchers }: {
 }) {
   return (
     <div className="grid gap-6 md:grid-cols-2">
-      {/* Hot 타자 */}
+      {/* Hot Hitters */}
       <div>
         <h3 className="mb-2 flex items-center gap-1 text-sm font-semibold text-green-700">
-          <span>🔥</span> Hot 타자
-          <span className="text-xs font-normal text-gray-500">(wOBA 내림차순)</span>
+          <span>🔥</span> Hot Hitters
+          <span className="text-xs font-normal text-gray-500">(wOBA desc)</span>
         </h3>
         <ul className="space-y-1">
           {hotHitters.length > 0 ? (
@@ -107,15 +107,15 @@ function HotColdView({ hotHitters, coldHitters, hotPitchers, coldPitchers }: {
               <HitterRow key={hitter.playerId} hitter={hitter} colorClass="green" />
             ))
           ) : (
-            <li className="px-3 py-2 text-sm text-gray-400">해당 선수 없음</li>
+            <li className="px-3 py-2 text-sm text-gray-400">None</li>
           )}
         </ul>
       </div>
 
-      {/* Cold 타자 */}
+      {/* Cold Hitters */}
       <div>
         <h3 className="mb-2 flex items-center gap-1 text-sm font-semibold text-red-700">
-          <span>🥶</span> Cold 타자
+          <span>🥶</span> Cold Hitters
           <span className="text-xs font-normal text-gray-500">(wOBA &lt; .290)</span>
         </h3>
         <ul className="space-y-1">
@@ -124,16 +124,16 @@ function HotColdView({ hotHitters, coldHitters, hotPitchers, coldPitchers }: {
               <HitterRow key={hitter.playerId} hitter={hitter} colorClass="red" />
             ))
           ) : (
-            <li className="px-3 py-2 text-sm text-gray-400">해당 선수 없음</li>
+            <li className="px-3 py-2 text-sm text-gray-400">None</li>
           )}
         </ul>
       </div>
 
-      {/* Hot 투수 */}
+      {/* Hot Pitchers */}
       <div>
         <h3 className="mb-2 flex items-center gap-1 text-sm font-semibold text-green-700">
-          <span>🔥</span> Hot 투수
-          <span className="text-xs font-normal text-gray-500">(FIP 오름차순)</span>
+          <span>🔥</span> Hot Pitchers
+          <span className="text-xs font-normal text-gray-500">(FIP asc)</span>
         </h3>
         <ul className="space-y-1">
           {hotPitchers.length > 0 ? (
@@ -141,15 +141,15 @@ function HotColdView({ hotHitters, coldHitters, hotPitchers, coldPitchers }: {
               <PitcherRow key={pitcher.playerId} pitcher={pitcher} colorClass="green" />
             ))
           ) : (
-            <li className="px-3 py-2 text-sm text-gray-400">해당 선수 없음</li>
+            <li className="px-3 py-2 text-sm text-gray-400">None</li>
           )}
         </ul>
       </div>
 
-      {/* Cold 투수 */}
+      {/* Cold Pitchers */}
       <div>
         <h3 className="mb-2 flex items-center gap-1 text-sm font-semibold text-red-700">
-          <span>🥶</span> Cold 투수
+          <span>🥶</span> Cold Pitchers
           <span className="text-xs font-normal text-gray-500">(FIP &gt; 3.75)</span>
         </h3>
         <ul className="space-y-1">
@@ -158,7 +158,7 @@ function HotColdView({ hotHitters, coldHitters, hotPitchers, coldPitchers }: {
               <PitcherRow key={pitcher.playerId} pitcher={pitcher} colorClass="red" />
             ))
           ) : (
-            <li className="px-3 py-2 text-sm text-gray-400">해당 선수 없음</li>
+            <li className="px-3 py-2 text-sm text-gray-400">None</li>
           )}
         </ul>
       </div>
@@ -173,7 +173,7 @@ function SparklineView({ scoutingCards }: { scoutingCards: ScoutingPlayerCard[] 
   return (
     <div className="space-y-4">
       <div>
-        <h3 className="mb-2 text-sm font-semibold text-gray-700">타자 (wRC+)</h3>
+        <h3 className="mb-2 text-sm font-semibold text-gray-700">Hitters (wRC+)</h3>
         <div className="space-y-1">
           {hitterCards.map((card) => (
             <ScoutingCardRow key={card.player.id} card={card} />
@@ -181,7 +181,7 @@ function SparklineView({ scoutingCards }: { scoutingCards: ScoutingPlayerCard[] 
         </div>
       </div>
       <div>
-        <h3 className="mb-2 text-sm font-semibold text-gray-700">투수 (FIP)</h3>
+        <h3 className="mb-2 text-sm font-semibold text-gray-700">Pitchers (FIP)</h3>
         <div className="space-y-1">
           {pitcherCards.map((card) => (
             <ScoutingCardRow key={card.player.id} card={card} />
@@ -203,7 +203,7 @@ export function ScoutingPanel() {
 
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-      <h2 className="mb-4 text-lg font-semibold text-gray-800">상대팀 스카우팅</h2>
+      <h2 className="mb-4 text-lg font-semibold text-gray-800">Opponent Scouting</h2>
       <TabGroup tabs={WINDOW_TABS} activeTab={activeTab} onTabChange={setActiveTab} />
 
       <div className="mt-4">
@@ -215,7 +215,7 @@ export function ScoutingPanel() {
 
         {isError && (
           <ErrorMessage
-            message={error?.message ?? '데이터를 불러오는 중 오류가 발생했습니다.'}
+            message={error?.message ?? 'Failed to load data.'}
             onRetry={() => refetch()}
             showRetry={true}
           />
@@ -233,7 +233,7 @@ export function ScoutingPanel() {
                 coldPitchers={coldPitchers}
               />
             )}
-            <p className="mt-3 text-xs text-gray-400">* 예상 선발 투수</p>
+            <p className="mt-3 text-xs text-gray-400">* Probable starter</p>
           </>
         )}
       </div>

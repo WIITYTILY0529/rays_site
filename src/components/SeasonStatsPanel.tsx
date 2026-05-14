@@ -8,7 +8,7 @@ import { ErrorMessage } from './common/ErrorMessage';
 import type { FangraphsHitter, FangraphsPitcher } from '../services/fangraphsData';
 import type { HitterStats } from '../services/types';
 
-const TABS = ['시즌 전체', '최근 7일'];
+const TABS = ['Season', 'Last 7 Days'];
 
 type SortDir = 'asc' | 'desc';
 
@@ -395,7 +395,7 @@ export function SeasonStatsPanel() {
 
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-      <h2 className="mb-4 text-lg font-semibold text-gray-800">MLB 선수 시즌 성적</h2>
+      <h2 className="mb-4 text-lg font-semibold text-gray-800">MLB Season Stats</h2>
       <TabGroup tabs={TABS} activeTab={activeTab} onTabChange={setActiveTab} />
 
       <div className="mt-4">
@@ -407,7 +407,7 @@ export function SeasonStatsPanel() {
 
         {isError && (
           <ErrorMessage
-            message={error?.message ?? '데이터를 불러오는 중 오류가 발생했습니다.'}
+            message={error?.message ?? 'Failed to load data.'}
             onRetry={() => refetch()}
             showRetry={true}
           />
@@ -416,15 +416,15 @@ export function SeasonStatsPanel() {
         {!isLoading && !isError && isSeason && (
           <>
             {!teamData ? (
-              <p className="py-8 text-center text-sm text-gray-500">데이터 수집 중</p>
+              <p className="py-8 text-center text-sm text-gray-500">Data not yet available</p>
             ) : (
               <div className="space-y-6">
                 <div>
-                  <h3 className="mb-2 text-sm font-semibold text-gray-700">타자</h3>
+                  <h3 className="mb-2 text-sm font-semibold text-gray-700">Hitters</h3>
                   <SeasonHittersTable hitters={teamData.hitters} />
                 </div>
                 <div>
-                  <h3 className="mb-2 text-sm font-semibold text-gray-700">투수</h3>
+                  <h3 className="mb-2 text-sm font-semibold text-gray-700">Pitchers</h3>
                   <SeasonPitchersTable pitchers={teamData.pitchers} />
                 </div>
               </div>
@@ -435,19 +435,19 @@ export function SeasonStatsPanel() {
         {!isLoading && !isError && !isSeason && (
           <div className="space-y-6">
             <div>
-              <h3 className="mb-2 text-sm font-semibold text-gray-700">타자 (최근 7일)</h3>
+              <h3 className="mb-2 text-sm font-semibold text-gray-700">Hitters (Last 7 Days)</h3>
               {sevenDayHitters.length > 0 ? (
                 <SevenDayHittersTable hitters={sevenDayHitters} />
               ) : (
-                <p className="py-4 text-center text-sm text-gray-500">데이터 없음</p>
+                <p className="py-4 text-center text-sm text-gray-500">No data available</p>
               )}
             </div>
             <div>
-              <h3 className="mb-2 text-sm font-semibold text-gray-700">투수 (최근 7일)</h3>
+              <h3 className="mb-2 text-sm font-semibold text-gray-700">Pitchers (Last 7 Days)</h3>
               {sevenDayPitchers.length > 0 ? (
                 <SevenDayPitchersTable pitchers={sevenDayPitchers} />
               ) : (
-                <p className="py-4 text-center text-sm text-gray-500">데이터 없음</p>
+                <p className="py-4 text-center text-sm text-gray-500">No data available</p>
               )}
             </div>
           </div>

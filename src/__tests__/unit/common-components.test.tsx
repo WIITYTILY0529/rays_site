@@ -10,7 +10,7 @@ describe('LoadingSpinner', () => {
     render(<LoadingSpinner />);
     const spinner = screen.getByRole('status');
     expect(spinner).toBeInTheDocument();
-    expect(spinner).toHaveAttribute('aria-label', '로딩 중');
+    expect(spinner).toHaveAttribute('aria-label', 'Loading');
     expect(spinner.className).toContain('h-8');
     expect(spinner.className).toContain('w-8');
   });
@@ -39,7 +39,7 @@ describe('ErrorMessage', () => {
   it('shows retry button when showRetry is true and onRetry is provided', () => {
     const onRetry = vi.fn();
     render(<ErrorMessage message="Error" showRetry={true} onRetry={onRetry} />);
-    const button = screen.getByText('재시도');
+    const button = screen.getByText('Retry');
     expect(button).toBeInTheDocument();
     fireEvent.click(button);
     expect(onRetry).toHaveBeenCalledTimes(1);
@@ -48,12 +48,12 @@ describe('ErrorMessage', () => {
   it('does not show retry button when showRetry is false', () => {
     const onRetry = vi.fn();
     render(<ErrorMessage message="Error" showRetry={false} onRetry={onRetry} />);
-    expect(screen.queryByText('재시도')).not.toBeInTheDocument();
+    expect(screen.queryByText('Retry')).not.toBeInTheDocument();
   });
 
   it('does not show retry button when onRetry is not provided', () => {
     render(<ErrorMessage message="Error" showRetry={true} />);
-    expect(screen.queryByText('재시도')).not.toBeInTheDocument();
+    expect(screen.queryByText('Retry')).not.toBeInTheDocument();
   });
 
   it('has alert role for accessibility', () => {
@@ -89,44 +89,44 @@ describe('TrendIndicator', () => {
 });
 
 describe('TabGroup', () => {
-  const tabs = ['7일', '14일', '30일'];
+  const tabs = ['7d', '14d', '30d'];
 
   it('renders all tabs', () => {
-    render(<TabGroup tabs={tabs} activeTab="7일" onTabChange={() => {}} />);
+    render(<TabGroup tabs={tabs} activeTab="7d" onTabChange={() => {}} />);
     tabs.forEach((tab) => {
       expect(screen.getByText(tab)).toBeInTheDocument();
     });
   });
 
   it('has tablist role on container', () => {
-    render(<TabGroup tabs={tabs} activeTab="7일" onTabChange={() => {}} />);
+    render(<TabGroup tabs={tabs} activeTab="7d" onTabChange={() => {}} />);
     expect(screen.getByRole('tablist')).toBeInTheDocument();
   });
 
   it('has tab role on each button', () => {
-    render(<TabGroup tabs={tabs} activeTab="7일" onTabChange={() => {}} />);
+    render(<TabGroup tabs={tabs} activeTab="7d" onTabChange={() => {}} />);
     const tabElements = screen.getAllByRole('tab');
     expect(tabElements).toHaveLength(3);
   });
 
   it('marks active tab with aria-selected', () => {
-    render(<TabGroup tabs={tabs} activeTab="14일" onTabChange={() => {}} />);
-    const activeTab = screen.getByText('14일');
+    render(<TabGroup tabs={tabs} activeTab="14d" onTabChange={() => {}} />);
+    const activeTab = screen.getByText('14d');
     expect(activeTab).toHaveAttribute('aria-selected', 'true');
-    const inactiveTab = screen.getByText('7일');
+    const inactiveTab = screen.getByText('7d');
     expect(inactiveTab).toHaveAttribute('aria-selected', 'false');
   });
 
   it('calls onTabChange when a tab is clicked', () => {
     const onTabChange = vi.fn();
-    render(<TabGroup tabs={tabs} activeTab="7일" onTabChange={onTabChange} />);
-    fireEvent.click(screen.getByText('30일'));
-    expect(onTabChange).toHaveBeenCalledWith('30일');
+    render(<TabGroup tabs={tabs} activeTab="7d" onTabChange={onTabChange} />);
+    fireEvent.click(screen.getByText('30d'));
+    expect(onTabChange).toHaveBeenCalledWith('30d');
   });
 
   it('applies distinct styling to active tab', () => {
-    render(<TabGroup tabs={tabs} activeTab="7일" onTabChange={() => {}} />);
-    const activeTab = screen.getByText('7일');
+    render(<TabGroup tabs={tabs} activeTab="7d" onTabChange={() => {}} />);
+    const activeTab = screen.getByText('7d');
     expect(activeTab.className).toContain('border-b-2');
   });
 });
