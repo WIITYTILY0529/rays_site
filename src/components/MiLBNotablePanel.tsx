@@ -119,6 +119,7 @@ function NotableHittersTable({
             <SortHeader label="K" sortKey="K" currentSort={sort} onSort={handleSort} />
             <SortHeader label="OBP" sortKey="OBP" currentSort={sort} onSort={handleSort} />
             <SortHeader label="SLG" sortKey="SLG" currentSort={sort} onSort={handleSort} />
+            <SortHeader label="wOBA" sortKey="wOBA" currentSort={sort} onSort={handleSort} />
             <SortHeader label="BABIP" sortKey="BABIP" currentSort={sort} onSort={handleSort} />
           </tr>
         </thead>
@@ -153,13 +154,14 @@ function NotableHittersTable({
                 <td className="px-2 py-1.5 text-right tabular-nums">{h.K}</td>
                 <td className="px-2 py-1.5 text-right tabular-nums">{fmtRate(h.OBP)}</td>
                 <td className="px-2 py-1.5 text-right tabular-nums">{fmtRate(h.SLG)}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{fmtRate(h.wOBA)}</td>
                 <td className="px-2 py-1.5 text-right tabular-nums">{fmtRate(h.BABIP)}</td>
               </tr>
             ))
           ) : (
             <tr>
               <td
-                colSpan={showLevel ? 11 : 10}
+                colSpan={showLevel ? 12 : 11}
                 className="py-3 text-center text-gray-400"
               >
                 No data available

@@ -172,6 +172,7 @@ export interface MiLBSeasonHitter {
   OBP: number;
   SLG: number;
   BABIP: number;
+  wOBA: number;
 }
 
 // MiLB Notable Players - Season Pitcher Stats

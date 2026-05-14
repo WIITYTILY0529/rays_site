@@ -58,6 +58,22 @@ export function useMiLBNotable(affiliate: AffiliateKey): UseMiLBNotableResult {
           async (player: Player) => {
             const stats = await getPlayerStats(player.id, 'hitting', SEASON, affInfo.sportId);
             if (!stats || !stats.gamesPlayed) return null;
+
+            // Calculate wOBA from season components
+            const ab = stats.atBats ?? 0;
+            const bb = stats.baseOnBalls ?? 0;
+            const hbp = stats.hitByPitch ?? 0;
+            const sf = stats.sacFlies ?? 0;
+            const h = stats.hits ?? 0;
+            const doubles = stats.doubles ?? 0;
+            const triples = stats.triples ?? 0;
+            const hr = stats.homeRuns ?? 0;
+            const singles = h - doubles - triples - hr;
+            const denom = ab + bb + sf + hbp;
+            const wOBA = denom > 0
+              ? (0.69 * bb + 0.72 * hbp + 0.89 * singles + 1.27 * doubles + 1.62 * triples + 2.10 * hr) / denom
+              : 0;
+
             return {
               playerId: player.id,
               name: player.fullName,
@@ -65,13 +81,14 @@ export function useMiLBNotable(affiliate: AffiliateKey): UseMiLBNotableResult {
               level: affInfo.level,
               G: stats.gamesPlayed ?? 0,
               PA: stats.plateAppearances ?? 0,
-              HR: stats.homeRuns ?? 0,
+              HR: hr,
               SB: stats.stolenBases ?? 0,
-              BB: stats.baseOnBalls ?? 0,
+              BB: bb,
               K: stats.strikeOuts ?? 0,
               OBP: parseFloat(stats.obp ?? '0'),
               SLG: parseFloat(stats.slg ?? '0'),
               BABIP: parseFloat(stats.babip ?? '0'),
+              wOBA: parseFloat(wOBA.toFixed(3)),
             } as MiLBSeasonHitter;
           },
           8
