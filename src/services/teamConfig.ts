@@ -5,6 +5,7 @@ export interface TeamConfig {
   colors: { primary: string; secondary: string };
   divisionId: number;
   leagueId: number;
+  fgTeamId: number;
   affiliates: Record<string, { teamId: number; sportId: number; level: string }>;
 }
 
@@ -16,6 +17,7 @@ export const TEAMS: Record<string, TeamConfig> = {
     colors: { primary: '#092C5C', secondary: '#8FBCE6' },
     divisionId: 201,
     leagueId: 103,
+    fgTeamId: 12,
     affiliates: {
       'AAA': { teamId: 234, sportId: 11, level: 'AAA' },
       'AA': { teamId: 421, sportId: 12, level: 'AA' },
@@ -30,6 +32,7 @@ export const TEAMS: Record<string, TeamConfig> = {
     colors: { primary: '#0C2340', secondary: '#FA4616' },
     divisionId: 202,
     leagueId: 103,
+    fgTeamId: 6,
     affiliates: {
       'AAA': { teamId: 512, sportId: 11, level: 'AAA' },
       'AA': { teamId: 106, sportId: 12, level: 'AA' },
