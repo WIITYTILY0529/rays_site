@@ -113,6 +113,27 @@ export interface ScoutingPlayerCard {
   colorClass: 'green' | 'red' | 'neutral';
 }
 
+// 디비전 순위 상세 (Full Standings)
+export interface StandingsRow {
+  teamId: number;
+  teamName: string;
+  teamAbbr: string;
+  W: number;
+  L: number;
+  PCT: string;
+  GB: string;
+  WCGB: string;
+  L10: string;
+  STRK: string;
+  RS: number;
+  RA: number;
+  DIFF: number;
+  xWL: string;
+  HOME: string;
+  AWAY: string;
+  vs500: string;
+}
+
 // Quality Gate 설정
 export interface QualityGate {
   window: 7 | 14 | 30;

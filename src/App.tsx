@@ -3,6 +3,7 @@ import { useTeam } from './context/TeamContext';
 import { TEAMS } from './services/teamConfig';
 import { PlayoffOddsPanel } from './components/PlayoffOddsPanel';
 import { RecordTracker } from './components/RecordTracker';
+import { StandingsPanel } from './components/StandingsPanel';
 import { SeasonStatsPanel } from './components/SeasonStatsPanel';
 import { MiLBNotablePanel } from './components/MiLBNotablePanel';
 import { PacePanel } from './components/PacePanel';
@@ -118,6 +119,13 @@ function App() {
           <PanelErrorBoundary fallbackLabel="시즌 기록">
             <RecordTracker />
           </PanelErrorBoundary>
+
+          {/* Row 2.5: Standings - full width */}
+          <div className="md:col-span-2">
+            <PanelErrorBoundary fallbackLabel="순위">
+              <StandingsPanel />
+            </PanelErrorBoundary>
+          </div>
 
           {/* Row 3: Season Stats MLB - full width */}
           <div className="md:col-span-2">

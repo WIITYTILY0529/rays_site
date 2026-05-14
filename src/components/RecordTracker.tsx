@@ -12,7 +12,6 @@ import { useRecordTracker } from '../hooks/useRecordTracker';
 import { useTeam } from '../context/TeamContext';
 import { LoadingSpinner } from './common/LoadingSpinner';
 import { ErrorMessage } from './common/ErrorMessage';
-import type { TeamStanding } from '../services/types';
 import type { GameResult } from '../hooks/useRecordTracker';
 
 const GRAY_2025 = '#9ca3af';
@@ -30,45 +29,6 @@ function DeltaBadge({ value }: { value: number }) {
     <span className={`text-xs font-semibold ${isPositive ? 'text-green-600' : 'text-red-600'}`}>
       {isPositive ? '+' : ''}{value}
     </span>
-  );
-}
-
-function StandingsPopover({ standings, teamName }: { standings: TeamStanding[]; teamName: string }) {
-  return (
-    <div className="absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 rounded-lg border border-gray-200 bg-white p-4 shadow-lg">
-      <h3 className="mb-2 text-sm font-semibold text-gray-700">Division Standings</h3>
-      <table className="w-full text-xs">
-        <thead>
-          <tr className="border-b border-gray-100 text-gray-500">
-            <th className="pb-1 pr-3 text-left">Team</th>
-            <th className="pb-1 px-2 text-right">W</th>
-            <th className="pb-1 px-2 text-right">L</th>
-            <th className="pb-1 px-2 text-right">PCT</th>
-            <th className="pb-1 pl-2 text-right">GB</th>
-          </tr>
-        </thead>
-        <tbody>
-          {standings.map((t) => (
-            <tr
-              key={t.teamName}
-              className={`border-b border-gray-50 ${
-                t.teamName.toLowerCase().includes(teamName.toLowerCase().split(' ').pop() ?? '')
-                  ? 'font-semibold text-blue-700'
-                  : 'text-gray-700'
-              }`}
-            >
-              <td className="py-1 pr-3 text-left whitespace-nowrap">{t.teamName}</td>
-              <td className="py-1 px-2 text-right">{t.wins}</td>
-              <td className="py-1 px-2 text-right">{t.losses}</td>
-              <td className="py-1 px-2 text-right">{t.winPct.toFixed(3).replace(/^0/, '')}</td>
-              <td className="py-1 pl-2 text-right">
-                {t.gamesBehind === 0 ? '—' : t.gamesBehind.toFixed(1)}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
   );
 }
 
@@ -172,7 +132,6 @@ function CustomTooltip({ active, payload, label }: any) {
 export function RecordTracker() {
   const { data, isLoading, isError, error, refetch } = useRecordTracker();
   const { team } = useTeam();
-  const [showStandings, setShowStandings] = useState(false);
   const [show2025, setShow2025] = useState(true);
   const [show2026, setShow2026] = useState(true);
 
@@ -221,20 +180,10 @@ export function RecordTracker() {
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
       {/* Header */}
-      <div
-        className="relative mb-5"
-        onMouseEnter={() => setShowStandings(true)}
-        onMouseLeave={() => setShowStandings(false)}
-      >
+      <div className="mb-5">
         <h2 className="text-lg font-semibold text-gray-800">
           {panelTitle}
         </h2>
-        <p className="text-xs text-gray-400 mt-0.5 cursor-default">
-          Division standings on hover
-        </p>
-        {showStandings && data.divisionStandings.length > 0 && (
-          <StandingsPopover standings={data.divisionStandings} teamName={team.name} />
-        )}
       </div>
 
       {/* Stats Row */}

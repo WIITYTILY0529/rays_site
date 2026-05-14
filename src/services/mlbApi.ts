@@ -1,4 +1,4 @@
-import type { Player, TeamStanding } from './types';
+import type { Player, TeamStanding, StandingsRow } from './types';
 
 const MLB_BASE_URL = 'https://statsapi.mlb.com/api/v1';
 
@@ -139,6 +139,88 @@ export async function getStandings(leagueId: number, season: number, divisionId?
   }
 
   return standings;
+}
+
+/**
+ * Division name mapping from divisionId.
+ */
+export const DIVISION_NAMES: Record<number, string> = {
+  201: 'AL East',
+  202: 'AL Central',
+  200: 'AL West',
+  204: 'NL East',
+  205: 'NL Central',
+  203: 'NL West',
+};
+
+/**
+ * Get full division standings with all MLB.com columns.
+ * Endpoint: /standings?leagueId={leagueId}&season={season}&hydrate=team
+ */
+export async function getFullStandings(
+  leagueId: number,
+  season: number,
+  divisionId: number
+): Promise<StandingsRow[]> {
+  const url = `${MLB_BASE_URL}/standings?leagueId=${leagueId}&season=${season}&hydrate=team`;
+  const response = await fetchWithTimeout(url);
+  const data = await response.json();
+
+  if (!data.records || !Array.isArray(data.records)) {
+    return [];
+  }
+
+  const rows: StandingsRow[] = [];
+
+  for (const record of data.records) {
+    if (record.division?.id !== divisionId) continue;
+
+    if (!record.teamRecords || !Array.isArray(record.teamRecords)) continue;
+
+    for (const tr of record.teamRecords) {
+      const teamId = tr.team?.id ?? 0;
+      const teamName = tr.team?.name ?? 'Unknown';
+      const teamAbbr = tr.team?.abbreviation ?? '???';
+
+      // Split records
+      const splitRecords: any[] = tr.records?.splitRecords ?? [];
+      const getSplit = (type: string): string => {
+        const found = splitRecords.find((s: any) => s.type === type);
+        if (!found) return '0-0';
+        return `${found.wins ?? 0}-${found.losses ?? 0}`;
+      };
+
+      // Expected records
+      const expectedRecords: any[] = tr.records?.expectedRecords ?? [];
+      const getExpected = (type: string): string => {
+        const found = expectedRecords.find((s: any) => s.type === type);
+        if (!found) return '0-0';
+        return `${found.wins ?? 0}-${found.losses ?? 0}`;
+      };
+
+      rows.push({
+        teamId,
+        teamName,
+        teamAbbr,
+        W: tr.wins ?? 0,
+        L: tr.losses ?? 0,
+        PCT: tr.winningPercentage ?? '.000',
+        GB: tr.divisionGamesBack ?? '-',
+        WCGB: tr.wildCardGamesBack ?? '-',
+        L10: getSplit('lastTen'),
+        STRK: tr.streak?.streakCode ?? '-',
+        RS: tr.runsScored ?? 0,
+        RA: tr.runsAllowed ?? 0,
+        DIFF: tr.runDifferential ?? 0,
+        xWL: getExpected('xWinLoss'),
+        HOME: getSplit('home'),
+        AWAY: getSplit('away'),
+        vs500: getSplit('winners'),
+      });
+    }
+  }
+
+  return rows;
 }
 
 /**
