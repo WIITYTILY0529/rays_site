@@ -1,4 +1,5 @@
 import { Component, type ReactNode } from 'react';
+import { useQueryClient } from '@tanstack/react-query';
 import { useTeam } from './context/TeamContext';
 import { TEAMS } from './services/teamConfig';
 import { PlayoffOddsPanel } from './components/PlayoffOddsPanel';
@@ -51,20 +52,31 @@ class PanelErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryStat
 
 function TeamSelector() {
   const { teamKey, setTeamKey } = useTeam();
+  const queryClient = useQueryClient();
 
   return (
-    <select
-      value={teamKey}
-      onChange={(e) => setTeamKey(e.target.value)}
-      className="rounded-md border border-white/30 bg-white/10 px-3 py-1.5 text-sm font-medium text-white backdrop-blur-sm transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/50"
-      aria-label="Select team"
-    >
-      {Object.entries(TEAMS).map(([key, t]) => (
-        <option key={key} value={key} className="text-gray-900">
-          {t.abbreviation} — {t.name}
-        </option>
-      ))}
-    </select>
+    <div className="flex items-center gap-2">
+      <button
+        onClick={() => queryClient.invalidateQueries()}
+        className="rounded-md border border-white/30 bg-white/10 px-2.5 py-1.5 text-sm text-white transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/50"
+        aria-label="Refresh data"
+        title="Refresh all data"
+      >
+        🔄
+      </button>
+      <select
+        value={teamKey}
+        onChange={(e) => setTeamKey(e.target.value)}
+        className="rounded-md border border-white/30 bg-white/10 px-3 py-1.5 text-sm font-medium text-white backdrop-blur-sm transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/50"
+        aria-label="Select team"
+      >
+        {Object.entries(TEAMS).map(([key, t]) => (
+          <option key={key} value={key} className="text-gray-900">
+            {t.abbreviation} — {t.name}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 }
 
