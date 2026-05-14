@@ -48,7 +48,7 @@ class PanelErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryStat
 }
 
 function TeamSelector() {
-  const { team, teamKey, setTeamKey } = useTeam();
+  const { teamKey, setTeamKey } = useTeam();
 
   return (
     <select
