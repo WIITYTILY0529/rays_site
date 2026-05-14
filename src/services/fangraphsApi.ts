@@ -4,7 +4,10 @@ const TIMEOUT_MS = 10000;
 
 /**
  * Fetch wrapper with 10-second timeout using AbortController.
+ * TODO: Will be used when real Fangraphs API/proxy is available.
  */
+// @ts-expect-error - Reserved for future use when real API is connected
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function fetchWithTimeout(url: string): Promise<Response> {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), TIMEOUT_MS);
@@ -34,7 +37,7 @@ async function fetchWithTimeout(url: string): Promise<Response> {
  * - A third-party API that provides Fangraphs-equivalent data
  * - A manual data entry system
  */
-export async function getPlayoffOdds(teamAbbr: string): Promise<PlayoffOddsData> {
+export async function getPlayoffOdds(_teamAbbr: string): Promise<PlayoffOddsData> {
   // TODO: Replace with real API call when a data source is available.
   // Example future implementation:
   // const url = `${FANGRAPHS_PROXY_URL}/playoff-odds?team=${teamAbbr}`;
