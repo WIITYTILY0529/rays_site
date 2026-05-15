@@ -1,4 +1,417 @@
 {
-  "lastUpdated": null,
-  "players": {}
+  "lastUpdated": "2026-05-15T08:42:14.911628Z",
+  "players": {
+    "605156": {
+      "name": "Aaron Brooks",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "Pitching Run Value",
+          "value": "-1",
+          "percentile": 0
+        }
+      ]
+    },
+    "810938": {
+      "name": "Ben Williamson",
+      "position": "2B",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "91",
+          "value": "20",
+          "percentile": 42
+        },
+        {
+          "name": "Batting Run Value",
+          "value": "-1",
+          "percentile": 1
+        }
+      ]
+    },
+    "641329": {
+      "name": "Bryan Baker",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "65",
+          "value": "10",
+          "percentile": 68
+        },
+        {
+          "name": "Pitching Run Value",
+          "value": "Fastball Run Value",
+          "percentile": 3
+        }
+      ]
+    },
+    "668984": {
+      "name": "Casey Legumina",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "26",
+          "value": "57",
+          "percentile": 28
+        },
+        {
+          "name": "Pitching Run Value",
+          "value": "-2",
+          "percentile": 1
+        }
+      ]
+    },
+    "656775": {
+      "name": "Cedric Mullins",
+      "position": "CF",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "23",
+          "value": "46",
+          "percentile": 1
+        },
+        {
+          "name": "Batting Run Value",
+          "value": "-13",
+          "percentile": 0
+        }
+      ]
+    },
+    "802415": {
+      "name": "Chandler Simpson",
+      "position": "LF",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "98",
+          "value": "94",
+          "percentile": 14
+        },
+        {
+          "name": "Batting Run Value",
+          "value": "-6",
+          "percentile": 2
+        }
+      ]
+    },
+    "642121": {
+      "name": "Cole Sulser",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "70",
+          "value": "39",
+          "percentile": 51
+        },
+        {
+          "name": "Pitching Run Value",
+          "value": "Fastball Run Value",
+          "percentile": 1
+        }
+      ]
+    },
+    "656876": {
+      "name": "Drew Rasmussen",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "94",
+          "value": "39",
+          "percentile": 81
+        },
+        {
+          "name": "Pitching Run Value",
+          "value": "Fastball Run Value",
+          "percentile": 5
+        }
+      ]
+    },
+    "664076": {
+      "name": "Garrett Cleavinger",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "Pitching Run Value",
+          "value": "Fastball Run Value",
+          "percentile": 0
+        }
+      ]
+    },
+    "643377": {
+      "name": "Griffin Jax",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "18",
+          "value": "59",
+          "percentile": 29
+        },
+        {
+          "name": "Pitching Run Value",
+          "value": "-2",
+          "percentile": 1
+        }
+      ]
+    },
+    "685801": {
+      "name": "Hunter Bigge",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "86",
+          "value": "56",
+          "percentile": 83
+        },
+        {
+          "name": "Pitching Run Value",
+          "value": "Fastball Run Value",
+          "percentile": 5
+        }
+      ]
+    },
+    "676439": {
+      "name": "Hunter Feduccia",
+      "position": "C",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "Batting Run Value",
+          "value": "Baserunning Run Value",
+          "percentile": 0
+        }
+      ]
+    },
+    "693855": {
+      "name": "Ian Seymour",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "17",
+          "value": "79",
+          "percentile": 44
+        },
+        {
+          "name": "Pitching Run Value",
+          "value": "Fastball Run Value",
+          "percentile": 0
+        }
+      ]
+    },
+    "641584": {
+      "name": "Jake Fraley",
+      "position": "RF",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "Batting Run Value",
+          "value": "Baserunning Run Value",
+          "percentile": 0
+        }
+      ]
+    },
+    "669947": {
+      "name": "Jesse Scholtens",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "46",
+          "value": "26",
+          "percentile": 37
+        },
+        {
+          "name": "Pitching Run Value",
+          "value": "-1",
+          "percentile": 0
+        }
+      ]
+    },
+    "666018": {
+      "name": "Jonathan Aranda",
+      "position": "1B",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "13",
+          "value": "17",
+          "percentile": 91
+        },
+        {
+          "name": "Batting Run Value",
+          "value": "Baserunning Run Value",
+          "percentile": 10
+        }
+      ]
+    },
+    "676356": {
+      "name": "Jonny DeLuca",
+      "position": "RF",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "83",
+          "value": "68",
+          "percentile": 44
+        },
+        {
+          "name": "Batting Run Value",
+          "value": "-1",
+          "percentile": 1
+        }
+      ]
+    },
+    "691406": {
+      "name": "Junior Caminero",
+      "position": "3B",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "29",
+          "value": "1",
+          "percentile": 80
+        },
+        {
+          "name": "Batting Run Value",
+          "value": "Baserunning Run Value",
+          "percentile": 5
+        }
+      ]
+    },
+    "687330": {
+      "name": "Kevin Kelly",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "91",
+          "value": "23",
+          "percentile": 84
+        },
+        {
+          "name": "Pitching Run Value",
+          "value": "Fastball Run Value",
+          "percentile": 6
+        }
+      ]
+    },
+    "663743": {
+      "name": "Nick Fortes",
+      "position": "C",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "17",
+          "value": "31",
+          "percentile": 33
+        },
+        {
+          "name": "Batting Run Value",
+          "value": "-3",
+          "percentile": 0
+        }
+      ]
+    },
+    "607259": {
+      "name": "Nick Martinez",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "99",
+          "value": "10",
+          "percentile": 96
+        },
+        {
+          "name": "Pitching Run Value",
+          "value": "Fastball Run Value",
+          "percentile": 12
+        }
+      ]
+    },
+    "680700": {
+      "name": "Richie Palacios",
+      "position": "2B",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "Batting Run Value",
+          "value": "Baserunning Run Value",
+          "percentile": 0
+        }
+      ]
+    },
+    "668723": {
+      "name": "Ryan Vilade",
+      "position": "RF",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "Batting Run Value",
+          "value": "Baserunning Run Value",
+          "percentile": 2
+        }
+      ]
+    },
+    "663556": {
+      "name": "Shane McClanahan",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "59",
+          "value": "96",
+          "percentile": 98
+        },
+        {
+          "name": "Pitching Run Value",
+          "value": "Fastball Run Value",
+          "percentile": 12
+        }
+      ]
+    },
+    "670764": {
+      "name": "Taylor Walls",
+      "position": "SS",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "86",
+          "value": "55",
+          "percentile": 24
+        },
+        {
+          "name": "Batting Run Value",
+          "value": "-4",
+          "percentile": 1
+        }
+      ]
+    },
+    "650490": {
+      "name": "Yandy Díaz",
+      "position": "DH",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "38",
+          "value": "",
+          "percentile": 79
+        },
+        {
+          "name": "Batting Run Value",
+          "value": "Baserunning Run Value",
+          "percentile": 5
+        }
+      ]
+    }
+  }
 }
