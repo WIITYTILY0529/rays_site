@@ -1,4 +1,6 @@
 import { usePace } from '../hooks/usePace';
+import { useFangraphsData } from '../hooks/useFangraphsData';
+import { useTeam } from '../context/TeamContext';
 import { LoadingSpinner } from './common/LoadingSpinner';
 import { ErrorMessage } from './common/ErrorMessage';
 import type { HitterPaceStats, PitcherPaceStats } from '../services/types';
@@ -9,7 +11,7 @@ function savantUrl(playerId: number, name: string, type: 'hitting' | 'pitching')
   return `https://baseballsavant.mlb.com/savant-player/${slug}-${playerId}?stats=${statType}`;
 }
 
-function HitterPaceRow({ pace }: { pace: HitterPaceStats }) {
+function HitterPaceRow({ pace, fWAR }: { pace: HitterPaceStats; fWAR: number | null }) {
   return (
     <tr className="border-b border-gray-100 last:border-0">
       <td className="py-2 pr-3 text-sm font-medium text-gray-800">
@@ -25,11 +27,12 @@ function HitterPaceRow({ pace }: { pace: HitterPaceStats }) {
       <td className="px-2 py-2 text-center text-sm font-bold text-[var(--accent)]">{pace.projectedStats.hits}</td>
       <td className="px-2 py-2 text-center text-sm font-bold text-[var(--accent)]">{pace.projectedStats.rbi}</td>
       <td className="px-2 py-2 text-center text-sm font-bold text-[var(--accent)]">{pace.projectedStats.sb}</td>
+      <td className="px-2 py-2 text-center text-sm font-semibold text-gray-700">{fWAR !== null ? fWAR.toFixed(1) : '—'}</td>
     </tr>
   );
 }
 
-function PitcherPaceRow({ pace }: { pace: PitcherPaceStats }) {
+function PitcherPaceRow({ pace, fWAR }: { pace: PitcherPaceStats; fWAR: number | null }) {
   return (
     <tr className="border-b border-gray-100 last:border-0">
       <td className="py-2 pr-3 text-sm font-medium text-gray-800">
@@ -43,12 +46,24 @@ function PitcherPaceRow({ pace }: { pace: PitcherPaceStats }) {
       <td className="px-2 py-2 text-center text-sm font-bold text-[var(--accent)]">{pace.projectedStats.wins}</td>
       <td className="px-2 py-2 text-center text-sm font-bold text-[var(--accent)]">{pace.projectedStats.strikeouts}</td>
       <td className="px-2 py-2 text-center text-sm font-bold text-[var(--accent)]">{pace.projectedStats.ip}</td>
+      <td className="px-2 py-2 text-center text-sm font-semibold text-gray-700">{fWAR !== null ? fWAR.toFixed(1) : '—'}</td>
     </tr>
   );
 }
 
 export function PacePanel() {
   const { hitterPace, pitcherPace, isLoading, isError, error, refetch } = usePace();
+  const { data: fgData } = useFangraphsData();
+  const { teamKey } = useTeam();
+
+  // Build name→WAR lookup from Fangraphs data
+  const hitterWarMap = new Map<string, number>();
+  const pitcherWarMap = new Map<string, number>();
+  const teamFg = fgData?.teams?.[teamKey];
+  if (teamFg) {
+    for (const h of teamFg.hitters) hitterWarMap.set(h.name, h.WAR);
+    for (const p of teamFg.pitchers) pitcherWarMap.set(p.name, p.WAR);
+  }
 
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
@@ -86,11 +101,12 @@ export function PacePanel() {
                     <th className="px-2 pb-2 text-center text-xs font-medium text-[var(--accent)]">H*</th>
                     <th className="px-2 pb-2 text-center text-xs font-medium text-[var(--accent)]">RBI*</th>
                     <th className="px-2 pb-2 text-center text-xs font-medium text-[var(--accent)]">SB*</th>
+                    <th className="px-2 pb-2 text-center text-xs font-medium text-gray-500">fWAR</th>
                   </tr>
                 </thead>
                 <tbody>
                   {hitterPace.map((pace) => (
-                    <HitterPaceRow key={pace.player.id} pace={pace} />
+                    <HitterPaceRow key={pace.player.id} pace={pace} fWAR={hitterWarMap.get(pace.player.fullName) ?? null} />
                   ))}
                 </tbody>
               </table>
@@ -112,11 +128,12 @@ export function PacePanel() {
                     <th className="px-2 pb-2 text-center text-xs font-medium text-[var(--accent)]">W*</th>
                     <th className="px-2 pb-2 text-center text-xs font-medium text-[var(--accent)]">K*</th>
                     <th className="px-2 pb-2 text-center text-xs font-medium text-[var(--accent)]">IP*</th>
+                    <th className="px-2 pb-2 text-center text-xs font-medium text-gray-500">fWAR</th>
                   </tr>
                 </thead>
                 <tbody>
                   {pitcherPace.map((pace) => (
-                    <PitcherPaceRow key={pace.player.id} pace={pace} />
+                    <PitcherPaceRow key={pace.player.id} pace={pace} fWAR={pitcherWarMap.get(pace.player.fullName) ?? null} />
                   ))}
                 </tbody>
               </table>
