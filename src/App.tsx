@@ -189,6 +189,31 @@ function App() {
           </PanelErrorBoundary>
         </div>
       </main>
+
+      {/* Footer — Data Attribution */}
+      <footer className="border-t border-gray-200 bg-white py-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-xs text-gray-500">
+            Data provided by{' '}
+            <a href="https://www.mlb.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-700">
+              MLB
+            </a>
+            ,{' '}
+            <a href="https://www.fangraphs.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-700">
+              FanGraphs
+            </a>
+            , and{' '}
+            <a href="https://baseballsavant.mlb.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-700">
+              Baseball Savant
+            </a>
+            . This site is not affiliated with or endorsed by Major League Baseball or its clubs.
+          </p>
+          <p className="mt-1 text-center text-xs text-gray-400">
+            MLB data © {new Date().getFullYear()} MLB Advanced Media, L.P. All rights reserved.
+            FanGraphs content used under fair use for non-commercial purposes.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
