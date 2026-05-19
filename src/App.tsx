@@ -4,6 +4,7 @@ import { useTeam } from './context/TeamContext';
 import { TEAMS } from './services/teamConfig';
 import { PlayoffOddsPanel } from './components/PlayoffOddsPanel';
 import { RecordTracker } from './components/RecordTracker';
+import { TeamRankingsPanel } from './components/TeamRankingsPanel';
 import { StandingsPanel } from './components/StandingsPanel';
 import { SeasonStatsPanel } from './components/SeasonStatsPanel';
 import { MiLBNotablePanel } from './components/MiLBNotablePanel';
@@ -135,6 +136,15 @@ function App() {
             <PanelErrorBoundary fallbackLabel="Record Tracker">
               <CollapsiblePanel title="Record Tracker">
                 <RecordTracker />
+              </CollapsiblePanel>
+            </PanelErrorBoundary>
+          </div>
+
+          {/* Row 2.5: Team Rankings - full width */}
+          <div className="md:col-span-2">
+            <PanelErrorBoundary fallbackLabel="Team Rankings">
+              <CollapsiblePanel title="Team Rankings (MLB)">
+                <TeamRankingsPanel />
               </CollapsiblePanel>
             </PanelErrorBoundary>
           </div>
