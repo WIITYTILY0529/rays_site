@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-18T09:36:09.976318Z",
+  "lastUpdated": "2026-05-19T08:55:58.216135Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -14,7 +14,7 @@
           "bbPct": 0.085,
           "kPct": 0.116,
           "BABIP": 0.304,
-          "barrelPct": 0.062,
+          "barrelPct": 0.069,
           "wRCPlus": 134,
           "WAR": 0.9
         },
@@ -79,7 +79,7 @@
           "bbPct": 0.115,
           "kPct": 0.23,
           "BABIP": 0.297,
-          "barrelPct": 0.0,
+          "barrelPct": 0.013,
           "wRCPlus": 77,
           "WAR": 0.4
         },
@@ -92,7 +92,7 @@
           "bbPct": 0.117,
           "kPct": 0.163,
           "BABIP": 0.248,
-          "barrelPct": 0.106,
+          "barrelPct": 0.113,
           "wRCPlus": 131,
           "WAR": 0.4
         },
@@ -456,7 +456,7 @@
           "bbPct": 0.136,
           "kPct": 0.126,
           "BABIP": 0.331,
-          "barrelPct": 0.097,
+          "barrelPct": 0.104,
           "wRCPlus": 135,
           "WAR": 1.7
         },
@@ -851,10 +851,10 @@
   "playoffOdds": {
     "TB": {
       "current": {
-        "playoff": 0.8696,
-        "division": 0.2834,
-        "wildcard": 0.5862,
-        "worldSeries": 0.0475
+        "playoff": 0.8929,
+        "division": 0.2836,
+        "wildcard": 0.6092,
+        "worldSeries": 0.0493
       },
       "history": [
         {
@@ -930,17 +930,17 @@
           "playoff": 0.8696
         },
         {
-          "date": "2026-05-18",
-          "playoff": 0.8696
+          "date": "2026-05-19",
+          "playoff": 0.8929
         }
       ]
     },
     "DET": {
       "current": {
-        "playoff": 0.3565,
-        "division": 0.2267,
-        "wildcard": 0.1298,
-        "worldSeries": 0.0234
+        "playoff": 0.3225,
+        "division": 0.1872,
+        "wildcard": 0.1353,
+        "worldSeries": 0.019
       },
       "history": [
         {
@@ -1016,8 +1016,8 @@
           "playoff": 0.3565
         },
         {
-          "date": "2026-05-18",
-          "playoff": 0.3565
+          "date": "2026-05-19",
+          "playoff": 0.3225
         }
       ]
     }
