@@ -60,7 +60,7 @@ export async function getFangraphsData(): Promise<FangraphsData> {
     cache: 'no-cache',
   });
   if (!response.ok) {
-    return { lastUpdated: null, season: 2026, teams: {} };
+    throw new Error(`Failed to fetch Fangraphs data: ${response.status} ${response.statusText}`);
   }
   return response.json();
 }
