@@ -9,6 +9,8 @@ export function useFangraphsData() {
   return useQuery<FangraphsData>({
     queryKey: ['fangraphsData'],
     queryFn: getFangraphsData,
-    staleTime: 60 * 60 * 1000, // 1 hour
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    refetchOnWindowFocus: true,
+    refetchOnMount: 'always',
   });
 }

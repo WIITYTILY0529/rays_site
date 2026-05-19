@@ -56,7 +56,9 @@ export interface FangraphsData {
 }
 
 export async function getFangraphsData(): Promise<FangraphsData> {
-  const response = await fetch(`${import.meta.env.BASE_URL}data/fangraphs-stats.json`);
+  const response = await fetch(`${import.meta.env.BASE_URL}data/fangraphs-stats.json`, {
+    cache: 'no-cache',
+  });
   if (!response.ok) {
     return { lastUpdated: null, season: 2026, teams: {} };
   }
