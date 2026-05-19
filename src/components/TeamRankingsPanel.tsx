@@ -16,11 +16,15 @@ function RankBadge({ rank }: { rank: number }) {
 }
 
 function StatCard({ label, value, rank, suffix }: { label: string; value: number; rank: number; suffix?: string }) {
+  let decimals = 1;
+  if (label === 'wRC+') decimals = 0;
+  else if (label === 'FIP') decimals = 2;
+
   return (
     <div className="flex flex-col items-center gap-1 rounded-lg border border-gray-100 bg-gray-50 px-4 py-3">
       <span className="text-xs text-gray-500">{label}</span>
       <span className="text-lg font-bold text-gray-900">
-        {value.toFixed(label === 'wRC+' ? 0 : 1)}{suffix ?? ''}
+        {value.toFixed(decimals)}{suffix ?? ''}
       </span>
       <RankBadge rank={rank} />
     </div>
