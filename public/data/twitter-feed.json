@@ -1,10 +1,98 @@
 {
-  "lastUpdated": "2025-05-21T00:00:00Z",
+  "lastUpdated": "2026-05-20T15:28:22.227449Z",
   "user": {
     "name": "Ryan Bass",
     "handle": "Ry_Bass",
     "description": "Rays Sideline Reporter • MLB TV • NewsNation",
     "profileUrl": "https://x.com/Ry_Bass"
   },
-  "tweets": []
+  "tweets": [
+    {
+      "text": "We found this kitty in the rubble here in Tampa’s Palmetto Beach neighborhood. He’s purring non-stop. We named him Milton, fittingly. Somebody please adopt this sweet boy.",
+      "timestamp": "2024-10-11T11:56:05.000Z",
+      "url": "https://x.com/Ry_Bass/status/1844708548774703592",
+      "metrics": {
+        "replies": "1천",
+        "retweets": "6.3천",
+        "likes": "7.5만"
+      },
+      "isRetweet": false,
+      "media": [
+        "https://pbs.twimg.com/media/GZm4pZyXgAUWrkq?format=jpg&name=small"
+      ]
+    },
+    {
+      "text": "Now that the sun is up, here’s a 360-degree view of the damage Hurricane Milton caused to Tropicana Field’s roof and the inside of the ballpark. Absolutely heartbreaking ",
+      "timestamp": "2024-10-10T13:22:47.000Z",
+      "url": "https://x.com/Ry_Bass/status/1844367980249178396",
+      "metrics": {
+        "replies": "1.7천",
+        "retweets": "4.7천",
+        "likes": "2.1만"
+      },
+      "isRetweet": false,
+      "media": []
+    },
+    {
+      "text": "The #Rays released photos of the damage inside Tropicana Field in the days following Hurricane Milton, and it's catastrophic.",
+      "timestamp": "2024-11-18T16:27:34.000Z",
+      "url": "https://x.com/Ry_Bass/status/1858547609566093700",
+      "metrics": {
+        "replies": "276",
+        "retweets": "1.5천",
+        "likes": "1.3만"
+      },
+      "isRetweet": false,
+      "media": [
+        "https://pbs.twimg.com/media/GcriqYTWoAQoJ9K?format=jpg&name=360x360",
+        "https://pbs.twimg.com/media/Gcrizs9WoAo5vIX?format=jpg&name=360x360",
+        "https://pbs.twimg.com/media/Gcri_IUWoAIl3ZV?format=jpg&name=360x360",
+        "https://pbs.twimg.com/media/GcrjJT5WoAUQDac?format=jpg&name=360x360"
+      ]
+    },
+    {
+      "text": "An update on the kitty who I nicknamed #Milton, after finding it in the rubble here in Tampa. The family who owns this business behind me that was decimated by the storm is keeping Milton safe inside and just fed her. She’s super sweet. They’re keeping her safe!",
+      "timestamp": "2024-10-11T14:54:18.000Z",
+      "url": "https://x.com/Ry_Bass/status/1844753395808153818",
+      "metrics": {
+        "replies": "108",
+        "retweets": "961",
+        "likes": "8.8천"
+      },
+      "isRetweet": false,
+      "media": [
+        "https://pbs.twimg.com/media/GZnhbwmWwAEgDCm?format=jpg&name=360x360",
+        "https://pbs.twimg.com/media/GZnhbwlXEA4Vpqe?format=jpg&name=360x360",
+        "https://pbs.twimg.com/media/GZnhbwnXAAQl2LR?format=jpg&name=360x360",
+        "https://pbs.twimg.com/media/GZnhbwlW8A0_-h7?format=jpg&name=360x360"
+      ]
+    },
+    {
+      "text": "On Anthony Rizzo retirement day, Moises Ballesteros hits a home run…TO RIZZO IN THE BLEACHERS…and it’s E Rizzo  WILD!!! WHAT ARE THE ODDS ",
+      "timestamp": "2025-09-13T18:56:56.000Z",
+      "url": "https://x.com/Ry_Bass/status/1966939168413814990",
+      "metrics": {
+        "replies": "16",
+        "retweets": "119",
+        "likes": "5.9천"
+      },
+      "isRetweet": false,
+      "media": []
+    },
+    {
+      "text": "A final, heartwarming update on Milton, the kitty cat we found in the hurricane debris outside this Tampa business: The owners of Pilgrim Permocoat Inc, who’ve been in business there since 1956, have decided the keep her! “We are already attached to Milton & think we are going to",
+      "timestamp": "2024-10-17T14:48:27.000Z",
+      "url": "https://x.com/Ry_Bass/status/1846926252164149340",
+      "metrics": {
+        "replies": "59",
+        "retweets": "389",
+        "likes": "5.2천"
+      },
+      "isRetweet": false,
+      "media": [
+        "https://pbs.twimg.com/media/GaGZn2SXgAAZf_y?format=jpg&name=small",
+        "https://pbs.twimg.com/media/GZm4pZyXgAUWrkq?format=jpg&name=240x240"
+      ]
+    }
+  ]
 }
