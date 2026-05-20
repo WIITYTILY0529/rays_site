@@ -92,7 +92,7 @@ function App() {
         className="text-white shadow-md transition-colors duration-300"
         style={{ backgroundColor: team.colors.primary }}
       >
-        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div
@@ -120,99 +120,106 @@ function App() {
         </div>
       </header>
 
-      {/* Dashboard Content */}
-      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {/* Row 1: Playoff Odds - full width with graph */}
-          <div className="md:col-span-2">
-            <PanelErrorBoundary fallbackLabel="Playoff Odds">
-              <CollapsiblePanel title="Playoff Odds">
-                <PlayoffOddsPanel />
-              </CollapsiblePanel>
-            </PanelErrorBoundary>
+      {/* Dashboard Content — Main + Sidebar layout */}
+      <main className="mx-auto max-w-[1440px] px-4 py-6 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-6 xl:flex-row">
+          {/* Main Content */}
+          <div className="min-w-0 flex-1">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {/* Row 1: Playoff Odds - full width with graph */}
+              <div className="md:col-span-2">
+                <PanelErrorBoundary fallbackLabel="Playoff Odds">
+                  <CollapsiblePanel title="Playoff Odds">
+                    <PlayoffOddsPanel />
+                  </CollapsiblePanel>
+                </PanelErrorBoundary>
+              </div>
+
+              {/* Row 2: Record Tracker */}
+              <div className="md:col-span-2">
+                <PanelErrorBoundary fallbackLabel="Record Tracker">
+                  <CollapsiblePanel title="Record Tracker">
+                    <RecordTracker />
+                  </CollapsiblePanel>
+                </PanelErrorBoundary>
+              </div>
+
+              {/* Row 2.5: Team Rankings - full width */}
+              <div className="md:col-span-2">
+                <PanelErrorBoundary fallbackLabel="Team Rankings">
+                  <CollapsiblePanel title="Team Rankings (MLB)">
+                    <TeamRankingsPanel />
+                  </CollapsiblePanel>
+                </PanelErrorBoundary>
+              </div>
+
+              {/* Row 2.5: Standings - full width */}
+              <div className="md:col-span-2">
+                <PanelErrorBoundary fallbackLabel="Standings">
+                  <CollapsiblePanel title="Standings">
+                    <StandingsPanel />
+                  </CollapsiblePanel>
+                </PanelErrorBoundary>
+              </div>
+
+              {/* Row 3: Season Stats MLB - full width */}
+              <div className="md:col-span-2">
+                <PanelErrorBoundary fallbackLabel="MLB Stats">
+                  <CollapsiblePanel title="MLB Season Stats">
+                    <SeasonStatsPanel />
+                  </CollapsiblePanel>
+                </PanelErrorBoundary>
+              </div>
+
+              {/* Row 3: MiLB Notable Players - full width */}
+              <div className="md:col-span-2">
+                <PanelErrorBoundary fallbackLabel="MiLB Stats">
+                  <CollapsiblePanel title="MiLB Notable Players">
+                    <MiLBNotablePanel />
+                  </CollapsiblePanel>
+                </PanelErrorBoundary>
+              </div>
+
+              {/* Row 4: Pace - full width */}
+              <div className="md:col-span-2">
+                <PanelErrorBoundary fallbackLabel="Pace Projections">
+                  <CollapsiblePanel title="2026 Season Pace Projections">
+                    <PacePanel />
+                  </CollapsiblePanel>
+                </PanelErrorBoundary>
+              </div>
+
+              {/* Row 5: Schedule + Scouting side by side on desktop */}
+              <PanelErrorBoundary fallbackLabel="Schedule">
+                <CollapsiblePanel title="Schedule &amp; Probable Pitchers">
+                  <SchedulePanel />
+                </CollapsiblePanel>
+              </PanelErrorBoundary>
+
+              <PanelErrorBoundary fallbackLabel="Scouting">
+                <CollapsiblePanel title="Opponent Scouting">
+                  <ScoutingPanel />
+                </CollapsiblePanel>
+              </PanelErrorBoundary>
+            </div>
           </div>
 
-          {/* Row 2: Record Tracker */}
-          <div className="md:col-span-2">
-            <PanelErrorBoundary fallbackLabel="Record Tracker">
-              <CollapsiblePanel title="Record Tracker">
-                <RecordTracker />
-              </CollapsiblePanel>
-            </PanelErrorBoundary>
-          </div>
-
-          {/* Row 2.5: Team Rankings - full width */}
-          <div className="md:col-span-2">
-            <PanelErrorBoundary fallbackLabel="Team Rankings">
-              <CollapsiblePanel title="Team Rankings (MLB)">
-                <TeamRankingsPanel />
-              </CollapsiblePanel>
-            </PanelErrorBoundary>
-          </div>
-
-          {/* Row 2.5: Standings - full width */}
-          <div className="md:col-span-2">
-            <PanelErrorBoundary fallbackLabel="Standings">
-              <CollapsiblePanel title="Standings">
-                <StandingsPanel />
-              </CollapsiblePanel>
-            </PanelErrorBoundary>
-          </div>
-
-          {/* Row 3: Season Stats MLB - full width */}
-          <div className="md:col-span-2">
-            <PanelErrorBoundary fallbackLabel="MLB Stats">
-              <CollapsiblePanel title="MLB Season Stats">
-                <SeasonStatsPanel />
-              </CollapsiblePanel>
-            </PanelErrorBoundary>
-          </div>
-
-          {/* Row 3: MiLB Notable Players - full width */}
-          <div className="md:col-span-2">
-            <PanelErrorBoundary fallbackLabel="MiLB Stats">
-              <CollapsiblePanel title="MiLB Notable Players">
-                <MiLBNotablePanel />
-              </CollapsiblePanel>
-            </PanelErrorBoundary>
-          </div>
-
-          {/* Row 4: Pace - full width */}
-          <div className="md:col-span-2">
-            <PanelErrorBoundary fallbackLabel="Pace Projections">
-              <CollapsiblePanel title="2026 Season Pace Projections">
-                <PacePanel />
-              </CollapsiblePanel>
-            </PanelErrorBoundary>
-          </div>
-
-          {/* Row 5: Schedule + Scouting side by side on desktop */}
-          <PanelErrorBoundary fallbackLabel="Schedule">
-            <CollapsiblePanel title="Schedule &amp; Probable Pitchers">
-              <SchedulePanel />
-            </CollapsiblePanel>
-          </PanelErrorBoundary>
-
-          <PanelErrorBoundary fallbackLabel="Scouting">
-            <CollapsiblePanel title="Opponent Scouting">
-              <ScoutingPanel />
-            </CollapsiblePanel>
-          </PanelErrorBoundary>
-
-          {/* Row 6: Twitter Feed - full width */}
-          <div className="md:col-span-2">
-            <PanelErrorBoundary fallbackLabel="Twitter Feed">
-              <CollapsiblePanel title="📡 Rays Sideline Updates">
-                <TwitterFeedPanel />
-              </CollapsiblePanel>
-            </PanelErrorBoundary>
-          </div>
+          {/* Right Sidebar — Twitter Feed (sticky) */}
+          <aside className="w-full shrink-0 xl:w-80">
+            <div className="sticky top-6">
+              <PanelErrorBoundary fallbackLabel="Twitter Feed">
+                <CollapsiblePanel title="📡 Sideline Updates">
+                  <TwitterFeedPanel />
+                </CollapsiblePanel>
+              </PanelErrorBoundary>
+            </div>
+          </aside>
         </div>
       </main>
 
       {/* Footer — Data Attribution */}
       <footer className="border-t border-gray-200 bg-white py-4">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
           <p className="text-center text-xs text-gray-500">
             Data provided by{' '}
             <a href="https://www.mlb.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-700">
