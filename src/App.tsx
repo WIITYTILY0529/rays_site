@@ -11,6 +11,7 @@ import { MiLBNotablePanel } from './components/MiLBNotablePanel';
 import { PacePanel } from './components/PacePanel';
 import { SchedulePanel } from './components/SchedulePanel';
 import { ScoutingPanel } from './components/ScoutingPanel';
+import { TwitterFeedPanel } from './components/TwitterFeedPanel';
 import { CollapsiblePanel } from './components/common/CollapsiblePanel';
 
 interface ErrorBoundaryProps {
@@ -197,6 +198,15 @@ function App() {
               <ScoutingPanel />
             </CollapsiblePanel>
           </PanelErrorBoundary>
+
+          {/* Row 6: Twitter Feed - full width */}
+          <div className="md:col-span-2">
+            <PanelErrorBoundary fallbackLabel="Twitter Feed">
+              <CollapsiblePanel title="📡 Rays Sideline Updates">
+                <TwitterFeedPanel />
+              </CollapsiblePanel>
+            </PanelErrorBoundary>
+          </div>
         </div>
       </main>
 
