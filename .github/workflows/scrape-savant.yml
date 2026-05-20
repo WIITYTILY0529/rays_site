@@ -35,12 +35,15 @@ jobs:
       - name: Run scraper
         run: python scripts/scrape_savant.py
 
+      - name: Scrape @Ry_Bass tweets
+        run: python scripts/scrape_twitter.py
+
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/data/fangraphs-stats.json public/data/savant-stats.json
-          git diff --staged --quiet || git commit -m "data: update Baseball Savant and Fangraphs stats"
+          git add public/data/fangraphs-stats.json public/data/savant-stats.json public/data/twitter-feed.json
+          git diff --staged --quiet || git commit -m "data: update Baseball Savant, Fangraphs stats and Twitter feed"
           git push
 
   build-and-deploy:
