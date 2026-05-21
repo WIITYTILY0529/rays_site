@@ -41,7 +41,7 @@ def build_url(team_id: int, stats: str) -> str:
     return (
         f"{BASE_URL}?pos=all&stats={stats}&lg=all&qual=0&type=8"
         f"&season={SEASON}&month=0&season1={SEASON}&ind=0"
-        f"&team={team_id}&rost=0&age=0&filter=&players=0"
+        f"&team={team_id}&rost=1&age=0&filter=&players=0"
         f"&startdate=&enddate=&page=1_50"
     )
 
