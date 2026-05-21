@@ -36,20 +36,13 @@ function fmtInt(val: number): string {
 }
 
 function fmtIP(val: number): string {
-  // Baseball IP: the decimal part represents outs (0, 1, 2)
-  // e.g., 39.1 = 39 innings + 1 out, 39.2 = 39 innings + 2 outs
-  // Fangraphs stores as e.g. 39.33333 for 39.1, 39.66667 for 39.2
+  // Fangraphs already returns IP in baseball notation (e.g., 44.2 = 44 innings + 2 outs)
+  // Just display as-is, ensuring only 1 decimal place
   const fullInnings = Math.floor(val);
-  const fraction = val - fullInnings;
-  let outs: number;
-  if (fraction < 0.17) {
-    outs = 0;
-  } else if (fraction < 0.5) {
-    outs = 1;
-  } else {
-    outs = 2;
-  }
-  return outs === 0 ? `${fullInnings}.0` : `${fullInnings}.${outs}`;
+  const decimal = Math.round((val - fullInnings) * 10);
+  // Clamp to valid baseball outs (0, 1, 2)
+  const outs = decimal > 2 ? 2 : decimal;
+  return `${fullInnings}.${outs}`;
 }
 
 function playerSlug(name: string): string {
