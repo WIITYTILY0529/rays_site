@@ -49,8 +49,9 @@ function playerSlug(name: string): string {
   return name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 }
 
-function savantSearchUrl(name: string): string {
-  return `https://baseballsavant.mlb.com/savant-player/${playerSlug(name)}`;
+function savantSearchUrl(name: string, mlbId: number): string {
+  const slug = playerSlug(name);
+  return `https://baseballsavant.mlb.com/savant-player/${slug}-${mlbId}`;
 }
 
 // Sorting
@@ -133,7 +134,7 @@ function SeasonHittersTable({ hitters }: { hitters: FangraphsHitter[] }) {
               >
                 <td className="whitespace-nowrap px-2 py-1.5 text-left">
                   <a
-                    href={savantSearchUrl(h.name)}
+                    href={savantSearchUrl(h.name, h.mlbId)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:underline"
@@ -211,7 +212,7 @@ function SeasonPitchersTable({ pitchers }: { pitchers: FangraphsPitcher[] }) {
               >
                 <td className="whitespace-nowrap px-2 py-1.5 text-left">
                   <a
-                    href={savantSearchUrl(p.name)}
+                    href={savantSearchUrl(p.name, p.mlbId)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:underline"

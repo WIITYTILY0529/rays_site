@@ -1,6 +1,7 @@
 export interface FangraphsHitter {
   name: string;
   fgPlayerId: number;
+  mlbId: number;
   PA: number;
   H: number;
   HR: number;
@@ -16,6 +17,7 @@ export interface FangraphsHitter {
 export interface FangraphsPitcher {
   name: string;
   fgPlayerId: number;
+  mlbId: number;
   G: number;
   GS: number;
   IP: number;

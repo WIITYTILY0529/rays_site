@@ -58,6 +58,7 @@ function parseHitter(row: Record<string, unknown>): FangraphsHitter {
   return {
     name: String(row['PlayerName'] ?? 'Unknown'),
     fgPlayerId: Number(row['playerid'] ?? 0),
+    mlbId: Number(row['xMLBAMID'] ?? 0),
     PA: Math.round(Number(row['PA'] ?? 0)),
     H: Math.round(Number(row['H'] ?? 0)),
     HR: Math.round(Number(row['HR'] ?? 0)),
@@ -75,6 +76,7 @@ function parsePitcher(row: Record<string, unknown>): FangraphsPitcher {
   return {
     name: String(row['PlayerName'] ?? 'Unknown'),
     fgPlayerId: Number(row['playerid'] ?? 0),
+    mlbId: Number(row['xMLBAMID'] ?? 0),
     G: Math.round(Number(row['G'] ?? 0)),
     GS: Math.round(Number(row['GS'] ?? 0)),
     IP: safeFloat(row['IP'], 1),
