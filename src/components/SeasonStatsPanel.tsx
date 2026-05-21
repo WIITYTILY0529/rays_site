@@ -123,10 +123,11 @@ function SeasonHittersTable({ hitters }: { hitters: FangraphsHitter[] }) {
               <SortHeader label="PA" sortKey="PA" currentSort={sort} onSort={handleSort} />
               <SortHeader label="H" sortKey="H" currentSort={sort} onSort={handleSort} />
               <SortHeader label="HR" sortKey="HR" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="OBP" sortKey="OBP" currentSort={sort} onSort={handleSort} />
+              <SortHeader label="SLG" sortKey="SLG" currentSort={sort} onSort={handleSort} />
               <SortHeader label="BB%" sortKey="bbPct" currentSort={sort} onSort={handleSort} />
               <SortHeader label="K%" sortKey="kPct" currentSort={sort} onSort={handleSort} />
               <SortHeader label="BABIP" sortKey="BABIP" currentSort={sort} onSort={handleSort} />
-              <SortHeader label="Barrel%" sortKey="barrelPct" currentSort={sort} onSort={handleSort} />
               <SortHeader label="wRC+" sortKey="wRCPlus" currentSort={sort} onSort={handleSort} />
               <SortHeader label="fWAR" sortKey="WAR" currentSort={sort} onSort={handleSort} />
             </tr>
@@ -150,10 +151,11 @@ function SeasonHittersTable({ hitters }: { hitters: FangraphsHitter[] }) {
                 <td className="px-2 py-1.5 text-right tabular-nums">{h.PA}</td>
                 <td className="px-2 py-1.5 text-right tabular-nums">{h.H}</td>
                 <td className="px-2 py-1.5 text-right tabular-nums">{h.HR}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{fmtBabip(h.OBP)}</td>
+                <td className="px-2 py-1.5 text-right tabular-nums">{fmtBabip(h.SLG)}</td>
                 <td className="px-2 py-1.5 text-right tabular-nums">{fmtPct(h.bbPct)}</td>
                 <td className="px-2 py-1.5 text-right tabular-nums">{fmtPct(h.kPct)}</td>
                 <td className="px-2 py-1.5 text-right tabular-nums">{fmtBabip(h.BABIP)}</td>
-                <td className="px-2 py-1.5 text-right tabular-nums">{fmtPct(h.barrelPct)}</td>
                 <td className="px-2 py-1.5 text-right tabular-nums">{fmtInt(h.wRCPlus)}</td>
                 <td className="px-2 py-1.5 text-right tabular-nums">{fmtWar(h.WAR)}</td>
               </tr>

@@ -4,10 +4,11 @@ export interface FangraphsHitter {
   PA: number;
   H: number;
   HR: number;
+  OBP: number;
+  SLG: number;
   bbPct: number;
   kPct: number;
   BABIP: number;
-  barrelPct: number;
   wRCPlus: number;
   WAR: number;
 }

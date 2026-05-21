@@ -94,10 +94,11 @@ def parse_hitter(player: dict) -> dict:
         "PA": int(safe_float(player.get("PA", 0))),
         "H": int(safe_float(player.get("H", 0))),
         "HR": int(safe_float(player.get("HR", 0))),
+        "OBP": round(safe_float(player.get("OBP", 0)), 3),
+        "SLG": round(safe_float(player.get("SLG", 0)), 3),
         "bbPct": parse_pct(player.get("BB%", 0)),
         "kPct": parse_pct(player.get("K%", 0)),
         "BABIP": round(safe_float(player.get("BABIP", 0)), 3),
-        "barrelPct": parse_pct(player.get("Barrel%", 0)),
         "wRCPlus": int(round(safe_float(player.get("wRC+", 0)))),
         "WAR": round(safe_float(player.get("WAR", 0)), 1),
     }
@@ -143,11 +144,11 @@ def collect_team_data(team_key: str, team_id: int) -> dict:
             try:
                 parsed = parse_hitter(player)
                 # Filter out pitchers who appear in batting leaderboard (very low PA)
-                if parsed["PA"] >= 10:
+                if parsed["PA"] > 0:
                     team_data["hitters"].append(parsed)
             except (ValueError, TypeError, KeyError) as e:
                 print(f"    WARNING: Failed to parse hitter {player.get('PlayerName', '?')}: {e}")
-        print(f"  Kept {len(team_data['hitters'])} hitters (PA >= 10)")
+        print(f"  Kept {len(team_data['hitters'])} hitters (PA > 0)")
         # Sort by WAR descending
         team_data["hitters"].sort(key=lambda x: x["WAR"], reverse=True)
     else:

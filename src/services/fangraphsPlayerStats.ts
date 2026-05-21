@@ -61,10 +61,11 @@ function parseHitter(row: Record<string, unknown>): FangraphsHitter {
     PA: Math.round(Number(row['PA'] ?? 0)),
     H: Math.round(Number(row['H'] ?? 0)),
     HR: Math.round(Number(row['HR'] ?? 0)),
+    OBP: safeFloat(row['OBP'], 3),
+    SLG: safeFloat(row['SLG'], 3),
     bbPct: parsePct(row['BB%']),
     kPct: parsePct(row['K%']),
     BABIP: safeFloat(row['BABIP'], 3),
-    barrelPct: parsePct(row['Barrel%']),
     wRCPlus: Math.round(Number(row['wRC+'] ?? 0)),
     WAR: safeFloat(row['WAR'], 1),
   };
@@ -111,7 +112,7 @@ export async function fetchLivePlayerStats(teamKey: string): Promise<FangraphsTe
 
   const hitters = batRows
     .map(parseHitter)
-    .filter((h) => h.PA >= 10)
+    .filter((h) => h.PA > 0)
     .sort((a, b) => b.WAR - a.WAR);
 
   const pitchers = pitRows
