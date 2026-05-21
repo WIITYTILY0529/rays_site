@@ -34,6 +34,25 @@ function TeamSelector() {
   );
 }
 
+function getDivisionLabel(divisionId: number): string {
+  const map: Record<number, string> = {
+    201: 'AL East',
+    202: 'AL Central',
+    200: 'AL West',
+    204: 'NL East',
+    205: 'NL Central',
+    203: 'NL West',
+  };
+  return map[divisionId] ?? 'Division';
+}
+
+function getOrdinal(n: number): string {
+  if (n === 1) return '1st';
+  if (n === 2) return '2nd';
+  if (n === 3) return '3rd';
+  return `${n}th`;
+}
+
 function HeaderRecord() {
   const { data, isLoading } = useStandings();
   const { team } = useTeam();
@@ -43,12 +62,21 @@ function HeaderRecord() {
   const myTeam = data.find((row) => row.teamAbbr === team.abbreviation);
   if (!myTeam) return null;
 
+  // standings are sorted by wins desc, so index+1 = rank
+  const rank = data.findIndex((row) => row.teamAbbr === team.abbreviation) + 1;
+  const divLabel = getDivisionLabel(team.divisionId);
+
   return (
-    <span
-      className="ml-3 rounded-full px-3 py-0.5 text-sm font-bold"
-      style={{ backgroundColor: team.colors.secondary, color: team.colors.primary }}
-    >
-      {myTeam.W}–{myTeam.L}
+    <span className="ml-3 inline-flex items-center gap-2">
+      <span
+        className="rounded-full px-3 py-0.5 text-sm font-bold"
+        style={{ backgroundColor: team.colors.secondary, color: team.colors.primary }}
+      >
+        {myTeam.W}–{myTeam.L}
+      </span>
+      <span className="text-sm font-medium opacity-80">
+        {divLabel} – {getOrdinal(rank)}
+      </span>
     </span>
   );
 }
