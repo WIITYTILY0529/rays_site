@@ -54,28 +54,6 @@ function parseGameResults(rawGames: any[]): GameResult[] {
   });
 }
 
-function calculatePythag(games: GameResult[]): { expectedWins: number; expectedLosses: number; runDiff: number; luck: number } {
-  if (games.length === 0) {
-    return { expectedWins: 0, expectedLosses: 0, runDiff: 0, luck: 0 };
-  }
-
-  const totalRS = games.reduce((sum, g) => sum + g.runsScored, 0);
-  const totalRA = games.reduce((sum, g) => sum + g.runsAllowed, 0);
-  const runDiff = totalRS - totalRA;
-  const gamesPlayed = games.length;
-
-  const rsPow = Math.pow(totalRS, PYTHAG_EXPONENT);
-  const raPow = Math.pow(totalRA, PYTHAG_EXPONENT);
-  const expectedWinPct = rsPow + raPow > 0 ? rsPow / (rsPow + raPow) : 0.5;
-  const expectedWins = Math.round(expectedWinPct * gamesPlayed);
-  const expectedLosses = gamesPlayed - expectedWins;
-
-  const actualWins = games[games.length - 1].cumulativeWins;
-  const luck = actualWins - expectedWins;
-
-  return { expectedWins, expectedLosses, runDiff, luck };
-}
-
 export function useRecordTracker() {
   const { team, teamKey } = useTeam();
 
@@ -91,41 +69,57 @@ export function useRecordTracker() {
       const season2025Games = parseGameResults(rawGames2025);
       const season2026Games = parseGameResults(rawGames2026);
 
-      const gamesPlayed2026 = season2026Games.length;
+      // Get full standings data with splits for accurate home/away and run differential
+      const fullStandingsUrl = `https://statsapi.mlb.com/api/v1/standings?leagueId=${team.leagueId}&season=2026&hydrate=team`;
+      const fullResp = await fetch(fullStandingsUrl);
+      const fullData = await fullResp.json();
 
-      // Current 2026 record from standings API (more accurate, includes in-progress games)
-      const teamStanding = standings2026.find(
-        (t) => t.teamName.toLowerCase().includes(team.name.toLowerCase().split(' ').pop() ?? '')
-      );
-      const currentRecord2026 = teamStanding
-        ? { wins: teamStanding.wins, losses: teamStanding.losses }
-        : gamesPlayed2026 > 0
-          ? { wins: season2026Games[gamesPlayed2026 - 1].cumulativeWins, losses: season2026Games[gamesPlayed2026 - 1].cumulativeLosses }
-          : { wins: 0, losses: 0 };
+      let standingsWins = 0;
+      let standingsLosses = 0;
+      let homeWins = 0, homeLosses = 0;
+      let awayWins = 0, awayLosses = 0;
+      let runsScored = 0, runsAllowed = 0;
 
-      // Use standings-based games played for comparison (more accurate)
-      const standingsGamesPlayed = currentRecord2026.wins + currentRecord2026.losses;
-      const effectiveGamesPlayed = standingsGamesPlayed > 0 ? standingsGamesPlayed : gamesPlayed2026;
+      for (const record of fullData.records ?? []) {
+        for (const tr of record.teamRecords ?? []) {
+          if (tr.team?.id === team.id) {
+            standingsWins = tr.wins ?? 0;
+            standingsLosses = tr.losses ?? 0;
+            runsScored = tr.runsScored ?? 0;
+            runsAllowed = tr.runsAllowed ?? 0;
+
+            const splits: any[] = tr.records?.splitRecords ?? [];
+            for (const s of splits) {
+              if (s.type === 'home') { homeWins = s.wins ?? 0; homeLosses = s.losses ?? 0; }
+              if (s.type === 'away') { awayWins = s.wins ?? 0; awayLosses = s.losses ?? 0; }
+            }
+            break;
+          }
+        }
+      }
+
+      const gamesPlayed2026 = standingsWins + standingsLosses;
+      const currentRecord2026 = { wins: standingsWins, losses: standingsLosses };
 
       // 2025 record at same game count
-      const record2025AtSamePoint = effectiveGamesPlayed > 0 && season2025Games.length >= effectiveGamesPlayed
-        ? { wins: season2025Games[effectiveGamesPlayed - 1].cumulativeWins, losses: season2025Games[effectiveGamesPlayed - 1].cumulativeLosses }
+      const record2025AtSamePoint = gamesPlayed2026 > 0 && season2025Games.length >= gamesPlayed2026
+        ? { wins: season2025Games[gamesPlayed2026 - 1].cumulativeWins, losses: season2025Games[gamesPlayed2026 - 1].cumulativeLosses }
         : { wins: 0, losses: 0 };
 
-      // Home/Away splits for 2026
-      const homeGames2026 = season2026Games.filter(g => g.isHome);
-      const awayGames2026 = season2026Games.filter(g => !g.isHome);
-      const homeRecord2026 = {
-        wins: homeGames2026.filter(g => g.isWin).length,
-        losses: homeGames2026.filter(g => !g.isWin).length,
-      };
-      const awayRecord2026 = {
-        wins: awayGames2026.filter(g => g.isWin).length,
-        losses: awayGames2026.filter(g => !g.isWin).length,
-      };
+      // Home/Away from standings (always accurate)
+      const homeRecord2026 = { wins: homeWins, losses: homeLosses };
+      const awayRecord2026 = { wins: awayWins, losses: awayLosses };
 
-      // Pythagorean record
-      const pythagRecord2026 = calculatePythag(season2026Games);
+      // Pythagorean record from standings run data
+      const runDiff = runsScored - runsAllowed;
+      const rsPow = Math.pow(runsScored, PYTHAG_EXPONENT);
+      const raPow = Math.pow(runsAllowed, PYTHAG_EXPONENT);
+      const expectedWinPct = rsPow + raPow > 0 ? rsPow / (rsPow + raPow) : 0.5;
+      const expectedWins = Math.round(expectedWinPct * gamesPlayed2026);
+      const expectedLosses = gamesPlayed2026 - expectedWins;
+      const luck = standingsWins - expectedWins;
+
+      const pythagRecord2026 = { expectedWins, expectedLosses, runDiff, luck };
 
       return {
         season2025Games,
@@ -135,7 +129,7 @@ export function useRecordTracker() {
         homeRecord2026,
         awayRecord2026,
         pythagRecord2026,
-        gamesPlayed2026: effectiveGamesPlayed,
+        gamesPlayed2026,
         divisionStandings: standings2026,
       };
     },
