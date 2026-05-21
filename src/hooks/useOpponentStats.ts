@@ -23,29 +23,24 @@ const MLB_TO_FG_TEAM: Record<number, number> = {
   118: 7,   // KCR
   119: 22,  // LAD
   120: 24,  // WSN
-  121: 23,  // NYM
+  121: 25,  // NYM
   133: 10,  // ATH
-  134: 26,  // PIT
-  135: 25,  // SDP
-  136: 27,  // SEA
-  137: 28,  // SFG
-  138: 29,  // STL
+  134: 27,  // PIT
+  135: 29,  // SDP
+  136: 11,  // SEA
+  137: 30,  // SFG
+  138: 28,  // STL
   139: 12,  // TBR
   140: 13,  // TEX
   141: 14,  // TOR
-  142: 20,  // MIN
-  143: 16,  // PHI
-  144: 4,   // ATL
-  145: 4,   // CWS — note: White Sox use team ID 4 on FG
-  146: 30,  // MIA
-  147: 8,   // NYY
-  158: 9,   // MIL
+  142: 8,   // MIN
+  143: 26,  // PHI
+  144: 16,  // ATL
+  145: 4,   // CWS
+  146: 20,  // MIA
+  147: 9,   // NYY
+  158: 23,  // MIL
 };
-
-// White Sox correction
-// Actually let me verify: CWS=145 on MLB, FG teamId for CWS
-// FG: 4=ATL? No. Let me use a simpler approach.
-// The mapping above may have errors. Let's use a verified subset and fallback.
 
 async function fetchWithTimeout(url: string): Promise<Response> {
   const controller = new AbortController();
