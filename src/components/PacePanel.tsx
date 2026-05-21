@@ -65,13 +65,35 @@ export function PacePanel() {
   const { data: fgData } = useFangraphsData();
   const { teamKey } = useTeam();
 
-  // Build name→WAR lookup from Fangraphs data
+  // Build name→WAR lookup from Fangraphs data (fuzzy match by last name if exact fails)
   const hitterWarMap = new Map<string, number>();
   const pitcherWarMap = new Map<string, number>();
   const teamFg = fgData?.teams?.[teamKey];
   if (teamFg) {
     for (const h of teamFg.hitters) hitterWarMap.set(h.name, h.WAR);
     for (const p of teamFg.pitchers) pitcherWarMap.set(p.name, p.WAR);
+  }
+
+  function findHitterWar(fullName: string): number | null {
+    // Exact match first
+    const exact = hitterWarMap.get(fullName);
+    if (exact !== undefined) return exact;
+    // Try last name match
+    const lastName = fullName.split(' ').slice(-1)[0];
+    for (const [name, war] of hitterWarMap) {
+      if (name.endsWith(lastName)) return war;
+    }
+    return null;
+  }
+
+  function findPitcherWar(fullName: string): number | null {
+    const exact = pitcherWarMap.get(fullName);
+    if (exact !== undefined) return exact;
+    const lastName = fullName.split(' ').slice(-1)[0];
+    for (const [name, war] of pitcherWarMap) {
+      if (name.endsWith(lastName)) return war;
+    }
+    return null;
   }
 
   return (
@@ -116,7 +138,7 @@ export function PacePanel() {
                 </thead>
                 <tbody>
                   {hitterPace.map((pace) => (
-                    <HitterPaceRow key={pace.player.id} pace={pace} fWAR={hitterWarMap.get(pace.player.fullName) ?? null} />
+                    <HitterPaceRow key={pace.player.id} pace={pace} fWAR={findHitterWar(pace.player.fullName)} />
                   ))}
                 </tbody>
               </table>
@@ -144,7 +166,7 @@ export function PacePanel() {
                 </thead>
                 <tbody>
                   {pitcherPace.map((pace) => (
-                    <PitcherPaceRow key={pace.player.id} pace={pace} fWAR={pitcherWarMap.get(pace.player.fullName) ?? null} />
+                    <PitcherPaceRow key={pace.player.id} pace={pace} fWAR={findPitcherWar(pace.player.fullName)} />
                   ))}
                 </tbody>
               </table>
