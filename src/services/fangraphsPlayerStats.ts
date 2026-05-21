@@ -14,7 +14,7 @@ function buildUrl(teamId: number, stats: 'bat' | 'pit'): string {
     `https://www.fangraphs.com/api/leaders/major-league/data` +
     `?pos=all&stats=${stats}&lg=all&qual=0&type=8` +
     `&season=${SEASON}&month=0&season1=${SEASON}&ind=0` +
-    `&team=${teamId}&rost=0&age=0&filter=&players=0` +
+    `&team=${teamId}&rost=1&age=0&filter=&players=0` +
     `&startdate=&enddate=&page=1_50`
   );
 }
