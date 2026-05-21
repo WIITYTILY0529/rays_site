@@ -27,6 +27,7 @@ function fmtBabip(val: number): string {
 }
 
 function fmtWar(val: number): string {
+  if (val == null || isNaN(val)) return '0.0';
   return val.toFixed(1);
 }
 
@@ -35,16 +36,28 @@ function fmtInt(val: number): string {
 }
 
 function fmtIP(val: number): string {
-  // IP like 39.2 means 39 and 2/3
-  return val.toFixed(1);
+  // Baseball IP: the decimal part represents outs (0, 1, 2)
+  // e.g., 39.1 = 39 innings + 1 out, 39.2 = 39 innings + 2 outs
+  // Fangraphs stores as e.g. 39.33333 for 39.1, 39.66667 for 39.2
+  const fullInnings = Math.floor(val);
+  const fraction = val - fullInnings;
+  let outs: number;
+  if (fraction < 0.17) {
+    outs = 0;
+  } else if (fraction < 0.5) {
+    outs = 1;
+  } else {
+    outs = 2;
+  }
+  return outs === 0 ? `${fullInnings}.0` : `${fullInnings}.${outs}`;
 }
 
 function playerSlug(name: string): string {
   return name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 }
 
-function fgPlayerUrl(name: string, fgPlayerId: number): string {
-  return `https://www.fangraphs.com/players/${playerSlug(name)}/${fgPlayerId}/stats`;
+function savantSearchUrl(name: string): string {
+  return `https://baseballsavant.mlb.com/savant-player/${playerSlug(name)}`;
 }
 
 // Sorting
@@ -126,7 +139,7 @@ function SeasonHittersTable({ hitters }: { hitters: FangraphsHitter[] }) {
               >
                 <td className="whitespace-nowrap px-2 py-1.5 text-left">
                   <a
-                    href={fgPlayerUrl(h.name, h.fgPlayerId)}
+                    href={savantSearchUrl(h.name)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:underline"
@@ -203,7 +216,7 @@ function SeasonPitchersTable({ pitchers }: { pitchers: FangraphsPitcher[] }) {
               >
                 <td className="whitespace-nowrap px-2 py-1.5 text-left">
                   <a
-                    href={fgPlayerUrl(p.name, p.fgPlayerId)}
+                    href={savantSearchUrl(p.name)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:underline"
