@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-20T15:28:22.227449Z",
+  "lastUpdated": "2026-05-22T08:51:28.745760Z",
   "user": {
     "name": "Ryan Bass",
     "handle": "Ry_Bass",
@@ -12,9 +12,9 @@
       "timestamp": "2024-10-11T11:56:05.000Z",
       "url": "https://x.com/Ry_Bass/status/1844708548774703592",
       "metrics": {
-        "replies": "1천",
-        "retweets": "6.3천",
-        "likes": "7.5만"
+        "replies": "1K",
+        "retweets": "6.3K",
+        "likes": "75K"
       },
       "isRetweet": false,
       "media": [
@@ -26,9 +26,9 @@
       "timestamp": "2024-10-10T13:22:47.000Z",
       "url": "https://x.com/Ry_Bass/status/1844367980249178396",
       "metrics": {
-        "replies": "1.7천",
-        "retweets": "4.7천",
-        "likes": "2.1만"
+        "replies": "1.7K",
+        "retweets": "4.7K",
+        "likes": "21K"
       },
       "isRetweet": false,
       "media": []
@@ -39,8 +39,8 @@
       "url": "https://x.com/Ry_Bass/status/1858547609566093700",
       "metrics": {
         "replies": "276",
-        "retweets": "1.5천",
-        "likes": "1.3만"
+        "retweets": "1.5K",
+        "likes": "13K"
       },
       "isRetweet": false,
       "media": [
@@ -57,7 +57,7 @@
       "metrics": {
         "replies": "108",
         "retweets": "961",
-        "likes": "8.8천"
+        "likes": "8.8K"
       },
       "isRetweet": false,
       "media": [
@@ -74,7 +74,7 @@
       "metrics": {
         "replies": "16",
         "retweets": "119",
-        "likes": "5.9천"
+        "likes": "5.9K"
       },
       "isRetweet": false,
       "media": []
@@ -86,7 +86,7 @@
       "metrics": {
         "replies": "59",
         "retweets": "389",
-        "likes": "5.2천"
+        "likes": "5.2K"
       },
       "isRetweet": false,
       "media": [

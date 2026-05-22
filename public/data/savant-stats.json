@@ -1,37 +1,20 @@
 {
-  "lastUpdated": "2026-05-20T08:55:18.155114Z",
+  "lastUpdated": "2026-05-22T08:51:19.378150Z",
   "players": {
-    "810938": {
-      "name": "Ben Williamson",
-      "position": "2B",
-      "type": "hitting",
-      "metrics": [
-        {
-          "name": "85",
-          "value": "19",
-          "percentile": 41
-        },
-        {
-          "name": "Batting Run Value",
-          "value": "-2",
-          "percentile": 1
-        }
-      ]
-    },
     "641329": {
       "name": "Bryan Baker",
       "position": "P",
       "type": "pitching",
       "metrics": [
         {
-          "name": "72",
+          "name": "75",
           "value": "11",
-          "percentile": 67
+          "percentile": 71
         },
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
-          "percentile": 3
+          "percentile": 4
         }
       ]
     },
@@ -53,9 +36,9 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "38",
-          "value": "63",
-          "percentile": 41
+          "name": "36",
+          "value": "67",
+          "percentile": 42
         },
         {
           "name": "Pitching Run Value",
@@ -70,13 +53,13 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "34",
-          "value": "49",
-          "percentile": 2
+          "name": "35",
+          "value": "57",
+          "percentile": 1
         },
         {
           "name": "Batting Run Value",
-          "value": "-11",
+          "value": "-12",
           "percentile": 0
         }
       ]
@@ -88,25 +71,13 @@
       "metrics": [
         {
           "name": "99",
-          "value": "92",
-          "percentile": 17
+          "value": "91",
+          "percentile": 10
         },
         {
           "name": "Batting Run Value",
-          "value": "-6",
+          "value": "-7",
           "percentile": 3
-        }
-      ]
-    },
-    "686678": {
-      "name": "Chase Solesky",
-      "position": "P",
-      "type": "pitching",
-      "metrics": [
-        {
-          "name": "Pitching Run Value",
-          "value": "-3",
-          "percentile": 0
         }
       ]
     },
@@ -117,8 +88,8 @@
       "metrics": [
         {
           "name": "93",
-          "value": "42",
-          "percentile": 76
+          "value": "43",
+          "percentile": 75
         },
         {
           "name": "Pitching Run Value",
@@ -150,14 +121,14 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "19",
-          "value": "62",
-          "percentile": 30
+          "name": "18",
+          "value": "63",
+          "percentile": 39
         },
         {
           "name": "Pitching Run Value",
-          "value": "-2",
-          "percentile": 1
+          "value": "Fastball Run Value",
+          "percentile": 0
         }
       ]
     },
@@ -168,8 +139,8 @@
       "metrics": [
         {
           "name": "74",
-          "value": "33",
-          "percentile": 66
+          "value": "35",
+          "percentile": 65
         },
         {
           "name": "Pitching Run Value",
@@ -186,7 +157,7 @@
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 0
+          "percentile": 2
         }
       ]
     },
@@ -196,14 +167,14 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "9",
-          "value": "75",
-          "percentile": 36
+          "name": "13",
+          "value": "76",
+          "percentile": 52
         },
         {
           "name": "Pitching Run Value",
-          "value": "-1",
-          "percentile": 2
+          "value": "Fastball Run Value",
+          "percentile": 1
         }
       ]
     },
@@ -213,14 +184,14 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "50",
+          "name": "55",
           "value": "19",
-          "percentile": 34
+          "percentile": 25
         },
         {
           "name": "Pitching Run Value",
-          "value": "-1",
-          "percentile": 0
+          "value": "-3",
+          "percentile": 1
         }
       ]
     },
@@ -232,7 +203,7 @@
         {
           "name": "17",
           "value": "20",
-          "percentile": 85
+          "percentile": 84
         },
         {
           "name": "Batting Run Value",
@@ -247,13 +218,13 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "81",
-          "value": "74",
-          "percentile": 47
+          "name": "80",
+          "value": "79",
+          "percentile": 39
         },
         {
           "name": "Batting Run Value",
-          "value": "-1",
+          "value": "-2",
           "percentile": 1
         }
       ]
@@ -264,14 +235,14 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "23",
+          "name": "21",
           "value": "1",
           "percentile": 89
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 9
+          "percentile": 10
         }
       ]
     },
@@ -281,9 +252,9 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "92",
-          "value": "26",
-          "percentile": 86
+          "name": "93",
+          "value": "25",
+          "percentile": 87
         },
         {
           "name": "Pitching Run Value",
@@ -298,13 +269,13 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "15",
-          "value": "40",
+          "name": "16",
+          "value": "46",
           "percentile": 29
         },
         {
           "name": "Batting Run Value",
-          "value": "-3",
+          "value": "-4",
           "percentile": 0
         }
       ]
@@ -323,6 +294,18 @@
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
           "percentile": 13
+        }
+      ]
+    },
+    "686554": {
+      "name": "Oliver Dunn",
+      "position": "3B",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "Batting Run Value",
+          "value": "-4",
+          "percentile": 0
         }
       ]
     },
@@ -356,14 +339,31 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "51",
-          "value": "95",
-          "percentile": 97
+          "name": "50",
+          "value": "94",
+          "percentile": 96
         },
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
           "percentile": 11
+        }
+      ]
+    },
+    "571927": {
+      "name": "Steven Matz",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "19",
+          "value": "57",
+          "percentile": 59
+        },
+        {
+          "name": "Pitching Run Value",
+          "value": "Fastball Run Value",
+          "percentile": 2
         }
       ]
     },
@@ -373,13 +373,13 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "89",
-          "value": "55",
-          "percentile": 44
+          "name": "86",
+          "value": "53",
+          "percentile": 35
         },
         {
           "name": "Batting Run Value",
-          "value": "-1",
+          "value": "-2",
           "percentile": 1
         }
       ]
@@ -402,14 +402,14 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "38",
+          "name": "48",
           "value": "",
-          "percentile": 92
+          "percentile": 95
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 11
+          "percentile": 14
         }
       ]
     }
