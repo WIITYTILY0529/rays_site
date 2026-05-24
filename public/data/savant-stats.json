@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-23T08:07:59.293677Z",
+  "lastUpdated": "2026-05-24T08:19:12.498558Z",
   "players": {
     "641329": {
       "name": "Bryan Baker",
@@ -7,9 +7,9 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "75",
+          "name": "73",
           "value": "11",
-          "percentile": 71
+          "percentile": 73
         },
         {
           "name": "Pitching Run Value",
@@ -36,9 +36,9 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "37",
+          "name": "36",
           "value": "66",
-          "percentile": 41
+          "percentile": 39
         },
         {
           "name": "Pitching Run Value",
@@ -54,8 +54,8 @@
       "metrics": [
         {
           "name": "34",
-          "value": "57",
-          "percentile": 1
+          "value": "63",
+          "percentile": 2
         },
         {
           "name": "Batting Run Value",
@@ -71,8 +71,8 @@
       "metrics": [
         {
           "name": "100",
-          "value": "91",
-          "percentile": 10
+          "value": "90",
+          "percentile": 13
         },
         {
           "name": "Batting Run Value",
@@ -87,8 +87,8 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "93",
-          "value": "42",
+          "name": "92",
+          "value": "43",
           "percentile": 75
         },
         {
@@ -123,7 +123,7 @@
         {
           "name": "18",
           "value": "63",
-          "percentile": 39
+          "percentile": 37
         },
         {
           "name": "Pitching Run Value",
@@ -140,7 +140,7 @@
         {
           "name": "74",
           "value": "34",
-          "percentile": 65
+          "percentile": 66
         },
         {
           "name": "Pitching Run Value",
@@ -168,8 +168,8 @@
       "metrics": [
         {
           "name": "12",
-          "value": "76",
-          "percentile": 52
+          "value": "69",
+          "percentile": 48
         },
         {
           "name": "Pitching Run Value",
@@ -202,8 +202,8 @@
       "metrics": [
         {
           "name": "17",
-          "value": "19",
-          "percentile": 84
+          "value": "20",
+          "percentile": 85
         },
         {
           "name": "Batting Run Value",
@@ -219,8 +219,8 @@
       "metrics": [
         {
           "name": "80",
-          "value": "78",
-          "percentile": 38
+          "value": "80",
+          "percentile": 37
         },
         {
           "name": "Batting Run Value",
@@ -270,12 +270,12 @@
       "metrics": [
         {
           "name": "17",
-          "value": "39",
-          "percentile": 29
+          "value": "41",
+          "percentile": 22
         },
         {
           "name": "Batting Run Value",
-          "value": "-4",
+          "value": "-5",
           "percentile": 1
         }
       ]
@@ -287,13 +287,13 @@
       "metrics": [
         {
           "name": "99",
-          "value": "9",
+          "value": "5",
           "percentile": 98
         },
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
-          "percentile": 13
+          "percentile": 12
         }
       ]
     },
@@ -357,7 +357,7 @@
       "metrics": [
         {
           "name": "20",
-          "value": "57",
+          "value": "56",
           "percentile": 59
         },
         {
@@ -373,13 +373,13 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "86",
-          "value": "60",
-          "percentile": 35
+          "name": "85",
+          "value": "62",
+          "percentile": 32
         },
         {
           "name": "Batting Run Value",
-          "value": "-2",
+          "value": "-3",
           "percentile": 1
         }
       ]
@@ -404,12 +404,12 @@
         {
           "name": "47",
           "value": "",
-          "percentile": 95
+          "percentile": 93
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 14
+          "percentile": 13
         }
       ]
     }
