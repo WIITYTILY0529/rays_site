@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-24T08:19:12.498558Z",
+  "lastUpdated": "2026-05-25T09:49:32.296173Z",
   "players": {
     "641329": {
       "name": "Bryan Baker",
@@ -7,9 +7,9 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "73",
+          "name": "72",
           "value": "11",
-          "percentile": 73
+          "percentile": 72
         },
         {
           "name": "Pitching Run Value",
@@ -37,7 +37,7 @@
       "metrics": [
         {
           "name": "36",
-          "value": "66",
+          "value": "65",
           "percentile": 39
         },
         {
@@ -53,8 +53,8 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "34",
-          "value": "63",
+          "name": "46",
+          "value": "62",
           "percentile": 2
         },
         {
@@ -70,14 +70,14 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "100",
-          "value": "90",
+          "name": "99",
+          "value": "91",
           "percentile": 13
         },
         {
           "name": "Batting Run Value",
           "value": "-7",
-          "percentile": 4
+          "percentile": 3
         }
       ]
     },
@@ -87,9 +87,9 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "92",
+          "name": "91",
           "value": "43",
-          "percentile": 75
+          "percentile": 74
         },
         {
           "name": "Pitching Run Value",
@@ -122,7 +122,7 @@
       "metrics": [
         {
           "name": "18",
-          "value": "63",
+          "value": "62",
           "percentile": 37
         },
         {
@@ -138,9 +138,9 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "74",
+          "name": "73",
           "value": "34",
-          "percentile": 66
+          "percentile": 63
         },
         {
           "name": "Pitching Run Value",
@@ -167,7 +167,7 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "12",
+          "name": "11",
           "value": "69",
           "percentile": 48
         },
@@ -184,7 +184,7 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "55",
+          "name": "54",
           "value": "18",
           "percentile": 25
         },
@@ -201,31 +201,14 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "17",
-          "value": "20",
+          "name": "19",
+          "value": "27",
           "percentile": 85
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
           "percentile": 8
-        }
-      ]
-    },
-    "676356": {
-      "name": "Jonny DeLuca",
-      "position": "RF",
-      "type": "hitting",
-      "metrics": [
-        {
-          "name": "80",
-          "value": "80",
-          "percentile": 37
-        },
-        {
-          "name": "Batting Run Value",
-          "value": "-2",
-          "percentile": 1
         }
       ]
     },
@@ -237,7 +220,7 @@
         {
           "name": "21",
           "value": "1",
-          "percentile": 89
+          "percentile": 88
         },
         {
           "name": "Batting Run Value",
@@ -254,7 +237,7 @@
         {
           "name": "93",
           "value": "25",
-          "percentile": 86
+          "percentile": 85
         },
         {
           "name": "Pitching Run Value",
@@ -270,8 +253,8 @@
       "metrics": [
         {
           "name": "17",
-          "value": "41",
-          "percentile": 22
+          "value": "42",
+          "percentile": 24
         },
         {
           "name": "Batting Run Value",
@@ -288,7 +271,7 @@
         {
           "name": "99",
           "value": "5",
-          "percentile": 98
+          "percentile": 97
         },
         {
           "name": "Pitching Run Value",
@@ -358,7 +341,7 @@
         {
           "name": "20",
           "value": "56",
-          "percentile": 59
+          "percentile": 57
         },
         {
           "name": "Pitching Run Value",
@@ -373,9 +356,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "85",
-          "value": "62",
-          "percentile": 32
+          "name": "84",
+          "value": "64",
+          "percentile": 33
         },
         {
           "name": "Batting Run Value",
@@ -393,6 +376,18 @@
           "name": "Pitching Run Value",
           "value": "-2",
           "percentile": 1
+        }
+      ]
+    },
+    "683748": {
+      "name": "Victor Mesa Jr.",
+      "position": "CF",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "Batting Run Value",
+          "value": "-1",
+          "percentile": 0
         }
       ]
     },
