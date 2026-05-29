@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-28T09:42:04.577176Z",
+  "lastUpdated": "2026-05-29T09:31:04.855938Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -30,7 +30,7 @@
           "bbPct": 0.135,
           "kPct": 0.236,
           "BABIP": 0.341,
-          "wRCPlus": 138,
+          "wRCPlus": 139,
           "WAR": 1.2
         },
         {
@@ -45,7 +45,7 @@
           "kPct": 0.103,
           "BABIP": 0.328,
           "wRCPlus": 91,
-          "WAR": 1.0
+          "WAR": 1.1
         },
         {
           "name": "Junior Caminero",
@@ -58,7 +58,7 @@
           "bbPct": 0.125,
           "kPct": 0.159,
           "BABIP": 0.261,
-          "wRCPlus": 132,
+          "wRCPlus": 133,
           "WAR": 0.8
         },
         {
@@ -73,7 +73,7 @@
           "kPct": 0.159,
           "BABIP": 0.339,
           "wRCPlus": 137,
-          "WAR": 0.7
+          "WAR": 0.6
         },
         {
           "name": "Taylor Walls",
@@ -114,7 +114,7 @@
           "bbPct": 0.093,
           "kPct": 0.307,
           "BABIP": 0.415,
-          "wRCPlus": 105,
+          "wRCPlus": 106,
           "WAR": 0.3
         },
         {
@@ -142,7 +142,7 @@
           "bbPct": 0.119,
           "kPct": 0.212,
           "BABIP": 0.333,
-          "wRCPlus": 101,
+          "wRCPlus": 102,
           "WAR": 0.1
         },
         {
@@ -214,7 +214,7 @@
           "BABIP": 0.266,
           "FIP": 3.4,
           "pbStuff": 45.4,
-          "pbCommand": 61.9,
+          "pbCommand": 62.0,
           "WAR": 1.2
         },
         {
@@ -227,7 +227,7 @@
           "bbPct": 0.046,
           "BABIP": 0.248,
           "FIP": 3.5,
-          "pbStuff": 51.4,
+          "pbStuff": 51.5,
           "pbCommand": 50.7,
           "WAR": 1.1
         },
@@ -297,7 +297,7 @@
           "bbPct": 0.092,
           "BABIP": 0.25,
           "FIP": 4.8,
-          "pbStuff": 48.4,
+          "pbStuff": 48.5,
           "pbCommand": 55.8,
           "WAR": 0.3
         },
@@ -325,7 +325,7 @@
           "bbPct": 0.146,
           "BABIP": 0.218,
           "FIP": 4.2,
-          "pbStuff": 57.9,
+          "pbStuff": 58.0,
           "pbCommand": 43.2,
           "WAR": 0.1
         },
@@ -379,71 +379,71 @@
         {
           "name": "Kevin McGonigle",
           "fgPlayerId": 33572,
-          "PA": 237,
+          "PA": 241,
           "H": 60,
           "HR": 3,
-          "OBP": 0.401,
-          "SLG": 0.431,
-          "bbPct": 0.139,
-          "kPct": 0.127,
-          "BABIP": 0.337,
-          "wRCPlus": 140,
-          "WAR": 2.4
+          "OBP": 0.394,
+          "SLG": 0.422,
+          "bbPct": 0.137,
+          "kPct": 0.129,
+          "BABIP": 0.331,
+          "wRCPlus": 136,
+          "WAR": 2.3
         },
         {
           "name": "Dillon Dingler",
           "fgPlayerId": 27464,
-          "PA": 204,
+          "PA": 208,
           "H": 42,
           "HR": 10,
-          "OBP": 0.322,
-          "SLG": 0.464,
-          "bbPct": 0.093,
-          "kPct": 0.211,
-          "BABIP": 0.254,
-          "wRCPlus": 121,
+          "OBP": 0.32,
+          "SLG": 0.456,
+          "bbPct": 0.096,
+          "kPct": 0.212,
+          "BABIP": 0.25,
+          "wRCPlus": 119,
           "WAR": 2.1
         },
         {
           "name": "Riley Greene",
           "fgPlayerId": 25976,
-          "PA": 232,
-          "H": 61,
+          "PA": 236,
+          "H": 62,
           "HR": 4,
-          "OBP": 0.401,
-          "SLG": 0.44,
-          "bbPct": 0.129,
-          "kPct": 0.28,
-          "BABIP": 0.435,
-          "wRCPlus": 142,
+          "OBP": 0.398,
+          "SLG": 0.436,
+          "bbPct": 0.127,
+          "kPct": 0.284,
+          "BABIP": 0.436,
+          "wRCPlus": 141,
           "WAR": 1.5
         },
         {
           "name": "Colt Keith",
           "fgPlayerId": 27899,
-          "PA": 162,
+          "PA": 166,
           "H": 45,
           "HR": 0,
-          "OBP": 0.333,
-          "SLG": 0.362,
-          "bbPct": 0.049,
-          "kPct": 0.216,
-          "BABIP": 0.381,
-          "wRCPlus": 97,
+          "OBP": 0.337,
+          "SLG": 0.357,
+          "bbPct": 0.06,
+          "kPct": 0.211,
+          "BABIP": 0.375,
+          "wRCPlus": 98,
           "WAR": 0.3
         },
         {
           "name": "Spencer Torkelson",
           "fgPlayerId": 27465,
-          "PA": 211,
+          "PA": 215,
           "H": 38,
           "HR": 8,
-          "OBP": 0.318,
-          "SLG": 0.409,
-          "bbPct": 0.123,
-          "kPct": 0.322,
-          "BABIP": 0.283,
-          "wRCPlus": 106,
+          "OBP": 0.312,
+          "SLG": 0.4,
+          "bbPct": 0.121,
+          "kPct": 0.326,
+          "BABIP": 0.278,
+          "wRCPlus": 102,
           "WAR": 0.2
         },
         {
@@ -457,50 +457,64 @@
           "bbPct": 0.179,
           "kPct": 0.214,
           "BABIP": 0.188,
-          "wRCPlus": 62,
+          "wRCPlus": 63,
           "WAR": 0.1
         },
         {
           "name": "Matt Vierling",
           "fgPlayerId": 21558,
-          "PA": 156,
+          "PA": 160,
           "H": 30,
           "HR": 4,
-          "OBP": 0.282,
-          "SLG": 0.367,
-          "bbPct": 0.09,
-          "kPct": 0.173,
-          "BABIP": 0.234,
-          "wRCPlus": 81,
-          "WAR": -0.0
+          "OBP": 0.275,
+          "SLG": 0.357,
+          "bbPct": 0.087,
+          "kPct": 0.175,
+          "BABIP": 0.228,
+          "wRCPlus": 76,
+          "WAR": -0.1
         },
         {
           "name": "Jake Rogers",
           "fgPlayerId": 19452,
-          "PA": 54,
+          "PA": 56,
           "H": 7,
           "HR": 0,
-          "OBP": 0.222,
-          "SLG": 0.234,
-          "bbPct": 0.074,
-          "kPct": 0.296,
+          "OBP": 0.232,
+          "SLG": 0.229,
+          "bbPct": 0.089,
+          "kPct": 0.304,
           "BABIP": 0.212,
-          "wRCPlus": 27,
-          "WAR": -0.2
+          "wRCPlus": 31,
+          "WAR": -0.1
         },
         {
           "name": "Gage Workman",
           "fgPlayerId": 27573,
-          "PA": 36,
+          "PA": 37,
           "H": 6,
           "HR": 2,
-          "OBP": 0.167,
-          "SLG": 0.417,
+          "OBP": 0.162,
+          "SLG": 0.405,
           "bbPct": 0.0,
-          "kPct": 0.444,
-          "BABIP": 0.222,
-          "wRCPlus": 53,
+          "kPct": 0.432,
+          "BABIP": 0.211,
+          "wRCPlus": 49,
           "WAR": -0.4
+        },
+        {
+          "name": "Zach McKinstry",
+          "fgPlayerId": 19392,
+          "PA": 116,
+          "H": 17,
+          "HR": 1,
+          "OBP": 0.241,
+          "SLG": 0.223,
+          "bbPct": 0.095,
+          "kPct": 0.181,
+          "BABIP": 0.193,
+          "wRCPlus": 31,
+          "WAR": -0.5
         },
         {
           "name": "Hao-Yu  Lee",
@@ -517,46 +531,32 @@
           "WAR": -0.5
         },
         {
-          "name": "Zach McKinstry",
-          "fgPlayerId": 19392,
-          "PA": 112,
-          "H": 17,
-          "HR": 1,
-          "OBP": 0.232,
-          "SLG": 0.228,
-          "bbPct": 0.08,
-          "kPct": 0.179,
-          "BABIP": 0.195,
-          "wRCPlus": 27,
-          "WAR": -0.6
-        },
-        {
           "name": "Jahmai Jones",
           "fgPlayerId": 18872,
-          "PA": 72,
+          "PA": 73,
           "H": 11,
           "HR": 2,
-          "OBP": 0.236,
-          "SLG": 0.288,
-          "bbPct": 0.083,
-          "kPct": 0.333,
-          "BABIP": 0.225,
-          "wRCPlus": 48,
+          "OBP": 0.233,
+          "SLG": 0.284,
+          "bbPct": 0.082,
+          "kPct": 0.329,
+          "BABIP": 0.22,
+          "wRCPlus": 46,
           "WAR": -0.7
         },
         {
           "name": "Wenceel Pérez",
           "fgPlayerId": 22857,
-          "PA": 133,
-          "H": 20,
-          "HR": 3,
-          "OBP": 0.226,
-          "SLG": 0.26,
-          "bbPct": 0.075,
-          "kPct": 0.15,
-          "BABIP": 0.17,
-          "wRCPlus": 37,
-          "WAR": -1.0
+          "PA": 137,
+          "H": 22,
+          "HR": 4,
+          "OBP": 0.241,
+          "SLG": 0.302,
+          "bbPct": 0.08,
+          "kPct": 0.146,
+          "BABIP": 0.176,
+          "wRCPlus": 53,
+          "WAR": -0.8
         }
       ],
       "pitchers": [
@@ -585,7 +585,7 @@
           "BABIP": 0.231,
           "FIP": 4.2,
           "pbStuff": 47.9,
-          "pbCommand": 54.7,
+          "pbCommand": 54.8,
           "WAR": 0.7
         },
         {
@@ -619,16 +619,16 @@
         {
           "name": "Jack Flaherty",
           "fgPlayerId": 17479,
-          "G": 11,
-          "GS": 11,
-          "IP": 47.0,
-          "kPct": 0.244,
-          "bbPct": 0.129,
-          "BABIP": 0.32,
-          "FIP": 5.1,
-          "pbStuff": 39.9,
-          "pbCommand": 51.2,
-          "WAR": 0.2
+          "G": 12,
+          "GS": 12,
+          "IP": 52.2,
+          "kPct": 0.257,
+          "bbPct": 0.12,
+          "BABIP": 0.331,
+          "FIP": 4.6,
+          "pbStuff": 40.0,
+          "pbCommand": 51.3,
+          "WAR": 0.5
         },
         {
           "name": "Enmanuel De Jesus",
@@ -654,7 +654,7 @@
           "bbPct": 0.136,
           "BABIP": 0.125,
           "FIP": 3.6,
-          "pbStuff": 52.7,
+          "pbStuff": 52.8,
           "pbCommand": 47.2,
           "WAR": 0.1
         },
@@ -675,16 +675,16 @@
         {
           "name": "Brenan Hanifee",
           "fgPlayerId": 22304,
-          "G": 9,
+          "G": 10,
           "GS": 2,
-          "IP": 10.1,
-          "kPct": 0.116,
-          "bbPct": 0.047,
-          "BABIP": 0.286,
-          "FIP": 3.9,
-          "pbStuff": 43.1,
-          "pbCommand": 56.6,
-          "WAR": 0.0
+          "IP": 11.1,
+          "kPct": 0.13,
+          "bbPct": 0.043,
+          "BABIP": 0.297,
+          "FIP": 3.7,
+          "pbStuff": 42.9,
+          "pbCommand": 57.0,
+          "WAR": 0.1
         },
         {
           "name": "Jake Rogers",
@@ -698,6 +698,20 @@
           "FIP": 1.6,
           "pbStuff": 28.7,
           "pbCommand": 38.9,
+          "WAR": 0.0
+        },
+        {
+          "name": "Drew Sommers",
+          "fgPlayerId": 32026,
+          "G": 1,
+          "GS": 0,
+          "IP": 0.1,
+          "kPct": 1.0,
+          "bbPct": 0.0,
+          "BABIP": 0.0,
+          "FIP": -2.9,
+          "pbStuff": 43.7,
+          "pbCommand": 80.0,
           "WAR": 0.0
         },
         {
@@ -717,30 +731,16 @@
         {
           "name": "Ricky Vanasco",
           "fgPlayerId": 23391,
-          "G": 4,
+          "G": 5,
           "GS": 0,
-          "IP": 4.1,
-          "kPct": 0.103,
-          "bbPct": 0.138,
-          "BABIP": 0.4,
-          "FIP": 10.5,
-          "pbStuff": 43.4,
-          "pbCommand": 53.9,
+          "IP": 6.1,
+          "kPct": 0.1,
+          "bbPct": 0.15,
+          "BABIP": 0.429,
+          "FIP": 8.8,
+          "pbStuff": 42.8,
+          "pbCommand": 53.0,
           "WAR": -0.2
-        },
-        {
-          "name": "Kenley Jansen",
-          "fgPlayerId": 3096,
-          "G": 18,
-          "GS": 0,
-          "IP": 15.0,
-          "kPct": 0.306,
-          "bbPct": 0.145,
-          "BABIP": 0.167,
-          "FIP": 5.8,
-          "pbStuff": 46.8,
-          "pbCommand": 47.6,
-          "WAR": -0.3
         },
         {
           "name": "Kyle Finnegan",
@@ -752,7 +752,7 @@
           "bbPct": 0.176,
           "BABIP": 0.264,
           "FIP": 5.1,
-          "pbStuff": 53.9,
+          "pbStuff": 54.0,
           "pbCommand": 48.1,
           "WAR": -0.3
         }
@@ -762,9 +762,9 @@
   "playoffOdds": {
     "TB": {
       "current": {
-        "playoff": 0.8595,
-        "division": 0.1981,
-        "wildcard": 0.6613,
+        "playoff": 0.8669,
+        "division": 0.1954,
+        "wildcard": 0.6714,
         "worldSeries": 0.0396
       },
       "history": [
@@ -853,17 +853,17 @@
           "playoff": 0.8969
         },
         {
-          "date": "2026-05-28",
-          "playoff": 0.8595
+          "date": "2026-05-29",
+          "playoff": 0.8669
         }
       ]
     },
     "DET": {
       "current": {
-        "playoff": 0.2016,
-        "division": 0.0957,
-        "wildcard": 0.1059,
-        "worldSeries": 0.0132
+        "playoff": 0.1799,
+        "division": 0.0844,
+        "wildcard": 0.0955,
+        "worldSeries": 0.0097
       },
       "history": [
         {
@@ -951,8 +951,8 @@
           "playoff": 0.1647
         },
         {
-          "date": "2026-05-28",
-          "playoff": 0.2016
+          "date": "2026-05-29",
+          "playoff": 0.1799
         }
       ]
     }
