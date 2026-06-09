@@ -1,6 +1,18 @@
 {
-  "lastUpdated": "2026-06-08T10:18:08.104064Z",
+  "lastUpdated": "2026-06-09T09:01:28.207689Z",
   "players": {
+    "596103": {
+      "name": "Austin Slater",
+      "position": "RF",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "Batting Run Value",
+          "value": "-3",
+          "percentile": 0
+        }
+      ]
+    },
     "810938": {
       "name": "Ben Williamson",
       "position": "2B",
@@ -289,18 +301,6 @@
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
           "percentile": 8
-        }
-      ]
-    },
-    "686554": {
-      "name": "Oliver Dunn",
-      "position": "3B",
-      "type": "hitting",
-      "metrics": [
-        {
-          "name": "Batting Run Value",
-          "value": "-2",
-          "percentile": 0
         }
       ]
     },
