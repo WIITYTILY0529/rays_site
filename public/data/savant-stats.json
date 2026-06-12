@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-11T10:06:19.051125Z",
+  "lastUpdated": "2026-06-12T09:58:42.787421Z",
   "players": {
     "596103": {
       "name": "Austin Slater",
@@ -316,8 +316,8 @@
       "metrics": [
         {
           "name": "33",
-          "value": "22",
-          "percentile": 44
+          "value": "26",
+          "percentile": 43
         },
         {
           "name": "Batting Run Value",
