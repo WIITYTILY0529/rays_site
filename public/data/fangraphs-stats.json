@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-18T10:02:05.843539Z",
+  "lastUpdated": "2026-06-19T10:09:08.389469Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -59,7 +59,7 @@
           "kPct": 0.181,
           "BABIP": 0.322,
           "wRCPlus": 122,
-          "WAR": 0.5
+          "WAR": 0.6
         },
         {
           "name": "Chandler Simpson",
@@ -185,7 +185,7 @@
           "kPct": 0.284,
           "BABIP": 0.333,
           "wRCPlus": 69,
-          "WAR": -0.0
+          "WAR": 0.0
         }
       ],
       "pitchers": [
@@ -200,7 +200,7 @@
           "BABIP": 0.24,
           "FIP": 3.0,
           "pbStuff": 52.8,
-          "pbCommand": 54.5,
+          "pbCommand": 54.4,
           "WAR": 2.2
         },
         {
@@ -270,7 +270,7 @@
           "BABIP": 0.34,
           "FIP": 3.5,
           "pbStuff": 53.2,
-          "pbCommand": 57.4,
+          "pbCommand": 57.3,
           "WAR": 0.3
         },
         {
@@ -284,7 +284,7 @@
           "BABIP": 0.333,
           "FIP": 3.6,
           "pbStuff": 57.0,
-          "pbCommand": 49.1,
+          "pbCommand": 49.0,
           "WAR": 0.3
         },
         {
@@ -341,7 +341,7 @@
           "FIP": 4.6,
           "pbStuff": 52.1,
           "pbCommand": 52.2,
-          "WAR": 0.1
+          "WAR": 0.0
         },
         {
           "name": "Ben Williamson",
@@ -382,7 +382,7 @@
           "BABIP": 0.259,
           "FIP": 5.7,
           "pbStuff": 49.2,
-          "pbCommand": 56.7,
+          "pbCommand": 56.6,
           "WAR": -0.1
         }
       ]
@@ -443,22 +443,8 @@
           "bbPct": 0.052,
           "kPct": 0.203,
           "BABIP": 0.318,
-          "wRCPlus": 94,
+          "wRCPlus": 93,
           "WAR": 0.4
-        },
-        {
-          "name": "Spencer Torkelson",
-          "fgPlayerId": 27465,
-          "PA": 283,
-          "H": 50,
-          "HR": 12,
-          "OBP": 0.304,
-          "SLG": 0.408,
-          "bbPct": 0.113,
-          "kPct": 0.336,
-          "BABIP": 0.271,
-          "wRCPlus": 98,
-          "WAR": 0.0
         },
         {
           "name": "Kerry Carpenter",
@@ -473,6 +459,20 @@
           "BABIP": 0.28,
           "wRCPlus": 119,
           "WAR": 0.0
+        },
+        {
+          "name": "Spencer Torkelson",
+          "fgPlayerId": 27465,
+          "PA": 283,
+          "H": 50,
+          "HR": 12,
+          "OBP": 0.304,
+          "SLG": 0.408,
+          "bbPct": 0.113,
+          "kPct": 0.336,
+          "BABIP": 0.271,
+          "wRCPlus": 98,
+          "WAR": -0.0
         },
         {
           "name": "James Outman",
@@ -503,20 +503,6 @@
           "WAR": -0.2
         },
         {
-          "name": "Hao-Yu  Lee",
-          "fgPlayerId": 30080,
-          "PA": 99,
-          "H": 22,
-          "HR": 2,
-          "OBP": 0.263,
-          "SLG": 0.358,
-          "bbPct": 0.04,
-          "kPct": 0.273,
-          "BABIP": 0.303,
-          "wRCPlus": 69,
-          "WAR": -0.4
-        },
-        {
           "name": "Matt Vierling",
           "fgPlayerId": 21558,
           "PA": 200,
@@ -528,7 +514,7 @@
           "kPct": 0.16,
           "BABIP": 0.216,
           "wRCPlus": 62,
-          "WAR": -0.5
+          "WAR": -0.4
         },
         {
           "name": "Wenceel Pérez",
@@ -545,6 +531,20 @@
           "WAR": -0.5
         },
         {
+          "name": "Hao-Yu  Lee",
+          "fgPlayerId": 30080,
+          "PA": 99,
+          "H": 22,
+          "HR": 2,
+          "OBP": 0.263,
+          "SLG": 0.358,
+          "bbPct": 0.04,
+          "kPct": 0.273,
+          "BABIP": 0.303,
+          "wRCPlus": 69,
+          "WAR": -0.5
+        },
+        {
           "name": "Zach McKinstry",
           "fgPlayerId": 19392,
           "PA": 165,
@@ -556,7 +556,7 @@
           "kPct": 0.188,
           "BABIP": 0.196,
           "wRCPlus": 41,
-          "WAR": -0.6
+          "WAR": -0.5
         },
         {
           "name": "Jahmai Jones",
@@ -569,7 +569,7 @@
           "bbPct": 0.096,
           "kPct": 0.309,
           "BABIP": 0.167,
-          "wRCPlus": 23,
+          "wRCPlus": 22,
           "WAR": -1.1
         }
       ],
@@ -585,7 +585,7 @@
           "BABIP": 0.27,
           "FIP": 2.7,
           "pbStuff": 47.6,
-          "pbCommand": 54.5,
+          "pbCommand": 54.4,
           "WAR": 1.7
         },
         {
@@ -627,7 +627,7 @@
           "BABIP": 0.287,
           "FIP": 4.3,
           "pbStuff": 50.1,
-          "pbCommand": 52.8,
+          "pbCommand": 52.7,
           "WAR": 0.8
         },
         {
@@ -641,7 +641,7 @@
           "BABIP": 0.307,
           "FIP": 3.6,
           "pbStuff": 55.1,
-          "pbCommand": 50.0,
+          "pbCommand": 49.9,
           "WAR": 0.6
         },
         {
@@ -668,7 +668,7 @@
           "bbPct": 0.057,
           "BABIP": 0.351,
           "FIP": 3.8,
-          "pbStuff": 53.1,
+          "pbStuff": 53.2,
           "pbCommand": 52.4,
           "WAR": 0.2
         },
@@ -776,10 +776,10 @@
   "playoffOdds": {
     "TB": {
       "current": {
-        "playoff": 0.8346,
-        "division": 0.1188,
-        "wildcard": 0.7158,
-        "worldSeries": 0.0357
+        "playoff": 0.8257,
+        "division": 0.1351,
+        "wildcard": 0.6906,
+        "worldSeries": 0.0371
       },
       "history": [
         {
@@ -895,17 +895,17 @@
           "playoff": 0.8575
         },
         {
-          "date": "2026-06-18",
-          "playoff": 0.8346
+          "date": "2026-06-19",
+          "playoff": 0.8257
         }
       ]
     },
     "DET": {
       "current": {
-        "playoff": 0.173,
-        "division": 0.1022,
-        "wildcard": 0.0707,
-        "worldSeries": 0.012
+        "playoff": 0.1542,
+        "division": 0.0827,
+        "wildcard": 0.0715,
+        "worldSeries": 0.0103
       },
       "history": [
         {
@@ -1021,8 +1021,8 @@
           "playoff": 0.2067
         },
         {
-          "date": "2026-06-18",
-          "playoff": 0.173
+          "date": "2026-06-19",
+          "playoff": 0.1542
         }
       ]
     }

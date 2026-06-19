@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-18T10:07:31.153035Z",
+  "lastUpdated": "2026-06-19T10:14:34.997129Z",
   "players": {
     "596103": {
       "name": "Austin Slater",
@@ -19,9 +19,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "80",
-          "value": "27",
-          "percentile": 23
+          "name": "79",
+          "value": "25",
+          "percentile": 22
         },
         {
           "name": "Batting Run Value",
@@ -36,7 +36,7 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "79",
+          "name": "78",
           "value": "17",
           "percentile": 83
         },
@@ -65,7 +65,7 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "65",
+          "name": "64",
           "value": "11",
           "percentile": 39
         },
@@ -100,12 +100,12 @@
       "metrics": [
         {
           "name": "98",
-          "value": "86",
-          "percentile": 2
+          "value": "85",
+          "percentile": 1
         },
         {
           "name": "Batting Run Value",
-          "value": "-12",
+          "value": "-13",
           "percentile": 4
         }
       ]
@@ -117,7 +117,7 @@
       "metrics": [
         {
           "name": "24",
-          "value": "41",
+          "value": "40",
           "percentile": 12
         },
         {
@@ -146,7 +146,7 @@
       "metrics": [
         {
           "name": "99",
-          "value": "65",
+          "value": "66",
           "percentile": 99
         },
         {
@@ -176,7 +176,7 @@
         {
           "name": "22",
           "value": "72",
-          "percentile": 36
+          "percentile": 37
         },
         {
           "name": "Pitching Run Value",
@@ -203,9 +203,9 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "11",
-          "value": "78",
-          "percentile": 56
+          "name": "12",
+          "value": "76",
+          "percentile": 55
         },
         {
           "name": "Pitching Run Value",
@@ -221,7 +221,7 @@
       "metrics": [
         {
           "name": "6",
-          "value": "24",
+          "value": "28",
           "percentile": 81
         },
         {
@@ -239,7 +239,7 @@
         {
           "name": "25",
           "value": "1",
-          "percentile": 84
+          "percentile": 83
         },
         {
           "name": "Batting Run Value",
@@ -255,8 +255,8 @@
       "metrics": [
         {
           "name": "73",
-          "value": "42",
-          "percentile": 79
+          "value": "41",
+          "percentile": 78
         },
         {
           "name": "Pitching Run Value",
@@ -271,9 +271,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "30",
-          "value": "21",
-          "percentile": 19
+          "name": "31",
+          "value": "16",
+          "percentile": 20
         }
       ]
     },
@@ -285,7 +285,7 @@
         {
           "name": "89",
           "value": "7",
-          "percentile": 91
+          "percentile": 90
         },
         {
           "name": "Pitching Run Value",
@@ -300,9 +300,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "33",
-          "value": "28",
-          "percentile": 42
+          "name": "32",
+          "value": "30",
+          "percentile": 43
         },
         {
           "name": "Batting Run Value",
@@ -331,7 +331,7 @@
         {
           "name": "46",
           "value": "89",
-          "percentile": 93
+          "percentile": 92
         },
         {
           "name": "Pitching Run Value",
@@ -363,13 +363,13 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "91",
-          "value": "29",
-          "percentile": 15
+          "name": "92",
+          "value": "33",
+          "percentile": 13
         },
         {
           "name": "Batting Run Value",
-          "value": "-7",
+          "value": "-8",
           "percentile": 2
         }
       ]
@@ -392,7 +392,7 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "47",
+          "name": "45",
           "value": "",
           "percentile": 93
         },
