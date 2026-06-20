@@ -1,18 +1,6 @@
 {
-  "lastUpdated": "2026-06-19T10:14:34.997129Z",
+  "lastUpdated": "2026-06-20T08:43:28.408363Z",
   "players": {
-    "596103": {
-      "name": "Austin Slater",
-      "position": "RF",
-      "type": "hitting",
-      "metrics": [
-        {
-          "name": "Batting Run Value",
-          "value": "-4",
-          "percentile": 0
-        }
-      ]
-    },
     "810938": {
       "name": "Ben Williamson",
       "position": "2B",
@@ -82,9 +70,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "34",
+          "name": "35",
           "value": "82",
-          "percentile": 7
+          "percentile": 8
         },
         {
           "name": "Batting Run Value",
@@ -228,6 +216,18 @@
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
           "percentile": 10
+        }
+      ]
+    },
+    "676356": {
+      "name": "Jonny DeLuca",
+      "position": "RF",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "Batting Run Value",
+          "value": "-2",
+          "percentile": 0
         }
       ]
     },
