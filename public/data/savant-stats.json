@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T10:23:29.153844Z",
+  "lastUpdated": "2026-06-30T08:58:17.456673Z",
   "players": {
     "810938": {
       "name": "Ben Williamson",
@@ -152,7 +152,7 @@
         {
           "name": "Pitching Run Value",
           "value": "-1",
-          "percentile": 1
+          "percentile": 2
         }
       ]
     },
@@ -335,8 +335,8 @@
       "metrics": [
         {
           "name": "35",
-          "value": "72",
-          "percentile": 84
+          "value": "71",
+          "percentile": 83
         },
         {
           "name": "Pitching Run Value",
