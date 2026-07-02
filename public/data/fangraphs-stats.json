@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-01T09:25:36.231384Z",
+  "lastUpdated": "2026-07-02T08:38:54.302264Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -213,7 +213,7 @@
           "bbPct": 0.044,
           "BABIP": 0.276,
           "FIP": 3.7,
-          "pbStuff": 47.5,
+          "pbStuff": 47.6,
           "pbCommand": 61.7,
           "WAR": 1.8
         },
@@ -227,8 +227,8 @@
           "bbPct": 0.09,
           "BABIP": 0.276,
           "FIP": 3.4,
-          "pbStuff": 55.7,
-          "pbCommand": 50.7,
+          "pbStuff": 55.8,
+          "pbCommand": 50.6,
           "WAR": 1.6
         },
         {
@@ -241,7 +241,7 @@
           "bbPct": 0.087,
           "BABIP": 0.195,
           "FIP": 2.9,
-          "pbStuff": 64.2,
+          "pbStuff": 64.3,
           "pbCommand": 59.4,
           "WAR": 0.8
         },
@@ -255,7 +255,7 @@
           "bbPct": 0.049,
           "BABIP": 0.238,
           "FIP": 3.6,
-          "pbStuff": 57.1,
+          "pbStuff": 57.2,
           "pbCommand": 56.0,
           "WAR": 0.4
         },
@@ -270,7 +270,7 @@
           "BABIP": 0.24,
           "FIP": 4.2,
           "pbStuff": 52.3,
-          "pbCommand": 53.5,
+          "pbCommand": 53.4,
           "WAR": 0.4
         },
         {
@@ -311,8 +311,8 @@
           "bbPct": 0.078,
           "BABIP": 0.347,
           "FIP": 4.0,
-          "pbStuff": 52.9,
-          "pbCommand": 52.9,
+          "pbStuff": 52.8,
+          "pbCommand": 53.1,
           "WAR": 0.3
         },
         {
@@ -325,8 +325,8 @@
           "bbPct": 0.081,
           "BABIP": 0.285,
           "FIP": 4.6,
-          "pbStuff": 61.2,
-          "pbCommand": 55.6,
+          "pbStuff": 60.9,
+          "pbCommand": 56.2,
           "WAR": 0.2
         },
         {
@@ -339,8 +339,8 @@
           "bbPct": 0.1,
           "BABIP": 0.208,
           "FIP": 3.4,
-          "pbStuff": 52.9,
-          "pbCommand": 61.2,
+          "pbStuff": 51.7,
+          "pbCommand": 58.1,
           "WAR": 0.2
         },
         {
@@ -367,8 +367,8 @@
           "bbPct": 0.103,
           "BABIP": 0.267,
           "FIP": 4.9,
-          "pbStuff": 56.3,
-          "pbCommand": 49.6,
+          "pbStuff": 56.2,
+          "pbCommand": 50.2,
           "WAR": -0.1
         },
         {
@@ -382,7 +382,7 @@
           "BABIP": 0.27,
           "FIP": 8.0,
           "pbStuff": 53.0,
-          "pbCommand": 56.6,
+          "pbCommand": 56.5,
           "WAR": -0.3
         }
       ]
@@ -613,7 +613,7 @@
           "BABIP": 0.27,
           "FIP": 3.1,
           "pbStuff": 58.5,
-          "pbCommand": 62.0,
+          "pbCommand": 61.9,
           "WAR": 1.6
         },
         {
@@ -640,7 +640,7 @@
           "bbPct": 0.082,
           "BABIP": 0.288,
           "FIP": 4.2,
-          "pbStuff": 49.6,
+          "pbStuff": 49.7,
           "pbCommand": 53.1,
           "WAR": 1.0
         },
@@ -654,7 +654,7 @@
           "bbPct": 0.092,
           "BABIP": 0.309,
           "FIP": 3.6,
-          "pbStuff": 55.0,
+          "pbStuff": 55.1,
           "pbCommand": 50.4,
           "WAR": 0.5
         },
@@ -683,7 +683,7 @@
           "BABIP": 0.333,
           "FIP": 4.0,
           "pbStuff": 52.8,
-          "pbCommand": 52.3,
+          "pbCommand": 52.0,
           "WAR": 0.2
         },
         {
@@ -711,7 +711,7 @@
           "BABIP": 0.294,
           "FIP": 3.6,
           "pbStuff": 54.9,
-          "pbCommand": 54.8,
+          "pbCommand": 54.7,
           "WAR": 0.0
         },
         {
@@ -738,7 +738,7 @@
           "bbPct": 0.152,
           "BABIP": 0.28,
           "FIP": 4.5,
-          "pbStuff": 53.2,
+          "pbStuff": 53.3,
           "pbCommand": 47.9,
           "WAR": -0.1
         },
@@ -752,8 +752,8 @@
           "bbPct": 0.054,
           "BABIP": 0.12,
           "FIP": 5.3,
-          "pbStuff": 48.9,
-          "pbCommand": 50.7,
+          "pbStuff": 49.6,
+          "pbCommand": 48.4,
           "WAR": -0.1
         },
         {
@@ -776,10 +776,10 @@
   "playoffOdds": {
     "TB": {
       "current": {
-        "playoff": 0.9506,
-        "division": 0.4539,
-        "wildcard": 0.4967,
-        "worldSeries": 0.0608
+        "playoff": 0.9584,
+        "division": 0.5107,
+        "wildcard": 0.4476,
+        "worldSeries": 0.064
       },
       "history": [
         {
@@ -912,16 +912,20 @@
         },
         {
           "date": "2026-07-01",
-          "playoff": 0.9506
+          "playoff": 0.9584
+        },
+        {
+          "date": "2026-07-02",
+          "playoff": 0.9584
         }
       ]
     },
     "DET": {
       "current": {
-        "playoff": 0.2146,
-        "division": 0.1214,
-        "wildcard": 0.0932,
-        "worldSeries": 0.0172
+        "playoff": 0.2413,
+        "division": 0.1289,
+        "wildcard": 0.1124,
+        "worldSeries": 0.0165
       },
       "history": [
         {
@@ -1054,7 +1058,11 @@
         },
         {
           "date": "2026-07-01",
-          "playoff": 0.2146
+          "playoff": 0.2413
+        },
+        {
+          "date": "2026-07-02",
+          "playoff": 0.2413
         }
       ]
     }
