@@ -1,0 +1,75 @@
+name: Scrape Baseball Savant
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Daily at 6 AM UTC (around midnight EST)
+  workflow_dispatch:  # Manual trigger
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - uses: browser-actions/setup-chrome@v1
+
+      - name: Install Python dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Run Fangraphs data collection
+        run: python scripts/scrape_fangraphs.py
+
+      - name: Run scraper
+        run: python scripts/scrape_savant.py
+
+      - name: Scrape @Ry_Bass tweets
+        run: python scripts/scrape_twitter.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/fangraphs-stats.json public/data/savant-stats.json public/data/twitter-feed.json
+          git diff --staged --quiet || git commit -m "data: update Baseball Savant, Fangraphs stats and Twitter feed"
+          git push
+
+  build-and-deploy:
+    needs: scrape
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main  # Get latest including the data commit
+      - run: git pull origin main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
