@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-14T07:49:15.100769Z",
+  "lastUpdated": "2026-07-15T07:52:53.495750Z",
   "players": {
     "810938": {
       "name": "Ben Williamson",
@@ -70,8 +70,8 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "36",
-          "value": "93",
+          "name": "37",
+          "value": "91",
           "percentile": 8
         },
         {
@@ -209,7 +209,7 @@
       "metrics": [
         {
           "name": "15",
-          "value": "78",
+          "value": "77",
           "percentile": 71
         },
         {
@@ -226,7 +226,7 @@
       "metrics": [
         {
           "name": "7",
-          "value": "42",
+          "value": "38",
           "percentile": 94
         },
         {
@@ -255,7 +255,7 @@
       "metrics": [
         {
           "name": "19",
-          "value": "3",
+          "value": "1",
           "percentile": 97
         },
         {
@@ -289,7 +289,7 @@
       "metrics": [
         {
           "name": "26",
-          "value": "37",
+          "value": "39",
           "percentile": 18
         },
         {
@@ -305,7 +305,7 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "92",
+          "name": "91",
           "value": "8",
           "percentile": 85
         },
@@ -323,8 +323,8 @@
       "metrics": [
         {
           "name": "57",
-          "value": "21",
-          "percentile": 33
+          "value": "18",
+          "percentile": 32
         },
         {
           "name": "Batting Run Value",
@@ -352,7 +352,7 @@
       "metrics": [
         {
           "name": "46",
-          "value": "81",
+          "value": "82",
           "percentile": 94
         },
         {
@@ -369,7 +369,7 @@
       "metrics": [
         {
           "name": "94",
-          "value": "38",
+          "value": "41",
           "percentile": 9
         },
         {
@@ -397,7 +397,7 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "30",
+          "name": "31",
           "value": "",
           "percentile": 94
         },

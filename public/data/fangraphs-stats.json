@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-14T07:43:23.559075Z",
+  "lastUpdated": "2026-07-15T07:47:04.246336Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -76,6 +76,20 @@
           "WAR": 0.9
         },
         {
+          "name": "Cedric Mullins",
+          "fgPlayerId": 17929,
+          "PA": 319,
+          "H": 56,
+          "HR": 11,
+          "OBP": 0.278,
+          "SLG": 0.339,
+          "bbPct": 0.082,
+          "kPct": 0.204,
+          "BABIP": 0.218,
+          "wRCPlus": 73,
+          "WAR": 0.6
+        },
+        {
           "name": "Ryan Vilade",
           "fgPlayerId": 22165,
           "PA": 156,
@@ -115,20 +129,6 @@
           "kPct": 0.251,
           "BABIP": 0.298,
           "wRCPlus": 70,
-          "WAR": 0.5
-        },
-        {
-          "name": "Cedric Mullins",
-          "fgPlayerId": 17929,
-          "PA": 319,
-          "H": 56,
-          "HR": 11,
-          "OBP": 0.278,
-          "SLG": 0.339,
-          "bbPct": 0.082,
-          "kPct": 0.204,
-          "BABIP": 0.218,
-          "wRCPlus": 73,
           "WAR": 0.4
         },
         {
@@ -285,7 +285,7 @@
           "FIP": 3.2,
           "pbStuff": 57.9,
           "pbCommand": 52.4,
-          "WAR": 0.6
+          "WAR": 0.5
         },
         {
           "name": "Griffin Jax",
@@ -402,7 +402,7 @@
           "kPct": 0.136,
           "BABIP": 0.318,
           "wRCPlus": 133,
-          "WAR": 4.0
+          "WAR": 3.9
         },
         {
           "name": "Dillon Dingler",
@@ -430,7 +430,7 @@
           "kPct": 0.27,
           "BABIP": 0.381,
           "wRCPlus": 136,
-          "WAR": 2.6
+          "WAR": 2.7
         },
         {
           "name": "Colt Keith",
@@ -461,20 +461,6 @@
           "WAR": 0.3
         },
         {
-          "name": "Jake Rogers",
-          "fgPlayerId": 19452,
-          "PA": 100,
-          "H": 15,
-          "HR": 3,
-          "OBP": 0.273,
-          "SLG": 0.329,
-          "bbPct": 0.11,
-          "kPct": 0.3,
-          "BABIP": 0.222,
-          "wRCPlus": 68,
-          "WAR": 0.1
-        },
-        {
           "name": "Zach McKinstry",
           "fgPlayerId": 19392,
           "PA": 248,
@@ -486,6 +472,20 @@
           "kPct": 0.169,
           "BABIP": 0.224,
           "wRCPlus": 61,
+          "WAR": 0.1
+        },
+        {
+          "name": "Jake Rogers",
+          "fgPlayerId": 19452,
+          "PA": 100,
+          "H": 15,
+          "HR": 3,
+          "OBP": 0.273,
+          "SLG": 0.329,
+          "bbPct": 0.11,
+          "kPct": 0.3,
+          "BABIP": 0.222,
+          "wRCPlus": 68,
           "WAR": 0.1
         },
         {
@@ -762,10 +762,10 @@
   "playoffOdds": {
     "TB": {
       "current": {
-        "playoff": 0.9759,
-        "division": 0.5529,
-        "wildcard": 0.423,
-        "worldSeries": 0.063
+        "playoff": 0.9745,
+        "division": 0.554,
+        "wildcard": 0.4205,
+        "worldSeries": 0.0641
       },
       "history": [
         {
@@ -914,20 +914,20 @@
         },
         {
           "date": "2026-07-13",
-          "playoff": 0.9759
+          "playoff": 0.976
         },
         {
-          "date": "2026-07-14",
-          "playoff": 0.9759
+          "date": "2026-07-15",
+          "playoff": 0.9745
         }
       ]
     },
     "DET": {
       "current": {
-        "playoff": 0.2766,
-        "division": 0.1389,
-        "wildcard": 0.1376,
-        "worldSeries": 0.0171
+        "playoff": 0.2743,
+        "division": 0.1391,
+        "wildcard": 0.1351,
+        "worldSeries": 0.0209
       },
       "history": [
         {
@@ -1076,11 +1076,11 @@
         },
         {
           "date": "2026-07-13",
-          "playoff": 0.2766
+          "playoff": 0.2757
         },
         {
-          "date": "2026-07-14",
-          "playoff": 0.2766
+          "date": "2026-07-15",
+          "playoff": 0.2743
         }
       ]
     }
