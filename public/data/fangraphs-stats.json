@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-15T07:47:04.246336Z",
+  "lastUpdated": "2026-07-16T07:52:00.824284Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -45,7 +45,7 @@
           "kPct": 0.217,
           "BABIP": 0.355,
           "wRCPlus": 141,
-          "WAR": 2.5
+          "WAR": 2.4
         },
         {
           "name": "Chandler Simpson",
@@ -86,7 +86,7 @@
           "bbPct": 0.082,
           "kPct": 0.204,
           "BABIP": 0.218,
-          "wRCPlus": 73,
+          "wRCPlus": 72,
           "WAR": 0.6
         },
         {
@@ -129,7 +129,7 @@
           "kPct": 0.251,
           "BABIP": 0.298,
           "wRCPlus": 70,
-          "WAR": 0.4
+          "WAR": 0.5
         },
         {
           "name": "Ben Williamson",
@@ -171,7 +171,7 @@
           "kPct": 0.175,
           "BABIP": 0.282,
           "wRCPlus": 93,
-          "WAR": 0.3
+          "WAR": 0.2
         },
         {
           "name": "Hunter Feduccia",
@@ -240,7 +240,7 @@
           "kPct": 0.293,
           "bbPct": 0.079,
           "BABIP": 0.2,
-          "FIP": 2.5,
+          "FIP": 2.6,
           "pbStuff": 64.5,
           "pbCommand": 60.7,
           "WAR": 1.0
@@ -430,7 +430,7 @@
           "kPct": 0.27,
           "BABIP": 0.381,
           "wRCPlus": 136,
-          "WAR": 2.7
+          "WAR": 2.6
         },
         {
           "name": "Colt Keith",
@@ -514,7 +514,7 @@
           "kPct": 0.329,
           "BABIP": 0.274,
           "wRCPlus": 101,
-          "WAR": -0.0
+          "WAR": -0.1
         },
         {
           "name": "Kerry Carpenter",
@@ -545,20 +545,6 @@
           "WAR": -0.2
         },
         {
-          "name": "James Outman",
-          "fgPlayerId": 24770,
-          "PA": 136,
-          "H": 19,
-          "HR": 3,
-          "OBP": 0.221,
-          "SLG": 0.288,
-          "bbPct": 0.074,
-          "kPct": 0.426,
-          "BABIP": 0.25,
-          "wRCPlus": 39,
-          "WAR": -0.4
-        },
-        {
           "name": "Matt Vierling",
           "fgPlayerId": 21558,
           "PA": 262,
@@ -570,6 +556,20 @@
           "kPct": 0.164,
           "BABIP": 0.227,
           "wRCPlus": 63,
+          "WAR": -0.3
+        },
+        {
+          "name": "James Outman",
+          "fgPlayerId": 24770,
+          "PA": 136,
+          "H": 19,
+          "HR": 3,
+          "OBP": 0.221,
+          "SLG": 0.288,
+          "bbPct": 0.074,
+          "kPct": 0.426,
+          "BABIP": 0.25,
+          "wRCPlus": 39,
           "WAR": -0.4
         }
       ],
@@ -762,10 +762,10 @@
   "playoffOdds": {
     "TB": {
       "current": {
-        "playoff": 0.9745,
-        "division": 0.554,
-        "wildcard": 0.4205,
-        "worldSeries": 0.0641
+        "playoff": 0.9737,
+        "division": 0.5507,
+        "wildcard": 0.423,
+        "worldSeries": 0.0663
       },
       "history": [
         {
@@ -917,17 +917,17 @@
           "playoff": 0.976
         },
         {
-          "date": "2026-07-15",
-          "playoff": 0.9745
+          "date": "2026-07-16",
+          "playoff": 0.9737
         }
       ]
     },
     "DET": {
       "current": {
-        "playoff": 0.2743,
-        "division": 0.1391,
-        "wildcard": 0.1351,
-        "worldSeries": 0.0209
+        "playoff": 0.2767,
+        "division": 0.1405,
+        "wildcard": 0.1362,
+        "worldSeries": 0.0201
       },
       "history": [
         {
@@ -1079,8 +1079,8 @@
           "playoff": 0.2757
         },
         {
-          "date": "2026-07-15",
-          "playoff": 0.2743
+          "date": "2026-07-16",
+          "playoff": 0.2767
         }
       ]
     }
