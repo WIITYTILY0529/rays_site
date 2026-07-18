@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-17T07:49:20.920695Z",
+  "lastUpdated": "2026-07-18T07:23:52.848825Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -240,7 +240,7 @@
           "kPct": 0.293,
           "bbPct": 0.079,
           "BABIP": 0.2,
-          "FIP": 2.6,
+          "FIP": 2.5,
           "pbStuff": 64.5,
           "pbCommand": 60.7,
           "WAR": 1.0
@@ -341,6 +341,20 @@
           "FIP": 4.2,
           "pbStuff": 53.9,
           "pbCommand": 55.1,
+          "WAR": 0.1
+        },
+        {
+          "name": "Mason Englert",
+          "fgPlayerId": 22288,
+          "G": 13,
+          "GS": 2,
+          "IP": 30.2,
+          "kPct": 0.209,
+          "bbPct": 0.052,
+          "BABIP": 0.315,
+          "FIP": 4.6,
+          "pbStuff": 47.0,
+          "pbCommand": 60.0,
           "WAR": 0.1
         },
         {
@@ -725,7 +739,7 @@
           "BABIP": 0.293,
           "FIP": 4.6,
           "pbStuff": 53.3,
-          "pbCommand": 48.8,
+          "pbCommand": 48.7,
           "WAR": -0.1
         },
         {
@@ -737,7 +751,7 @@
           "kPct": 0.205,
           "bbPct": 0.103,
           "BABIP": 0.25,
-          "FIP": 6.9,
+          "FIP": 6.8,
           "pbStuff": 46.6,
           "pbCommand": 62.6,
           "WAR": -0.1
@@ -762,10 +776,10 @@
   "playoffOdds": {
     "TB": {
       "current": {
-        "playoff": 0.976,
-        "division": 0.5554,
-        "wildcard": 0.4206,
-        "worldSeries": 0.0649
+        "playoff": 0.9591,
+        "division": 0.5024,
+        "wildcard": 0.4567,
+        "worldSeries": 0.0648
       },
       "history": [
         {
@@ -918,20 +932,20 @@
         },
         {
           "date": "2026-07-16",
-          "playoff": 0.976
+          "playoff": 0.9768
         },
         {
-          "date": "2026-07-17",
-          "playoff": 0.976
+          "date": "2026-07-18",
+          "playoff": 0.9591
         }
       ]
     },
     "DET": {
       "current": {
-        "playoff": 0.2743,
-        "division": 0.1374,
-        "wildcard": 0.1369,
-        "worldSeries": 0.019
+        "playoff": 0.2995,
+        "division": 0.142,
+        "wildcard": 0.1575,
+        "worldSeries": 0.0238
       },
       "history": [
         {
@@ -1084,11 +1098,11 @@
         },
         {
           "date": "2026-07-16",
-          "playoff": 0.2743
+          "playoff": 0.279
         },
         {
-          "date": "2026-07-17",
-          "playoff": 0.2743
+          "date": "2026-07-18",
+          "playoff": 0.2995
         }
       ]
     }

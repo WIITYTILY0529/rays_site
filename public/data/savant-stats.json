@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-17T07:54:51.306462Z",
+  "lastUpdated": "2026-07-18T07:29:58.194187Z",
   "players": {
     "810938": {
       "name": "Ben Williamson",
@@ -226,7 +226,7 @@
       "metrics": [
         {
           "name": "7",
-          "value": "38",
+          "value": "39",
           "percentile": 94
         },
         {
@@ -279,6 +279,23 @@
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
           "percentile": 7
+        }
+      ]
+    },
+    "669438": {
+      "name": "Mason Englert",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "29",
+          "value": "69",
+          "percentile": 36
+        },
+        {
+          "name": "Pitching Run Value",
+          "value": "-2",
+          "percentile": 2
         }
       ]
     },
