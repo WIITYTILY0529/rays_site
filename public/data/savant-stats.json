@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-29T08:21:01.110579Z",
+  "lastUpdated": "2026-07-30T08:09:28.852072Z",
   "players": {
     "810938": {
       "name": "Ben Williamson",
@@ -7,9 +7,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "81",
+          "name": "80",
           "value": "21",
-          "percentile": 14
+          "percentile": 17
         },
         {
           "name": "Batting Run Value",
@@ -25,8 +25,8 @@
       "metrics": [
         {
           "name": "89",
-          "value": "25",
-          "percentile": 90
+          "value": "27",
+          "percentile": 89
         },
         {
           "name": "Pitching Run Value",
@@ -53,9 +53,9 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "71",
-          "value": "8",
-          "percentile": 42
+          "name": "72",
+          "value": "9",
+          "percentile": 43
         },
         {
           "name": "Pitching Run Value",
@@ -72,7 +72,7 @@
         {
           "name": "27",
           "value": "93",
-          "percentile": 7
+          "percentile": 6
         },
         {
           "name": "Batting Run Value",
@@ -89,29 +89,29 @@
         {
           "name": "100",
           "value": "83",
-          "percentile": 8
+          "percentile": 7
         },
         {
           "name": "Batting Run Value",
-          "value": "-10",
+          "value": "-11",
           "percentile": 6
         }
       ]
     },
-    "642121": {
-      "name": "Cole Sulser",
+    "688297": {
+      "name": "Chris Roycroft",
       "position": "P",
       "type": "pitching",
       "metrics": [
         {
-          "name": "73",
-          "value": "14",
-          "percentile": 31
+          "name": "2",
+          "value": "3",
+          "percentile": 1
         },
         {
-          "name": "Pitching Run Value",
-          "value": "-3",
-          "percentile": 5
+          "name": "1",
+          "value": "2",
+          "percentile": 0
         }
       ]
     },
@@ -120,6 +120,11 @@
       "position": "P",
       "type": "pitching",
       "metrics": [
+        {
+          "name": "56",
+          "value": "44",
+          "percentile": 47
+        },
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
@@ -133,7 +138,7 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "98",
+          "name": "97",
           "value": "64",
           "percentile": 98
         },
@@ -162,14 +167,14 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "13",
-          "value": "84",
-          "percentile": 46
+          "name": "17",
+          "value": "85",
+          "percentile": 54
         },
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
-          "percentile": 1
+          "percentile": 2
         }
       ]
     },
@@ -180,7 +185,7 @@
       "metrics": [
         {
           "name": "Batting Run Value",
-          "value": "-2",
+          "value": "-3",
           "percentile": 1
         }
       ]
@@ -191,8 +196,8 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "17",
-          "value": "56",
+          "name": "16",
+          "value": "57",
           "percentile": 62
         },
         {
@@ -208,9 +213,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "6",
-          "value": "38",
-          "percentile": 85
+          "name": "7",
+          "value": "42",
+          "percentile": 84
         },
         {
           "name": "Batting Run Value",
@@ -226,7 +231,7 @@
       "metrics": [
         {
           "name": "Batting Run Value",
-          "value": "Baserunning Run Value",
+          "value": "-1",
           "percentile": 0
         }
       ]
@@ -239,12 +244,12 @@
         {
           "name": "19",
           "value": "1",
-          "percentile": 96
+          "percentile": 97
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 27
+          "percentile": 28
         }
       ]
     },
@@ -254,14 +259,14 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "83",
+          "name": "87",
           "value": "38",
-          "percentile": 76
+          "percentile": 79
         },
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
-          "percentile": 8
+          "percentile": 9
         }
       ]
     },
@@ -272,8 +277,8 @@
       "metrics": [
         {
           "name": "28",
-          "value": "47",
-          "percentile": 38
+          "value": "46",
+          "percentile": 36
         },
         {
           "name": "Batting Run Value",
@@ -288,8 +293,8 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "96",
-          "value": "10",
+          "name": "95",
+          "value": "11",
           "percentile": 94
         },
         {
@@ -305,9 +310,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "58",
+          "name": "57",
           "value": "18",
-          "percentile": 28
+          "percentile": 26
         },
         {
           "name": "Batting Run Value",
@@ -324,7 +329,7 @@
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 5
+          "percentile": 4
         }
       ]
     },
@@ -334,7 +339,7 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "52",
+          "name": "53",
           "value": "82",
           "percentile": 92
         },
@@ -351,8 +356,8 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "7",
-          "value": "68",
+          "name": "6",
+          "value": "71",
           "percentile": 14
         },
         {
@@ -369,8 +374,8 @@
       "metrics": [
         {
           "name": "92",
-          "value": "35",
-          "percentile": 9
+          "value": "34",
+          "percentile": 8
         },
         {
           "name": "Batting Run Value",
@@ -387,7 +392,7 @@
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 3
+          "percentile": 2
         }
       ]
     },
@@ -399,7 +404,7 @@
         {
           "name": "17",
           "value": "",
-          "percentile": 90
+          "percentile": 89
         },
         {
           "name": "Batting Run Value",
