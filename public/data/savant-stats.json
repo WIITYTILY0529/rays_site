@@ -1,18 +1,6 @@
 {
-  "lastUpdated": "2026-08-03T09:03:10.368339Z",
+  "lastUpdated": "2026-08-04T08:19:59.602940Z",
   "players": {
-    "702047": {
-      "name": "Alex Cook",
-      "position": "P",
-      "type": "pitching",
-      "metrics": [
-        {
-          "name": "Pitching Run Value",
-          "value": "Fastball Run Value",
-          "percentile": 1
-        }
-      ]
-    },
     "810938": {
       "name": "Ben Williamson",
       "position": "2B",
@@ -20,12 +8,12 @@
       "metrics": [
         {
           "name": "78",
-          "value": "24",
-          "percentile": 14
+          "value": "25",
+          "percentile": 15
         },
         {
           "name": "Batting Run Value",
-          "value": "-8",
+          "value": "-7",
           "percentile": 1
         }
       ]
@@ -36,7 +24,7 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "91",
+          "name": "90",
           "value": "27",
           "percentile": 91
         },
@@ -65,9 +53,9 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "79",
+          "name": "78",
           "value": "8",
-          "percentile": 44
+          "percentile": 45
         },
         {
           "name": "Pitching Run Value",
@@ -83,12 +71,12 @@
       "metrics": [
         {
           "name": "28",
-          "value": "94",
-          "percentile": 12
+          "value": "93",
+          "percentile": 10
         },
         {
           "name": "Batting Run Value",
-          "value": "-9",
+          "value": "-10",
           "percentile": 8
         }
       ]
@@ -100,12 +88,12 @@
       "metrics": [
         {
           "name": "100",
-          "value": "81",
-          "percentile": 6
+          "value": "82",
+          "percentile": 8
         },
         {
           "name": "Batting Run Value",
-          "value": "-12",
+          "value": "-11",
           "percentile": 6
         }
       ]
@@ -127,23 +115,6 @@
         }
       ]
     },
-    "518886": {
-      "name": "Craig Kimbrel",
-      "position": "P",
-      "type": "pitching",
-      "metrics": [
-        {
-          "name": "51",
-          "value": "48",
-          "percentile": 44
-        },
-        {
-          "name": "Pitching Run Value",
-          "value": "Fastball Run Value",
-          "percentile": 0
-        }
-      ]
-    },
     "656876": {
       "name": "Drew Rasmussen",
       "position": "P",
@@ -158,6 +129,18 @@
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
           "percentile": 23
+        }
+      ]
+    },
+    "642547": {
+      "name": "Freddy Peralta",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "29",
+          "value": "17",
+          "percentile": 10
         }
       ]
     },
@@ -179,25 +162,13 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "15",
-          "value": "85",
-          "percentile": 52
+          "name": "24",
+          "value": "77",
+          "percentile": 53
         },
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
-          "percentile": 2
-        }
-      ]
-    },
-    "676439": {
-      "name": "Hunter Feduccia",
-      "position": "C",
-      "type": "hitting",
-      "metrics": [
-        {
-          "name": "Batting Run Value",
-          "value": "-3",
           "percentile": 2
         }
       ]
@@ -226,13 +197,13 @@
       "metrics": [
         {
           "name": "7",
-          "value": "48",
-          "percentile": 81
+          "value": "46",
+          "percentile": 82
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 12
+          "percentile": 13
         }
       ]
     },
@@ -256,12 +227,724 @@
         {
           "name": "22",
           "value": "1",
-          "percentile": 97
+          "percentile": 98
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
           "percentile": 28
+        }
+      ]
+    },
+    "700652": {
+      "name": "Kenny Piper",
+      "position": "C",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "1 Season",
+          "value": "",
+          "percentile": 5
+        },
+        {
+          "name": "1 Season",
+          "value": ".250",
+          "percentile": 0
+        },
+        {
+          "name": "1 Season",
+          "value": "AL",
+          "percentile": 5
+        },
+        {
+          "name": "1 Season",
+          "value": "C",
+          "percentile": 1
+        },
+        {
+          "name": "Career Minors",
+          "value": "272",
+          "percentile": 65
+        },
+        {
+          "name": "Career Minors",
+          "value": "DH",
+          "percentile": 79
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "vs Right",
+          "percentile": 5
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "August",
+          "percentile": 5
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "Post All-Star",
+          "percentile": 5
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "Batting Eighth",
+          "percentile": 5
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "Bases Empty",
+          "percentile": 3
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "Runners at 1st & 2nd",
+          "percentile": 2
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "Scoring Position",
+          "percentile": 2
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "Away Games",
+          "percentile": 5
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "Night Games",
+          "percentile": 5
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "Leading Off Inning",
+          "percentile": 2
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "No Outs",
+          "percentile": 3
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "One Out",
+          "percentile": 1
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "Two Outs",
+          "percentile": 1
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "Second Inning",
+          "percentile": 1
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "Third Inning",
+          "percentile": 1
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "Sixth Inning",
+          "percentile": 1
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "Eighth Inning",
+          "percentile": 1
+        },
+        {
+          "name": "Tampa Bay Rays",
+          "value": "Ninth Inning",
+          "percentile": 1
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "vs Left",
+          "percentile": 37
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "",
+          "percentile": 53
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "April",
+          "percentile": 62
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "May",
+          "percentile": 62
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "June",
+          "percentile": 72
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "July",
+          "percentile": 58
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "August",
+          "percentile": 12
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "155",
+          "percentile": 22
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Second Half",
+          "percentile": 90
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Batting First",
+          "percentile": 9
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Batting Second",
+          "percentile": 33
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Batting Third",
+          "percentile": 6
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Batting Fourth",
+          "percentile": 13
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Batting Fifth",
+          "percentile": 44
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Batting Sixth",
+          "percentile": 48
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Batting Seventh",
+          "percentile": 75
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Batting Eighth",
+          "percentile": 29
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Batting Ninth",
+          "percentile": 9
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "",
+          "percentile": 25
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Bases Loaded",
+          "percentile": 5
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Runner at 1st",
+          "percentile": 50
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Runners at 1st & 2nd",
+          "percentile": 23
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Runners at 1st & 3rd",
+          "percentile": 9
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Runner at 2nd",
+          "percentile": 35
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Runners at 2nd & 3rd",
+          "percentile": 6
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Runner at 3rd",
+          "percentile": 12
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Scoring Position",
+          "percentile": 90
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "107",
+          "percentile": 17
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "118",
+          "percentile": 18
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Day Games",
+          "percentile": 40
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "194",
+          "percentile": 28
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Leading Off Inning",
+          "percentile": 44
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Late / Close",
+          "percentile": 22
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "No Outs",
+          "percentile": 88
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "One Out",
+          "percentile": 81
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Two Outs",
+          "percentile": 97
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "First Inning",
+          "percentile": 19
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Second Inning",
+          "percentile": 43
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Third Inning",
+          "percentile": 25
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Fourth Inning",
+          "percentile": 38
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Fifth Inning",
+          "percentile": 26
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Sixth Inning",
+          "percentile": 33
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Seventh Inning",
+          "percentile": 27
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Eighth Inning",
+          "percentile": 36
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Ninth Inning",
+          "percentile": 15
+        },
+        {
+          "name": "Montgomery Biscuits",
+          "value": "Extra Innings",
+          "percentile": 5
+        },
+        {
+          "name": "2026-08-03",
+          "value": "Tampa Bay Rays",
+          "percentile": 5
+        },
+        {
+          "name": "August",
+          "value": "",
+          "percentile": 5
+        },
+        {
+          "name": "2026-04-03",
+          "value": "Montgomery Biscuits",
+          "percentile": 4
+        },
+        {
+          "name": "2026-04-07",
+          "value": "Columbus Clingstones",
+          "percentile": 4
+        },
+        {
+          "name": "2026-04-09",
+          "value": "Columbus Clingstones",
+          "percentile": 4
+        },
+        {
+          "name": "2026-04-10",
+          "value": "Columbus Clingstones",
+          "percentile": 4
+        },
+        {
+          "name": "2026-04-12",
+          "value": "Columbus Clingstones",
+          "percentile": 6
+        },
+        {
+          "name": "2026-04-14",
+          "value": "Montgomery Biscuits",
+          "percentile": 4
+        },
+        {
+          "name": "2026-04-15",
+          "value": "Montgomery Biscuits",
+          "percentile": 4
+        },
+        {
+          "name": "2026-04-17",
+          "value": "Montgomery Biscuits",
+          "percentile": 5
+        },
+        {
+          "name": "2026-04-19",
+          "value": "Montgomery Biscuits",
+          "percentile": 5
+        },
+        {
+          "name": "2026-04-21",
+          "value": "Pensacola Blue Wahoos",
+          "percentile": 4
+        },
+        {
+          "name": "2026-04-23",
+          "value": "Montgomery Biscuits",
+          "percentile": 3
+        },
+        {
+          "name": "2026-04-24",
+          "value": "Pensacola Blue Wahoos",
+          "percentile": 4
+        },
+        {
+          "name": "2026-04-25",
+          "value": "Pensacola Blue Wahoos",
+          "percentile": 4
+        },
+        {
+          "name": "2026-04-29",
+          "value": "Montgomery Biscuits",
+          "percentile": 4
+        },
+        {
+          "name": "2026-04-30",
+          "value": "Montgomery Biscuits",
+          "percentile": 3
+        },
+        {
+          "name": "April",
+          "value": "",
+          "percentile": 62
+        },
+        {
+          "name": "2026-05-02",
+          "value": "Montgomery Biscuits",
+          "percentile": 3
+        },
+        {
+          "name": "2026-05-03",
+          "value": "Montgomery Biscuits",
+          "percentile": 6
+        },
+        {
+          "name": "2026-05-05",
+          "value": "Chattanooga Lookouts",
+          "percentile": 5
+        },
+        {
+          "name": "2026-05-07",
+          "value": "Chattanooga Lookouts",
+          "percentile": 4
+        },
+        {
+          "name": "2026-05-08",
+          "value": "Chattanooga Lookouts",
+          "percentile": 4
+        },
+        {
+          "name": "2026-05-10",
+          "value": "Chattanooga Lookouts",
+          "percentile": 5
+        },
+        {
+          "name": "2026-05-12",
+          "value": "Biloxi Shuckers",
+          "percentile": 4
+        },
+        {
+          "name": "2026-05-19",
+          "value": "Montgomery Biscuits",
+          "percentile": 4
+        },
+        {
+          "name": "2026-05-20",
+          "value": "Montgomery Biscuits",
+          "percentile": 4
+        },
+        {
+          "name": "2026-05-22",
+          "value": "Montgomery Biscuits",
+          "percentile": 3
+        },
+        {
+          "name": "2026-05-24",
+          "value": "Montgomery Biscuits",
+          "percentile": 5
+        },
+        {
+          "name": "2026-05-27",
+          "value": "Rocket City Trash Pandas",
+          "percentile": 4
+        },
+        {
+          "name": "2026-05-28",
+          "value": "Rocket City Trash Pandas",
+          "percentile": 3
+        },
+        {
+          "name": "2026-05-29",
+          "value": "Rocket City Trash Pandas",
+          "percentile": 4
+        },
+        {
+          "name": "2026-05-30",
+          "value": "Rocket City Trash Pandas",
+          "percentile": 4
+        },
+        {
+          "name": "May",
+          "value": "",
+          "percentile": 62
+        },
+        {
+          "name": "2026-06-03",
+          "value": "Montgomery Biscuits",
+          "percentile": 4
+        },
+        {
+          "name": "2026-06-04",
+          "value": "Montgomery Biscuits",
+          "percentile": 3
+        },
+        {
+          "name": "2026-06-05",
+          "value": "Montgomery Biscuits",
+          "percentile": 4
+        },
+        {
+          "name": "2026-06-06",
+          "value": "Montgomery Biscuits",
+          "percentile": 5
+        },
+        {
+          "name": "2026-06-09",
+          "value": "Knoxville Smokies",
+          "percentile": 4
+        },
+        {
+          "name": "2026-06-10",
+          "value": "Knoxville Smokies",
+          "percentile": 4
+        },
+        {
+          "name": "2026-06-11",
+          "value": "Knoxville Smokies",
+          "percentile": 4
+        },
+        {
+          "name": "2026-06-13",
+          "value": "Knoxville Smokies",
+          "percentile": 4
+        },
+        {
+          "name": "2026-06-16",
+          "value": "Montgomery Biscuits",
+          "percentile": 3
+        },
+        {
+          "name": "2026-06-17",
+          "value": "Montgomery Biscuits",
+          "percentile": 4
+        },
+        {
+          "name": "2026-06-18",
+          "value": "Montgomery Biscuits",
+          "percentile": 5
+        },
+        {
+          "name": "2026-06-19",
+          "value": "Montgomery Biscuits",
+          "percentile": 5
+        },
+        {
+          "name": "2026-06-20",
+          "value": "Montgomery Biscuits",
+          "percentile": 3
+        },
+        {
+          "name": "2026-06-23",
+          "value": "Biloxi Shuckers",
+          "percentile": 4
+        },
+        {
+          "name": "2026-06-24",
+          "value": "Biloxi Shuckers",
+          "percentile": 4
+        },
+        {
+          "name": "2026-06-26",
+          "value": "Biloxi Shuckers",
+          "percentile": 3
+        },
+        {
+          "name": "2026-06-27",
+          "value": "Biloxi Shuckers",
+          "percentile": 4
+        },
+        {
+          "name": "2026-06-30",
+          "value": "Montgomery Biscuits",
+          "percentile": 5
+        },
+        {
+          "name": "June",
+          "value": "",
+          "percentile": 72
+        },
+        {
+          "name": "2026-07-02",
+          "value": "Montgomery Biscuits",
+          "percentile": 4
+        },
+        {
+          "name": "2026-07-03",
+          "value": "Montgomery Biscuits",
+          "percentile": 3
+        },
+        {
+          "name": "2026-07-04",
+          "value": "Montgomery Biscuits",
+          "percentile": 4
+        },
+        {
+          "name": "2026-07-09",
+          "value": "Montgomery Biscuits",
+          "percentile": 4
+        },
+        {
+          "name": "2026-07-10",
+          "value": "Montgomery Biscuits",
+          "percentile": 5
+        },
+        {
+          "name": "2026-07-11",
+          "value": "Montgomery Biscuits",
+          "percentile": 4
+        },
+        {
+          "name": "2026-07-18",
+          "value": "Knoxville Smokies",
+          "percentile": 3
+        },
+        {
+          "name": "2026-07-19",
+          "value": "Knoxville Smokies",
+          "percentile": 5
+        },
+        {
+          "name": "2026-07-21",
+          "value": "Birmingham Barons",
+          "percentile": 5
+        },
+        {
+          "name": "2026-07-22",
+          "value": "Birmingham Barons",
+          "percentile": 4
+        },
+        {
+          "name": "2026-07-24",
+          "value": "Birmingham Barons",
+          "percentile": 4
+        },
+        {
+          "name": "2026-07-26",
+          "value": "Birmingham Barons",
+          "percentile": 4
+        },
+        {
+          "name": "2026-07-29",
+          "value": "Montgomery Biscuits",
+          "percentile": 4
+        },
+        {
+          "name": "2026-07-31",
+          "value": "Montgomery Biscuits",
+          "percentile": 5
+        },
+        {
+          "name": "July",
+          "value": "",
+          "percentile": 58
+        },
+        {
+          "name": "2026-08-01",
+          "value": "Montgomery Biscuits",
+          "percentile": 6
+        },
+        {
+          "name": "2026-08-02",
+          "value": "Montgomery Biscuits",
+          "percentile": 6
+        },
+        {
+          "name": "August",
+          "value": "",
+          "percentile": 12
         }
       ]
     },
@@ -272,13 +955,25 @@
       "metrics": [
         {
           "name": "88",
-          "value": "39",
-          "percentile": 83
+          "value": "38",
+          "percentile": 82
         },
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
           "percentile": 10
+        }
+      ]
+    },
+    "675627": {
+      "name": "Michael Grove",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "Pitching Run Value",
+          "value": "Fastball Run Value",
+          "percentile": 2
         }
       ]
     },
@@ -289,13 +984,13 @@
       "metrics": [
         {
           "name": "29",
-          "value": "44",
-          "percentile": 32
+          "value": "42",
+          "percentile": 35
         },
         {
           "name": "Batting Run Value",
           "value": "-2",
-          "percentile": 0
+          "percentile": 1
         }
       ]
     },
@@ -351,13 +1046,13 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "6",
-          "value": "71",
-          "percentile": 17
+          "name": "7",
+          "value": "72",
+          "percentile": 19
         },
         {
           "name": "Pitching Run Value",
-          "value": "-7",
+          "value": "-6",
           "percentile": 2
         }
       ]
@@ -369,7 +1064,7 @@
       "metrics": [
         {
           "name": "91",
-          "value": "36",
+          "value": "30",
           "percentile": 4
         },
         {
@@ -404,7 +1099,7 @@
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 19
+          "percentile": 18
         }
       ]
     }
