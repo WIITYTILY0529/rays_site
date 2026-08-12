@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-11T06:43:08.278016Z",
+  "lastUpdated": "2026-08-12T07:03:52.393388Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -8,86 +8,86 @@
         {
           "name": "Junior Caminero",
           "fgPlayerId": 28163,
-          "PA": 511,
-          "H": 123,
-          "HR": 33,
-          "OBP": 0.37,
-          "SLG": 0.546,
-          "bbPct": 0.125,
-          "kPct": 0.186,
-          "BABIP": 0.284,
+          "PA": 516,
+          "H": 124,
+          "HR": 34,
+          "OBP": 0.368,
+          "SLG": 0.549,
+          "bbPct": 0.124,
+          "kPct": 0.184,
+          "BABIP": 0.28,
           "wRCPlus": 151,
           "WAR": 4.0
         },
         {
           "name": "Jonathan Aranda",
           "fgPlayerId": 21837,
-          "PA": 497,
-          "H": 122,
+          "PA": 502,
+          "H": 124,
           "HR": 15,
-          "OBP": 0.372,
+          "OBP": 0.375,
           "SLG": 0.436,
-          "bbPct": 0.111,
+          "bbPct": 0.112,
           "kPct": 0.229,
-          "BABIP": 0.351,
-          "wRCPlus": 128,
-          "WAR": 2.3
+          "BABIP": 0.354,
+          "wRCPlus": 129,
+          "WAR": 2.4
         },
         {
           "name": "Yandy Díaz",
           "fgPlayerId": 16578,
-          "PA": 495,
-          "H": 131,
-          "HR": 15,
-          "OBP": 0.37,
-          "SLG": 0.451,
-          "bbPct": 0.087,
-          "kPct": 0.147,
-          "BABIP": 0.327,
-          "wRCPlus": 130,
-          "WAR": 2.1
+          "PA": 500,
+          "H": 134,
+          "HR": 16,
+          "OBP": 0.372,
+          "SLG": 0.463,
+          "bbPct": 0.086,
+          "kPct": 0.146,
+          "BABIP": 0.329,
+          "wRCPlus": 134,
+          "WAR": 2.4
         },
         {
           "name": "Liam Hicks",
           "fgPlayerId": 29844,
-          "PA": 430,
+          "PA": 431,
           "H": 105,
           "HR": 15,
-          "OBP": 0.366,
-          "SLG": 0.439,
+          "OBP": 0.365,
+          "SLG": 0.438,
           "bbPct": 0.1,
-          "kPct": 0.091,
+          "kPct": 0.093,
           "BABIP": 0.279,
-          "wRCPlus": 122,
+          "wRCPlus": 121,
           "WAR": 2.0
         },
         {
           "name": "Chandler Simpson",
           "fgPlayerId": 31912,
-          "PA": 440,
-          "H": 124,
+          "PA": 445,
+          "H": 126,
           "HR": 0,
           "OBP": 0.333,
           "SLG": 0.363,
           "bbPct": 0.045,
-          "kPct": 0.089,
+          "kPct": 0.088,
           "BABIP": 0.332,
           "wRCPlus": 95,
-          "WAR": 1.9
+          "WAR": 2.0
         },
         {
           "name": "Jonny DeLuca",
           "fgPlayerId": 26365,
-          "PA": 229,
-          "H": 56,
+          "PA": 234,
+          "H": 59,
           "HR": 8,
-          "OBP": 0.291,
-          "SLG": 0.438,
-          "bbPct": 0.044,
-          "kPct": 0.214,
-          "BABIP": 0.3,
-          "wRCPlus": 101,
-          "WAR": 1.2
+          "OBP": 0.297,
+          "SLG": 0.441,
+          "bbPct": 0.043,
+          "kPct": 0.209,
+          "BABIP": 0.309,
+          "wRCPlus": 104,
+          "WAR": 1.4
         },
         {
           "name": "Victor Mesa Jr.",
@@ -120,71 +120,71 @@
         {
           "name": "Nick Fortes",
           "fgPlayerId": 21538,
-          "PA": 264,
+          "PA": 268,
           "H": 67,
           "HR": 4,
-          "OBP": 0.314,
-          "SLG": 0.38,
-          "bbPct": 0.027,
-          "kPct": 0.121,
-          "BABIP": 0.3,
-          "wRCPlus": 95,
+          "OBP": 0.313,
+          "SLG": 0.375,
+          "bbPct": 0.03,
+          "kPct": 0.123,
+          "BABIP": 0.297,
+          "wRCPlus": 93,
           "WAR": 1.0
         },
         {
           "name": "Richie Palacios",
           "fgPlayerId": 24589,
-          "PA": 279,
+          "PA": 280,
           "H": 56,
           "HR": 5,
-          "OBP": 0.335,
-          "SLG": 0.35,
-          "bbPct": 0.122,
+          "OBP": 0.333,
+          "SLG": 0.349,
+          "bbPct": 0.121,
           "kPct": 0.186,
-          "BABIP": 0.277,
-          "wRCPlus": 97,
-          "WAR": 0.7
+          "BABIP": 0.276,
+          "wRCPlus": 96,
+          "WAR": 0.6
         },
         {
           "name": "Ryan Vilade",
           "fgPlayerId": 22165,
-          "PA": 192,
+          "PA": 196,
           "H": 43,
           "HR": 9,
-          "OBP": 0.309,
-          "SLG": 0.459,
-          "bbPct": 0.078,
+          "OBP": 0.308,
+          "SLG": 0.451,
+          "bbPct": 0.082,
           "kPct": 0.219,
-          "BABIP": 0.274,
-          "wRCPlus": 111,
+          "BABIP": 0.27,
+          "wRCPlus": 109,
           "WAR": 0.5
         },
         {
           "name": "Taylor Walls",
           "fgPlayerId": 22458,
-          "PA": 328,
-          "H": 59,
+          "PA": 332,
+          "H": 60,
           "HR": 0,
-          "OBP": 0.303,
+          "OBP": 0.302,
           "SLG": 0.276,
-          "bbPct": 0.11,
-          "kPct": 0.256,
-          "BABIP": 0.298,
+          "bbPct": 0.108,
+          "kPct": 0.253,
+          "BABIP": 0.297,
           "wRCPlus": 67,
           "WAR": 0.3
         },
         {
           "name": "Carson Williams",
           "fgPlayerId": 30038,
-          "PA": 36,
+          "PA": 39,
           "H": 3,
           "HR": 0,
-          "OBP": 0.143,
-          "SLG": 0.121,
-          "bbPct": 0.056,
-          "kPct": 0.306,
-          "BABIP": 0.136,
-          "wRCPlus": -31,
+          "OBP": 0.132,
+          "SLG": 0.111,
+          "bbPct": 0.051,
+          "kPct": 0.333,
+          "BABIP": 0.13,
+          "wRCPlus": -38,
           "WAR": -0.6
         }
       ],
@@ -248,42 +248,42 @@
         {
           "name": "Freddy Peralta",
           "fgPlayerId": 18679,
-          "G": 23,
-          "GS": 23,
-          "IP": 117.1,
+          "G": 24,
+          "GS": 24,
+          "IP": 123.1,
           "kPct": 0.218,
-          "bbPct": 0.092,
-          "BABIP": 0.322,
+          "bbPct": 0.09,
+          "BABIP": 0.32,
           "FIP": 4.6,
           "pbStuff": 54.8,
-          "pbCommand": 50.3,
-          "WAR": 1.0
+          "pbCommand": 50.6,
+          "WAR": 1.1
         },
         {
           "name": "Tyler Wells",
           "fgPlayerId": 20000,
-          "G": 45,
+          "G": 46,
           "GS": 0,
-          "IP": 57.1,
-          "kPct": 0.26,
-          "bbPct": 0.063,
-          "BABIP": 0.238,
-          "FIP": 3.3,
+          "IP": 58.1,
+          "kPct": 0.268,
+          "bbPct": 0.066,
+          "BABIP": 0.243,
+          "FIP": 3.2,
           "pbStuff": 46.7,
-          "pbCommand": 58.4,
-          "WAR": 1.0
+          "pbCommand": 58.1,
+          "WAR": 1.1
         },
         {
           "name": "Kevin Kelly",
           "fgPlayerId": 25679,
-          "G": 50,
+          "G": 51,
           "GS": 0,
-          "IP": 54.0,
-          "kPct": 0.215,
-          "bbPct": 0.045,
-          "BABIP": 0.227,
+          "IP": 55.0,
+          "kPct": 0.212,
+          "bbPct": 0.044,
+          "BABIP": 0.222,
           "FIP": 3.1,
-          "pbStuff": 57.0,
+          "pbStuff": 56.9,
           "pbCommand": 56.7,
           "WAR": 1.0
         },
@@ -353,22 +353,22 @@
           "bbPct": 0.0,
           "BABIP": 0.267,
           "FIP": 4.1,
-          "pbStuff": 51.3,
+          "pbStuff": 51.2,
           "pbCommand": 59.6,
           "WAR": 0.0
         },
         {
           "name": "Chris Roycroft",
           "fgPlayerId": 31261,
-          "G": 15,
+          "G": 16,
           "GS": 0,
-          "IP": 19.2,
-          "kPct": 0.162,
-          "bbPct": 0.111,
-          "BABIP": 0.333,
-          "FIP": 8.1,
-          "pbStuff": 53.7,
-          "pbCommand": 55.0,
+          "IP": 20.2,
+          "kPct": 0.151,
+          "bbPct": 0.104,
+          "BABIP": 0.348,
+          "FIP": 8.0,
+          "pbStuff": 53.5,
+          "pbCommand": 55.1,
           "WAR": -0.6
         }
       ]
@@ -430,7 +430,7 @@
           "kPct": 0.189,
           "BABIP": 0.314,
           "wRCPlus": 107,
-          "WAR": 1.5
+          "WAR": 1.4
         },
         {
           "name": "Gleyber Torres",
@@ -585,7 +585,7 @@
           "BABIP": 0.303,
           "FIP": 4.0,
           "pbStuff": 49.3,
-          "pbCommand": 52.4,
+          "pbCommand": 52.5,
           "WAR": 1.5
         },
         {
@@ -654,7 +654,7 @@
           "bbPct": 0.053,
           "BABIP": 0.302,
           "FIP": 3.8,
-          "pbStuff": 52.7,
+          "pbStuff": 52.6,
           "pbCommand": 53.0,
           "WAR": 0.4
         },
@@ -724,8 +724,8 @@
           "bbPct": 0.133,
           "BABIP": 0.778,
           "FIP": 10.9,
-          "pbStuff": 55.1,
-          "pbCommand": 51.3,
+          "pbStuff": 55.0,
+          "pbCommand": 51.4,
           "WAR": -0.1
         },
         {
@@ -737,7 +737,7 @@
           "kPct": 0.179,
           "bbPct": 0.095,
           "BABIP": 0.123,
-          "FIP": 4.7,
+          "FIP": 4.8,
           "pbStuff": 48.8,
           "pbCommand": 50.1,
           "WAR": -0.1
@@ -750,7 +750,7 @@
           "IP": 48.0,
           "kPct": 0.18,
           "bbPct": 0.131,
-          "BABIP": 0.313,
+          "BABIP": 0.306,
           "FIP": 5.2,
           "pbStuff": 53.0,
           "pbCommand": 50.8,
@@ -762,10 +762,10 @@
   "playoffOdds": {
     "TB": {
       "current": {
-        "playoff": 0.9996,
-        "division": 0.7888,
-        "wildcard": 0.2108,
-        "worldSeries": 0.0887
+        "playoff": 0.9998,
+        "division": 0.8154,
+        "wildcard": 0.1844,
+        "worldSeries": 0.0966
       },
       "history": [
         {
@@ -953,17 +953,17 @@
           "playoff": 0.9995
         },
         {
-          "date": "2026-08-11",
-          "playoff": 0.9996
+          "date": "2026-08-12",
+          "playoff": 0.9998
         }
       ]
     },
     "DET": {
       "current": {
-        "playoff": 0.3115,
-        "division": 0.2089,
-        "wildcard": 0.1025,
-        "worldSeries": 0.0159
+        "playoff": 0.3785,
+        "division": 0.2708,
+        "wildcard": 0.1077,
+        "worldSeries": 0.0198
       },
       "history": [
         {
@@ -1151,8 +1151,8 @@
           "playoff": 0.3233
         },
         {
-          "date": "2026-08-11",
-          "playoff": 0.3115
+          "date": "2026-08-12",
+          "playoff": 0.3785
         }
       ]
     }
