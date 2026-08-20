@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-19T06:29:03.724865Z",
+  "lastUpdated": "2026-08-20T06:29:02.430168Z",
   "players": {
     "641329": {
       "name": "Bryan Baker",
@@ -37,8 +37,8 @@
       "metrics": [
         {
           "name": "82",
-          "value": "10",
-          "percentile": 52
+          "value": "11",
+          "percentile": 51
         },
         {
           "name": "Pitching Run Value",
@@ -53,9 +53,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "43",
+          "name": "44",
           "value": "93",
-          "percentile": 9
+          "percentile": 8
         },
         {
           "name": "Batting Run Value",
@@ -71,13 +71,30 @@
       "metrics": [
         {
           "name": "100",
-          "value": "76",
+          "value": "72",
           "percentile": 7
         },
         {
           "name": "Batting Run Value",
           "value": "-11",
           "percentile": 8
+        }
+      ]
+    },
+    "688297": {
+      "name": "Chris Roycroft",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "2",
+          "value": "3",
+          "percentile": 1
+        },
+        {
+          "name": "1",
+          "value": "2",
+          "percentile": 0
         }
       ]
     },
@@ -116,7 +133,7 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "16",
+          "name": "15",
           "value": "73",
           "percentile": 33
         },
@@ -135,29 +152,12 @@
         {
           "name": "26",
           "value": "52",
-          "percentile": 64
+          "percentile": 65
         },
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
           "percentile": 5
-        }
-      ]
-    },
-    "669947": {
-      "name": "Jesse Scholtens",
-      "position": "P",
-      "type": "pitching",
-      "metrics": [
-        {
-          "name": "49",
-          "value": "15",
-          "percentile": 22
-        },
-        {
-          "name": "Pitching Run Value",
-          "value": "-6",
-          "percentile": 1
         }
       ]
     },
@@ -168,13 +168,13 @@
       "metrics": [
         {
           "name": "7",
-          "value": "59",
-          "percentile": 83
+          "value": "38",
+          "percentile": 82
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 15
+          "percentile": 14
         }
       ]
     },
@@ -209,7 +209,7 @@
       "metrics": [
         {
           "name": "20",
-          "value": "2",
+          "value": "1",
           "percentile": 97
         },
         {
@@ -219,15 +219,27 @@
         }
       ]
     },
+    "700652": {
+      "name": "Kenny Piper",
+      "position": "C",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "Batting Run Value",
+          "value": "Baserunning Run Value",
+          "percentile": 0
+        }
+      ]
+    },
     "687330": {
       "name": "Kevin Kelly",
       "position": "P",
       "type": "pitching",
       "metrics": [
         {
-          "name": "91",
+          "name": "90",
           "value": "38",
-          "percentile": 84
+          "percentile": 85
         },
         {
           "name": "Pitching Run Value",
@@ -243,7 +255,7 @@
       "metrics": [
         {
           "name": "1",
-          "value": "62",
+          "value": "56",
           "percentile": 84
         },
         {
@@ -259,8 +271,8 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "31",
-          "value": "40",
+          "name": "30",
+          "value": "41",
           "percentile": 24
         },
         {
@@ -276,14 +288,14 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "93",
-          "value": "11",
-          "percentile": 89
+          "name": "83",
+          "value": "8",
+          "percentile": 81
         },
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
-          "percentile": 14
+          "percentile": 11
         }
       ]
     },
@@ -294,8 +306,8 @@
       "metrics": [
         {
           "name": "68",
-          "value": "36",
-          "percentile": 41
+          "value": "30",
+          "percentile": 40
         },
         {
           "name": "Batting Run Value",
@@ -340,12 +352,12 @@
       "metrics": [
         {
           "name": "10",
-          "value": "53",
-          "percentile": 18
+          "value": "48",
+          "percentile": 15
         },
         {
           "name": "Pitching Run Value",
-          "value": "-7",
+          "value": "-8",
           "percentile": 0
         }
       ]
@@ -356,14 +368,14 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "90",
-          "value": "25",
-          "percentile": 5
+          "name": "91",
+          "value": "26",
+          "percentile": 7
         },
         {
           "name": "Batting Run Value",
           "value": "-11",
-          "percentile": 2
+          "percentile": 3
         }
       ]
     },
@@ -373,7 +385,7 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "45",
+          "name": "44",
           "value": "78",
           "percentile": 74
         },
@@ -381,18 +393,6 @@
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
           "percentile": 8
-        }
-      ]
-    },
-    "683748": {
-      "name": "Victor Mesa Jr.",
-      "position": "RF",
-      "type": "hitting",
-      "metrics": [
-        {
-          "name": "Batting Run Value",
-          "value": "Baserunning Run Value",
-          "percentile": 2
         }
       ]
     },
@@ -404,7 +404,7 @@
         {
           "name": "19",
           "value": "",
-          "percentile": 94
+          "percentile": 95
         },
         {
           "name": "Batting Run Value",
