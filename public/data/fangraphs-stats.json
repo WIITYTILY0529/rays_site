@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-27T16:58:32.046075Z",
+  "lastUpdated": "2026-08-28T17:48:16.657846Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -20,20 +20,6 @@
           "WAR": 4.0
         },
         {
-          "name": "Yandy Díaz",
-          "fgPlayerId": 16578,
-          "PA": 568,
-          "H": 152,
-          "HR": 19,
-          "OBP": 0.37,
-          "SLG": 0.459,
-          "bbPct": 0.085,
-          "kPct": 0.139,
-          "BABIP": 0.323,
-          "wRCPlus": 132,
-          "WAR": 2.6
-        },
-        {
           "name": "Liam Hicks",
           "fgPlayerId": 29844,
           "PA": 477,
@@ -45,6 +31,20 @@
           "kPct": 0.094,
           "BABIP": 0.282,
           "wRCPlus": 127,
+          "WAR": 2.6
+        },
+        {
+          "name": "Yandy Díaz",
+          "fgPlayerId": 16578,
+          "PA": 568,
+          "H": 152,
+          "HR": 19,
+          "OBP": 0.37,
+          "SLG": 0.459,
+          "bbPct": 0.085,
+          "kPct": 0.139,
+          "BABIP": 0.323,
+          "wRCPlus": 132,
           "WAR": 2.6
         },
         {
@@ -129,7 +129,7 @@
           "kPct": 0.121,
           "BABIP": 0.288,
           "wRCPlus": 88,
-          "WAR": 0.8
+          "WAR": 0.9
         },
         {
           "name": "Jorge Mateo",
@@ -242,7 +242,7 @@
           "BABIP": 0.274,
           "FIP": 4.0,
           "pbStuff": 49.8,
-          "pbCommand": 54.9,
+          "pbCommand": 55.0,
           "WAR": 1.3
         },
         {
@@ -270,7 +270,7 @@
           "BABIP": 0.21,
           "FIP": 2.9,
           "pbStuff": 62.5,
-          "pbCommand": 60.4,
+          "pbCommand": 60.5,
           "WAR": 1.2
         },
         {
@@ -284,7 +284,7 @@
           "BABIP": 0.227,
           "FIP": 3.2,
           "pbStuff": 56.4,
-          "pbCommand": 57.1,
+          "pbCommand": 57.2,
           "WAR": 1.0
         },
         {
@@ -354,7 +354,7 @@
           "BABIP": 1.0,
           "FIP": 0.1,
           "pbStuff": 54.8,
-          "pbCommand": 28.3,
+          "pbCommand": 28.4,
           "WAR": 0.0
         },
         {
@@ -402,7 +402,7 @@
           "kPct": 0.221,
           "BABIP": 0.281,
           "wRCPlus": 121,
-          "WAR": 5.2
+          "WAR": 5.1
         },
         {
           "name": "Kevin McGonigle",
@@ -585,7 +585,7 @@
           "BABIP": 0.224,
           "FIP": 3.9,
           "pbStuff": 49.8,
-          "pbCommand": 56.1,
+          "pbCommand": 56.2,
           "WAR": 2.3
         },
         {
@@ -669,7 +669,7 @@
           "BABIP": 0.308,
           "FIP": 4.7,
           "pbStuff": 55.1,
-          "pbCommand": 49.2,
+          "pbCommand": 49.3,
           "WAR": 0.1
         },
         {
@@ -697,7 +697,7 @@
           "BABIP": 0.385,
           "FIP": 5.6,
           "pbStuff": 48.6,
-          "pbCommand": 43.3,
+          "pbCommand": 43.4,
           "WAR": -0.0
         },
         {
@@ -710,8 +710,8 @@
           "bbPct": 0.375,
           "BABIP": 0.4,
           "FIP": 12.1,
-          "pbStuff": 25.2,
-          "pbCommand": 45.1,
+          "pbStuff": 25.1,
+          "pbCommand": 45.2,
           "WAR": -0.0
         },
         {
@@ -777,9 +777,9 @@
     "TB": {
       "current": {
         "playoff": 1.0,
-        "division": 0.7025,
-        "wildcard": 0.2975,
-        "worldSeries": 0.0854
+        "division": 0.7311,
+        "wildcard": 0.2689,
+        "worldSeries": 0.0925
       },
       "history": [
         {
@@ -989,15 +989,19 @@
         {
           "date": "2026-08-27",
           "playoff": 1.0
+        },
+        {
+          "date": "2026-08-28",
+          "playoff": 1.0
         }
       ]
     },
     "DET": {
       "current": {
-        "playoff": 0.0221,
-        "division": 0.0078,
-        "wildcard": 0.0143,
-        "worldSeries": 0.0006
+        "playoff": 0.024,
+        "division": 0.0072,
+        "wildcard": 0.0168,
+        "worldSeries": 0.0005
       },
       "history": [
         {
@@ -1206,7 +1210,11 @@
         },
         {
           "date": "2026-08-27",
-          "playoff": 0.0221
+          "playoff": 0.0239
+        },
+        {
+          "date": "2026-08-28",
+          "playoff": 0.024
         }
       ]
     }
