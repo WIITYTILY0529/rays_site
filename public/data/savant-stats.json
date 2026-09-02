@@ -1,6 +1,18 @@
 {
-  "lastUpdated": "2026-09-01T10:45:11.453327Z",
+  "lastUpdated": "2026-09-02T10:12:23.652171Z",
   "players": {
+    "702047": {
+      "name": "Alex Cook",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "Pitching Run Value",
+          "value": "Fastball Run Value",
+          "percentile": 0
+        }
+      ]
+    },
     "641329": {
       "name": "Bryan Baker",
       "position": "P",
@@ -38,7 +50,7 @@
         {
           "name": "82",
           "value": "11",
-          "percentile": 55
+          "percentile": 54
         },
         {
           "name": "Pitching Run Value",
@@ -55,7 +67,7 @@
         {
           "name": "20",
           "value": "92",
-          "percentile": 12
+          "percentile": 10
         },
         {
           "name": "Batting Run Value",
@@ -71,13 +83,13 @@
       "metrics": [
         {
           "name": "99",
-          "value": "68",
+          "value": "69",
           "percentile": 7
         },
         {
           "name": "Batting Run Value",
           "value": "-11",
-          "percentile": 7
+          "percentile": 6
         }
       ]
     },
@@ -88,13 +100,13 @@
       "metrics": [
         {
           "name": "99",
-          "value": "57",
+          "value": "56",
           "percentile": 99
         },
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
-          "percentile": 30
+          "percentile": 31
         }
       ]
     },
@@ -104,9 +116,14 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "13",
-          "value": "31",
-          "percentile": 13
+          "name": "16",
+          "value": "35",
+          "percentile": 18
+        },
+        {
+          "name": "Pitching Run Value",
+          "value": "-7",
+          "percentile": 0
         }
       ]
     },
@@ -116,14 +133,14 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "19",
-          "value": "77",
-          "percentile": 41
+          "name": "20",
+          "value": "75",
+          "percentile": 37
         },
         {
           "name": "Pitching Run Value",
-          "value": "Fastball Run Value",
-          "percentile": 0
+          "value": "-1",
+          "percentile": 3
         }
       ]
     },
@@ -133,7 +150,7 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "43",
+          "name": "44",
           "value": "44",
           "percentile": 62
         },
@@ -151,8 +168,8 @@
       "metrics": [
         {
           "name": "7",
-          "value": "39",
-          "percentile": 74
+          "value": "43",
+          "percentile": 73
         },
         {
           "name": "Batting Run Value",
@@ -168,25 +185,13 @@
       "metrics": [
         {
           "name": "48",
-          "value": "91",
-          "percentile": 45
+          "value": "90",
+          "percentile": 43
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 1
-        }
-      ]
-    },
-    "622761": {
-      "name": "Jorge Mateo",
-      "position": "SS",
-      "type": "hitting",
-      "metrics": [
-        {
-          "name": "Batting Run Value",
-          "value": "-3",
-          "percentile": 1
+          "percentile": 0
         }
       ]
     },
@@ -225,14 +230,14 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "93",
-          "value": "38",
+          "name": "94",
+          "value": "39",
           "percentile": 89
         },
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
-          "percentile": 14
+          "percentile": 15
         }
       ]
     },
@@ -243,7 +248,7 @@
       "metrics": [
         {
           "name": "1",
-          "value": "52",
+          "value": "57",
           "percentile": 85
         },
         {
@@ -290,7 +295,7 @@
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
-          "percentile": 15
+          "percentile": 16
         }
       ]
     },
@@ -319,7 +324,7 @@
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 5
+          "percentile": 6
         }
       ]
     },
@@ -364,12 +369,12 @@
       "metrics": [
         {
           "name": "85",
-          "value": "29",
+          "value": "28",
           "percentile": 3
         },
         {
           "name": "Batting Run Value",
-          "value": "-14",
+          "value": "-13",
           "percentile": 2
         }
       ]
@@ -380,14 +385,26 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "59",
+          "name": "64",
           "value": "76",
-          "percentile": 81
+          "percentile": 84
         },
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
-          "percentile": 11
+          "percentile": 12
+        }
+      ]
+    },
+    "683748": {
+      "name": "Victor Mesa Jr.",
+      "position": "RF",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "Batting Run Value",
+          "value": "Baserunning Run Value",
+          "percentile": 4
         }
       ]
     },
@@ -397,14 +414,14 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "14",
+          "name": "13",
           "value": "",
-          "percentile": 93
+          "percentile": 95
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 24
+          "percentile": 27
         }
       ]
     }
