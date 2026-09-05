@@ -1,6 +1,18 @@
 {
-  "lastUpdated": "2026-09-04T10:12:12.537644Z",
+  "lastUpdated": "2026-09-05T09:41:51.018585Z",
   "players": {
+    "702047": {
+      "name": "Alex Cook",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "Pitching Run Value",
+          "value": "Fastball Run Value",
+          "percentile": 0
+        }
+      ]
+    },
     "641329": {
       "name": "Bryan Baker",
       "position": "P",
@@ -78,6 +90,23 @@
           "name": "Batting Run Value",
           "value": "-12",
           "percentile": 6
+        }
+      ]
+    },
+    "642121": {
+      "name": "Cole Sulser",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "67",
+          "value": "18",
+          "percentile": 30
+        },
+        {
+          "name": "Pitching Run Value",
+          "value": "-3",
+          "percentile": 4
         }
       ]
     },
@@ -200,6 +229,18 @@
         }
       ]
     },
+    "622761": {
+      "name": "Jorge Mateo",
+      "position": "SS",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "Batting Run Value",
+          "value": "-5",
+          "percentile": 1
+        }
+      ]
+    },
     "691406": {
       "name": "Junior Caminero",
       "position": "3B",
@@ -214,6 +255,18 @@
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
           "percentile": 32
+        }
+      ]
+    },
+    "700652": {
+      "name": "Kenny Piper",
+      "position": "C",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "Batting Run Value",
+          "value": "Baserunning Run Value",
+          "percentile": 0
         }
       ]
     },
@@ -248,18 +301,6 @@
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
           "percentile": 16
-        }
-      ]
-    },
-    "655889": {
-      "name": "Manuel Rodríguez",
-      "position": "P",
-      "type": "pitching",
-      "metrics": [
-        {
-          "name": "Pitching Run Value",
-          "value": "-1",
-          "percentile": 1
         }
       ]
     },
@@ -318,23 +359,6 @@
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
           "percentile": 6
-        }
-      ]
-    },
-    "663556": {
-      "name": "Shane McClanahan",
-      "position": "P",
-      "type": "pitching",
-      "metrics": [
-        {
-          "name": "77",
-          "value": "68",
-          "percentile": 90
-        },
-        {
-          "name": "Pitching Run Value",
-          "value": "Fastball Run Value",
-          "percentile": 16
         }
       ]
     },

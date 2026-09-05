@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-04T10:04:11.579283Z",
+  "lastUpdated": "2026-09-05T09:34:02.603023Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -241,8 +241,8 @@
           "bbPct": 0.08,
           "BABIP": 0.253,
           "FIP": 3.5,
-          "pbStuff": 55.3,
-          "pbCommand": 52.1,
+          "pbStuff": 55.2,
+          "pbCommand": 52.2,
           "WAR": 2.4
         },
         {
@@ -256,7 +256,7 @@
           "BABIP": 0.279,
           "FIP": 3.9,
           "pbStuff": 49.8,
-          "pbCommand": 54.8,
+          "pbCommand": 54.7,
           "WAR": 1.6
         },
         {
@@ -339,8 +339,8 @@
           "bbPct": 0.059,
           "BABIP": 0.311,
           "FIP": 3.5,
-          "pbStuff": 53.5,
-          "pbCommand": 57.0,
+          "pbStuff": 53.6,
+          "pbCommand": 56.9,
           "WAR": 0.7
         },
         {
@@ -833,9 +833,9 @@
     "TB": {
       "current": {
         "playoff": 1.0,
-        "division": 0.7404,
-        "wildcard": 0.2596,
-        "worldSeries": 0.0926
+        "division": 0.8236,
+        "wildcard": 0.1764,
+        "worldSeries": 0.0898
       },
       "history": [
         {
@@ -1055,17 +1055,17 @@
           "playoff": 1.0
         },
         {
-          "date": "2026-09-04",
+          "date": "2026-09-05",
           "playoff": 1.0
         }
       ]
     },
     "DET": {
       "current": {
-        "playoff": 0.0088,
-        "division": 0.0033,
-        "wildcard": 0.0055,
-        "worldSeries": 0.0003
+        "playoff": 0.0012,
+        "division": 0.0003,
+        "wildcard": 0.0009,
+        "worldSeries": 0.0
       },
       "history": [
         {
@@ -1285,8 +1285,8 @@
           "playoff": 0.0066
         },
         {
-          "date": "2026-09-04",
-          "playoff": 0.0088
+          "date": "2026-09-05",
+          "playoff": 0.0012
         }
       ]
     }
