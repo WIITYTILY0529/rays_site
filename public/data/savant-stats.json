@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-05T09:41:51.018585Z",
+  "lastUpdated": "2026-09-06T09:55:10.473879Z",
   "players": {
     "702047": {
       "name": "Alex Cook",
@@ -19,14 +19,14 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "86",
+          "name": "85",
           "value": "29",
-          "percentile": 87
+          "percentile": 85
         },
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
-          "percentile": 14
+          "percentile": 13
         }
       ]
     },
@@ -48,7 +48,7 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "81",
+          "name": "80",
           "value": "12",
           "percentile": 53
         },
@@ -65,13 +65,13 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "20",
-          "value": "92",
-          "percentile": 12
+          "name": "22",
+          "value": "91",
+          "percentile": 11
         },
         {
           "name": "Batting Run Value",
-          "value": "-9",
+          "value": "-10",
           "percentile": 9
         }
       ]
@@ -83,13 +83,13 @@
       "metrics": [
         {
           "name": "99",
-          "value": "69",
-          "percentile": 5
+          "value": "70",
+          "percentile": 3
         },
         {
           "name": "Batting Run Value",
-          "value": "-12",
-          "percentile": 6
+          "value": "-13",
+          "percentile": 7
         }
       ]
     },
@@ -99,8 +99,8 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "67",
-          "value": "18",
+          "name": "66",
+          "value": "16",
           "percentile": 30
         },
         {
@@ -117,13 +117,13 @@
       "metrics": [
         {
           "name": "99",
-          "value": "56",
+          "value": "40",
           "percentile": 99
         },
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
-          "percentile": 31
+          "percentile": 34
         }
       ]
     },
@@ -133,31 +133,14 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "16",
-          "value": "36",
+          "name": "17",
+          "value": "37",
           "percentile": 18
         },
         {
           "name": "Pitching Run Value",
           "value": "-7",
           "percentile": 0
-        }
-      ]
-    },
-    "664076": {
-      "name": "Garrett Cleavinger",
-      "position": "P",
-      "type": "pitching",
-      "metrics": [
-        {
-          "name": "21",
-          "value": "75",
-          "percentile": 38
-        },
-        {
-          "name": "Pitching Run Value",
-          "value": "-1",
-          "percentile": 3
         }
       ]
     },
@@ -168,7 +151,7 @@
       "metrics": [
         {
           "name": "20",
-          "value": "76",
+          "value": "77",
           "percentile": 41
         },
         {
@@ -184,8 +167,8 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "43",
-          "value": "43",
+          "name": "42",
+          "value": "45",
           "percentile": 61
         },
         {
@@ -201,14 +184,14 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "7",
+          "name": "5",
           "value": "44",
-          "percentile": 72
+          "percentile": 78
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 11
+          "percentile": 14
         }
       ]
     },
@@ -218,9 +201,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "48",
+          "name": "49",
           "value": "89",
-          "percentile": 40
+          "percentile": 39
         },
         {
           "name": "Batting Run Value",
@@ -236,8 +219,8 @@
       "metrics": [
         {
           "name": "Batting Run Value",
-          "value": "-5",
-          "percentile": 1
+          "value": "-6",
+          "percentile": 2
         }
       ]
     },
@@ -247,14 +230,14 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "12",
-          "value": "3",
+          "name": "10",
+          "value": "4",
           "percentile": 98
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 32
+          "percentile": 34
         }
       ]
     },
@@ -266,7 +249,7 @@
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 0
+          "percentile": 1
         }
       ]
     },
@@ -276,8 +259,8 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "93",
-          "value": "39",
+          "name": "90",
+          "value": "40",
           "percentile": 89
         },
         {
@@ -294,8 +277,8 @@
       "metrics": [
         {
           "name": "1",
-          "value": "60",
-          "percentile": 83
+          "value": "59",
+          "percentile": 82
         },
         {
           "name": "Batting Run Value",
@@ -322,14 +305,14 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "91",
+          "name": "92",
           "value": "11",
-          "percentile": 91
+          "percentile": 93
         },
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
-          "percentile": 16
+          "percentile": 17
         }
       ]
     },
@@ -339,13 +322,13 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "68",
-          "value": "18",
-          "percentile": 17
+          "name": "66",
+          "value": "16",
+          "percentile": 33
         },
         {
           "name": "Batting Run Value",
-          "value": "-7",
+          "value": "-2",
           "percentile": 1
         }
       ]
@@ -358,7 +341,7 @@
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 6
+          "percentile": 5
         }
       ]
     },
@@ -368,9 +351,9 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "17",
-          "value": "51",
-          "percentile": 22
+          "name": "18",
+          "value": "53",
+          "percentile": 23
         },
         {
           "name": "Pitching Run Value",
@@ -386,13 +369,345 @@
       "metrics": [
         {
           "name": "86",
-          "value": "33",
-          "percentile": 3
+          "value": "29",
+          "percentile": 2
         },
         {
           "name": "Batting Run Value",
-          "value": "-13",
+          "value": "-14",
           "percentile": 2
+        }
+      ]
+    },
+    "694494": {
+      "name": "Ty Johnson",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "Career Minors",
+          "value": "",
+          "percentile": 14
+        },
+        {
+          "name": "Career Minors",
+          "value": "",
+          "percentile": 71
+        },
+        {
+          "name": "Career Minors",
+          "value": "",
+          "percentile": 14
+        },
+        {
+          "name": "Career Minors",
+          "value": "P",
+          "percentile": 71
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "",
+          "percentile": 21
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "",
+          "percentile": 21
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "May",
+          "percentile": 1
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "June",
+          "percentile": 2
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "July",
+          "percentile": 1
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "August",
+          "percentile": 0
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "September",
+          "percentile": 0
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "First Half",
+          "percentile": 2
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "Second Half",
+          "percentile": 2
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "",
+          "percentile": 21
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "",
+          "percentile": 1
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "",
+          "percentile": 15
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "",
+          "percentile": 8
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "",
+          "percentile": 2
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "",
+          "percentile": 8
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "",
+          "percentile": 4
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "",
+          "percentile": 4
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "",
+          "percentile": 12
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "Home Games",
+          "percentile": 2
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "Away Games",
+          "percentile": 2
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "Day Games",
+          "percentile": 1
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "Night Games",
+          "percentile": 3
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "",
+          "percentile": 21
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "",
+          "percentile": 1
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "",
+          "percentile": 21
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "",
+          "percentile": 20
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "",
+          "percentile": 20
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "0.90",
+          "percentile": 10
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "0.90",
+          "percentile": 10
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "2.45",
+          "percentile": 11
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "1.46",
+          "percentile": 13
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "3.00",
+          "percentile": 9
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "10.38",
+          "percentile": 6
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "14.73",
+          "percentile": 5
+        },
+        {
+          "name": "Durham Bulls",
+          "value": "0.00",
+          "percentile": 2
+        },
+        {
+          "name": "2026-05-07",
+          "value": "Round Rock Express",
+          "percentile": 0
+        },
+        {
+          "name": "2026-05-13",
+          "value": "Durham Bulls",
+          "percentile": 0
+        },
+        {
+          "name": "2026-05-19",
+          "value": "Nashville Sounds",
+          "percentile": 0
+        },
+        {
+          "name": "2026-05-24",
+          "value": "Nashville Sounds",
+          "percentile": 1
+        },
+        {
+          "name": "2026-05-30",
+          "value": "Durham Bulls",
+          "percentile": 0
+        },
+        {
+          "name": "May",
+          "value": "",
+          "percentile": 1
+        },
+        {
+          "name": "2026-06-05",
+          "value": "Charlotte Knights",
+          "percentile": 0
+        },
+        {
+          "name": "2026-06-12",
+          "value": "Durham Bulls",
+          "percentile": 1
+        },
+        {
+          "name": "2026-06-18",
+          "value": "Jacksonville Jumbo Shrimp",
+          "percentile": 0
+        },
+        {
+          "name": "2026-06-28",
+          "value": "Durham Bulls",
+          "percentile": 1
+        },
+        {
+          "name": "June",
+          "value": "",
+          "percentile": 2
+        },
+        {
+          "name": "2026-07-04",
+          "value": "Gwinnett Stripers",
+          "percentile": 1
+        },
+        {
+          "name": "2026-07-25",
+          "value": "Durham Bulls",
+          "percentile": 0
+        },
+        {
+          "name": "July",
+          "value": "",
+          "percentile": 1
+        },
+        {
+          "name": "2026-08-02",
+          "value": "Gwinnett Stripers",
+          "percentile": 0
+        },
+        {
+          "name": "2026-08-06",
+          "value": "Durham Bulls",
+          "percentile": 0
+        },
+        {
+          "name": "2026-08-09",
+          "value": "Durham Bulls",
+          "percentile": 0
+        },
+        {
+          "name": "2026-08-13",
+          "value": "Memphis Redbirds",
+          "percentile": 0
+        },
+        {
+          "name": "2026-08-16",
+          "value": "Memphis Redbirds",
+          "percentile": 0
+        },
+        {
+          "name": "2026-08-20",
+          "value": "Durham Bulls",
+          "percentile": 0
+        },
+        {
+          "name": "2026-08-25",
+          "value": "Norfolk Tides",
+          "percentile": 0
+        },
+        {
+          "name": "2026-08-28",
+          "value": "Norfolk Tides",
+          "percentile": 0
+        },
+        {
+          "name": "2026-08-30",
+          "value": "Norfolk Tides",
+          "percentile": 0
+        },
+        {
+          "name": "August",
+          "value": "",
+          "percentile": 0
+        },
+        {
+          "name": "2026-09-03",
+          "value": "Durham Bulls",
+          "percentile": 0
+        },
+        {
+          "name": "September",
+          "value": "",
+          "percentile": 0
         }
       ]
     },
@@ -402,14 +717,14 @@
       "type": "pitching",
       "metrics": [
         {
-          "name": "62",
-          "value": "77",
-          "percentile": 82
+          "name": "72",
+          "value": "75",
+          "percentile": 87
         },
         {
           "name": "Pitching Run Value",
           "value": "Fastball Run Value",
-          "percentile": 12
+          "percentile": 14
         }
       ]
     },
@@ -431,9 +746,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "14",
+          "name": "17",
           "value": "",
-          "percentile": 96
+          "percentile": 95
         },
         {
           "name": "Batting Run Value",
