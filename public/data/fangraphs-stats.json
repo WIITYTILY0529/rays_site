@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-15T10:35:42.298618Z",
+  "lastUpdated": "2026-09-16T10:24:07.862723Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -833,9 +833,9 @@
     "TB": {
       "current": {
         "playoff": 1.0,
-        "division": 0.8768,
-        "wildcard": 0.1232,
-        "worldSeries": 0.1013
+        "division": 0.887,
+        "wildcard": 0.113,
+        "worldSeries": 0.1003
       },
       "history": [
         {
@@ -1071,17 +1071,17 @@
           "playoff": 1.0
         },
         {
-          "date": "2026-09-15",
+          "date": "2026-09-16",
           "playoff": 1.0
         }
       ]
     },
     "DET": {
       "current": {
-        "playoff": 0.0098,
-        "division": 0.0023,
-        "wildcard": 0.0075,
-        "worldSeries": 0.0005
+        "playoff": 0.0168,
+        "division": 0.0034,
+        "wildcard": 0.0133,
+        "worldSeries": 0.0006
       },
       "history": [
         {
@@ -1317,8 +1317,8 @@
           "playoff": 0.0098
         },
         {
-          "date": "2026-09-15",
-          "playoff": 0.0098
+          "date": "2026-09-16",
+          "playoff": 0.0168
         }
       ]
     }
