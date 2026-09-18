@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-17T10:41:17.977542Z",
+  "lastUpdated": "2026-09-18T10:17:48.031414Z",
   "players": {
     "702047": {
       "name": "Alex Cook",
@@ -57,7 +57,7 @@
         {
           "name": "Usage vs. LHH",
           "value": "Pitch Run Value",
-          "percentile": 6
+          "percentile": 4
         }
       ]
     },
@@ -69,11 +69,11 @@
         {
           "name": "22",
           "value": "89",
-          "percentile": 8
+          "percentile": 7
         },
         {
           "name": "Batting Run Value",
-          "value": "-12",
+          "value": "-13",
           "percentile": 9
         }
       ]
@@ -84,9 +84,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "99",
+          "name": "100",
           "value": "72",
-          "percentile": 11
+          "percentile": 12
         },
         {
           "name": "Batting Run Value",
@@ -115,7 +115,7 @@
         {
           "name": "Usage vs. LHH",
           "value": "Pitch Run Value",
-          "percentile": 7
+          "percentile": 8
         }
       ]
     },
@@ -174,13 +174,13 @@
       "metrics": [
         {
           "name": "4",
-          "value": "44",
+          "value": "45",
           "percentile": 83
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 17
+          "percentile": 18
         }
       ]
     },
@@ -190,14 +190,14 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "48",
+          "name": "47",
           "value": "91",
-          "percentile": 43
+          "percentile": 41
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 1
+          "percentile": 0
         }
       ]
     },
@@ -250,12 +250,12 @@
         {
           "name": "1",
           "value": "72",
-          "percentile": 79
+          "percentile": 81
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 15
+          "percentile": 16
         }
       ]
     },
@@ -267,18 +267,6 @@
         {
           "name": "Batting Run Value",
           "value": "-6",
-          "percentile": 0
-        }
-      ]
-    },
-    "663611": {
-      "name": "Nick Madrigal",
-      "position": "3B",
-      "type": "hitting",
-      "metrics": [
-        {
-          "name": "Batting Run Value",
-          "value": "Baserunning Run Value",
           "percentile": 0
         }
       ]
@@ -303,12 +291,12 @@
         {
           "name": "69",
           "value": "20",
-          "percentile": 42
+          "percentile": 45
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 1
+          "percentile": 2
         }
       ]
     },
@@ -333,6 +321,23 @@
           "name": "Usage vs. LHH",
           "value": "Pitch Run Value",
           "percentile": 5
+        }
+      ]
+    },
+    "670764": {
+      "name": "Taylor Walls",
+      "position": "SS",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "86",
+          "value": "28",
+          "percentile": 3
+        },
+        {
+          "name": "Batting Run Value",
+          "value": "-15",
+          "percentile": 2
         }
       ]
     },
@@ -368,12 +373,12 @@
         {
           "name": "11",
           "value": "",
-          "percentile": 93
+          "percentile": 91
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 25
+          "percentile": 23
         }
       ]
     }
