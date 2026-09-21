@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-20T10:20:43.627861Z",
+  "lastUpdated": "2026-09-21T11:24:01.540077Z",
   "players": {
     "702047": {
       "name": "Alex Cook",
@@ -9,6 +9,18 @@
         {
           "name": "Usage vs. LHH",
           "value": "Pitch Run Value",
+          "percentile": 1
+        }
+      ]
+    },
+    "810938": {
+      "name": "Ben Williamson",
+      "position": "2B",
+      "type": "hitting",
+      "metrics": [
+        {
+          "name": "Batting Run Value",
+          "value": "-9",
           "percentile": 1
         }
       ]
@@ -67,9 +79,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "22",
+          "name": "23",
           "value": "89",
-          "percentile": 6
+          "percentile": 7
         },
         {
           "name": "Batting Run Value",
@@ -84,9 +96,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "100",
+          "name": "99",
           "value": "72",
-          "percentile": 11
+          "percentile": 13
         },
         {
           "name": "Batting Run Value",
@@ -155,18 +167,6 @@
         }
       ]
     },
-    "641584": {
-      "name": "Jake Fraley",
-      "position": "RF",
-      "type": "hitting",
-      "metrics": [
-        {
-          "name": "Batting Run Value",
-          "value": "-3",
-          "percentile": 0
-        }
-      ]
-    },
     "666018": {
       "name": "Jonathan Aranda",
       "position": "1B",
@@ -192,7 +192,7 @@
         {
           "name": "47",
           "value": "91",
-          "percentile": 36
+          "percentile": 38
         },
         {
           "name": "Batting Run Value",
@@ -219,7 +219,7 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "13",
+          "name": "12",
           "value": "8",
           "percentile": 98
         },
@@ -249,7 +249,7 @@
       "metrics": [
         {
           "name": "1",
-          "value": "74",
+          "value": "75",
           "percentile": 81
         },
         {
@@ -266,7 +266,7 @@
       "metrics": [
         {
           "name": "Batting Run Value",
-          "value": "-4",
+          "value": "-5",
           "percentile": 0
         }
       ]
@@ -290,7 +290,7 @@
       "metrics": [
         {
           "name": "62",
-          "value": "20",
+          "value": "22",
           "percentile": 45
         },
         {
@@ -308,7 +308,7 @@
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 6
+          "percentile": 5
         }
       ]
     },
@@ -361,7 +361,7 @@
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 7
+          "percentile": 8
         }
       ]
     },
@@ -371,9 +371,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "12",
+          "name": "11",
           "value": "",
-          "percentile": 90
+          "percentile": 89
         },
         {
           "name": "Batting Run Value",
