@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-21T11:24:01.540077Z",
+  "lastUpdated": "2026-09-22T10:35:15.826938Z",
   "players": {
     "702047": {
       "name": "Alex Cook",
@@ -80,7 +80,7 @@
       "metrics": [
         {
           "name": "23",
-          "value": "89",
+          "value": "90",
           "percentile": 7
         },
         {
@@ -97,7 +97,7 @@
       "metrics": [
         {
           "name": "99",
-          "value": "72",
+          "value": "69",
           "percentile": 13
         },
         {
@@ -174,7 +174,7 @@
       "metrics": [
         {
           "name": "4",
-          "value": "42",
+          "value": "41",
           "percentile": 84
         },
         {
@@ -190,8 +190,8 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "47",
-          "value": "91",
+          "name": "51",
+          "value": "90",
           "percentile": 38
         },
         {
@@ -220,7 +220,7 @@
       "metrics": [
         {
           "name": "12",
-          "value": "8",
+          "value": "10",
           "percentile": 98
         },
         {
@@ -267,7 +267,7 @@
         {
           "name": "Batting Run Value",
           "value": "-5",
-          "percentile": 0
+          "percentile": 1
         }
       ]
     },
@@ -308,7 +308,7 @@
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 5
+          "percentile": 6
         }
       ]
     },
@@ -331,7 +331,7 @@
       "metrics": [
         {
           "name": "85",
-          "value": "28",
+          "value": "30",
           "percentile": 4
         },
         {
@@ -373,7 +373,7 @@
         {
           "name": "11",
           "value": "",
-          "percentile": 89
+          "percentile": 90
         },
         {
           "name": "Batting Run Value",
