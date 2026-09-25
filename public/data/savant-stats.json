@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-24T10:46:26.561661Z",
+  "lastUpdated": "2026-09-25T10:49:38.968932Z",
   "players": {
     "810938": {
       "name": "Ben Williamson",
@@ -155,6 +155,18 @@
         }
       ]
     },
+    "663765": {
+      "name": "Jake Woodford",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "Usage vs. LHH",
+          "value": "Pitch Run Value",
+          "percentile": 0
+        }
+      ]
+    },
     "666018": {
       "name": "Jonathan Aranda",
       "position": "1B",
@@ -244,18 +256,6 @@
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
           "percentile": 16
-        }
-      ]
-    },
-    "669438": {
-      "name": "Mason Englert",
-      "position": "P",
-      "type": "pitching",
-      "metrics": [
-        {
-          "name": "Usage vs. LHH",
-          "value": "Pitch Run Value",
-          "percentile": 2
         }
       ]
     },
