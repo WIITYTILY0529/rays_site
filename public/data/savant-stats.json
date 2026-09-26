@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-25T10:49:38.968932Z",
+  "lastUpdated": "2026-09-26T10:32:28.026577Z",
   "players": {
     "810938": {
       "name": "Ben Williamson",
@@ -8,7 +8,7 @@
       "metrics": [
         {
           "name": "Batting Run Value",
-          "value": "-9",
+          "value": "-10",
           "percentile": 1
         }
       ]
@@ -67,9 +67,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "27",
+          "name": "26",
           "value": "90",
-          "percentile": 8
+          "percentile": 9
         },
         {
           "name": "Batting Run Value",
@@ -85,12 +85,12 @@
       "metrics": [
         {
           "name": "99",
-          "value": "70",
-          "percentile": 12
+          "value": "66",
+          "percentile": 11
         },
         {
           "name": "Batting Run Value",
-          "value": "-10",
+          "value": "-11",
           "percentile": 8
         }
       ]
@@ -127,7 +127,7 @@
         {
           "name": "Usage vs. LHH",
           "value": "Pitch Run Value",
-          "percentile": 1
+          "percentile": 2
         }
       ]
     },
@@ -155,18 +155,6 @@
         }
       ]
     },
-    "663765": {
-      "name": "Jake Woodford",
-      "position": "P",
-      "type": "pitching",
-      "metrics": [
-        {
-          "name": "Usage vs. LHH",
-          "value": "Pitch Run Value",
-          "percentile": 0
-        }
-      ]
-    },
     "666018": {
       "name": "Jonathan Aranda",
       "position": "1B",
@@ -175,12 +163,12 @@
         {
           "name": "4",
           "value": "43",
-          "percentile": 82
+          "percentile": 81
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 16
+          "percentile": 17
         }
       ]
     },
@@ -190,9 +178,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "51",
-          "value": "91",
-          "percentile": 39
+          "name": "50",
+          "value": "93",
+          "percentile": 41
         },
         {
           "name": "Batting Run Value",
@@ -208,7 +196,7 @@
       "metrics": [
         {
           "name": "Batting Run Value",
-          "value": "-11",
+          "value": "-12",
           "percentile": 3
         }
       ]
@@ -219,8 +207,8 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "15",
-          "value": "12",
+          "name": "14",
+          "value": "13",
           "percentile": 96
         },
         {
@@ -238,7 +226,7 @@
         {
           "name": "Usage vs. LHH",
           "value": "Pitch Run Value",
-          "percentile": 10
+          "percentile": 11
         }
       ]
     },
@@ -249,13 +237,25 @@
       "metrics": [
         {
           "name": "1",
-          "value": "77",
-          "percentile": 80
+          "value": "73",
+          "percentile": 78
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 16
+          "percentile": 14
+        }
+      ]
+    },
+    "655889": {
+      "name": "Manuel Rodríguez",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "Usage vs. LHH",
+          "value": "Pitch Run Value",
+          "percentile": 1
         }
       ]
     },
@@ -266,7 +266,7 @@
       "metrics": [
         {
           "name": "Batting Run Value",
-          "value": "-6",
+          "value": "-5",
           "percentile": 0
         }
       ]
@@ -290,8 +290,8 @@
       "metrics": [
         {
           "name": "61",
-          "value": "21",
-          "percentile": 42
+          "value": "19",
+          "percentile": 43
         },
         {
           "name": "Batting Run Value",
@@ -308,7 +308,7 @@
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 5
+          "percentile": 4
         }
       ]
     },
@@ -320,7 +320,7 @@
         {
           "name": "Usage vs. LHH",
           "value": "Pitch Run Value",
-          "percentile": 5
+          "percentile": 6
         }
       ]
     },
@@ -330,14 +330,14 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "85",
-          "value": "31",
-          "percentile": 5
+          "name": "86",
+          "value": "33",
+          "percentile": 6
         },
         {
           "name": "Batting Run Value",
-          "value": "-15",
-          "percentile": 2
+          "value": "-14",
+          "percentile": 3
         }
       ]
     },
@@ -361,7 +361,7 @@
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 8
+          "percentile": 7
         }
       ]
     },
@@ -371,9 +371,9 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "11",
+          "name": "13",
           "value": "",
-          "percentile": 88
+          "percentile": 87
         },
         {
           "name": "Batting Run Value",
