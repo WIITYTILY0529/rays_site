@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-27T11:03:38.615401Z",
+  "lastUpdated": "2026-09-28T12:19:16.593577Z",
   "players": {
     "810938": {
       "name": "Ben Williamson",
@@ -8,7 +8,7 @@
       "metrics": [
         {
           "name": "Batting Run Value",
-          "value": "-10",
+          "value": "-11",
           "percentile": 1
         }
       ]
@@ -57,7 +57,7 @@
         {
           "name": "Usage vs. LHH",
           "value": "Pitch Run Value",
-          "percentile": 6
+          "percentile": 5
         }
       ]
     },
@@ -68,12 +68,12 @@
       "metrics": [
         {
           "name": "18",
-          "value": "90",
-          "percentile": 8
+          "value": "89",
+          "percentile": 9
         },
         {
           "name": "Batting Run Value",
-          "value": "-12",
+          "value": "-13",
           "percentile": 10
         }
       ]
@@ -85,7 +85,7 @@
       "metrics": [
         {
           "name": "99",
-          "value": "67",
+          "value": "66",
           "percentile": 12
         },
         {
@@ -155,6 +155,18 @@
         }
       ]
     },
+    "669947": {
+      "name": "Jesse Scholtens",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "Usage vs. LHH",
+          "value": "Pitch Run Value",
+          "percentile": 2
+        }
+      ]
+    },
     "666018": {
       "name": "Jonathan Aranda",
       "position": "1B",
@@ -162,13 +174,13 @@
       "metrics": [
         {
           "name": "4",
-          "value": "44",
-          "percentile": 80
+          "value": "50",
+          "percentile": 81
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 16
+          "percentile": 17
         }
       ]
     },
@@ -179,13 +191,13 @@
       "metrics": [
         {
           "name": "59",
-          "value": "93",
-          "percentile": 41
+          "value": "91",
+          "percentile": 42
         },
         {
           "name": "Batting Run Value",
-          "value": "-1",
-          "percentile": 0
+          "value": "Baserunning Run Value",
+          "percentile": 1
         }
       ]
     },
@@ -207,14 +219,14 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "14",
+          "name": "13",
           "value": "13",
-          "percentile": 96
+          "percentile": 97
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 35
+          "percentile": 34
         }
       ]
     },
@@ -238,12 +250,12 @@
         {
           "name": "1",
           "value": "71",
-          "percentile": 77
+          "percentile": 78
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 14
+          "percentile": 15
         }
       ]
     },
@@ -266,7 +278,7 @@
       "metrics": [
         {
           "name": "Batting Run Value",
-          "value": "-5",
+          "value": "-6",
           "percentile": 0
         }
       ]
@@ -290,13 +302,13 @@
       "metrics": [
         {
           "name": "55",
-          "value": "20",
-          "percentile": 51
+          "value": "15",
+          "percentile": 45
         },
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 3
+          "percentile": 2
         }
       ]
     },
@@ -308,7 +320,7 @@
         {
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
-          "percentile": 5
+          "percentile": 4
         }
       ]
     },
@@ -330,26 +342,14 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "85",
-          "value": "32",
-          "percentile": 5
+          "name": "86",
+          "value": "34",
+          "percentile": 6
         },
         {
           "name": "Batting Run Value",
           "value": "-14",
           "percentile": 3
-        }
-      ]
-    },
-    "694494": {
-      "name": "Ty Johnson",
-      "position": "P",
-      "type": "pitching",
-      "metrics": [
-        {
-          "name": "Usage vs. LHH",
-          "value": "Pitch Run Value",
-          "percentile": 0
         }
       ]
     },
@@ -373,7 +373,7 @@
         {
           "name": "13",
           "value": "",
-          "percentile": 89
+          "percentile": 88
         },
         {
           "name": "Batting Run Value",
