@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-30T11:38:12.107798Z",
+  "lastUpdated": "2026-10-01T12:06:30.474569Z",
   "players": {
     "810938": {
       "name": "Ben Williamson",
@@ -897,7 +897,7 @@
       "metrics": [
         {
           "name": "4",
-          "value": "51",
+          "value": "48",
           "percentile": 81
         },
         {
@@ -991,6 +991,18 @@
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
           "percentile": 15
+        }
+      ]
+    },
+    "655889": {
+      "name": "Manuel Rodríguez",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "Usage vs. LHH",
+          "value": "Pitch Run Value",
+          "percentile": 1
         }
       ]
     },
@@ -1089,7 +1101,7 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "87",
+          "name": "85",
           "value": "35",
           "percentile": 6
         },
