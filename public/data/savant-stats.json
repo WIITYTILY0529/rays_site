@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-01T12:06:30.474569Z",
+  "lastUpdated": "2026-10-02T11:36:40.927200Z",
   "players": {
     "810938": {
       "name": "Ben Williamson",
@@ -81,7 +81,7 @@
         {
           "name": "19",
           "value": "90",
-          "percentile": 9
+          "percentile": 8
         },
         {
           "name": "Batting Run Value",
@@ -897,7 +897,7 @@
       "metrics": [
         {
           "name": "4",
-          "value": "48",
+          "value": "51",
           "percentile": 81
         },
         {
@@ -1101,7 +1101,7 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "85",
+          "name": "86",
           "value": "35",
           "percentile": 6
         },
@@ -1120,7 +1120,7 @@
         {
           "name": "Usage vs. LHH",
           "value": "Pitch Run Value",
-          "percentile": 3
+          "percentile": 4
         }
       ]
     },
