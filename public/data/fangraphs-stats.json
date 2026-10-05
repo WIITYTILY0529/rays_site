@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-04T11:26:12.728137Z",
+  "lastUpdated": "2026-10-05T12:51:50.077757Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -20,20 +20,6 @@
           "WAR": 5.3
         },
         {
-          "name": "Liam Hicks",
-          "fgPlayerId": 29844,
-          "PA": 554,
-          "H": 136,
-          "HR": 18,
-          "OBP": 0.367,
-          "SLG": 0.434,
-          "bbPct": 0.101,
-          "kPct": 0.099,
-          "BABIP": 0.286,
-          "wRCPlus": 123,
-          "WAR": 3.0
-        },
-        {
           "name": "Jonathan Aranda",
           "fgPlayerId": 21837,
           "PA": 668,
@@ -44,6 +30,20 @@
           "bbPct": 0.103,
           "kPct": 0.244,
           "BABIP": 0.34,
+          "wRCPlus": 123,
+          "WAR": 3.0
+        },
+        {
+          "name": "Liam Hicks",
+          "fgPlayerId": 29844,
+          "PA": 554,
+          "H": 136,
+          "HR": 18,
+          "OBP": 0.367,
+          "SLG": 0.434,
+          "bbPct": 0.101,
+          "kPct": 0.099,
+          "BABIP": 0.286,
           "wRCPlus": 123,
           "WAR": 3.0
         },
@@ -874,10 +874,10 @@
   "playoffOdds": {
     "TB": {
       "current": {
-        "playoff": 0.9016,
-        "division": 0.2437,
-        "wildcard": 0.6579,
-        "worldSeries": 0.0439
+        "playoff": 0.8746,
+        "division": 0.18,
+        "wildcard": 0.6946,
+        "worldSeries": 0.0431
       },
       "history": [
         {
@@ -983,6 +983,26 @@
         {
           "date": "2026-06-10",
           "playoff": 0.9016
+        },
+        {
+          "date": "2026-06-13",
+          "playoff": 0.8538
+        },
+        {
+          "date": "2026-06-16",
+          "playoff": 0.8575
+        },
+        {
+          "date": "2026-06-19",
+          "playoff": 0.859
+        },
+        {
+          "date": "2026-06-22",
+          "playoff": 0.8204
+        },
+        {
+          "date": "2026-06-25",
+          "playoff": 0.8746
         }
       ]
     },
