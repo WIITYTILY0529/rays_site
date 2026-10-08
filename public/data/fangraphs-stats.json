@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-07T12:11:26.532040Z",
+  "lastUpdated": "2026-10-08T12:22:07.047812Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -20,20 +20,6 @@
           "WAR": 5.3
         },
         {
-          "name": "Jonathan Aranda",
-          "fgPlayerId": 21837,
-          "PA": 668,
-          "H": 159,
-          "HR": 22,
-          "OBP": 0.358,
-          "SLG": 0.434,
-          "bbPct": 0.103,
-          "kPct": 0.244,
-          "BABIP": 0.34,
-          "wRCPlus": 123,
-          "WAR": 3.0
-        },
-        {
           "name": "Liam Hicks",
           "fgPlayerId": 29844,
           "PA": 554,
@@ -44,6 +30,20 @@
           "bbPct": 0.101,
           "kPct": 0.099,
           "BABIP": 0.286,
+          "wRCPlus": 123,
+          "WAR": 3.0
+        },
+        {
+          "name": "Jonathan Aranda",
+          "fgPlayerId": 21837,
+          "PA": 668,
+          "H": 159,
+          "HR": 22,
+          "OBP": 0.358,
+          "SLG": 0.434,
+          "bbPct": 0.103,
+          "kPct": 0.244,
+          "BABIP": 0.34,
           "wRCPlus": 123,
           "WAR": 3.0
         },

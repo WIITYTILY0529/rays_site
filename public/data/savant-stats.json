@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-07T12:18:04.081190Z",
+  "lastUpdated": "2026-10-08T12:28:07.092079Z",
   "players": {
     "810938": {
       "name": "Ben Williamson",
@@ -150,7 +150,7 @@
       "metrics": [
         {
           "name": "5",
-          "value": "48",
+          "value": "50",
           "percentile": 81
         },
         {
@@ -195,7 +195,7 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "14",
+          "name": "13",
           "value": "13",
           "percentile": 97
         },
@@ -306,7 +306,7 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "85",
+          "name": "86",
           "value": "35",
           "percentile": 6
         },
@@ -347,7 +347,7 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "13",
+          "name": "14",
           "value": "",
           "percentile": 88
         },
