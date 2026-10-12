@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-11T11:42:57.323458Z",
+  "lastUpdated": "2026-10-12T13:42:56.043749Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -20,20 +20,6 @@
           "WAR": 5.3
         },
         {
-          "name": "Jonathan Aranda",
-          "fgPlayerId": 21837,
-          "PA": 668,
-          "H": 159,
-          "HR": 22,
-          "OBP": 0.358,
-          "SLG": 0.434,
-          "bbPct": 0.103,
-          "kPct": 0.244,
-          "BABIP": 0.34,
-          "wRCPlus": 123,
-          "WAR": 3.0
-        },
-        {
           "name": "Liam Hicks",
           "fgPlayerId": 29844,
           "PA": 554,
@@ -44,6 +30,20 @@
           "bbPct": 0.101,
           "kPct": 0.099,
           "BABIP": 0.286,
+          "wRCPlus": 123,
+          "WAR": 3.0
+        },
+        {
+          "name": "Jonathan Aranda",
+          "fgPlayerId": 21837,
+          "PA": 668,
+          "H": 159,
+          "HR": 22,
+          "OBP": 0.358,
+          "SLG": 0.434,
+          "bbPct": 0.103,
+          "kPct": 0.244,
+          "BABIP": 0.34,
           "wRCPlus": 123,
           "WAR": 3.0
         },
@@ -213,8 +213,8 @@
           "bbPct": 0.048,
           "BABIP": 0.251,
           "FIP": 2.8,
-          "pbStuff": 54.7,
-          "pbCommand": 56.4,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 5.0
         },
         {
@@ -227,8 +227,8 @@
           "bbPct": 0.036,
           "BABIP": 0.265,
           "FIP": 4.0,
-          "pbStuff": 47.7,
-          "pbCommand": 61.6,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 2.9
         },
         {
@@ -241,8 +241,8 @@
           "bbPct": 0.086,
           "BABIP": 0.287,
           "FIP": 4.3,
-          "pbStuff": 55.7,
-          "pbCommand": 50.8,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 1.9
         },
         {
@@ -255,8 +255,8 @@
           "bbPct": 0.076,
           "BABIP": 0.282,
           "FIP": 3.8,
-          "pbStuff": 59.5,
-          "pbCommand": 56.7,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 1.6
         },
         {
@@ -269,8 +269,8 @@
           "bbPct": 0.065,
           "BABIP": 0.272,
           "FIP": 4.1,
-          "pbStuff": 49.3,
-          "pbCommand": 55.2,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 1.5
         },
         {
@@ -283,8 +283,8 @@
           "bbPct": 0.039,
           "BABIP": 0.25,
           "FIP": 3.0,
-          "pbStuff": 55.9,
-          "pbCommand": 58.1,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 1.4
         },
         {
@@ -297,8 +297,8 @@
           "bbPct": 0.09,
           "BABIP": 0.203,
           "FIP": 3.1,
-          "pbStuff": 61.3,
-          "pbCommand": 57.7,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 1.3
         },
         {
@@ -311,8 +311,8 @@
           "bbPct": 0.065,
           "BABIP": 0.22,
           "FIP": 3.4,
-          "pbStuff": 47.1,
-          "pbCommand": 57.7,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 1.3
         },
         {
@@ -325,8 +325,8 @@
           "bbPct": 0.039,
           "BABIP": 0.208,
           "FIP": 2.9,
-          "pbStuff": 53.6,
-          "pbCommand": 54.6,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 0.8
         },
         {
@@ -339,8 +339,8 @@
           "bbPct": 0.072,
           "BABIP": 0.295,
           "FIP": 3.6,
-          "pbStuff": 53.7,
-          "pbCommand": 54.6,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 0.6
         },
         {
@@ -353,8 +353,8 @@
           "bbPct": 0.122,
           "BABIP": 0.32,
           "FIP": 4.1,
-          "pbStuff": 57.6,
-          "pbCommand": 51.5,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 0.2
         },
         {
@@ -367,8 +367,8 @@
           "bbPct": 0.083,
           "BABIP": 0.5,
           "FIP": 3.5,
-          "pbStuff": 20.0,
-          "pbCommand": 47.7,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 0.0
         },
         {
@@ -381,8 +381,8 @@
           "bbPct": 0.073,
           "BABIP": 0.247,
           "FIP": 5.0,
-          "pbStuff": 51.5,
-          "pbCommand": 58.1,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": -0.0
         },
         {
@@ -395,8 +395,8 @@
           "bbPct": 0.048,
           "BABIP": 0.211,
           "FIP": 6.3,
-          "pbStuff": 20.0,
-          "pbCommand": 32.4,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": -0.1
         }
       ]
@@ -570,8 +570,8 @@
           "bbPct": 0.059,
           "BABIP": 0.234,
           "FIP": 4.0,
-          "pbStuff": 49.7,
-          "pbCommand": 55.5,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 2.5
         },
         {
@@ -584,8 +584,8 @@
           "bbPct": 0.088,
           "BABIP": 0.293,
           "FIP": 4.1,
-          "pbStuff": 49.1,
-          "pbCommand": 52.2,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 2.0
         },
         {
@@ -598,8 +598,8 @@
           "bbPct": 0.079,
           "BABIP": 0.248,
           "FIP": 4.1,
-          "pbStuff": 53.4,
-          "pbCommand": 54.8,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 1.6
         },
         {
@@ -612,8 +612,8 @@
           "bbPct": 0.106,
           "BABIP": 0.3,
           "FIP": 4.1,
-          "pbStuff": 44.2,
-          "pbCommand": 52.0,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 1.3
         },
         {
@@ -626,8 +626,8 @@
           "bbPct": 0.083,
           "BABIP": 0.36,
           "FIP": 2.6,
-          "pbStuff": 55.6,
-          "pbCommand": 55.7,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 0.8
         },
         {
@@ -640,8 +640,8 @@
           "bbPct": 0.094,
           "BABIP": 0.282,
           "FIP": 4.3,
-          "pbStuff": 53.9,
-          "pbCommand": 52.1,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 0.7
         },
         {
@@ -654,8 +654,8 @@
           "bbPct": 0.083,
           "BABIP": 0.27,
           "FIP": 4.2,
-          "pbStuff": 54.6,
-          "pbCommand": 51.5,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 0.5
         },
         {
@@ -668,8 +668,8 @@
           "bbPct": 0.074,
           "BABIP": 0.23,
           "FIP": 3.5,
-          "pbStuff": 47.5,
-          "pbCommand": 46.7,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 0.4
         },
         {
@@ -682,8 +682,8 @@
           "bbPct": 0.084,
           "BABIP": 0.294,
           "FIP": 3.4,
-          "pbStuff": 53.3,
-          "pbCommand": 60.4,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 0.3
         },
         {
@@ -696,8 +696,8 @@
           "bbPct": 0.063,
           "BABIP": 0.296,
           "FIP": 4.1,
-          "pbStuff": 52.5,
-          "pbCommand": 52.0,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 0.3
         },
         {
@@ -710,8 +710,8 @@
           "bbPct": 0.105,
           "BABIP": 0.225,
           "FIP": 3.5,
-          "pbStuff": 55.6,
-          "pbCommand": 53.6,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 0.3
         },
         {
@@ -724,8 +724,8 @@
           "bbPct": 0.128,
           "BABIP": 0.173,
           "FIP": 4.5,
-          "pbStuff": 49.1,
-          "pbCommand": 48.6,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 0.3
         },
         {
@@ -738,8 +738,8 @@
           "bbPct": 0.069,
           "BABIP": 0.273,
           "FIP": 4.6,
-          "pbStuff": 49.6,
-          "pbCommand": 56.4,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": 0.0
         },
         {
@@ -752,8 +752,8 @@
           "bbPct": 0.143,
           "BABIP": 0.364,
           "FIP": 5.4,
-          "pbStuff": 58.3,
-          "pbCommand": 45.1,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": -0.0
         },
         {
@@ -766,8 +766,8 @@
           "bbPct": 0.087,
           "BABIP": 0.339,
           "FIP": 5.5,
-          "pbStuff": 49.1,
-          "pbCommand": 50.4,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": -0.1
         },
         {
@@ -780,8 +780,8 @@
           "bbPct": 0.098,
           "BABIP": 0.156,
           "FIP": 4.5,
-          "pbStuff": 48.7,
-          "pbCommand": 49.6,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": -0.1
         },
         {
@@ -794,8 +794,8 @@
           "bbPct": 0.147,
           "BABIP": 0.476,
           "FIP": 7.9,
-          "pbStuff": 55.2,
-          "pbCommand": 49.3,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": -0.1
         },
         {
@@ -808,8 +808,8 @@
           "bbPct": 0.077,
           "BABIP": 0.308,
           "FIP": 6.9,
-          "pbStuff": 43.3,
-          "pbCommand": 54.0,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": -0.1
         },
         {
@@ -822,8 +822,8 @@
           "bbPct": 0.333,
           "BABIP": 0.25,
           "FIP": 18.6,
-          "pbStuff": 28.2,
-          "pbCommand": 20.0,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": -0.1
         },
         {
@@ -836,8 +836,8 @@
           "bbPct": 0.112,
           "BABIP": 0.207,
           "FIP": 5.2,
-          "pbStuff": 49.7,
-          "pbCommand": 52.6,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": -0.4
         },
         {
@@ -850,8 +850,8 @@
           "bbPct": 0.075,
           "BABIP": 0.271,
           "FIP": 6.3,
-          "pbStuff": 44.3,
-          "pbCommand": 55.7,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": -0.4
         },
         {
@@ -864,8 +864,8 @@
           "bbPct": 0.126,
           "BABIP": 0.32,
           "FIP": 5.4,
-          "pbStuff": 52.1,
-          "pbCommand": 50.9,
+          "pbStuff": 0.0,
+          "pbCommand": 0.0,
           "WAR": -0.8
         }
       ]
