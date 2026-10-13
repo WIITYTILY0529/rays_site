@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-12T13:49:03.471109Z",
+  "lastUpdated": "2026-10-13T13:09:50.440894Z",
   "players": {
     "810938": {
       "name": "Ben Williamson",
@@ -10,6 +10,18 @@
           "name": "Batting Run Value",
           "value": "-11",
           "percentile": 1
+        }
+      ]
+    },
+    "811315": {
+      "name": "Brody Hopkins",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "Usage vs. LHH",
+          "value": "Pitch Run Value",
+          "percentile": 0
         }
       ]
     },
@@ -45,7 +57,7 @@
         {
           "name": "18",
           "value": "90",
-          "percentile": 9
+          "percentile": 8
         },
         {
           "name": "Batting Run Value",
@@ -107,18 +119,6 @@
         }
       ]
     },
-    "664076": {
-      "name": "Garrett Cleavinger",
-      "position": "P",
-      "type": "pitching",
-      "metrics": [
-        {
-          "name": "Usage vs. LHH",
-          "value": "Pitch Run Value",
-          "percentile": 2
-        }
-      ]
-    },
     "643377": {
       "name": "Griffin Jax",
       "position": "P",
@@ -150,7 +150,7 @@
       "metrics": [
         {
           "name": "5",
-          "value": "50",
+          "value": "48",
           "percentile": 81
         },
         {
