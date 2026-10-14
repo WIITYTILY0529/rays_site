@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-13T13:03:57.612846Z",
+  "lastUpdated": "2026-10-14T10:45:20.647159Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -20,20 +20,6 @@
           "WAR": 5.3
         },
         {
-          "name": "Jonathan Aranda",
-          "fgPlayerId": 21837,
-          "PA": 668,
-          "H": 159,
-          "HR": 22,
-          "OBP": 0.358,
-          "SLG": 0.434,
-          "bbPct": 0.103,
-          "kPct": 0.244,
-          "BABIP": 0.34,
-          "wRCPlus": 123,
-          "WAR": 3.0
-        },
-        {
           "name": "Liam Hicks",
           "fgPlayerId": 29844,
           "PA": 554,
@@ -44,6 +30,20 @@
           "bbPct": 0.101,
           "kPct": 0.099,
           "BABIP": 0.286,
+          "wRCPlus": 123,
+          "WAR": 3.0
+        },
+        {
+          "name": "Jonathan Aranda",
+          "fgPlayerId": 21837,
+          "PA": 668,
+          "H": 159,
+          "HR": 22,
+          "OBP": 0.358,
+          "SLG": 0.434,
+          "bbPct": 0.103,
+          "kPct": 0.244,
+          "BABIP": 0.34,
           "wRCPlus": 123,
           "WAR": 3.0
         },
@@ -874,10 +874,10 @@
   "playoffOdds": {
     "TB": {
       "current": {
-        "playoff": 1.0,
-        "division": 1.0,
-        "wildcard": 0.0,
-        "worldSeries": 0.0876
+        "playoff": 0.9016,
+        "division": 0.2437,
+        "wildcard": 0.6579,
+        "worldSeries": 0.0439
       },
       "history": [
         {
@@ -983,190 +983,17 @@
         {
           "date": "2026-06-10",
           "playoff": 0.9016
-        },
-        {
-          "date": "2026-06-13",
-          "playoff": 0.8538
-        },
-        {
-          "date": "2026-06-16",
-          "playoff": 0.8575
-        },
-        {
-          "date": "2026-06-19",
-          "playoff": 0.859
-        },
-        {
-          "date": "2026-06-22",
-          "playoff": 0.8204
-        },
-        {
-          "date": "2026-06-25",
-          "playoff": 0.8746
-        },
-        {
-          "date": "2026-06-28",
-          "playoff": 0.9381
-        },
-        {
-          "date": "2026-07-01",
-          "playoff": 0.9583
-        },
-        {
-          "date": "2026-07-04",
-          "playoff": 0.9686
-        },
-        {
-          "date": "2026-07-07",
-          "playoff": 0.9646
-        },
-        {
-          "date": "2026-07-10",
-          "playoff": 0.975
-        },
-        {
-          "date": "2026-07-13",
-          "playoff": 0.976
-        },
-        {
-          "date": "2026-07-16",
-          "playoff": 0.9768
-        },
-        {
-          "date": "2026-07-19",
-          "playoff": 0.9278
-        },
-        {
-          "date": "2026-07-22",
-          "playoff": 0.9685
-        },
-        {
-          "date": "2026-07-25",
-          "playoff": 0.976
-        },
-        {
-          "date": "2026-07-28",
-          "playoff": 0.9793
-        },
-        {
-          "date": "2026-07-31",
-          "playoff": 0.9827
-        },
-        {
-          "date": "2026-08-06",
-          "playoff": 0.9979
-        },
-        {
-          "date": "2026-08-21",
-          "playoff": 0.9999
-        },
-        {
-          "date": "2026-08-27",
-          "playoff": 1.0
-        },
-        {
-          "date": "2026-09-05",
-          "playoff": 1.0
-        },
-        {
-          "date": "2026-09-08",
-          "playoff": 1.0
-        },
-        {
-          "date": "2026-09-29",
-          "playoff": 1.0
-        },
-        {
-          "date": "2026-10-01",
-          "playoff": 1.0
         }
       ]
     },
     "DET": {
       "current": {
-        "playoff": 0.0,
-        "division": 0.0,
-        "wildcard": 0.0,
-        "worldSeries": 0.0
+        "playoff": 0,
+        "division": 0,
+        "wildcard": 0,
+        "worldSeries": 0
       },
-      "history": [
-        {
-          "date": "2026-04-08",
-          "playoff": 0.4859
-        },
-        {
-          "date": "2026-07-10",
-          "playoff": 0.3929
-        },
-        {
-          "date": "2026-07-31",
-          "playoff": 0.2663
-        },
-        {
-          "date": "2026-08-03",
-          "playoff": 0.1828
-        },
-        {
-          "date": "2026-08-06",
-          "playoff": 0.2771
-        },
-        {
-          "date": "2026-08-09",
-          "playoff": 0.3233
-        },
-        {
-          "date": "2026-08-12",
-          "playoff": 0.2931
-        },
-        {
-          "date": "2026-08-18",
-          "playoff": 0.1892
-        },
-        {
-          "date": "2026-08-24",
-          "playoff": 0.0316
-        },
-        {
-          "date": "2026-08-27",
-          "playoff": 0.0239
-        },
-        {
-          "date": "2026-09-02",
-          "playoff": 0.0066
-        },
-        {
-          "date": "2026-09-08",
-          "playoff": 0.0004
-        },
-        {
-          "date": "2026-09-14",
-          "playoff": 0.0098
-        },
-        {
-          "date": "2026-09-17",
-          "playoff": 0.0002
-        },
-        {
-          "date": "2026-09-20",
-          "playoff": 0.0
-        },
-        {
-          "date": "2026-09-23",
-          "playoff": 0.0
-        },
-        {
-          "date": "2026-09-26",
-          "playoff": 0.0
-        },
-        {
-          "date": "2026-09-29",
-          "playoff": 0.0
-        },
-        {
-          "date": "2026-10-01",
-          "playoff": 0.0
-        }
-      ]
+      "history": []
     }
   }
 }
