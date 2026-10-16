@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-15T10:28:03.081361Z",
+  "lastUpdated": "2026-10-16T10:15:31.664576Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -874,10 +874,10 @@
   "playoffOdds": {
     "TB": {
       "current": {
-        "playoff": 0.9016,
-        "division": 0.2437,
-        "wildcard": 0.6579,
-        "worldSeries": 0.0439
+        "playoff": 0.9381,
+        "division": 0.3579,
+        "wildcard": 0.5802,
+        "worldSeries": 0.0571
       },
       "history": [
         {
@@ -983,17 +983,70 @@
         {
           "date": "2026-06-10",
           "playoff": 0.9016
+        },
+        {
+          "date": "2026-06-13",
+          "playoff": 0.8538
+        },
+        {
+          "date": "2026-06-16",
+          "playoff": 0.8575
+        },
+        {
+          "date": "2026-06-19",
+          "playoff": 0.859
+        },
+        {
+          "date": "2026-06-22",
+          "playoff": 0.8204
+        },
+        {
+          "date": "2026-06-25",
+          "playoff": 0.8746
+        },
+        {
+          "date": "2026-06-28",
+          "playoff": 0.9381
         }
       ]
     },
     "DET": {
       "current": {
-        "playoff": 0,
-        "division": 0,
-        "wildcard": 0,
-        "worldSeries": 0
+        "playoff": 0.0002,
+        "division": 0.0,
+        "wildcard": 0.0002,
+        "worldSeries": 0.0
       },
-      "history": []
+      "history": [
+        {
+          "date": "2026-04-11",
+          "playoff": 0.5002
+        },
+        {
+          "date": "2026-05-23",
+          "playoff": 0.2149
+        },
+        {
+          "date": "2026-06-19",
+          "playoff": 0.1838
+        },
+        {
+          "date": "2026-07-07",
+          "playoff": 0.2822
+        },
+        {
+          "date": "2026-07-28",
+          "playoff": 0.3067
+        },
+        {
+          "date": "2026-08-24",
+          "playoff": 0.0316
+        },
+        {
+          "date": "2026-09-17",
+          "playoff": 0.0002
+        }
+      ]
     }
   }
 }
