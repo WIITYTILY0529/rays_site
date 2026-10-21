@@ -1,112 +1,25 @@
 {
-  "lastUpdated": "2026-10-20T10:31:43.747702Z",
+  "lastUpdated": "2026-10-21T10:44:36.239739Z",
   "season": 2026,
   "teams": {
     "TB": {
       "fgTeamId": 12,
-      "hitters": [
-        {
-          "name": "Ryan Vilade",
-          "fgPlayerId": 22165,
-          "PA": 278,
-          "H": 60,
-          "HR": 11,
-          "OBP": 0.321,
-          "SLG": 0.429,
-          "bbPct": 0.094,
-          "kPct": 0.234,
-          "BABIP": 0.285,
-          "wRCPlus": 108,
-          "WAR": 0.8
-        }
-      ],
-      "pitchers": [
-        {
-          "name": "Nick Martinez",
-          "fgPlayerId": 12730,
-          "G": 31,
-          "GS": 31,
-          "IP": 180.0,
-          "kPct": 0.151,
-          "bbPct": 0.036,
-          "BABIP": 0.265,
-          "FIP": 4.0,
-          "pbStuff": 47.6,
-          "pbCommand": 61.6,
-          "WAR": 2.9
-        },
-        {
-          "name": "Freddy Peralta",
-          "fgPlayerId": 18679,
-          "G": 32,
-          "GS": 32,
-          "IP": 169.0,
-          "kPct": 0.214,
-          "bbPct": 0.086,
-          "BABIP": 0.287,
-          "FIP": 4.3,
-          "pbStuff": 55.7,
-          "pbCommand": 50.8,
-          "WAR": 1.9
-        },
-        {
-          "name": "Cole Sulser",
-          "fgPlayerId": 15256,
-          "G": 51,
-          "GS": 2,
-          "IP": 56.1,
-          "kPct": 0.237,
-          "bbPct": 0.072,
-          "BABIP": 0.295,
-          "FIP": 3.6,
-          "pbStuff": 53.7,
-          "pbCommand": 54.6,
-          "WAR": 0.6
-        }
-      ]
+      "hitters": [],
+      "pitchers": []
     },
     "DET": {
       "fgTeamId": 6,
       "hitters": [],
-      "pitchers": [
-        {
-          "name": "Drew Anderson",
-          "fgPlayerId": 15130,
-          "G": 49,
-          "GS": 11,
-          "IP": 108.0,
-          "kPct": 0.25,
-          "bbPct": 0.094,
-          "BABIP": 0.282,
-          "FIP": 4.3,
-          "pbStuff": 53.9,
-          "pbCommand": 52.1,
-          "WAR": 0.7
-        },
-        {
-          "name": "Justin Verlander",
-          "fgPlayerId": 8700,
-          "G": 2,
-          "GS": 2,
-          "IP": 9.0,
-          "kPct": 0.179,
-          "bbPct": 0.077,
-          "BABIP": 0.308,
-          "FIP": 6.9,
-          "pbStuff": 43.3,
-          "pbCommand": 54.0,
-          "WAR": -0.1
-        }
-      ]
+      "pitchers": []
     }
   },
   "playoffOdds": {
     "TB": {
       "current": {
-        "playoff": 1.0,
-        "division": 0.9921,
-        "wildcard": 0.0079,
-        "worldSeries": 0.1063
+        "playoff": 0.9583,
+        "division": 0.5176,
+        "wildcard": 0.4406,
+        "worldSeries": 0.0658
       },
       "history": [
         {
@@ -240,70 +153,17 @@
         {
           "date": "2026-07-01",
           "playoff": 0.9583
-        },
-        {
-          "date": "2026-07-04",
-          "playoff": 0.9686
-        },
-        {
-          "date": "2026-07-07",
-          "playoff": 0.9646
-        },
-        {
-          "date": "2026-07-10",
-          "playoff": 0.975
-        },
-        {
-          "date": "2026-07-13",
-          "playoff": 0.976
-        },
-        {
-          "date": "2026-07-16",
-          "playoff": 0.9768
-        },
-        {
-          "date": "2026-07-19",
-          "playoff": 0.9278
-        },
-        {
-          "date": "2026-07-31",
-          "playoff": 0.9827
-        },
-        {
-          "date": "2026-08-09",
-          "playoff": 0.9995
-        },
-        {
-          "date": "2026-08-30",
-          "playoff": 1.0
-        },
-        {
-          "date": "2026-09-20",
-          "playoff": 1.0
         }
       ]
     },
     "DET": {
       "current": {
-        "playoff": 0.1619,
-        "division": 0.0813,
-        "wildcard": 0.0806,
-        "worldSeries": 0.0106
+        "playoff": 0,
+        "division": 0,
+        "wildcard": 0,
+        "worldSeries": 0
       },
-      "history": [
-        {
-          "date": "2026-04-11",
-          "playoff": 0.5002
-        },
-        {
-          "date": "2026-05-08",
-          "playoff": 0.4998
-        },
-        {
-          "date": "2026-06-04",
-          "playoff": 0.1619
-        }
-      ]
+      "history": []
     }
   }
 }
