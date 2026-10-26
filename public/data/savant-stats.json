@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-25T10:24:11.301977Z",
+  "lastUpdated": "2026-10-26T11:49:41.454230Z",
   "players": {
     "810938": {
       "name": "Ben Williamson",
@@ -45,7 +45,7 @@
         {
           "name": "19",
           "value": "90",
-          "percentile": 9
+          "percentile": 8
         },
         {
           "name": "Batting Run Value",
@@ -150,7 +150,7 @@
       "metrics": [
         {
           "name": "5",
-          "value": "48",
+          "value": "50",
           "percentile": 81
         },
         {
@@ -225,7 +225,7 @@
       "metrics": [
         {
           "name": "1",
-          "value": "72",
+          "value": "73",
           "percentile": 78
         },
         {
