@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-29T11:59:32.644946Z",
+  "lastUpdated": "2026-10-30T11:51:56.911895Z",
   "players": {
     "810938": {
       "name": "Ben Williamson",
@@ -95,18 +95,6 @@
         }
       ]
     },
-    "642547": {
-      "name": "Freddy Peralta",
-      "position": "P",
-      "type": "pitching",
-      "metrics": [
-        {
-          "name": "Usage vs. LHH",
-          "value": "Pitch Run Value",
-          "percentile": 2
-        }
-      ]
-    },
     "664076": {
       "name": "Garrett Cleavinger",
       "position": "P",
@@ -150,7 +138,7 @@
       "metrics": [
         {
           "name": "5",
-          "value": "48",
+          "value": "51",
           "percentile": 81
         },
         {
@@ -177,25 +165,13 @@
         }
       ]
     },
-    "622761": {
-      "name": "Jorge Mateo",
-      "position": "SS",
-      "type": "hitting",
-      "metrics": [
-        {
-          "name": "Batting Run Value",
-          "value": "-12",
-          "percentile": 3
-        }
-      ]
-    },
     "691406": {
       "name": "Junior Caminero",
       "position": "3B",
       "type": "hitting",
       "metrics": [
         {
-          "name": "13",
+          "name": "14",
           "value": "13",
           "percentile": 97
         },
@@ -265,7 +241,7 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "56",
+          "name": "55",
           "value": "17",
           "percentile": 44
         },
@@ -306,7 +282,7 @@
       "type": "hitting",
       "metrics": [
         {
-          "name": "86",
+          "name": "85",
           "value": "35",
           "percentile": 6
         },

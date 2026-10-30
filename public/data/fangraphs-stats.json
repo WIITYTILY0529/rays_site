@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-29T11:53:18.859788Z",
+  "lastUpdated": "2026-10-30T11:46:23.010211Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -20,20 +20,6 @@
           "WAR": 5.3
         },
         {
-          "name": "Jonathan Aranda",
-          "fgPlayerId": 21837,
-          "PA": 668,
-          "H": 159,
-          "HR": 22,
-          "OBP": 0.358,
-          "SLG": 0.434,
-          "bbPct": 0.103,
-          "kPct": 0.244,
-          "BABIP": 0.34,
-          "wRCPlus": 123,
-          "WAR": 3.0
-        },
-        {
           "name": "Liam Hicks",
           "fgPlayerId": 29844,
           "PA": 554,
@@ -44,6 +30,20 @@
           "bbPct": 0.101,
           "kPct": 0.099,
           "BABIP": 0.286,
+          "wRCPlus": 123,
+          "WAR": 3.0
+        },
+        {
+          "name": "Jonathan Aranda",
+          "fgPlayerId": 21837,
+          "PA": 668,
+          "H": 159,
+          "HR": 22,
+          "OBP": 0.358,
+          "SLG": 0.434,
+          "bbPct": 0.103,
+          "kPct": 0.244,
+          "BABIP": 0.34,
           "wRCPlus": 123,
           "WAR": 3.0
         },
@@ -186,20 +186,6 @@
           "BABIP": 0.289,
           "wRCPlus": 76,
           "WAR": 0.2
-        },
-        {
-          "name": "Jorge Mateo",
-          "fgPlayerId": 17273,
-          "PA": 221,
-          "H": 42,
-          "HR": 5,
-          "OBP": 0.245,
-          "SLG": 0.314,
-          "bbPct": 0.05,
-          "kPct": 0.312,
-          "BABIP": 0.276,
-          "wRCPlus": 52,
-          "WAR": -0.2
         }
       ],
       "pitchers": [
@@ -230,20 +216,6 @@
           "pbStuff": 47.6,
           "pbCommand": 61.6,
           "WAR": 2.9
-        },
-        {
-          "name": "Freddy Peralta",
-          "fgPlayerId": 18679,
-          "G": 32,
-          "GS": 32,
-          "IP": 169.0,
-          "kPct": 0.214,
-          "bbPct": 0.086,
-          "BABIP": 0.287,
-          "FIP": 4.3,
-          "pbStuff": 55.7,
-          "pbCommand": 50.8,
-          "WAR": 1.9
         },
         {
           "name": "Griffin Jax",
@@ -356,20 +328,6 @@
           "pbStuff": 57.6,
           "pbCommand": 51.5,
           "WAR": 0.2
-        },
-        {
-          "name": "Jorge Mateo",
-          "fgPlayerId": 17273,
-          "G": 3,
-          "GS": 0,
-          "IP": 2.1,
-          "kPct": 0.083,
-          "bbPct": 0.083,
-          "BABIP": 0.5,
-          "FIP": 3.5,
-          "pbStuff": 20.0,
-          "pbCommand": 47.7,
-          "WAR": 0.0
         },
         {
           "name": "Steven Matz",
@@ -503,20 +461,6 @@
           "WAR": 1.2
         },
         {
-          "name": "Gleyber Torres",
-          "fgPlayerId": 16997,
-          "PA": 420,
-          "H": 93,
-          "HR": 8,
-          "OBP": 0.364,
-          "SLG": 0.363,
-          "bbPct": 0.136,
-          "kPct": 0.193,
-          "BABIP": 0.314,
-          "wRCPlus": 109,
-          "WAR": 1.0
-        },
-        {
           "name": "Zach McKinstry",
           "fgPlayerId": 19392,
           "PA": 423,
@@ -557,6 +501,48 @@
           "BABIP": 0.326,
           "wRCPlus": 107,
           "WAR": 0.5
+        },
+        {
+          "name": "Tsung-Che Cheng",
+          "fgPlayerId": 28344,
+          "PA": 44,
+          "H": 10,
+          "HR": 0,
+          "OBP": 0.318,
+          "SLG": 0.282,
+          "bbPct": 0.091,
+          "kPct": 0.318,
+          "BABIP": 0.385,
+          "wRCPlus": 70,
+          "WAR": 0.0
+        },
+        {
+          "name": "Jace Jung",
+          "fgPlayerId": 31437,
+          "PA": 11,
+          "H": 2,
+          "HR": 0,
+          "OBP": 0.364,
+          "SLG": 0.222,
+          "bbPct": 0.182,
+          "kPct": 0.273,
+          "BABIP": 0.333,
+          "wRCPlus": 82,
+          "WAR": -0.0
+        },
+        {
+          "name": "Corey Julks",
+          "fgPlayerId": 20311,
+          "PA": 7,
+          "H": 2,
+          "HR": 0,
+          "OBP": 0.286,
+          "SLG": 0.429,
+          "bbPct": 0.0,
+          "kPct": 0.143,
+          "BABIP": 0.333,
+          "wRCPlus": 95,
+          "WAR": -0.0
         }
       ],
       "pitchers": [
@@ -601,20 +587,6 @@
           "pbStuff": 53.4,
           "pbCommand": 54.8,
           "WAR": 1.6
-        },
-        {
-          "name": "Jack Flaherty",
-          "fgPlayerId": 17479,
-          "G": 20,
-          "GS": 19,
-          "IP": 88.1,
-          "kPct": 0.26,
-          "bbPct": 0.106,
-          "BABIP": 0.3,
-          "FIP": 4.1,
-          "pbStuff": 44.2,
-          "pbCommand": 52.0,
-          "WAR": 1.3
         },
         {
           "name": "Drew Sommers",
@@ -771,20 +743,6 @@
           "WAR": -0.1
         },
         {
-          "name": "Jacob Waguespack",
-          "fgPlayerId": 18318,
-          "G": 35,
-          "GS": 1,
-          "IP": 47.0,
-          "kPct": 0.191,
-          "bbPct": 0.098,
-          "BABIP": 0.156,
-          "FIP": 4.5,
-          "pbStuff": 48.7,
-          "pbCommand": 49.6,
-          "WAR": -0.1
-        },
-        {
           "name": "Yilber Díaz",
           "fgPlayerId": 29271,
           "G": 5,
@@ -796,20 +754,6 @@
           "FIP": 7.9,
           "pbStuff": 55.2,
           "pbCommand": 49.3,
-          "WAR": -0.1
-        },
-        {
-          "name": "Justin Verlander",
-          "fgPlayerId": 8700,
-          "G": 2,
-          "GS": 2,
-          "IP": 9.0,
-          "kPct": 0.179,
-          "bbPct": 0.077,
-          "BABIP": 0.308,
-          "FIP": 6.9,
-          "pbStuff": 43.3,
-          "pbCommand": 54.0,
           "WAR": -0.1
         },
         {
@@ -825,20 +769,6 @@
           "pbStuff": 28.1,
           "pbCommand": 20.0,
           "WAR": -0.1
-        },
-        {
-          "name": "Tyler Kinley",
-          "fgPlayerId": 18297,
-          "G": 64,
-          "GS": 0,
-          "IP": 57.1,
-          "kPct": 0.207,
-          "bbPct": 0.112,
-          "BABIP": 0.207,
-          "FIP": 5.2,
-          "pbStuff": 49.6,
-          "pbCommand": 52.6,
-          "WAR": -0.4
         },
         {
           "name": "Brenan Hanifee",
