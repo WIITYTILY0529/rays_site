@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-31T11:26:19.265195Z",
+  "lastUpdated": "2026-11-01T12:17:15.337378Z",
   "players": {
     "810938": {
       "name": "Ben Williamson",
@@ -201,7 +201,7 @@
       "metrics": [
         {
           "name": "1",
-          "value": "73",
+          "value": "72",
           "percentile": 78
         },
         {
