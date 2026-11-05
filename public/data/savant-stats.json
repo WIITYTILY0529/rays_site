@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-04T13:33:01.374472Z",
+  "lastUpdated": "2026-11-05T13:48:54.958121Z",
   "players": {
     "702047": {
       "name": "Alex Cook",
@@ -1432,23 +1432,6 @@
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
           "percentile": 3
-        }
-      ]
-    },
-    "691406": {
-      "name": "Junior Caminero",
-      "position": "3B",
-      "type": "hitting",
-      "metrics": [
-        {
-          "name": "14",
-          "value": "13",
-          "percentile": 98
-        },
-        {
-          "name": "Batting Run Value",
-          "value": "Baserunning Run Value",
-          "percentile": 37
         }
       ]
     },
