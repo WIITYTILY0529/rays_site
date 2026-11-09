@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-08T12:28:50.909661Z",
+  "lastUpdated": "2026-11-09T14:42:06.294353Z",
   "players": {
     "702047": {
       "name": "Alex Cook",
@@ -1408,7 +1408,7 @@
       "metrics": [
         {
           "name": "5",
-          "value": "48",
+          "value": "51",
           "percentile": 84
         },
         {
@@ -1490,6 +1490,18 @@
           "name": "Batting Run Value",
           "value": "Baserunning Run Value",
           "percentile": 16
+        }
+      ]
+    },
+    "655889": {
+      "name": "Manuel Rodríguez",
+      "position": "P",
+      "type": "pitching",
+      "metrics": [
+        {
+          "name": "Usage vs. LHH",
+          "value": "Pitch Run Value",
+          "percentile": 1
         }
       ]
     },
