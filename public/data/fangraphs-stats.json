@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-12T14:07:29.344694Z",
+  "lastUpdated": "2026-11-13T13:31:42.231106Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -916,10 +916,10 @@
   "playoffOdds": {
     "TB": {
       "current": {
-        "playoff": 0.9381,
-        "division": 0.3579,
-        "wildcard": 0.5802,
-        "worldSeries": 0.0571
+        "playoff": 1.0,
+        "division": 0.9604,
+        "wildcard": 0.0396,
+        "worldSeries": 0.1026
       },
       "history": [
         {
@@ -1049,17 +1049,58 @@
         {
           "date": "2026-06-28",
           "playoff": 0.9381
+        },
+        {
+          "date": "2026-07-01",
+          "playoff": 0.9583
+        },
+        {
+          "date": "2026-07-04",
+          "playoff": 0.9686
+        },
+        {
+          "date": "2026-07-25",
+          "playoff": 0.976
+        },
+        {
+          "date": "2026-09-17",
+          "playoff": 1.0
         }
       ]
     },
     "DET": {
       "current": {
-        "playoff": 0,
-        "division": 0,
-        "wildcard": 0,
-        "worldSeries": 0
+        "playoff": 0.0239,
+        "division": 0.0083,
+        "wildcard": 0.0156,
+        "worldSeries": 0.0013
       },
-      "history": []
+      "history": [
+        {
+          "date": "2026-04-08",
+          "playoff": 0.4859
+        },
+        {
+          "date": "2026-04-23",
+          "playoff": 0.7285
+        },
+        {
+          "date": "2026-05-05",
+          "playoff": 0.5877
+        },
+        {
+          "date": "2026-05-29",
+          "playoff": 0.1444
+        },
+        {
+          "date": "2026-07-01",
+          "playoff": 0.2399
+        },
+        {
+          "date": "2026-08-27",
+          "playoff": 0.0239
+        }
+      ]
     }
   }
 }
