@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-13T13:40:20.850508Z",
+  "lastUpdated": "2026-11-14T12:46:26.241591Z",
   "players": {
     "702047": {
       "name": "Alex Cook",
@@ -1408,7 +1408,7 @@
       "metrics": [
         {
           "name": "5",
-          "value": "51",
+          "value": "48",
           "percentile": 84
         },
         {
