@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-14T12:46:26.241591Z",
+  "lastUpdated": "2026-11-15T13:12:05.678487Z",
   "players": {
     "702047": {
       "name": "Alex Cook",
@@ -514,18 +514,6 @@
           "name": "Batting Run Value",
           "value": "-10",
           "percentile": 1
-        }
-      ]
-    },
-    "811315": {
-      "name": "Brody Hopkins",
-      "position": "P",
-      "type": "pitching",
-      "metrics": [
-        {
-          "name": "Usage vs. LHH",
-          "value": "Pitch Run Value",
-          "percentile": 0
         }
       ]
     },
@@ -1408,7 +1396,7 @@
       "metrics": [
         {
           "name": "5",
-          "value": "48",
+          "value": "51",
           "percentile": 84
         },
         {
