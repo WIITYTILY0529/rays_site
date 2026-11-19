@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-18T14:42:35.889875Z",
+  "lastUpdated": "2026-11-19T14:49:04.338144Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -102,20 +102,6 @@
           "BABIP": 0.331,
           "wRCPlus": 93,
           "WAR": 2.3
-        },
-        {
-          "name": "Nick Fortes",
-          "fgPlayerId": 21538,
-          "PA": 323,
-          "H": 77,
-          "HR": 6,
-          "OBP": 0.304,
-          "SLG": 0.376,
-          "bbPct": 0.037,
-          "kPct": 0.139,
-          "BABIP": 0.286,
-          "wRCPlus": 90,
-          "WAR": 1.2
         },
         {
           "name": "Richie Palacios",
@@ -916,10 +902,10 @@
   "playoffOdds": {
     "TB": {
       "current": {
-        "playoff": 0.9583,
-        "division": 0.5176,
-        "wildcard": 0.4406,
-        "worldSeries": 0.0658
+        "playoff": 1.0,
+        "division": 1.0,
+        "wildcard": 0.0,
+        "worldSeries": 0.0911
       },
       "history": [
         {
@@ -1027,43 +1013,76 @@
           "playoff": 0.9016
         },
         {
-          "date": "2026-06-13",
-          "playoff": 0.8538
-        },
-        {
-          "date": "2026-06-16",
-          "playoff": 0.8575
-        },
-        {
           "date": "2026-06-19",
           "playoff": 0.859
         },
         {
-          "date": "2026-06-22",
-          "playoff": 0.8204
+          "date": "2026-07-07",
+          "playoff": 0.9646
         },
         {
-          "date": "2026-06-25",
-          "playoff": 0.8746
+          "date": "2026-07-25",
+          "playoff": 0.976
         },
         {
-          "date": "2026-06-28",
-          "playoff": 0.9381
+          "date": "2026-08-18",
+          "playoff": 0.9999
         },
         {
-          "date": "2026-07-01",
-          "playoff": 0.9583
+          "date": "2026-09-08",
+          "playoff": 1.0
+        },
+        {
+          "date": "2026-09-29",
+          "playoff": 1.0
         }
       ]
     },
     "DET": {
       "current": {
-        "playoff": 0,
-        "division": 0,
-        "wildcard": 0,
-        "worldSeries": 0
+        "playoff": 0.0,
+        "division": 0.0,
+        "wildcard": 0.0,
+        "worldSeries": 0.0
       },
-      "history": []
+      "history": [
+        {
+          "date": "2026-04-08",
+          "playoff": 0.4859
+        },
+        {
+          "date": "2026-04-26",
+          "playoff": 0.7171
+        },
+        {
+          "date": "2026-05-20",
+          "playoff": 0.2688
+        },
+        {
+          "date": "2026-06-07",
+          "playoff": 0.2234
+        },
+        {
+          "date": "2026-06-25",
+          "playoff": 0.2027
+        },
+        {
+          "date": "2026-07-13",
+          "playoff": 0.2757
+        },
+        {
+          "date": "2026-08-18",
+          "playoff": 0.1892
+        },
+        {
+          "date": "2026-09-08",
+          "playoff": 0.0004
+        },
+        {
+          "date": "2026-09-26",
+          "playoff": 0.0
+        }
+      ]
     }
   }
 }

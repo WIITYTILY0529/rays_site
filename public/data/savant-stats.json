@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-18T14:51:29.805979Z",
+  "lastUpdated": "2026-11-19T14:57:35.708501Z",
   "players": {
     "702047": {
       "name": "Alex Cook",
@@ -1408,7 +1408,7 @@
       "metrics": [
         {
           "name": "5",
-          "value": "48",
+          "value": "51",
           "percentile": 84
         },
         {
@@ -1514,18 +1514,6 @@
           "name": "Usage vs. LHH",
           "value": "Pitch Run Value",
           "percentile": 2
-        }
-      ]
-    },
-    "663743": {
-      "name": "Nick Fortes",
-      "position": "C",
-      "type": "hitting",
-      "metrics": [
-        {
-          "name": "Batting Run Value",
-          "value": "-5",
-          "percentile": 1
         }
       ]
     },
