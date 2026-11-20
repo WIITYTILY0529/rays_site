@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-19T14:49:04.338144Z",
+  "lastUpdated": "2026-11-20T14:30:12.045694Z",
   "season": 2026,
   "teams": {
     "TB": {
@@ -440,20 +440,6 @@
           "pbStuff": 47.7,
           "pbCommand": 60.3,
           "WAR": -0.5
-        },
-        {
-          "name": "Jesse Scholtens",
-          "fgPlayerId": 19205,
-          "G": 12,
-          "GS": 2,
-          "IP": 47.2,
-          "kPct": 0.177,
-          "bbPct": 0.072,
-          "BABIP": 0.261,
-          "FIP": 6.0,
-          "pbStuff": 50.2,
-          "pbCommand": 57.8,
-          "WAR": -0.7
         }
       ]
     },
@@ -902,10 +888,10 @@
   "playoffOdds": {
     "TB": {
       "current": {
-        "playoff": 1.0,
-        "division": 1.0,
-        "wildcard": 0.0,
-        "worldSeries": 0.0911
+        "playoff": 0.9016,
+        "division": 0.2437,
+        "wildcard": 0.6579,
+        "worldSeries": 0.0439
       },
       "history": [
         {
@@ -1011,78 +997,17 @@
         {
           "date": "2026-06-10",
           "playoff": 0.9016
-        },
-        {
-          "date": "2026-06-19",
-          "playoff": 0.859
-        },
-        {
-          "date": "2026-07-07",
-          "playoff": 0.9646
-        },
-        {
-          "date": "2026-07-25",
-          "playoff": 0.976
-        },
-        {
-          "date": "2026-08-18",
-          "playoff": 0.9999
-        },
-        {
-          "date": "2026-09-08",
-          "playoff": 1.0
-        },
-        {
-          "date": "2026-09-29",
-          "playoff": 1.0
         }
       ]
     },
     "DET": {
       "current": {
-        "playoff": 0.0,
-        "division": 0.0,
-        "wildcard": 0.0,
-        "worldSeries": 0.0
+        "playoff": 0,
+        "division": 0,
+        "wildcard": 0,
+        "worldSeries": 0
       },
-      "history": [
-        {
-          "date": "2026-04-08",
-          "playoff": 0.4859
-        },
-        {
-          "date": "2026-04-26",
-          "playoff": 0.7171
-        },
-        {
-          "date": "2026-05-20",
-          "playoff": 0.2688
-        },
-        {
-          "date": "2026-06-07",
-          "playoff": 0.2234
-        },
-        {
-          "date": "2026-06-25",
-          "playoff": 0.2027
-        },
-        {
-          "date": "2026-07-13",
-          "playoff": 0.2757
-        },
-        {
-          "date": "2026-08-18",
-          "playoff": 0.1892
-        },
-        {
-          "date": "2026-09-08",
-          "playoff": 0.0004
-        },
-        {
-          "date": "2026-09-26",
-          "playoff": 0.0
-        }
-      ]
+      "history": []
     }
   }
 }

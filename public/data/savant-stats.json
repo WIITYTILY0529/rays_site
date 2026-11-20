@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-19T14:57:35.708501Z",
+  "lastUpdated": "2026-11-20T14:38:11.936879Z",
   "players": {
     "702047": {
       "name": "Alex Cook",
@@ -1374,18 +1374,6 @@
           "name": "September",
           "value": "",
           "percentile": 10
-        }
-      ]
-    },
-    "669947": {
-      "name": "Jesse Scholtens",
-      "position": "P",
-      "type": "pitching",
-      "metrics": [
-        {
-          "name": "Usage vs. LHH",
-          "value": "Pitch Run Value",
-          "percentile": 2
         }
       ]
     },
