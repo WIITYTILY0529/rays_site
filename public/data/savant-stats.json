@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-20T14:38:11.936879Z",
+  "lastUpdated": "2026-11-21T13:57:47.347179Z",
   "players": {
     "702047": {
       "name": "Alex Cook",
@@ -594,15 +594,15 @@
         }
       ]
     },
-    "642121": {
-      "name": "Cole Sulser",
-      "position": "P",
-      "type": "pitching",
+    "683766": {
+      "name": "Christian Koss",
+      "position": "SS",
+      "type": "hitting",
       "metrics": [
         {
-          "name": "Usage vs. LHH",
-          "value": "Pitch Run Value",
-          "percentile": 10
+          "name": "Batting Run Value",
+          "value": "-9",
+          "percentile": 1
         }
       ]
     },
